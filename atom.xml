@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2017-10-25T06:51:40.959Z</updated>
+  <updated>2017-10-25T07:15:16.367Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -15,6 +15,22 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Add Two Numbers</title>
+    <link href="http://www.mysry.com/2017/10/25/Add-Two-Numbers/"/>
+    <id>http://www.mysry.com/2017/10/25/Add-Two-Numbers/</id>
+    <published>2017-10-25T07:13:52.000Z</published>
+    <updated>2017-10-25T07:15:16.367Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="algorithm" scheme="http://www.mysry.com/tags/algorithm/"/>
+    
+  </entry>
   
   <entry>
     <title>Two Sum</title>
