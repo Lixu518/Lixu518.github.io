@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.mysry.com/about/index.html</loc>
+    
+    <lastmod>2017-10-25T11:42:06.377Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.mysry.com/2017/10/25/Add-Two-Numbers/</loc>
+    
+    <lastmod>2017-10-25T10:09:05.911Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.mysry.com/categories/index.html</loc>
     
     <lastmod>2017-10-25T08:01:52.691Z</lastmod>
@@ -9,23 +23,9 @@
   </url>
   
   <url>
-    <loc>http://www.mysry.com/about/index.html</loc>
-    
-    <lastmod>2017-10-25T07:56:24.458Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.mysry.com/tags/index.html</loc>
     
     <lastmod>2017-10-25T07:53:31.353Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.mysry.com/2017/10/25/Add-Two-Numbers/</loc>
-    
-    <lastmod>2017-10-25T07:15:16.367Z</lastmod>
     
   </url>
   
