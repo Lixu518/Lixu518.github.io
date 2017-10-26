@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2017-10-26T04:57:47.110Z</updated>
+  <updated>2017-10-26T08:20:30.250Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux pip 多版本混用的问题</title>
+    <link href="http://www.mysry.com/2017/10/26/Linux-pip-%E5%A4%9A%E7%89%88%E6%9C%AC%E6%B7%B7%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>http://www.mysry.com/2017/10/26/Linux-pip-多版本混用的问题/</id>
+    <published>2017-10-26T08:01:26.000Z</published>
+    <updated>2017-10-26T08:20:30.250Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;我的电脑上有python2.7.14和python3.5.2、pip8和pip9<br>&emsp;&emsp;我的小服务器上有python2.7.12和python3.5.2,pip9.0.1(且小服务器默认python版本为python3.5)。然后就麻烦了，在服务器上调试程序需要用到web.py和poster。这些都是比较老的东西，python3不支持。需要扩展python2，给它安上web.py和poster。</p><p>&emsp;&emsp;电脑第一次尝试：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo pip install web.py</div><div class="line">sudo pip install poster</div></pre></td></tr></table></figure></p><p>&emsp;&emsp;失败，原因pip默认pip3,默认给pip3扩展。</p><p>&emsp;&emsp;电脑第二次尝试：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo pip2 install web.py</div><div class="line">sudo pip2 install poster</div></pre></td></tr></table></figure></p><p>&emsp;&emsp;成功。</p><p>&emsp;&emsp;服务器第一次尝试：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo pip2 install web.py</div><div class="line">sudo pip2 install poster</div></pre></td></tr></table></figure></p><p>&emsp;&emsp;失败，原因是服务器是pip9.0.1不支持python2,还是对python3进行操作。</p><p>&emsp;&emsp;查阅python相关资料后，服务器第二次尝试：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo python2 -m pip install web.py</div><div class="line">sudo python2 -m pip install poster</div></pre></td></tr></table></figure></p><p>&emsp;&emsp;成功。</p><h2 id="成长之路，处处皆坑，切踩珍惜！"><a href="#成长之路，处处皆坑，切踩珍惜！" class="headerlink" title="成长之路，处处皆坑，切踩珍惜！"></a><font color="red">成长之路，处处皆坑，切踩珍惜！</font></h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&amp;emsp;&amp;emsp;我的电脑上有python2.7.14和python3.5.2、pip8和pip9&lt;br&gt;&amp;emsp;&amp;emsp;我的小服务器上有python2.7.12和python3.5.2,pip9.0.1(且小服务器默认python版本为python3.5)。
+      
+    
+    </summary>
+    
+    
+      <category term="skills" scheme="http://www.mysry.com/tags/skills/"/>
+    
+  </entry>
   
   <entry>
     <title>13. Roman to Integer</title>
