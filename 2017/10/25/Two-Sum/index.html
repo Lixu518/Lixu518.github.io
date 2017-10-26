@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="algorithm," />
+  <meta name="keywords" content="leetcode," />
 
 
 
@@ -82,16 +82,16 @@
 
 
 <meta name="description" content="题目 Given an array of integers, return  indices of the two numbers such that they add up to a specific target.You may assume that each input would have exactly one solution, and you may not use the sam">
-<meta name="keywords" content="algorithm">
+<meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="1.Two Sum">
+<meta property="og:title" content="1. Two Sum">
 <meta property="og:url" content="http://www.mysry.com/2017/10/25/Two-Sum/index.html">
 <meta property="og:site_name" content="Mysry">
 <meta property="og:description" content="题目 Given an array of integers, return  indices of the two numbers such that they add up to a specific target.You may assume that each input would have exactly one solution, and you may not use the sam">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-25T14:09:37.192Z">
+<meta property="og:updated_time" content="2017-10-26T03:01:01.911Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="1.Two Sum">
+<meta name="twitter:title" content="1. Two Sum">
 <meta name="twitter:description" content="题目 Given an array of integers, return  indices of the two numbers such that they add up to a specific target.You may assume that each input would have exactly one solution, and you may not use the sam">
 
 
@@ -128,7 +128,7 @@
 
 
 
-  <title>1.Two Sum | Mysry</title>
+  <title>1. Two Sum | Mysry</title>
   
 
 
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">1.Two Sum</h1>
+          <h1 class="post-title" itemprop="name headline">1. Two Sum</h1>
         
 
         <div class="post-meta">
@@ -322,11 +322,11 @@
       
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a><strong>题目</strong></h2><blockquote>
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a><font color="black">题目</font></h2><blockquote>
 <p>Given an array of integers, return <font color="#0099ff"> indices</font> of the two numbers such that they add up to a specific target.<br>You may assume that each input would have exactly one solution, and you may not use the same element twice.</p>
 </blockquote>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a><strong>题解</strong></h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;双层循环，对于数组的每一个数，遍历其之后的数据是否存在与之相加为target的解决方法，若存在则返回这两个数在数组中的<font color="#0099ff">下标</font></p>
-<h2 id="Java-code"><a href="#Java-code" class="headerlink" title="Java code:"></a><strong>Java code:</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">public class twoSum &#123;</div><div class="line">    public static int[] twoSum(int[] nums, int target) &#123;</div><div class="line">        for (int i = 0; i &lt; nums.length; i++) &#123;</div><div class="line">            for (int j = i + 1; j &lt; nums.length; j++) &#123;</div><div class="line">                if (nums[j] == target - nums[i]) &#123;</div><div class="line">                    return new int[] &#123; i, j &#125;;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        throw new IllegalArgumentException(&quot;No two sum solution&quot;);</div><div class="line">    &#125;</div><div class="line">    public static void main(String [] args)&#123;</div><div class="line">        int []n=&#123;3,2,4&#125;;</div><div class="line">        int target =6;</div><div class="line">        int[]a= twoSum(n,target);</div><div class="line">        for (int i=0;i&lt;a.length;i++)&#123;</div><div class="line">            System.out.print(a[i]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a><font color="red">题解</font></h2><p>&emsp;&emsp;双层循环，对于数组的每一个数，遍历其之后的数据是否存在与之相加为target的解决方法，若存在则返回这两个数在数组中的<font color="#0099ff">下标</font></p>
+<h2 id="Java-code"><a href="#Java-code" class="headerlink" title="Java code:"></a><font color="orange">Java code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">public class twoSum &#123;</div><div class="line">    public static int[] twoSum(int[] nums, int target) &#123;</div><div class="line">        for (int i = 0; i &lt; nums.length; i++) &#123;</div><div class="line">            for (int j = i + 1; j &lt; nums.length; j++) &#123;</div><div class="line">                if (nums[j] == target - nums[i]) &#123;</div><div class="line">                    return new int[] &#123; i, j &#125;;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        throw new IllegalArgumentException(&quot;No two sum solution&quot;);</div><div class="line">    &#125;</div><div class="line">    public static void main(String [] args)&#123;</div><div class="line">        int []n=&#123;3,2,4&#125;;</div><div class="line">        int target =6;</div><div class="line">        int[]a= twoSum(n,target);</div><div class="line">        for (int i=0;i&lt;a.length;i++)&#123;</div><div class="line">            System.out.print(a[i]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -344,7 +344,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/algorithm/" rel="tag"># algorithm</a>
+            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
           
         </div>
       
@@ -367,8 +367,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/10/25/Add-Two-Numbers/" rel="prev" title="2.Add Two Numbers">
-                2.Add Two Numbers <i class="fa fa-chevron-right"></i>
+              <a href="/2017/10/25/Add-Two-Numbers/" rel="prev" title="2. Add Two Numbers">
+                2. Add Two Numbers <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -450,7 +450,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
