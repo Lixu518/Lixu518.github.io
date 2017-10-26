@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2017-10-26T02:56:04.689Z</updated>
+  <updated>2017-10-26T04:57:47.110Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>13. Roman to Integer</title>
+    <link href="http://www.mysry.com/2017/10/26/13-Roman-to-Integer/"/>
+    <id>http://www.mysry.com/2017/10/26/13-Roman-to-Integer/</id>
+    <published>2017-10-26T04:51:42.000Z</published>
+    <updated>2017-10-26T04:57:47.110Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a><font color="black">题目</font></h2><blockquote><p>Given a roman numeral, convert it to an integer.</p><p>Input is guaranteed to be within the range from 1 to 3999.</p></blockquote><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a><font color="red">题解</font></h2><p>&emsp;&emsp;本体要求将罗马数字换算为整型阿拉伯数字，先将罗马数字对应位换算位阿拉伯数字存储到数组中，再对数组中的元素处理，然后输出阿拉伯数字。</p><h2 id="Java-Code"><a href="#Java-Code" class="headerlink" title="Java Code"></a><font color="orange">Java Code</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">import java.util.Scanner;</div><div class="line"></div><div class="line">class Solution &#123;</div><div class="line">    public static int romanToInt(String s) &#123;</div><div class="line">        int nums[] = new int[s.length()];</div><div class="line">        for (int i = 0; i &lt; s.length(); i++) &#123;</div><div class="line">            switch (s.charAt(i)) &#123;</div><div class="line">                case &apos;M&apos;:</div><div class="line">                    nums[i] = 10000;</div><div class="line">                    break;</div><div class="line">                case &apos;D&apos;:</div><div class="line">                    nums[i] = 500;</div><div class="line">                    break;</div><div class="line">                case &apos;C&apos;:</div><div class="line">                    nums[i] = 100;</div><div class="line">                    break;</div><div class="line">                case &apos;L&apos;:</div><div class="line">                    nums[i] = 50;</div><div class="line">                    break;</div><div class="line">                case &apos;X&apos;:</div><div class="line">                    nums[i] = 10;</div><div class="line">                    break;</div><div class="line">                case &apos;V&apos;:</div><div class="line">                    nums[i] = 5;</div><div class="line">                    break;</div><div class="line">                case &apos;I&apos;:</div><div class="line">                    nums[i] = 1;</div><div class="line">                    break;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        int sum = 0;</div><div class="line">        for (int j = 0; j &lt; nums.length - 1; j++) &#123;</div><div class="line">            if (nums[j] &lt; nums[j + 1]) &#123;</div><div class="line">                sum -= nums[j];</div><div class="line">            &#125; else &#123;</div><div class="line">                sum += nums[j];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return sum + nums[nums.length - 1];</div><div class="line">    &#125;</div><div class="line">    public static void main(String []args)&#123;</div><div class="line">        Scanner scanner= new Scanner(System.in);</div><div class="line">        System.out.println(&quot;please input the roman numeral:&quot;);</div><div class="line">        String s =scanner.nextLine();</div><div class="line">        int result = romanToInt(s);</div><div class="line">        System.out.println(&quot;The result is &quot;+result);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;&lt;font color=&quot;black&quot;&gt;题目&lt;/font&gt;&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Given a roman numeral, convert
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>9. Palindrome Number</title>
