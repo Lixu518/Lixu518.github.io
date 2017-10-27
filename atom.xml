@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2017-10-26T08:20:30.250Z</updated>
+  <updated>2017-10-27T02:41:09.104Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -15,6 +15,54 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>14. Longest Common Prefix</title>
+    <link href="http://www.mysry.com/2017/10/27/14-Longest-Common-Prefix/"/>
+    <id>http://www.mysry.com/2017/10/27/14-Longest-Common-Prefix/</id>
+    <published>2017-10-27T02:33:57.000Z</published>
+    <updated>2017-10-27T02:41:09.104Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a><font color="black">题目</font></h2><blockquote><p>Write a function to find the longest common prefix string amongst an array of strings.</p></blockquote><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a><font color="red">题解</font></h2><p>&emsp;&emsp;本体要求寻找所有字符串的共同的最长子字符串。把字符串数组的第一个字符串初始化为子字符串，将其不断于其他的字符串作对比，若不相同则缩短该字符串，和其他所有的字符串都匹配为止。</p><h2 id="Java-Code"><a href="#Java-Code" class="headerlink" title="Java Code:"></a><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">import java.util.Scanner;</div><div class="line"></div><div class="line">public class Solution &#123;</div><div class="line"></div><div class="line">public static void main(String[] args) &#123;</div><div class="line">// TODO Auto-generated method stub</div><div class="line">       @SuppressWarnings(&quot;resource&quot;)</div><div class="line">Scanner scanner = new Scanner(System.in);</div><div class="line">       System.out.println(&quot;Please input the String array: &quot;);</div><div class="line">       String[] strs= new String[10];</div><div class="line">       for (int i=0;i&lt;10;i++)</div><div class="line">       &#123;</div><div class="line">       strs[i]=(scanner.next());</div><div class="line">       &#125;</div><div class="line">       String str= longestCommonPrefix(strs);</div><div class="line">       System.out.println(str);</div><div class="line">&#125;</div><div class="line">public static String longestCommonPrefix(String[] strs) &#123;</div><div class="line">if (strs==null||strs.length==0) return &quot;&quot;;</div><div class="line">String pre=strs[0];</div><div class="line">for (int i=1;i&lt;strs.length;i++) &#123;</div><div class="line">while (strs[i].indexOf(pre)!=0) &#123;</div><div class="line">pre=pre.substring(0,pre.length()-1);</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">return pre;</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;&lt;font color=&quot;black&quot;&gt;题目&lt;/font&gt;&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Write a function to find the l
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>20. Valid Parentheses</title>
+    <link href="http://www.mysry.com/2017/10/27/20-Valid-Parentheses/"/>
+    <id>http://www.mysry.com/2017/10/27/20-Valid-Parentheses/</id>
+    <published>2017-10-27T02:19:34.000Z</published>
+    <updated>2017-10-27T02:33:11.814Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a><font color="black">题目</font></h2><blockquote><p>Given a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid.</p><p>The brackets must close in the correct order, “()” and “()[]{}” are all valid but “(]” and “([)]” are not.</p></blockquote><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a><font color="red">题解</font></h2><p>&emsp;&emsp;给定只包含’(‘,’[‘,’{‘,’)’,’[‘,’}’的字符串，判断其是否成对顺序匹配，采用stack堆栈，每次遍历到左边的’[‘,’(‘,’{‘时，将右边的括号入栈，如果字符串出现右括号需要检查堆栈是否为空，以及顶部元素是否与右侧括号相同。 如果没有，字符串不是有效的。 最后，我们还需要检查堆栈是否为空。</p><h2 id="Java-Code"><a href="#Java-Code" class="headerlink" title="Java Code:"></a><font color="orange">Java Code:</font></h2><pre><code>import java.util.Scanner;import java.util.Stack;public class ValidParentheses {    public static void main(String[] args) {        // TODO Auto-generated method stub      Scanner scanner=new Scanner(System.in);      System.out.println(&quot;Please input the string: &quot;);      String s = scanner.next();      scanner.close();      boolean result= isValid(s);      System.out.print(result);    }    public static boolean isValid(String s) {        Stack&lt;Character&gt; stack= new Stack&lt;Character&gt;();        for (char c:s.toCharArray()) {            if (c==&apos;(&apos;)                stack.push(&apos;)&apos;);            else if (c==&apos;{&apos;)                stack.push(&apos;}&apos;);            else if (c==&apos;[&apos;)                stack.push(&apos;]&apos;);            else if (stack.isEmpty()||stack.pop()!=c)                return false;        }        return stack.isEmpty();    }}</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;&lt;font color=&quot;black&quot;&gt;题目&lt;/font&gt;&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Given a string containing just
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux pip 多版本混用的问题</title>
