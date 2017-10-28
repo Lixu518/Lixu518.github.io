@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="leetcode," />
 
 
 
@@ -81,14 +81,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://www.mysry.com/tags/index.html">
+<meta name="description" content="Problem:  Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length. Do not allocate extra space for another array, you must do this in pla">
+<meta name="keywords" content="leetcode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="26. Remove Duplicates from Sorted Array">
+<meta property="og:url" content="http://www.mysry.com/2017/10/28/26-Remove-Duplicates-from-Sorted-Array/index.html">
 <meta property="og:site_name" content="Mysry">
+<meta property="og:description" content="Problem:  Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length. Do not allocate extra space for another array, you must do this in pla">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-25T07:53:31.353Z">
+<meta property="og:updated_time" content="2017-10-28T03:35:13.866Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
+<meta name="twitter:title" content="26. Remove Duplicates from Sorted Array">
+<meta name="twitter:description" content="Problem:  Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length. Do not allocate extra space for another array, you must do this in pla">
 
 
 
@@ -118,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://www.mysry.com/tags/"/>
+  <link rel="canonical" href="http://www.mysry.com/2017/10/28/26-Remove-Duplicates-from-Sorted-Array/"/>
 
 
 
 
 
-  <title>tags | Mysry</title>
+  <title>26. Remove Duplicates from Sorted Array | Mysry</title>
   
 
 
@@ -239,40 +243,166 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.mysry.com/2017/10/28/26-Remove-Duplicates-from-Sorted-Array/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mysry">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/funny.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mysry">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">tags</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                目前共计 2 个标签
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/leetcode/" style="font-size: 30px; color: #111">leetcode</a> <a href="/tags/skills/" style="font-size: 12px; color: #ccc">skills</a>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">26. Remove Duplicates from Sorted Array</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-28T11:26:26+08:00">
+                2017-10-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a><font color="black">Problem:</font></h2><blockquote>
+<p> Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.</p>
+<p>Do not allocate extra space for another array, you must do this in place with constant memory.</p>
+<p>For example,<br>Given input array nums = [1,1,2],</p>
+<p>Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively. It doesn’t matter what you leave beyond the new length. </p>
+</blockquote>
+<h2 id="Idea"><a href="#Idea" class="headerlink" title="Idea:"></a><font color="red">Idea:</font></h2><p>&emsp;&emsp;Because it is a sorted array, so you can directly compare the neighboring elements, if they are equal, then they were repeated the element, the element can be assigned to the subsequent elements.</p>
+<h2 id="Java-Code"><a href="#Java-Code" class="headerlink" title="Java Code:"></a><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">public class Solution &#123;</div><div class="line"></div><div class="line">	public static void main(String[] args) &#123;</div><div class="line">		// TODO Auto-generated method stub</div><div class="line">      int []nums= &#123;1,2,2,3,3,3,4&#125;;</div><div class="line">      int a=removeDuplicates(nums);</div><div class="line">      System.out.println(a);</div><div class="line">      for (int i=0;i&lt;nums.length;i++) &#123;</div><div class="line">    	  System.out.println(nums[i]);</div><div class="line">      &#125;</div><div class="line">	&#125;</div><div class="line">	public static int removeDuplicates(int []nums) &#123;</div><div class="line">		if (nums.length==0)return 0;</div><div class="line">		int j=0;</div><div class="line">		for (int i=0;i&lt;nums.length;i++) &#123;</div><div class="line">			if (nums[i]!=nums[j])nums[++j]=nums[i];</div><div class="line">			</div><div class="line">		&#125;</div><div class="line">		return ++j;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
       
     </div>
     
     
     
+ 
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+  
+</div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/28/21-Merge-Two-Sorted-Lists/" rel="next" title="21. Merge Two Sorted Lists">
+                <i class="fa fa-chevron-left"></i> 21. Merge Two Sorted Lists
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/28/27-Remove-Element/" rel="prev" title="27. Remove Element">
+                27. Remove Element <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -305,8 +435,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -390,6 +529,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-Code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

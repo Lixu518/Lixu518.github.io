@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2017-10-27T02:41:09.104Z</updated>
+  <updated>2017-10-28T03:42:45.866Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -15,6 +15,78 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>27. Remove Element</title>
+    <link href="http://www.mysry.com/2017/10/28/27-Remove-Element/"/>
+    <id>http://www.mysry.com/2017/10/28/27-Remove-Element/</id>
+    <published>2017-10-28T03:35:56.000Z</published>
+    <updated>2017-10-28T03:42:45.866Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a><font color="black">Problem:</font></h2><blockquote><p>Given an array and a value, remove all instances of that value in place and return the new length.</p><p>Do not allocate extra space for another array, you must do this in place with constant memory.</p><p>The order of elements can be changed. It doesn’t matter what you leave beyond the new length.</p><p>Example:<br>Given input array nums = [3,2,2,3], val = 3</p><p>Your function should return length = 2, with the first two elements of nums being 2.</p></blockquote><h2 id="Idea"><a href="#Idea" class="headerlink" title="Idea:"></a><font color="red">Idea:</font></h2><p>&emsp;&emsp;This topic is handled in a manner similar to the previous article said, except that the compared  element becomes a constant.</p><p>##<font color="orange">Java Code:</font><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">public class Solution &#123;</div><div class="line"></div><div class="line">public static void main(String[] args) &#123;</div><div class="line">// TODO Auto-generated method stub</div><div class="line">         int [] nums = &#123;3,2,2,3&#125;;</div><div class="line">         int val=3;</div><div class="line">         int a =removeElement(nums,val);</div><div class="line">         System.out.println(a);</div><div class="line">         for (int i=0;i&lt;nums.length;i++) &#123;</div><div class="line">         System.out.println(nums[i]);</div><div class="line">         &#125;</div><div class="line">&#125;</div><div class="line">public static int removeElement(int[]nums,int val) &#123;</div><div class="line">if (nums.length==0) return 0;</div><div class="line">int j=0;</div><div class="line">for (int i=0;i&lt;nums.length;i++) &#123;</div><div class="line">if (nums[i]!=val) &#123;</div><div class="line">   nums[j]=nums[i];</div><div class="line">   j++;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">return j;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem:&quot;&gt;&lt;/a&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Given an
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>26. Remove Duplicates from Sorted Array</title>
+    <link href="http://www.mysry.com/2017/10/28/26-Remove-Duplicates-from-Sorted-Array/"/>
+    <id>http://www.mysry.com/2017/10/28/26-Remove-Duplicates-from-Sorted-Array/</id>
+    <published>2017-10-28T03:26:26.000Z</published>
+    <updated>2017-10-28T03:35:13.866Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a><font color="black">Problem:</font></h2><blockquote><p> Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.</p><p>Do not allocate extra space for another array, you must do this in place with constant memory.</p><p>For example,<br>Given input array nums = [1,1,2],</p><p>Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively. It doesn’t matter what you leave beyond the new length. </p></blockquote><h2 id="Idea"><a href="#Idea" class="headerlink" title="Idea:"></a><font color="red">Idea:</font></h2><p>&emsp;&emsp;Because it is a sorted array, so you can directly compare the neighboring elements, if they are equal, then they were repeated the element, the element can be assigned to the subsequent elements.</p><h2 id="Java-Code"><a href="#Java-Code" class="headerlink" title="Java Code:"></a><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">public class Solution &#123;</div><div class="line"></div><div class="line">public static void main(String[] args) &#123;</div><div class="line">// TODO Auto-generated method stub</div><div class="line">      int []nums= &#123;1,2,2,3,3,3,4&#125;;</div><div class="line">      int a=removeDuplicates(nums);</div><div class="line">      System.out.println(a);</div><div class="line">      for (int i=0;i&lt;nums.length;i++) &#123;</div><div class="line">      System.out.println(nums[i]);</div><div class="line">      &#125;</div><div class="line">&#125;</div><div class="line">public static int removeDuplicates(int []nums) &#123;</div><div class="line">if (nums.length==0)return 0;</div><div class="line">int j=0;</div><div class="line">for (int i=0;i&lt;nums.length;i++) &#123;</div><div class="line">if (nums[i]!=nums[j])nums[++j]=nums[i];</div><div class="line"></div><div class="line">&#125;</div><div class="line">return ++j;</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem:&quot;&gt;&lt;/a&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt; Given a
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>21. Merge Two Sorted Lists</title>
+    <link href="http://www.mysry.com/2017/10/28/21-Merge-Two-Sorted-Lists/"/>
+    <id>http://www.mysry.com/2017/10/28/21-Merge-Two-Sorted-Lists/</id>
+    <published>2017-10-28T03:18:54.000Z</published>
+    <updated>2017-10-28T03:25:40.319Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a><font color="black">Problem:</font></h2><blockquote><p>Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.</p></blockquote><h2 id="Idea"><a href="#Idea" class="headerlink" title="Idea:"></a><font color="red">Idea:</font></h2><p>&emsp;&emsp;This is a question of recursive call merge function, find one of the sorted single list of the head, and then link the second list.</p><h2 id="Java-Code"><a href="#Java-Code" class="headerlink" title="Java Code:"></a><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">public class ListNode &#123;</div><div class="line">int val;</div><div class="line">     ListNode next;</div><div class="line">     ListNode(int x) &#123; val = x; &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">public class Solution &#123;</div><div class="line"></div><div class="line">public static void main(String[] args) &#123;</div><div class="line">// TODO Auto-generated method stub</div><div class="line"></div><div class="line">&#125;</div><div class="line">public ListNode mergeTwoList(ListNode l1,ListNode l2) &#123;</div><div class="line">if (l1==null) return l2;</div><div class="line">if (l2==null) return l1;</div><div class="line">ListNode mergeHead;</div><div class="line">if (l1.val&lt;l2.val) &#123;</div><div class="line">mergeHead=l1;</div><div class="line">mergeHead.next=mergeTwoList(l1.next,l2);</div><div class="line">&#125;</div><div class="line">else &#123;</div><div class="line">mergeHead=l2;</div><div class="line">mergeHead.next=mergeTwoList(l1,l2.next);</div><div class="line">&#125;</div><div class="line">return mergeHead;</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem:&quot;&gt;&lt;/a&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Merge tw
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>14. Longest Common Prefix</title>
