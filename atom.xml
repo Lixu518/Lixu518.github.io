@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2017-10-28T03:42:45.866Z</updated>
+  <updated>2017-10-29T05:11:43.184Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -15,6 +15,78 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>38. Count and Say</title>
+    <link href="http://www.mysry.com/2017/10/29/38-Count-and-Say/"/>
+    <id>http://www.mysry.com/2017/10/29/38-Count-and-Say/</id>
+    <published>2017-10-29T05:00:30.000Z</published>
+    <updated>2017-10-29T05:11:43.184Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a><font color="black">Problem:</font></h2><blockquote><p>The count-and-say sequence is the sequence of integers with the first five terms as following:</p><ol><li>1</li><li>11</li><li>21</li><li>1211</li><li>111221</li></ol><p>1 is read off as “one 1” or 11.<br>11 is read off as “two 1s” or 21.<br>21 is read off as “one 2, then one 1” or 1211.</p><p>Given an integer n, generate the nth term of the count-and-say sequence.</p><p>Note: Each term of the sequence of integers will be represented as a string. </p></blockquote><h2 id="Idea"><a href="#Idea" class="headerlink" title="Idea:"></a><font color="red">Idea:</font></h2><p>&emsp;&emsp;This problem is a litter longer than before, so it take a few seconds to understand the problem. Don’t be afraid of the complicated desription. I construct a StringBuilder to store the characters to be added and its number, and then add it by law.</p><h2 id="Java-Code"><a href="#Java-Code" class="headerlink" title="Java Code:"></a><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public String countAndSay(int n) &#123;</div><div class="line">        StringBuilder builder=new StringBuilder(&quot;1&quot;);</div><div class="line">  StringBuilder prev;</div><div class="line">  int count;</div><div class="line">  char say;</div><div class="line">  for (int i=1;i&lt;n;i++) &#123;</div><div class="line">  prev=builder;</div><div class="line">  builder=new StringBuilder();</div><div class="line">  count=1;</div><div class="line">  say=prev.charAt(0);</div><div class="line">  for (int j=1,len=prev.length();j&lt;len;j++) &#123;</div><div class="line">  if (prev.charAt(j)!=say) &#123;</div><div class="line">  builder.append(count).append(say);</div><div class="line">  count=1;</div><div class="line">  say=prev.charAt(j);</div><div class="line">  &#125;</div><div class="line">  else count++;</div><div class="line">  &#125;</div><div class="line">builder.append(count).append(say);</div><div class="line">  &#125;</div><div class="line">  return builder.toString();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem:&quot;&gt;&lt;/a&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;The coun
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>35. Search Insert Position</title>
+    <link href="http://www.mysry.com/2017/10/29/35-Search-Insert-Position/"/>
+    <id>http://www.mysry.com/2017/10/29/35-Search-Insert-Position/</id>
+    <published>2017-10-29T04:52:55.000Z</published>
+    <updated>2017-10-29T04:59:53.858Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a><font color="black">Problem:</font></h2><blockquote><p>Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.</p><p>You may assume no duplicates in the array.</p></blockquote><h2 id="Idea"><a href="#Idea" class="headerlink" title="Idea:"></a><font color="red">Idea:</font></h2><p>&emsp;&emsp;This problem is very easy if we use binary search, just constantly compare the target number with the mid of the remain array!</p><h2 id="Java-Code"><a href="#Java-Code" class="headerlink" title="Java Code:"></a><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int searchInsert(int[] nums, int target) &#123;</div><div class="line">        int head =0;</div><div class="line">int tail=nums.length-1;</div><div class="line">while (head &lt;=tail) &#123;</div><div class="line">int mid =(head+tail)/2;</div><div class="line">if (nums[mid]==target)</div><div class="line">return mid;</div><div class="line">else if (nums[mid]&gt;target) tail=mid-1;</div><div class="line">else head=mid+1;</div><div class="line">&#125;</div><div class="line">return head;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem:&quot;&gt;&lt;/a&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Given a 
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>28. Implement strStr()</title>
+    <link href="http://www.mysry.com/2017/10/29/28-Implement-strStr/"/>
+    <id>http://www.mysry.com/2017/10/29/28-Implement-strStr/</id>
+    <published>2017-10-29T04:44:37.000Z</published>
+    <updated>2017-10-29T04:52:17.815Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a><font color="black">Problem:</font></h2><blockquote><p>Returns the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack. </p></blockquote><h2 id="Idea"><a href="#Idea" class="headerlink" title="Idea:"></a><font color="red">Idea:</font></h2><p>&emsp;&emsp;This question requires the return of the target string in the haystack string the first occurrence of the index of the location, just compare the target string and the substring of haystack with the length of target string!</p><h2 id="Java-Code"><a href="#Java-Code" class="headerlink" title="Java Code:"></a><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int strStr(String haystack, String needle) &#123;</div><div class="line">        if (needle.length()==0) return 0;</div><div class="line">    if (needle.length()==0&amp;&amp;haystack.length()==0||(needle.length()&gt;haystack.length()))</div><div class="line">    return -1;</div><div class="line">    for (int i=0;i&lt;(haystack.length());i++)&#123;</div><div class="line">    int x=i;</div><div class="line">    int y=needle.length();</div><div class="line">    if (y&lt;=haystack.length()) &#123;</div><div class="line">    y=y+i;</div><div class="line">    if (y&gt;haystack.length())</div><div class="line">    return -1;</div><div class="line">    String c=haystack.substring(x,y);</div><div class="line">    if (needle.equals(c)) &#123;</div><div class="line">    return i;</div><div class="line">    &#125;</div><div class="line">    &#125;</div><div class="line">    &#125;</div><div class="line">    return -1;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem:&quot;&gt;&lt;/a&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Returns 
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>27. Remove Element</title>
