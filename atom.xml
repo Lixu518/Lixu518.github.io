@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2017-10-29T05:11:43.184Z</updated>
+  <updated>2017-10-31T12:36:41.330Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -15,6 +15,102 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>69. Sqrt(x)</title>
+    <link href="http://www.mysry.com/2017/10/31/69-Sqrt-x/"/>
+    <id>http://www.mysry.com/2017/10/31/69-Sqrt-x/</id>
+    <published>2017-10-31T12:15:17.000Z</published>
+    <updated>2017-10-31T12:36:41.330Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problems"><a href="#Problems" class="headerlink" title="Problems:"></a><font color="black">Problems:</font></h2><blockquote><p>Implement int sqrt(int x).</p><p>Compute and return the square root of x.</p></blockquote><h2 id="Idea"><a href="#Idea" class="headerlink" title="Idea:"></a><font color="red">Idea:</font></h2><p>&emsp;&emsp;Approximately the square root by least squares method.</p><h2 id="Java-Code"><a href="#Java-Code" class="headerlink" title="Java Code:"></a><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">public class Solution &#123;</div><div class="line">public int returnSqrtRootx(int x) &#123;</div><div class="line">long r=x;</div><div class="line">while(r*r&gt;x) &#123;</div><div class="line">r=(r+x/r)/2;</div><div class="line">&#125;</div><div class="line">return (int) r;</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Problems&quot;&gt;&lt;a href=&quot;#Problems&quot; class=&quot;headerlink&quot; title=&quot;Problems:&quot;&gt;&lt;/a&gt;&lt;font color=&quot;black&quot;&gt;Problems:&lt;/font&gt;&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Impl
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>66. Plus One</title>
+    <link href="http://www.mysry.com/2017/10/31/66-Plus-One/"/>
+    <id>http://www.mysry.com/2017/10/31/66-Plus-One/</id>
+    <published>2017-10-31T12:06:08.000Z</published>
+    <updated>2017-10-31T12:14:50.135Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problems"><a href="#Problems" class="headerlink" title="Problems:"></a><font color="black">Problems:</font></h2><blockquote><p>Given a non-negative integer represented as a non-empty array of digits, plus one to the integer.</p><p>You may assume the integer do not contain any leading zero, except the number 0 itself.</p><p>The digits are stored such that the most significant digit is at the head of the list.</p></blockquote><h2 id="Idea"><a href="#Idea" class="headerlink" title="Idea:"></a><font color="red">Idea:</font></h2><p>&emsp;&emsp;It’s important for us to find the 9 element in this array set it to be 0,so if we find the first element of array is nine, we need append the array, so we define a new array and set the first element 0,return this and return the the initial processed array.</p><h2 id="Java-Code"><a href="#Java-Code" class="headerlink" title="Java Code:"></a><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int[] plusOne(int[] digits) &#123;</div><div class="line">        int n = digits.length;</div><div class="line">    for(int i=n-1; i&gt;=0; i--) &#123;</div><div class="line">        if(digits[i] &lt; 9) &#123;</div><div class="line">            digits[i]++;</div><div class="line">            return digits;</div><div class="line">        &#125;  </div><div class="line">        digits[i] = 0;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    int[] newNumber = new int [n+1];</div><div class="line">    newNumber[0] = 1;</div><div class="line">    </div><div class="line">    return newNumber;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Problems&quot;&gt;&lt;a href=&quot;#Problems&quot; class=&quot;headerlink&quot; title=&quot;Problems:&quot;&gt;&lt;/a&gt;&lt;font color=&quot;black&quot;&gt;Problems:&lt;/font&gt;&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Give
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>58. Length of Last Word</title>
+    <link href="http://www.mysry.com/2017/10/31/58-Length-of-Last-Word/"/>
+    <id>http://www.mysry.com/2017/10/31/58-Length-of-Last-Word/</id>
+    <published>2017-10-31T11:56:56.000Z</published>
+    <updated>2017-10-31T12:05:35.815Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problems"><a href="#Problems" class="headerlink" title="Problems:"></a><font color="black">Problems:</font></h2><blockquote><p>Given a string s consists of upper/lower-case alphabets and empty space characters ‘ ‘, return the length of last word in the string.</p><p>If the last word does not exist, return 0.</p><p>Note: A word is defined as a character sequence consists of non-space characters only.</p><p>For example,<br>Given s = “Hello World”,<br>return 5.</p></blockquote><h2 id="Idea"><a href="#Idea" class="headerlink" title="Idea:"></a><font color="red">Idea:</font></h2><p>&emsp;&emsp;Easy problem,isn’t it? If you have know that function trim() is to delete the ‘ ‘ of the beginning and end of the string and that the function lastIndexOf() the to return the index of the last occurrence of character such as ‘ ‘.</p><h2 id="Java-Code"><a href="#Java-Code" class="headerlink" title="Java Code:"></a><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int lengthOfLastWord(String s) &#123;</div><div class="line">        String t=s.trim();</div><div class="line">return t.length()-t.lastIndexOf(&apos; &apos;)-1;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Problems&quot;&gt;&lt;a href=&quot;#Problems&quot; class=&quot;headerlink&quot; title=&quot;Problems:&quot;&gt;&lt;/a&gt;&lt;font color=&quot;black&quot;&gt;Problems:&lt;/font&gt;&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Give
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>53. Maximum Subarray</title>
+    <link href="http://www.mysry.com/2017/10/31/53-Maximum-Subarray/"/>
+    <id>http://www.mysry.com/2017/10/31/53-Maximum-Subarray/</id>
+    <published>2017-10-31T11:41:54.000Z</published>
+    <updated>2017-10-31T11:56:18.084Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problems"><a href="#Problems" class="headerlink" title="Problems:"></a><font color="black">Problems:</font></h2><blockquote><p>Find the contiguous subarray within an array (containing at least one number) which has the largest sum.</p><p>For example, given the array [-2,1,-3,4,-1,2,1,-5,4], the contiguous subarray [4,-1,2,1] has the largest sum = 6.</p></blockquote><h2 id="Idea"><a href="#Idea" class="headerlink" title="Idea:"></a><font color="red">Idea:</font></h2><p>&emsp;&emsp;We create two int array maxEnding and maxSofar, maxEnding is constantly update and other is to put the biggest sum subarray. MaEnding is the bigger one in maxEnding plus nums[i] and the maxSofar,and then compare maxEnding with maxSofar put maxSofar as the bigger one until we have traverse all the elements.</p><h2 id="Java-Code"><a href="#Java-Code" class="headerlink" title="Java Code:"></a><font color="orange">Java Code:</font></h2><pre><code>public class Solution {     public int maximumSubarray(int []nums) {         int maxSofar=nums[0];         int maxEnding=nums[0];         for (int i=1;i&lt;nums.length;i++) {             maxEnding = Math.max(maxEnding+nums[i],maxSofar);             maxSofar=Math.max(maxEnding,maxSofar);         }         return maxEnding;     }}</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Problems&quot;&gt;&lt;a href=&quot;#Problems&quot; class=&quot;headerlink&quot; title=&quot;Problems:&quot;&gt;&lt;/a&gt;&lt;font color=&quot;black&quot;&gt;Problems:&lt;/font&gt;&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Find
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>38. Count and Say</title>
