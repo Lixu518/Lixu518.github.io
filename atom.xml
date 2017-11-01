@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2017-10-31T12:36:41.330Z</updated>
+  <updated>2017-11-01T04:36:32.854Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -15,6 +15,124 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>88. Merge Sorted Array</title>
+    <link href="http://www.mysry.com/2017/11/01/88-Merge-Sorted-Array/"/>
+    <id>http://www.mysry.com/2017/11/01/88-Merge-Sorted-Array/</id>
+    <published>2017-11-01T04:31:04.000Z</published>
+    <updated>2017-11-01T04:36:32.854Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a><font color="black">Problem:</font></h2><blockquote><p>Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.</p><p>Note:<br>You may assume that nums1 has enough space (size that is greater or equal to m + n) to hold additional elements from nums2. The number of elements initialized in nums1 and nums2 are m and n respectively.</p></blockquote><h2 id="Idea"><a href="#Idea" class="headerlink" title="Idea:"></a><font color="red">Idea:</font></h2><p>&emsp;&emsp;Use ‘?:’ to judge what will be the next element of nums1(after merged), so all we should to do is to find the boundary conditions.</p><h2 id="Java-Code"><a href="#Java-Code" class="headerlink" title="Java Code:"></a><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public void merge(int[] nums1, int m, int[] nums2, int n) &#123;</div><div class="line">     while(n&gt;0)&#123; </div><div class="line">         nums1[m+n-1] = (m==0||nums2[n-1] &gt; nums1[m-1]) ? nums2[--n] : nums1[--m];</div><div class="line">     &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem:&quot;&gt;&lt;/a&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Given tw
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>83. Remove Duplicates from Sorted List</title>
+    <link href="http://www.mysry.com/2017/11/01/83-Remove-Duplicates-from-Sorted-List/"/>
+    <id>http://www.mysry.com/2017/11/01/83-Remove-Duplicates-from-Sorted-List/</id>
+    <published>2017-11-01T04:24:39.000Z</published>
+    <updated>2017-11-01T04:30:09.684Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a><font color="black">Problem:</font></h2><blockquote><p>Given a sorted linked list, delete all duplicates such that each element appear only once.</p><p>For example,<br>Given 1-&gt;1-&gt;2, return 1-&gt;2.<br>Given 1-&gt;1-&gt;2-&gt;3-&gt;3, return 1-&gt;2-&gt;3</p></blockquote><h2 id="Idea"><a href="#Idea" class="headerlink" title="Idea:"></a><font color="red">Idea:</font></h2><p>&emsp;&emsp;This is a similar problem with the last one! It don’t need to wholely remove the dups and the original elements. We use a Recursive function to remove the dups.</p><h2 id="Java-Code"><a href="#Java-Code" class="headerlink" title="Java Code:"></a><font color="orange">Java Code:</font></h2><pre><code>/** * Definition for singly-linked list. * public class ListNode { *     int val; *     ListNode next; *     ListNode(int x) { val = x; } * } */class Solution {    public ListNode deleteDuplicates(ListNode head) {        if(head == null || head.next == null)return head;        head.next = deleteDuplicates(head.next);        return (head.val == head.next.val) ? head.next : head;    }}</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem:&quot;&gt;&lt;/a&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Given a 
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>82. Remove Duplicates from Sorted List II</title>
+    <link href="http://www.mysry.com/2017/11/01/82-Remove-Duplicates-from-Sorted-List-II/"/>
+    <id>http://www.mysry.com/2017/11/01/82-Remove-Duplicates-from-Sorted-List-II/</id>
+    <published>2017-11-01T04:18:03.000Z</published>
+    <updated>2017-11-01T04:24:05.305Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a><font color="black">Problem:</font></h2><blockquote><p>Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list.</p><p>For example,<br>Given 1-&gt;2-&gt;3-&gt;3-&gt;4-&gt;4-&gt;5, return 1-&gt;2-&gt;5.<br>Given 1-&gt;1-&gt;1-&gt;2-&gt;3, return 2-&gt;3.</p></blockquote><h2 id="Idea"><a href="#Idea" class="headerlink" title="Idea:"></a><font color="red">Idea:</font></h2><p>&emsp;&emsp;We use two pointer, slow is to track the node before the dup nodes, fast is to fine the last nodes of dups. A while loop to find the last nodes of the dups, and than detect the dups and remove them.</p><h2 id="Java-Code"><a href="#Java-Code" class="headerlink" title="Java Code:"></a><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for singly-linked list.</div><div class="line"> * public class ListNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     ListNode next;</div><div class="line"> *     ListNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">    public ListNode deleteDuplicates(ListNode head) &#123;</div><div class="line">        ListNode a=new ListNode(0),fast=head,slow=a;</div><div class="line">    slow.next=fast;</div><div class="line">while(fast!=null) &#123;</div><div class="line">while(fast.next!=null&amp;&amp;fast.val==fast.next.val) &#123;</div><div class="line">fast=fast.next;</div><div class="line">&#125;</div><div class="line">if (slow.next!=fast) &#123;</div><div class="line">slow.next=fast.next;</div><div class="line">fast=slow.next;</div><div class="line">&#125;</div><div class="line">else &#123;</div><div class="line">slow=slow.next;</div><div class="line">fast=fast.next;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">return a.next;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem:&quot;&gt;&lt;/a&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Given a 
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>70. Climbing Stairs</title>
+    <link href="http://www.mysry.com/2017/11/01/70-Climbing-Stairs/"/>
+    <id>http://www.mysry.com/2017/11/01/70-Climbing-Stairs/</id>
+    <published>2017-11-01T04:13:55.000Z</published>
+    <updated>2017-11-01T04:17:31.827Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a><font color="black">Problem:</font></h2><blockquote><p>You are climbing a stair case. It takes n steps to reach to the top.</p><p>Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?</p><p>Note: Given n will be a positive integer.</p></blockquote><h2 id="Idea"><a href="#Idea" class="headerlink" title="Idea:"></a><font color="red">Idea:</font></h2><p>&emsp;&emsp;This is basic use of fibonacci.The key intuition to solve the problem is that given a number of stairs n, if we know the number ways to get to the points [n-1] and [n-2] respectively, denoted as n1 and n2 , then the total ways to get to the point [n] is n1 + n2. Because from the [n-1] point, we can take one single step to reach [n]. And from the [n-2] point, we could take two steps to get there. There is NO overlapping between these two solution sets, because we differ in the final step.</p><h2 id="Java-Code"><a href="#Java-Code" class="headerlink" title="Java Code:"></a><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int climbStairs(int n) &#123;</div><div class="line">        if (n==0) return 0;</div><div class="line">if (n==1) return 1;</div><div class="line">if (n==2) return 2;</div><div class="line">int oneStepBefore=2;</div><div class="line">int twoStepBefore=1;</div><div class="line">int allways=0;</div><div class="line">for (int i=2;i&lt;n;i++) &#123;</div><div class="line">allways=oneStepBefore+twoStepBefore;</div><div class="line">twoStepBefore=oneStepBefore;</div><div class="line">oneStepBefore=allways;</div><div class="line">&#125;</div><div class="line">return allways;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem:&quot;&gt;&lt;/a&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;You are 
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>67. Add Binary</title>
+    <link href="http://www.mysry.com/2017/11/01/67-Add-Binary/"/>
+    <id>http://www.mysry.com/2017/11/01/67-Add-Binary/</id>
+    <published>2017-11-01T03:42:52.000Z</published>
+    <updated>2017-11-01T04:12:11.529Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problems"><a href="#Problems" class="headerlink" title="Problems:"></a><font color="black">Problems:</font></h2><blockquote><p>Given two binary strings, return their sum (also a binary string).</p><p>For example,<br>a = “11”<br>b = “1”<br>Return “100”.</p></blockquote><h2 id="Idea"><a href="#Idea" class="headerlink" title="Idea:"></a><font color="red">Idea:</font></h2><p>&emsp;&emsp;So we need to fill the shorter array, and than the sum of the number of positions corresponding to the array and determine whether there is a carry.</p><h2 id="Java-Code"><a href="#Java-Code" class="headerlink" title="Java Code:"></a><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public String addBinary(String a, String b) &#123;</div><div class="line">        StringBuilder sb = new StringBuilder();</div><div class="line">        int i = a.length() - 1, j = b.length() -1, carry = 0;</div><div class="line">        while (i &gt;= 0 || j &gt;= 0) &#123;</div><div class="line">            int sum = carry;</div><div class="line">            if (j &gt;= 0) sum += b.charAt(j--) - &apos;0&apos;;</div><div class="line">            if (i &gt;= 0) sum += a.charAt(i--) - &apos;0&apos;;</div><div class="line">            sb.append(sum % 2);</div><div class="line">            carry = sum / 2;</div><div class="line">        &#125;</div><div class="line">        if (carry != 0) sb.append(carry);</div><div class="line">        return sb.reverse().toString();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Problems&quot;&gt;&lt;a href=&quot;#Problems&quot; class=&quot;headerlink&quot; title=&quot;Problems:&quot;&gt;&lt;/a&gt;&lt;font color=&quot;black&quot;&gt;Problems:&lt;/font&gt;&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Give
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>69. Sqrt(x)</title>
@@ -372,125 +490,6 @@
     
     
       <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>7. Reverse Integer</title>
-    <link href="http://www.mysry.com/2017/10/26/7-Reverse-Integer/"/>
-    <id>http://www.mysry.com/2017/10/26/7-Reverse-Integer/</id>
-    <published>2017-10-26T02:35:01.000Z</published>
-    <updated>2017-10-26T02:56:38.497Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a><font color="black">题目</font></h2><blockquote><p>Reverse digits of an integer.</p><p><font color="green">caution:</font><br>If the integer’s last digit is 0, what should the output be? ie, cases such as 10, 100.<br>Did you notice that the reversed integer might overflow? Assume the input is a 32-bit integer, then the reverse of 1000000003 overflows. How should you handle such cases?<br>For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.</p></blockquote><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a><font color="red">题解</font></h2><p>&emsp;&emsp;本体要求翻转整数，秩序将整数逐位分解，然后乘10累加到输出结果上。</p><h2 id="Java-Code"><a href="#Java-Code" class="headerlink" title="Java Code:"></a><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">import java.util.Scanner;</div><div class="line"></div><div class="line">public class Solution&#123;</div><div class="line">    public static int reverse(int x)&#123;</div><div class="line">        int output = 0;</div><div class="line">        while (x!=0)&#123;</div><div class="line">            int tail = x%10;</div><div class="line">            int tmp = output*10+tail;</div><div class="line">            if ((tmp-tail)/10!=output) &#123;</div><div class="line">                return 0;</div><div class="line">            &#125;</div><div class="line">                output= tmp;</div><div class="line">                 x=x / 10;</div><div class="line">        &#125;</div><div class="line">        return output;</div><div class="line">    &#125;</div><div class="line">    public static void main (String[]args)&#123;</div><div class="line">        Scanner scanner=new Scanner(System.in);</div><div class="line">        System.out.println(&quot;Please int put an integer: &quot;);</div><div class="line">        int x =scanner.nextInt();</div><div class="line">        int y= reverse(x);</div><div class="line">        System.out.println (&quot;The output is &quot;+y);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;&lt;font color=&quot;black&quot;&gt;题目&lt;/font&gt;&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;Reverse digits of an integer.&lt;
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>3. Longest Substring Without Repeating Characters</title>
-    <link href="http://www.mysry.com/2017/10/25/3-Longest-Substring-Without-Repeating-Characters/"/>
-    <id>http://www.mysry.com/2017/10/25/3-Longest-Substring-Without-Repeating-Characters/</id>
-    <published>2017-10-25T13:11:31.000Z</published>
-    <updated>2017-10-26T02:58:53.692Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a><font color="black">题目</font></h2><blockquote><p>Given a string, find the length of the longest substring without repeating characters.</p></blockquote><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a><font color="red">题解</font></h2><p>&emsp;&emsp;本题要求寻找给定字符串的最长无重复字母的子字符串的长度。构建hashmap包含已有的字母和当前长度，通过containsKey比对接下来的字母，判断若没有责将该字母和当前序号put，同时不段更新最大程度max</p><h2 id="Java-Code"><a href="#Java-Code" class="headerlink" title="Java Code"></a><font color="Gold">Java Code</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int lengthOfLongestSubstring(String s) &#123;</div><div class="line">        if (s.length()==0) return 0;</div><div class="line">        HashMap&lt;Character, Integer&gt;map = new HashMap&lt;Character,Integer&gt;();</div><div class="line">        int max =0;</div><div class="line">        for (int i=0,j=0;i&lt;s.length();++i)</div><div class="line">        &#123;</div><div class="line">            if (map.containsKey(s.charAt(i)))</div><div class="line">            &#123;</div><div class="line">                j=Math.max(j,map.get(s.charAt(i))+1);   </div><div class="line">            &#125;</div><div class="line">            map.put(s.charAt(i),i);</div><div class="line">            max = Math.max(max,i-j+1);</div><div class="line">        &#125;</div><div class="line">        return max;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;&lt;font color=&quot;black&quot;&gt;题目&lt;/font&gt;&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;Given a string, find the lengt
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2. Add Two Numbers</title>
-    <link href="http://www.mysry.com/2017/10/25/Add-Two-Numbers/"/>
-    <id>http://www.mysry.com/2017/10/25/Add-Two-Numbers/</id>
-    <published>2017-10-25T07:13:52.000Z</published>
-    <updated>2017-10-26T02:58:41.772Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a><font color="black">题目</font></h2><blockquote><p>You are given two <font color="Gold"> non-empty </font> linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.<br> you may assume the two numbers do not contain any leading zero, except the number 0 itself.</p></blockquote><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a><font color="red">题解</font></h2><p>&emsp;&emsp;本体是将两个链表l1、l2对应位置数字求和后输出，所以选责中间变量将两个链表联系起来，对于求和后的链表l3，对应位置为tmp%10,将tmp/10取整留给tmp本身来对下一个数进位即可。本体关键在于tmp除以10取余和取整的处理。</p><h2 id="Java-Code"><a href="#Java-Code" class="headerlink" title="Java Code"></a><font color="orange">Java Code</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">        public ListNode addTwoNumbers(ListNode l1, ListNode l2) &#123;</div><div class="line">            int tmp =0;</div><div class="line">            ListNode head =new ListNode(0);</div><div class="line">            ListNode p = head;</div><div class="line">            while (l1!=null||l2!=null||tmp!=0)</div><div class="line">            &#123;</div><div class="line">                if(l1!=null)</div><div class="line">                &#123;</div><div class="line">                 tmp+=l1.val;</div><div class="line">                 l1=l1.next;    </div><div class="line">                &#125;</div><div class="line">                if(l2!=null)</div><div class="line">                &#123;</div><div class="line">                    tmp+=l2.val;</div><div class="line">                    l2=l2.next;</div><div class="line">                &#125;</div><div class="line">                p.next=new ListNode(tmp%10);</div><div class="line">                p=p.next;</div><div class="line">                tmp=tmp/10;</div><div class="line">            &#125;</div><div class="line">            return head.next;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;&lt;font color=&quot;black&quot;&gt;题目&lt;/font&gt;&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;You are given two &lt;font color=
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>1. Two Sum</title>
-    <link href="http://www.mysry.com/2017/10/25/Two-Sum/"/>
-    <id>http://www.mysry.com/2017/10/25/Two-Sum/</id>
-    <published>2017-10-25T06:36:32.000Z</published>
-    <updated>2017-10-26T03:01:01.911Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a><font color="black">题目</font></h2><blockquote><p>Given an array of integers, return <font color="#0099ff"> indices</font> of the two numbers such that they add up to a specific target.<br>You may assume that each input would have exactly one solution, and you may not use the same element twice.</p></blockquote><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a><font color="red">题解</font></h2><p>&emsp;&emsp;双层循环，对于数组的每一个数，遍历其之后的数据是否存在与之相加为target的解决方法，若存在则返回这两个数在数组中的<font color="#0099ff">下标</font></p><h2 id="Java-code"><a href="#Java-code" class="headerlink" title="Java code:"></a><font color="orange">Java code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">public class twoSum &#123;</div><div class="line">    public static int[] twoSum(int[] nums, int target) &#123;</div><div class="line">        for (int i = 0; i &lt; nums.length; i++) &#123;</div><div class="line">            for (int j = i + 1; j &lt; nums.length; j++) &#123;</div><div class="line">                if (nums[j] == target - nums[i]) &#123;</div><div class="line">                    return new int[] &#123; i, j &#125;;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        throw new IllegalArgumentException(&quot;No two sum solution&quot;);</div><div class="line">    &#125;</div><div class="line">    public static void main(String [] args)&#123;</div><div class="line">        int []n=&#123;3,2,4&#125;;</div><div class="line">        int target =6;</div><div class="line">        int[]a= twoSum(n,target);</div><div class="line">        for (int i=0;i&lt;a.length;i++)&#123;</div><div class="line">            System.out.print(a[i]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;&lt;font color=&quot;black&quot;&gt;题目&lt;/font&gt;&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;Given an array of integers, re
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu下git+hexo搭建个人博客</title>
-    <link href="http://www.mysry.com/2017/10/24/Ubuntu%E4%B8%8Bgit-hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://www.mysry.com/2017/10/24/Ubuntu下git-hexo搭建个人博客/</id>
-    <published>2017-10-24T12:19:49.000Z</published>
-    <updated>2017-10-25T05:57:18.733Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="hexo简介："><a href="#hexo简介：" class="headerlink" title="hexo简介："></a>hexo简介：</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hexo是一个基于Node.js的静态开源博客程序，可以很方便的生成能够托管于github或gitlab。其作者是@tommy351。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本次博客搭建是基于Ubuntu16.04.</p><h2 id="1、git的安装和github的设置"><a href="#1、git的安装和github的设置" class="headerlink" title="1、git的安装和github的设置"></a><strong>1、git的安装和github的设置</strong></h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;安装git。打开终端输入命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install git</div></pre></td></tr></table></figure></p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;配置本机git。主要是user.name和user.email,在终端中输入如下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name &quot;YourName&quot;</div><div class="line">git config --global user.email &quot;youremail@xx.com&quot;</div></pre></td></tr></table></figure></p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查验。在终端中输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config --list</div></pre></td></tr></table></figure></p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;并检查输入结果。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;生成ssh配对密钥。终端输入命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C &quot;youremail@xx.com&quot;</div></pre></td></tr></table></figure></p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;进入.ssh目录可以看见<code>id_rsa</code>和<code>id_rsa.pub</code>，其中<code>id_rsa</code>是私钥，<code>id_rsa.pub</code>是公钥，通过<code>cat ~/.ssh/id_rsa.pub</code>查看其中内容并将其拷贝下来。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;进入你自己的github，进入<code>Settings-&gt;SSH and GPG keys-&gt;New SSH key</code>,然后将刚才的内容拷贝进去，终端键入命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -T git@github.com</div></pre></td></tr></table></figure></p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查看返回结果判断是否匹配成功。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;更为详细的git使用方法请参看<a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/" target="_blank" rel="external">廖雪峰git教程</a> </p><h2 id="2、Node-js的安装"><a href="#2、Node-js的安装" class="headerlink" title="2、Node.js的安装"></a><strong>2、Node.js的安装</strong></h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo add-apt-repository ppa:chris-lea/node.js </div><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install nodejs</div></pre></td></tr></table></figure></p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;使用以下命令查验是否安装成功：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">node -V</div><div class="line">npm -V</div></pre></td></tr></table></figure></p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Node.js的详细内容可以参考<a href="http://nodejs.cn/api/" target="_blank" rel="external">node.js学习笔记</a></p><h2 id="3、安装hexo"><a href="#3、安装hexo" class="headerlink" title="3、安装hexo"></a><strong>3、安装hexo</strong></h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;按以下命令进行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sudo npm install hexo -g</div><div class="line">mkdir ~/blog</div><div class="line">cd ~/blog</div><div class="line">hexo init</div><div class="line">hexo generate</div><div class="line">hexo server</div></pre></td></tr></table></figure></p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在浏览器输入<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a>就可以看到效果</p><h2 id="4、个性化主题设置"><a href="#4、个性化主题设置" class="headerlink" title="4、个性化主题设置"></a><strong>4、个性化主题设置</strong></h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在<em>博客的根目录</em>对<a href="https://hexo.io/themes/" target="_blank" rel="external">hexo</a>的主题克隆到本地：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git clone git@github.com:iissnan/hexo-theme-next.git  themes/next</div><div class="line">sudo vim _config.yml</div><div class="line">theme: next  #修改其中的theme参数</div><div class="line">hexo g #生成和调试</div><div class="line">hexo s --debug  #然后打开浏览器可以在本地查看效果</div></pre></td></tr></table></figure></p><h2 id="5、部署到github上"><a href="#5、部署到github上" class="headerlink" title="5、部署到github上"></a><strong>5、部署到github上</strong></h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在github新建仓库<code>github用户名.github.io</code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在本地<code>sudo vim _config.yml</code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;修改<code>Site</code>、<code>URL</code>（视需求而定）、<code>Deployment</code>（改成自己的)等元素，然后输入命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo generate </div><div class="line">hexo d</div></pre></td></tr></table></figure></p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;即可部署成功<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在浏览器输入<code>github用户名.github.io</code>进行访问就可以看见你的博客网站了 </p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;hexo简介：&quot;&gt;&lt;a href=&quot;#hexo简介：&quot; class=&quot;headerlink&quot; title=&quot;hexo简介：&quot;&gt;&lt;/a&gt;hexo简介：&lt;/h1&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;hexo是一个基于Node.
-      
-    
-    </summary>
-    
-    
-      <category term="skills" scheme="http://www.mysry.com/tags/skills/"/>
     
   </entry>
   
