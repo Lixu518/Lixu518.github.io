@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2017-11-01T04:36:32.854Z</updated>
+  <updated>2017-11-02T12:36:20.250Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -15,6 +15,102 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>107.Binary Tree Level Order Traversal II</title>
+    <link href="http://www.mysry.com/2017/11/02/107-Binary-Tree-Level-Order-Traversal-II/"/>
+    <id>http://www.mysry.com/2017/11/02/107-Binary-Tree-Level-Order-Traversal-II/</id>
+    <published>2017-11-02T12:25:09.000Z</published>
+    <updated>2017-11-02T12:36:20.250Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a><font color="black">Problem:</font></h2><blockquote><p>Given a binary tree, return the bottom-up level order traversal of its nodes’ values. (ie, from left to right, level by level from leaf to root).</p></blockquote><h2 id="Idea"><a href="#Idea" class="headerlink" title="Idea:"></a><font color="red">Idea:</font></h2><p>&emsp;&emsp;I am puzzled of this question even if I have seen the answer. If you have very clear understand of this problem, could you email to me? Thank you very much!</p><h2 id="Java-Code"><a href="#Java-Code" class="headerlink" title="Java Code:"></a><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for a binary tree node.</div><div class="line"> * public class TreeNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     TreeNode left;</div><div class="line"> *     TreeNode right;</div><div class="line"> *     TreeNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">    public List&lt;List&lt;Integer&gt;&gt; levelOrderBottom(TreeNode root) &#123;</div><div class="line">        List&lt;List&lt;Integer&gt;&gt; result=new ArrayList&lt;&gt;();</div><div class="line">       if(root==null) return result;</div><div class="line">       Queue&lt;TreeNode&gt;q= new LinkedList&lt;&gt;();</div><div class="line">       q.add(root);</div><div class="line">       while(q.size()&gt;0) &#123;</div><div class="line">       List&lt;Integer&gt; list=new ArrayList&lt;&gt;();</div><div class="line">       int size= q.size();</div><div class="line">       for(int i=0;i&lt;size;i++) &#123;</div><div class="line">       TreeNode node=q.poll();</div><div class="line">       list.add(node.val);</div><div class="line">       if (node.left!=null) q.add(node.left);</div><div class="line">       if(node.right!=null) q.add(node.right);</div><div class="line">       &#125;</div><div class="line">       result.add(0,list);</div><div class="line">       &#125;</div><div class="line">       return result;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem:&quot;&gt;&lt;/a&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Given a 
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>104. Maximum Depth of Binary Tree</title>
+    <link href="http://www.mysry.com/2017/11/02/104-Maximum-Depth-of-Binary-Tree/"/>
+    <id>http://www.mysry.com/2017/11/02/104-Maximum-Depth-of-Binary-Tree/</id>
+    <published>2017-11-02T12:17:13.000Z</published>
+    <updated>2017-11-02T12:24:38.024Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problems"><a href="#Problems" class="headerlink" title="Problems:"></a><font color="black">Problems:</font></h2><blockquote><p>Given a binary tree, find its maximum depth.</p><p>The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.</p></blockquote><h2 id="Idea"><a href="#Idea" class="headerlink" title="Idea:"></a><font color="red">Idea:</font></h2><p>&emsp;&emsp;Use recursive to find the most depth child tree by search if its left or right node is null.</p><p>##<font color="orange">Java Code:</font><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for a binary tree node.</div><div class="line"> * public class TreeNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     TreeNode left;</div><div class="line"> *     TreeNode right;</div><div class="line"> *     TreeNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">    public int maxDepth(TreeNode root) &#123;</div><div class="line">        if(root==null) return 0;</div><div class="line">return 1+Math.max(maxDepth(root.left), maxDepth(root.right));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Problems&quot;&gt;&lt;a href=&quot;#Problems&quot; class=&quot;headerlink&quot; title=&quot;Problems:&quot;&gt;&lt;/a&gt;&lt;font color=&quot;black&quot;&gt;Problems:&lt;/font&gt;&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Give
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>101. Symmetric Tree</title>
+    <link href="http://www.mysry.com/2017/11/02/101-Symmetric-Tree/"/>
+    <id>http://www.mysry.com/2017/11/02/101-Symmetric-Tree/</id>
+    <published>2017-11-02T12:11:46.000Z</published>
+    <updated>2017-11-02T12:16:46.890Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a><font color="black">Problem:</font></h2><blockquote><p>Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).</p></blockquote><h2 id="Idea"><a href="#Idea" class="headerlink" title="Idea:"></a><font color="red">Idea:</font></h2><p>&emsp;&emsp;Use recursive to costantly compare its left node with its right node. We will find that recursive is frequently occurred in solving tree ploblems.</p><h2 id="Java-Code"><a href="#Java-Code" class="headerlink" title="Java Code:"></a><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for a binary tree node.</div><div class="line"> * public class TreeNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     TreeNode left;</div><div class="line"> *     TreeNode right;</div><div class="line"> *     TreeNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">    public boolean isSymmetric(TreeNode root) &#123;</div><div class="line">        if (root==null) return true;</div><div class="line">return isMirror(root.left,root.right);</div><div class="line">    &#125;</div><div class="line">    public boolean isMirror(TreeNode p,TreeNode q) &#123;</div><div class="line">if (p==null&amp;&amp;q==null)return true;</div><div class="line">if (p==null||q==null)return false;</div><div class="line">return (p.val==q.val)&amp;&amp; isMirror(p.left,q.right)&amp;&amp; isMirror(p.right,q.left);</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem:&quot;&gt;&lt;/a&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Given a 
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>100. Same Tree</title>
+    <link href="http://www.mysry.com/2017/11/02/100-Same-Tree/"/>
+    <id>http://www.mysry.com/2017/11/02/100-Same-Tree/</id>
+    <published>2017-11-02T12:05:29.000Z</published>
+    <updated>2017-11-02T12:11:15.469Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a><font color="black">Problem:</font></h2><blockquote><p>Given two binary trees, write a function to check if they are equal or not.</p><p>Two binary trees are considered equal if they are structurally identical and the nodes have the same value.</p></blockquote><h2 id="Idea"><a href="#Idea" class="headerlink" title="Idea:"></a><font color="red">Idea:</font></h2><p>&emsp;&emsp;Use recursive to constantly compare their left and right child bode.</p><h2 id="Java-Code"><a href="#Java-Code" class="headerlink" title="Java Code:"></a><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Definition for a binary tree node.</div><div class="line"> public class TreeNode &#123;</div><div class="line">     int val;</div><div class="line">     TreeNode left;</div><div class="line">     TreeNode right;</div><div class="line">     TreeNode(int x) &#123; val = x; &#125;</div><div class="line">&#125;</div><div class="line">class Solution &#123;</div><div class="line">    public boolean isSameTree(TreeNode p, TreeNode q) &#123;</div><div class="line">        if (p==null &amp;&amp; q==null) return true;</div><div class="line">    if (p==null || q==null) return false;</div><div class="line">    if (p.val==q.val)   return isSameTree(p.left,q.left) &amp;&amp; isSameTree(p.right,q.right);</div><div class="line">return false;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem:&quot;&gt;&lt;/a&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Given tw
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>88. Merge Sorted Array</title>
@@ -389,101 +485,6 @@
       
         &lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;&lt;font color=&quot;black&quot;&gt;题目&lt;/font&gt;&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;Write a function to find the l
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>20. Valid Parentheses</title>
-    <link href="http://www.mysry.com/2017/10/27/20-Valid-Parentheses/"/>
-    <id>http://www.mysry.com/2017/10/27/20-Valid-Parentheses/</id>
-    <published>2017-10-27T02:19:34.000Z</published>
-    <updated>2017-10-27T03:05:16.093Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a><font color="black">题目</font></h2><blockquote><p>Given a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid.</p><p>The brackets must close in the correct order, “()” and “()[]{}” are all valid but “(]” and “([)]” are not.</p></blockquote><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a><font color="red">题解</font></h2><p>&emsp;&emsp;给定只包含’(‘,’[‘,’{‘,’)’,’[‘,’}’的字符串，判断其是否成对顺序匹配，采用stack堆栈，每次遍历到左边的’[‘,’(‘,’{‘时，将右边的括号入栈，如果字符串出现右括号需要检查堆栈是否为空，以及顶部元素是否与右侧括号相同。 如果没有，字符串不是有效的。 最后，我们还需要检查堆栈是否为空。</p><h2 id="Java-Code"><a href="#Java-Code" class="headerlink" title="Java Code:"></a><font color="orange">Java Code:</font></h2><pre><code>import java.util.Scanner;import java.util.Stack;public class ValidParentheses {    public static void main(String[] args) {        // TODO Auto-generated method stub      Scanner scanner=new Scanner(System.in);      System.out.println(&quot;Please input the string: &quot;);      String s = scanner.next();      scanner.close();      boolean result= isValid(s);      System.out.print(result);    }    public static boolean isValid(String s) {        Stack&lt;Character&gt; stack= new Stack&lt;Character&gt;();        for (char c:s.toCharArray()) {            if (c==&apos;(&apos;)                stack.push(&apos;)&apos;);            else if (c==&apos;{&apos;)                stack.push(&apos;}&apos;);            else if (c==&apos;[&apos;)                stack.push(&apos;]&apos;);            else if (stack.isEmpty()||stack.pop()!=c)                return false;        }        return stack.isEmpty();    }}</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;&lt;font color=&quot;black&quot;&gt;题目&lt;/font&gt;&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;Given a string containing just
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux pip 多版本混用的问题</title>
-    <link href="http://www.mysry.com/2017/10/26/Linux-pip-%E5%A4%9A%E7%89%88%E6%9C%AC%E6%B7%B7%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98/"/>
-    <id>http://www.mysry.com/2017/10/26/Linux-pip-多版本混用的问题/</id>
-    <published>2017-10-26T08:01:26.000Z</published>
-    <updated>2017-10-26T08:20:30.250Z</updated>
-    
-    <content type="html"><![CDATA[<p>&emsp;&emsp;我的电脑上有python2.7.14和python3.5.2、pip8和pip9<br>&emsp;&emsp;我的小服务器上有python2.7.12和python3.5.2,pip9.0.1(且小服务器默认python版本为python3.5)。然后就麻烦了，在服务器上调试程序需要用到web.py和poster。这些都是比较老的东西，python3不支持。需要扩展python2，给它安上web.py和poster。</p><p>&emsp;&emsp;电脑第一次尝试：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo pip install web.py</div><div class="line">sudo pip install poster</div></pre></td></tr></table></figure></p><p>&emsp;&emsp;失败，原因pip默认pip3,默认给pip3扩展。</p><p>&emsp;&emsp;电脑第二次尝试：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo pip2 install web.py</div><div class="line">sudo pip2 install poster</div></pre></td></tr></table></figure></p><p>&emsp;&emsp;成功。</p><p>&emsp;&emsp;服务器第一次尝试：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo pip2 install web.py</div><div class="line">sudo pip2 install poster</div></pre></td></tr></table></figure></p><p>&emsp;&emsp;失败，原因是服务器是pip9.0.1不支持python2,还是对python3进行操作。</p><p>&emsp;&emsp;查阅python相关资料后，服务器第二次尝试：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo python2 -m pip install web.py</div><div class="line">sudo python2 -m pip install poster</div></pre></td></tr></table></figure></p><p>&emsp;&emsp;成功。</p><h2 id="成长之路，处处皆坑，切踩珍惜！"><a href="#成长之路，处处皆坑，切踩珍惜！" class="headerlink" title="成长之路，处处皆坑，切踩珍惜！"></a><font color="red">成长之路，处处皆坑，切踩珍惜！</font></h2>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&amp;emsp;&amp;emsp;我的电脑上有python2.7.14和python3.5.2、pip8和pip9&lt;br&gt;&amp;emsp;&amp;emsp;我的小服务器上有python2.7.12和python3.5.2,pip9.0.1(且小服务器默认python版本为python3.5)。
-      
-    
-    </summary>
-    
-    
-      <category term="skills" scheme="http://www.mysry.com/tags/skills/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>13. Roman to Integer</title>
-    <link href="http://www.mysry.com/2017/10/26/13-Roman-to-Integer/"/>
-    <id>http://www.mysry.com/2017/10/26/13-Roman-to-Integer/</id>
-    <published>2017-10-26T04:51:42.000Z</published>
-    <updated>2017-10-26T04:57:47.110Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a><font color="black">题目</font></h2><blockquote><p>Given a roman numeral, convert it to an integer.</p><p>Input is guaranteed to be within the range from 1 to 3999.</p></blockquote><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a><font color="red">题解</font></h2><p>&emsp;&emsp;本体要求将罗马数字换算为整型阿拉伯数字，先将罗马数字对应位换算位阿拉伯数字存储到数组中，再对数组中的元素处理，然后输出阿拉伯数字。</p><h2 id="Java-Code"><a href="#Java-Code" class="headerlink" title="Java Code"></a><font color="orange">Java Code</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">import java.util.Scanner;</div><div class="line"></div><div class="line">class Solution &#123;</div><div class="line">    public static int romanToInt(String s) &#123;</div><div class="line">        int nums[] = new int[s.length()];</div><div class="line">        for (int i = 0; i &lt; s.length(); i++) &#123;</div><div class="line">            switch (s.charAt(i)) &#123;</div><div class="line">                case &apos;M&apos;:</div><div class="line">                    nums[i] = 10000;</div><div class="line">                    break;</div><div class="line">                case &apos;D&apos;:</div><div class="line">                    nums[i] = 500;</div><div class="line">                    break;</div><div class="line">                case &apos;C&apos;:</div><div class="line">                    nums[i] = 100;</div><div class="line">                    break;</div><div class="line">                case &apos;L&apos;:</div><div class="line">                    nums[i] = 50;</div><div class="line">                    break;</div><div class="line">                case &apos;X&apos;:</div><div class="line">                    nums[i] = 10;</div><div class="line">                    break;</div><div class="line">                case &apos;V&apos;:</div><div class="line">                    nums[i] = 5;</div><div class="line">                    break;</div><div class="line">                case &apos;I&apos;:</div><div class="line">                    nums[i] = 1;</div><div class="line">                    break;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        int sum = 0;</div><div class="line">        for (int j = 0; j &lt; nums.length - 1; j++) &#123;</div><div class="line">            if (nums[j] &lt; nums[j + 1]) &#123;</div><div class="line">                sum -= nums[j];</div><div class="line">            &#125; else &#123;</div><div class="line">                sum += nums[j];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return sum + nums[nums.length - 1];</div><div class="line">    &#125;</div><div class="line">    public static void main(String []args)&#123;</div><div class="line">        Scanner scanner= new Scanner(System.in);</div><div class="line">        System.out.println(&quot;please input the roman numeral:&quot;);</div><div class="line">        String s =scanner.nextLine();</div><div class="line">        int result = romanToInt(s);</div><div class="line">        System.out.println(&quot;The result is &quot;+result);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;&lt;font color=&quot;black&quot;&gt;题目&lt;/font&gt;&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;Given a roman numeral, convert
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>9. Palindrome Number</title>
-    <link href="http://www.mysry.com/2017/10/26/9-Palindrome-Number/"/>
-    <id>http://www.mysry.com/2017/10/26/9-Palindrome-Number/</id>
-    <published>2017-10-26T02:45:00.000Z</published>
-    <updated>2017-10-26T02:56:04.689Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a><font color="black">题目</font></h2><blockquote><p>Determine whether an integer is a palindrome. Do this without extra space.</p><p><font color="green">Thinking:</font><br>Could negative integers be palindromes? (ie, -1)</p><p>If you are thinking of converting the integer to string, note the restriction of using extra space.</p><p>You could also try reversing an integer. However, if you have solved the problem “Reverse Integer”, you know that the reversed integer might overflow. How would you handle such case?</p></blockquote><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a><font color="red">题解</font></h2><p>&emsp;&emsp;做这题我采取了一个非常巧妙的判别方法，先判断是否为正数，不是正数肯定不是回文，然后利用第七题的函数判断其翻转后的数字是否和原始数据相等，若想等则为回文数。我会在后面贴一个来自社区的非常巧妙地答案。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">import java.util.Scanner;</div><div class="line"></div><div class="line">class Solution &#123;</div><div class="line">    public  static boolean isPalindrome(int x) &#123;</div><div class="line">        if (x&gt;=0)&#123;</div><div class="line">            int y= reverse(x);</div><div class="line">            if (x==y)&#123;</div><div class="line">                return true;</div><div class="line">            &#125;</div><div class="line">            else</div><div class="line">            &#123;</div><div class="line">                return false;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        else &#123;</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    public static int reverse(int x)&#123;</div><div class="line">        int output=0;</div><div class="line">        while (x!=0)&#123;</div><div class="line">            int tail =x%10;</div><div class="line">            int tmp =output*10+tail;</div><div class="line">            if ((tmp-tail)/10!=output)&#123;</div><div class="line">                return 0;</div><div class="line">            &#125;</div><div class="line">            output =tmp;</div><div class="line">            x=x/10;</div><div class="line">        &#125;</div><div class="line">        return output;</div><div class="line">    &#125;</div><div class="line">    public static void main (String []args)&#123;</div><div class="line">        Scanner scanner=new Scanner(System.in);</div><div class="line">        System.out.println(&quot;please input a integer: &quot;);</div><div class="line">        int x= scanner.nextInt();</div><div class="line">        boolean result= isPalindrome(x);</div><div class="line">        System.out.println(&quot;The result is: &quot;+result);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p><h2 id="巧妙地解答"><a href="#巧妙地解答" class="headerlink" title="巧妙地解答:"></a><font color="pink">巧妙地解答:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">public class Ginius &#123;</div><div class="line">    public boolean isPalindrome(int x) &#123;</div><div class="line">        if (x &lt; 0 || (x != 0 &amp;&amp; x % 10 == 0)) return false;</div><div class="line">        int rev = 0;</div><div class="line">        while (x &gt; rev) &#123;</div><div class="line">            rev = rev * 10 + x % 10;</div><div class="line">            x = x / 10;</div><div class="line">        &#125;</div><div class="line">        return (x == rev || x == rev / 10);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;&lt;font color=&quot;black&quot;&gt;题目&lt;/font&gt;&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;Determine whether an integer i
       
     
     </summary>
