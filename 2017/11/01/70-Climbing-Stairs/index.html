@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="Problem:  You are climbing a stair case. It takes n steps to reach to the top.   Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?   Note: Given n will b">
+<meta name="description" content="&amp;lt;font color =black&amp;gt;Problem:&amp;lt;/font&amp;gt;  You are climbing a stair case. It takes n steps to reach to the top.   Each time you can either climb 1 or 2 steps. In how many distinct ways can you cl">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="70. Climbing Stairs">
 <meta property="og:url" content="http://www.mysry.com/2017/11/01/70-Climbing-Stairs/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="Problem:  You are climbing a stair case. It takes n steps to reach to the top.   Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?   Note: Given n will b">
+<meta property="og:description" content="&amp;lt;font color =black&amp;gt;Problem:&amp;lt;/font&amp;gt;  You are climbing a stair case. It takes n steps to reach to the top.   Each time you can either climb 1 or 2 steps. In how many distinct ways can you cl">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-11-01T04:17:31.827Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="70. Climbing Stairs">
-<meta name="twitter:description" content="Problem:  You are climbing a stair case. It takes n steps to reach to the top.   Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?   Note: Given n will b">
+<meta name="twitter:description" content="&amp;lt;font color =black&amp;gt;Problem:&amp;lt;/font&amp;gt;  You are climbing a stair case. It takes n steps to reach to the top.   Each time you can either climb 1 or 2 steps. In how many distinct ways can you cl">
 
 
 
@@ -322,7 +322,7 @@
       
 
       
-        <h2 id="problem"><font color="black">Problem:</font></h2>
+        <h2>&lt;font color =black&gt;Problem:&lt;/font&gt;</h2>
 <blockquote>
 <p>You are climbing a stair case. It takes n steps to reach to the top.</p>
 </blockquote>
@@ -332,10 +332,10 @@
 <blockquote>
 <p>Note: Given n will be a positive integer.</p>
 </blockquote>
-<h2 id="idea"><font color="red">Idea:</font></h2>
+<h2>&lt;font color =red&gt;Idea:&lt;/font&gt;</h2>
 <p>  This is basic use of fibonacci.The key intuition to solve the problem is that given a number of stairs n, if we know the number ways to get to the points [n-1] and [n-2] respectively, denoted as n1 and n2 , then the total ways to get to the point [n] is n1 + n2. Because from the [n-1] point, we can take one single step to reach [n]. And from the [n-2] point, we could take two steps to get there. There is NO overlapping between these two solution sets, because we differ in the final step.</p>
-<h2 id="java-code"><font color="orange">Java Code:</font></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int climbStairs(int n) &#123;</div><div class="line">        if (n==0) return 0;</div><div class="line">	if (n==1) return 1;</div><div class="line">	if (n==2) return 2;</div><div class="line">	int oneStepBefore=2;</div><div class="line">	int twoStepBefore=1;</div><div class="line">	int allways=0;</div><div class="line">	for (int i=2;i&lt;n;i++) &#123;</div><div class="line">		allways=oneStepBefore+twoStepBefore;</div><div class="line">		twoStepBefore=oneStepBefore;</div><div class="line">		oneStepBefore=allways;</div><div class="line">	&#125;</div><div class="line">	return allways;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2>&lt;font color = orange&gt;Java Code:&lt;/font&gt;</h2>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int climbStairs(int n) &#123;</div><div class="line">        if (n==0) return 0;</div><div class="line">	if (n==1) return 1;</div><div class="line">	if (n==2) return 2;</div><div class="line">	int oneStepBefore=2;</div><div class="line">	int twoStepBefore=1;</div><div class="line">	int allways=0;</div><div class="line">	for (int i=2;i&lt;n;i++) &#123;</div><div class="line">		allways=oneStepBefore+twoStepBefore;</div><div class="line">		twoStepBefore=oneStepBefore;</div><div class="line">		oneStepBefore=allways;</div><div class="line">	&#125;</div><div class="line">	return allways;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -470,7 +470,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -545,7 +545,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text"><font color =black>Problem:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text"><font color =red>Idea:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text"><font color = orange>Java Code:</font></span></a></li></ol></div>
             
 
           </div>

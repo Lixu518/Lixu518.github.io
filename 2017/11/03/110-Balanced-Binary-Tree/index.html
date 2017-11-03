@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="Problem:  Given a binary tree, determine if it is height-balanced.   For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node ne">
+<meta name="description" content="&amp;lt;font color=&amp;quot;black&amp;quot;&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given a binary tree, determine if it is height-balanced.   For this problem, a height-balanced binary tree is defined as a binary tree in whi">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="110. Balanced Binary Tree">
 <meta property="og:url" content="http://www.mysry.com/2017/11/03/110-Balanced-Binary-Tree/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="Problem:  Given a binary tree, determine if it is height-balanced.   For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node ne">
+<meta property="og:description" content="&amp;lt;font color=&amp;quot;black&amp;quot;&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given a binary tree, determine if it is height-balanced.   For this problem, a height-balanced binary tree is defined as a binary tree in whi">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-11-03T07:02:40.613Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="110. Balanced Binary Tree">
-<meta name="twitter:description" content="Problem:  Given a binary tree, determine if it is height-balanced.   For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node ne">
+<meta name="twitter:description" content="&amp;lt;font color=&amp;quot;black&amp;quot;&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given a binary tree, determine if it is height-balanced.   For this problem, a height-balanced binary tree is defined as a binary tree in whi">
 
 
 
@@ -322,17 +322,17 @@
       
 
       
-        <h2 id="problem"><font color="black">Problem:</font></h2>
+        <h2>&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;</h2>
 <blockquote>
 <p>Given a binary tree, determine if it is height-balanced.</p>
 </blockquote>
 <blockquote>
 <p>For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1.</p>
 </blockquote>
-<h2 id="idea"><font color="red">Idea:</font></h2>
+<h2>&lt;font color=&quot;red&quot;&gt;Idea:&lt;/font&gt;</h2>
 <p>  Use recursion to traverse the left and right nodes at the same time, if node depth between the left and right is no more than 1, we consider it as a balanced binary tree.</p>
-<h2 id="java-code"><font color="orange">Java Code:</font></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for a binary tree node.</div><div class="line"> * public class TreeNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     TreeNode left;</div><div class="line"> *     TreeNode right;</div><div class="line"> *     TreeNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">    public boolean isBalanced(TreeNode root) &#123;</div><div class="line">    if (root==null) return true;</div><div class="line">    return height(root)!=-1;    </div><div class="line">&#125;</div><div class="line">public int height(TreeNode node) &#123;</div><div class="line">    if(node==null) &#123;</div><div class="line">        return 0;</div><div class="line">    &#125;</div><div class="line">    int lH=height(node.left);</div><div class="line">    if(lH==-1) return -1;</div><div class="line">    int rH =height(node.right);</div><div class="line">    if (rH==-1) return -1;</div><div class="line">    if(lH-rH&lt;-1||lH-rH&gt;1) return -1;</div><div class="line">    return Math.max(lH, rH)+1;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2>&lt;font color=&quot;orange&quot;&gt;Java Code:&lt;/font&gt;</h2>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for a binary tree node.</div><div class="line"> * public class TreeNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     TreeNode left;</div><div class="line"> *     TreeNode right;</div><div class="line"> *     TreeNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">    public boolean isBalanced(TreeNode root) &#123;</div><div class="line">    if (root==null) return true;</div><div class="line">    return height(root)!=-1;    </div><div class="line">&#125;</div><div class="line">public int height(TreeNode node) &#123;</div><div class="line">    if(node==null) &#123;</div><div class="line">        return 0;</div><div class="line">    &#125;</div><div class="line">    int lH=height(node.left);</div><div class="line">    if(lH==-1) return -1;</div><div class="line">    int rH =height(node.right);</div><div class="line">    if (rH==-1) return -1;</div><div class="line">    if(lH-rH&lt;-1||lH-rH&gt;1) return -1;</div><div class="line">    return Math.max(lH, rH)+1;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -467,7 +467,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -542,7 +542,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text"><font color="black">Problem:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text"><font color="red">Idea:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text"><font color="orange">Java Code:</font></span></a></li></ol></div>
             
 
           </div>

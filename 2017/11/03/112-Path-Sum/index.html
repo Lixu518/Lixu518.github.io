@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="Problem:  Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.  Idea:   Use the recursion to traversal i">
+<meta name="description" content="&amp;lt;font color=&amp;quot;black&amp;quot;&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the giv">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="112. Path Sum">
 <meta property="og:url" content="http://www.mysry.com/2017/11/03/112-Path-Sum/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="Problem:  Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.  Idea:   Use the recursion to traversal i">
+<meta property="og:description" content="&amp;lt;font color=&amp;quot;black&amp;quot;&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the giv">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-11-03T07:15:05.304Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="112. Path Sum">
-<meta name="twitter:description" content="Problem:  Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.  Idea:   Use the recursion to traversal i">
+<meta name="twitter:description" content="&amp;lt;font color=&amp;quot;black&amp;quot;&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the giv">
 
 
 
@@ -322,14 +322,14 @@
       
 
       
-        <h2 id="problem"><font color="black">Problem:</font></h2>
+        <h2>&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;</h2>
 <blockquote>
 <p>Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.</p>
 </blockquote>
-<h2 id="idea"><font color="red">Idea:</font></h2>
+<h2>&lt;font color=&quot;red&quot;&gt;Idea:&lt;/font&gt;</h2>
 <p>  Use the recursion to traversal its path, every level has two choice, and reduce the sum with node.val(left.val or right.val).</p>
-<h2 id="java-code"><font color="orange">Java Code:</font></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for a binary tree node.</div><div class="line"> * public class TreeNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     TreeNode left;</div><div class="line"> *     TreeNode right;</div><div class="line"> *     TreeNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">    public boolean hasPathSum(TreeNode root, int sum) &#123;</div><div class="line">        if (root==null)return false;</div><div class="line">    if(root.left==null&amp;&amp;root.right==null&amp;&amp;sum-root.val==0)</div><div class="line">        return true;</div><div class="line">    return hasPathSum(root.left,sum-root.val)||hasPathSum(root.right,sum-root.val);</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2>&lt;font color=&quot;orange&quot;&gt;Java Code:&lt;/font&gt;</h2>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for a binary tree node.</div><div class="line"> * public class TreeNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     TreeNode left;</div><div class="line"> *     TreeNode right;</div><div class="line"> *     TreeNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">    public boolean hasPathSum(TreeNode root, int sum) &#123;</div><div class="line">        if (root==null)return false;</div><div class="line">    if(root.left==null&amp;&amp;root.right==null&amp;&amp;sum-root.val==0)</div><div class="line">        return true;</div><div class="line">    return hasPathSum(root.left,sum-root.val)||hasPathSum(root.right,sum-root.val);</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -464,7 +464,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -539,7 +539,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text"><font color="black">Problem:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text"><font color="red">Idea:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text"><font color="orange">Java Code:</font></span></a></li></ol></div>
             
 
           </div>
