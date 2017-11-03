@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="题目  Given a string containing just the characters ‘(’, ‘)’, ‘{’, ‘}’, ‘[’ and ’]’, determine if the input string is valid.   The brackets must close in the correct order, “()” and “()” are all valid b">
+<meta name="description" content="Problem:  Given numRows, generate the first numRows of Pascal’s triangle.  Idea:  Pascal’s triangle is a triangular array of the binomial coefficients, every num is equal to the sum of its shoudlers(o">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="20. Valid Parentheses">
-<meta property="og:url" content="http://www.mysry.com/2017/10/27/20-Valid-Parentheses/index.html">
+<meta property="og:title" content="118. Pascal&#39;s Triangle">
+<meta property="og:url" content="http://www.mysry.com/2017/11/03/118-Pascal-s-Triangle/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="题目  Given a string containing just the characters ‘(’, ‘)’, ‘{’, ‘}’, ‘[’ and ’]’, determine if the input string is valid.   The brackets must close in the correct order, “()” and “()” are all valid b">
+<meta property="og:description" content="Problem:  Given numRows, generate the first numRows of Pascal’s triangle.  Idea:  Pascal’s triangle is a triangular array of the binomial coefficients, every num is equal to the sum of its shoudlers(o">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-27T03:05:16.093Z">
+<meta property="og:updated_time" content="2017-11-03T07:38:56.635Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="20. Valid Parentheses">
-<meta name="twitter:description" content="题目  Given a string containing just the characters ‘(’, ‘)’, ‘{’, ‘}’, ‘[’ and ’]’, determine if the input string is valid.   The brackets must close in the correct order, “()” and “()” are all valid b">
+<meta name="twitter:title" content="118. Pascal&#39;s Triangle">
+<meta name="twitter:description" content="Problem:  Given numRows, generate the first numRows of Pascal’s triangle.  Idea:  Pascal’s triangle is a triangular array of the binomial coefficients, every num is equal to the sum of its shoudlers(o">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://www.mysry.com/2017/10/27/20-Valid-Parentheses/"/>
+  <link rel="canonical" href="http://www.mysry.com/2017/11/03/118-Pascal-s-Triangle/"/>
 
 
 
 
 
-  <title>20. Valid Parentheses | Mysry</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>118. Pascal's Triangle | Mysry</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -255,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.mysry.com/2017/10/27/20-Valid-Parentheses/">
+    <link itemprop="mainEntityOfPage" href="http://www.mysry.com/2017/11/03/118-Pascal-s-Triangle/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mysry">
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">20. Valid Parentheses</h1>
+          <h1 class="post-title" itemprop="name headline">118. Pascal's Triangle</h1>
         
 
         <div class="post-meta">
@@ -284,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-27T10:19:34+08:00">
-                2017-10-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-03T15:17:27+08:00">
+                2017-11-03
               </time>
             
 
@@ -322,45 +322,14 @@
       
 
       
-        <h2 id="题目"><font color="black">题目</font></h2>
+        <h2 id="problem"><font color="black">Problem:</font></h2>
 <blockquote>
-<p>Given a string containing just the characters ‘(’, ‘)’, ‘{’, ‘}’, ‘[’ and ’]’, determine if the input string is valid.</p>
+<p>Given numRows, generate the first numRows of Pascal’s triangle.</p>
 </blockquote>
-<blockquote>
-<p>The brackets must close in the correct order, “()” and “()<span></span>” are all valid but “(]” and “([)]” are not.</p>
-</blockquote>
-<h2 id="题解"><font color="red">题解</font></h2>
-<p>  给定只包含’(‘,’[‘,’{‘,’)‘,’[‘,’}‘的字符串，判断其是否成对顺序匹配，采用stack堆栈，每次遍历到左边的’[‘,’(‘,’{’时，将右边的括号入栈，如果字符串出现右括号需要检查堆栈是否为空，以及顶部元素是否与右侧括号相同。 如果没有，字符串不是有效的。 最后，我们还需要检查堆栈是否为空。</p>
+<h2 id="idea"><font color="red">Idea:</font></h2>
+<p> Pascal’s triangle is a triangular array of the binomial coefficients, every num is equal to the sum of its shoudlers(one or two numbers’ sum).</p>
 <h2 id="java-code"><font color="orange">Java Code:</font></h2>
-<pre><code>import java.util.Scanner;
-import java.util.Stack;
-
-public class ValidParentheses {
-
-    public static void main(String[] args) {
-        // TODO Auto-generated method stub
-      Scanner scanner=new Scanner(System.in);
-      System.out.println(&quot;Please input the string: &quot;);
-      String s = scanner.next();
-      scanner.close();
-      boolean result= isValid(s);
-      System.out.print(result);
-    }
-    public static boolean isValid(String s) {
-        Stack&lt;Character&gt; stack= new Stack&lt;Character&gt;();
-        for (char c:s.toCharArray()) {
-            if (c==&#39;(&#39;)
-                stack.push(&#39;)&#39;);
-            else if (c==&#39;{&#39;)
-                stack.push(&#39;}&#39;);
-            else if (c==&#39;[&#39;)
-                stack.push(&#39;]&#39;);
-            else if (stack.isEmpty()||stack.pop()!=c)
-                return false;
-        }
-        return stack.isEmpty();
-    }
-}</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public List&lt;List&lt;Integer&gt;&gt; generate(int numRows) &#123;</div><div class="line">       List&lt;List&lt;Integer&gt;&gt; allrows = new ArrayList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">    ArrayList&lt;Integer&gt; row = new ArrayList&lt;Integer&gt;();</div><div class="line">    for (int i=0;i&lt;numRows;i++) &#123;</div><div class="line">        row.add(0,1);</div><div class="line">        for(int j=1;j&lt;row.size()-1;j++)</div><div class="line">            row.set(j, row.get(j)+row.get(j+1));</div><div class="line">        allrows.add(new ArrayList&lt;Integer&gt;(row));</div><div class="line">    &#125;</div><div class="line">    return allrows; </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -402,8 +371,8 @@ public class ValidParentheses {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/26/Linux-pip-多版本混用的问题/" rel="next" title="Linux pip 多版本混用的问题">
-                <i class="fa fa-chevron-left"></i> Linux pip 多版本混用的问题
+              <a href="/2017/11/03/112-Path-Sum/" rel="next" title="112. Path Sum">
+                <i class="fa fa-chevron-left"></i> 112. Path Sum
               </a>
             
           </div>
@@ -412,8 +381,8 @@ public class ValidParentheses {
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/10/27/14-Longest-Common-Prefix/" rel="prev" title="14. Longest Common Prefix">
-                14. Longest Common Prefix <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/03/119-Pascal-s-Triangle-II/" rel="prev" title="119. Pascal's Triangle II">
+                119. Pascal's Triangle II <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -570,7 +539,7 @@ public class ValidParentheses {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题解"><span class="nav-number">2.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li></ol></div>
             
 
           </div>
