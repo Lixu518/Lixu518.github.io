@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="&amp;lt;font color =black&amp;gt;Problems:&amp;lt;/font&amp;gt;  Find the contiguous subarray within an array (containing at least one number) which has the largest sum.   For example, given the array [-2,1,-3,4,-1,2">
+<meta name="description" content="Problems:  Find the contiguous subarray within an array (containing at least one number) which has the largest sum.   For example, given the array [-2,1,-3,4,-1,2,1,-5,4], the contiguous subarray [4,-">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="53. Maximum Subarray">
 <meta property="og:url" content="http://www.mysry.com/2017/10/31/53-Maximum-Subarray/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="&amp;lt;font color =black&amp;gt;Problems:&amp;lt;/font&amp;gt;  Find the contiguous subarray within an array (containing at least one number) which has the largest sum.   For example, given the array [-2,1,-3,4,-1,2">
+<meta property="og:description" content="Problems:  Find the contiguous subarray within an array (containing at least one number) which has the largest sum.   For example, given the array [-2,1,-3,4,-1,2,1,-5,4], the contiguous subarray [4,-">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-10-31T11:56:18.084Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="53. Maximum Subarray">
-<meta name="twitter:description" content="&amp;lt;font color =black&amp;gt;Problems:&amp;lt;/font&amp;gt;  Find the contiguous subarray within an array (containing at least one number) which has the largest sum.   For example, given the array [-2,1,-3,4,-1,2">
+<meta name="twitter:description" content="Problems:  Find the contiguous subarray within an array (containing at least one number) which has the largest sum.   For example, given the array [-2,1,-3,4,-1,2,1,-5,4], the contiguous subarray [4,-">
 
 
 
@@ -322,28 +322,27 @@
       
 
       
-        <h2>&lt;font color =black&gt;Problems:&lt;/font&gt;</h2>
+        <h2 id="problems"><font color="black">Problems:</font></h2>
 <blockquote>
 <p>Find the contiguous subarray within an array (containing at least one number) which has the largest sum.</p>
 </blockquote>
 <blockquote>
 <p>For example, given the array [-2,1,-3,4,-1,2,1,-5,4], the contiguous subarray [4,-1,2,1] has the largest sum = 6.</p>
 </blockquote>
-<h2>&lt;font color =red&gt;Idea:&lt;/font&gt;</h2>
+<h2 id="idea"><font color="red">Idea:</font></h2>
 <p>  We create two int array maxEnding and maxSofar, maxEnding is constantly update and other is to put the biggest sum subarray. MaEnding is the bigger one in maxEnding plus nums[i] and the maxSofar,and then compare maxEnding with maxSofar put maxSofar as the bigger one until we have traverse all the elements.</p>
-<h2>&lt;font color = orange&gt;Java Code:&lt;/font&gt;</h2>
+<h2 id="java-code"><font color="orange">Java Code:</font></h2>
 <pre><code>public class Solution {
      public int maximumSubarray(int []nums) {
-    	 int maxSofar=nums[0];
-    	 int maxEnding=nums[0];
-    	 for (int i=1;i&lt;nums.length;i++) {
-    		 maxEnding = Math.max(maxEnding+nums[i],maxSofar);
-    		 maxSofar=Math.max(maxEnding,maxSofar);
-    	 }
-    	 return maxEnding;
+         int maxSofar=nums[0];
+         int maxEnding=nums[0];
+         for (int i=1;i&lt;nums.length;i++) {
+             maxEnding = Math.max(maxEnding+nums[i],maxSofar);
+             maxSofar=Math.max(maxEnding,maxSofar);
+         }
+         return maxEnding;
      }
-}
-</code></pre>
+}</code></pre>
 
       
     </div>
@@ -553,7 +552,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text"><font color =black>Problems:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text"><font color =red>Idea:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text"><font color = orange>Java Code:</font></span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problems"><span class="nav-number">1.</span> <span class="nav-text">Problems:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li></ol></div>
             
 
           </div>

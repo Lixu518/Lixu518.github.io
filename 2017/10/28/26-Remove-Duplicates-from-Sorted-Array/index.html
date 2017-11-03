@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="&amp;lt;font color =black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.   Do not allocate extra space fo">
+<meta name="description" content="Problem:  Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.   Do not allocate extra space for another array, you must do this in p">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="26. Remove Duplicates from Sorted Array">
 <meta property="og:url" content="http://www.mysry.com/2017/10/28/26-Remove-Duplicates-from-Sorted-Array/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="&amp;lt;font color =black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.   Do not allocate extra space fo">
+<meta property="og:description" content="Problem:  Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.   Do not allocate extra space for another array, you must do this in p">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-10-28T03:35:13.866Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="26. Remove Duplicates from Sorted Array">
-<meta name="twitter:description" content="&amp;lt;font color =black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.   Do not allocate extra space fo">
+<meta name="twitter:description" content="Problem:  Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.   Do not allocate extra space for another array, you must do this in p">
 
 
 
@@ -322,7 +322,7 @@
       
 
       
-        <h2>&lt;font color =black&gt;Problem:&lt;/font&gt;</h2>
+        <h2 id="problem"><font color="black">Problem:</font></h2>
 <blockquote>
 <p>Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.</p>
 </blockquote>
@@ -330,16 +330,15 @@
 <p>Do not allocate extra space for another array, you must do this in place with constant memory.</p>
 </blockquote>
 <blockquote>
-<p>For example,
-Given input array nums = [1,1,2],</p>
+<p>For example, Given input array nums = [1,1,2],</p>
 </blockquote>
 <blockquote>
-<p>Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively. It doesn't matter what you leave beyond the new length.</p>
+<p>Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively. It doesn’t matter what you leave beyond the new length.</p>
 </blockquote>
-<h2>&lt;font color=red&gt;Idea:&lt;/font&gt;</h2>
+<h2 id="idea"><font color="red">Idea:</font></h2>
 <p>  Because it is a sorted array, so you can directly compare the neighboring elements, if they are equal, then they were repeated the element, the element can be assigned to the subsequent elements.</p>
-<h2>&lt;font color =orange&gt;Java Code:&lt;/font&gt;</h2>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">public class Solution &#123;</div><div class="line"></div><div class="line">	public static void main(String[] args) &#123;</div><div class="line">		// TODO Auto-generated method stub</div><div class="line">      int []nums= &#123;1,2,2,3,3,3,4&#125;;</div><div class="line">      int a=removeDuplicates(nums);</div><div class="line">      System.out.println(a);</div><div class="line">      for (int i=0;i&lt;nums.length;i++) &#123;</div><div class="line">    	  System.out.println(nums[i]);</div><div class="line">      &#125;</div><div class="line">	&#125;</div><div class="line">	public static int removeDuplicates(int []nums) &#123;</div><div class="line">		if (nums.length==0)return 0;</div><div class="line">		int j=0;</div><div class="line">		for (int i=0;i&lt;nums.length;i++) &#123;</div><div class="line">			if (nums[i]!=nums[j])nums[++j]=nums[i];</div><div class="line">			</div><div class="line">		&#125;</div><div class="line">		return ++j;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="java-code"><font color="orange">Java Code:</font></h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">public class Solution &#123;</div><div class="line"></div><div class="line">	public static void main(String[] args) &#123;</div><div class="line">		// TODO Auto-generated method stub</div><div class="line">      int []nums= &#123;1,2,2,3,3,3,4&#125;;</div><div class="line">      int a=removeDuplicates(nums);</div><div class="line">      System.out.println(a);</div><div class="line">      for (int i=0;i&lt;nums.length;i++) &#123;</div><div class="line">    	  System.out.println(nums[i]);</div><div class="line">      &#125;</div><div class="line">	&#125;</div><div class="line">	public static int removeDuplicates(int []nums) &#123;</div><div class="line">		if (nums.length==0)return 0;</div><div class="line">		int j=0;</div><div class="line">		for (int i=0;i&lt;nums.length;i++) &#123;</div><div class="line">			if (nums[i]!=nums[j])nums[++j]=nums[i];</div><div class="line">			</div><div class="line">		&#125;</div><div class="line">		return ++j;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -549,7 +548,7 @@ Given input array nums = [1,1,2],</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text"><font color =black>Problem:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text"><font color=red>Idea:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text"><font color =orange>Java Code:</font></span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li></ol></div>
             
 
           </div>

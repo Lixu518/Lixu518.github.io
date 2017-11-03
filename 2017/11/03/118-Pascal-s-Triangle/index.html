@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="&amp;lt;font color=&amp;quot;black&amp;quot;&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given numRows, generate the first numRows of Pascal&apos;s triangle.  &amp;lt;font color=&amp;quot;red&amp;quot;&amp;gt;Idea:&amp;lt;/font&amp;gt;  Pascal&apos;s triangle is a">
+<meta name="description" content="Problem:  Given numRows, generate the first numRows of Pascal’s triangle.  Idea:  Pascal’s triangle is a triangular array of the binomial coefficients, every num is equal to the sum of its shoudlers(o">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="118. Pascal&#39;s Triangle">
 <meta property="og:url" content="http://www.mysry.com/2017/11/03/118-Pascal-s-Triangle/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="&amp;lt;font color=&amp;quot;black&amp;quot;&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given numRows, generate the first numRows of Pascal&apos;s triangle.  &amp;lt;font color=&amp;quot;red&amp;quot;&amp;gt;Idea:&amp;lt;/font&amp;gt;  Pascal&apos;s triangle is a">
+<meta property="og:description" content="Problem:  Given numRows, generate the first numRows of Pascal’s triangle.  Idea:  Pascal’s triangle is a triangular array of the binomial coefficients, every num is equal to the sum of its shoudlers(o">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-11-03T07:38:56.635Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="118. Pascal&#39;s Triangle">
-<meta name="twitter:description" content="&amp;lt;font color=&amp;quot;black&amp;quot;&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given numRows, generate the first numRows of Pascal&apos;s triangle.  &amp;lt;font color=&amp;quot;red&amp;quot;&amp;gt;Idea:&amp;lt;/font&amp;gt;  Pascal&apos;s triangle is a">
+<meta name="twitter:description" content="Problem:  Given numRows, generate the first numRows of Pascal’s triangle.  Idea:  Pascal’s triangle is a triangular array of the binomial coefficients, every num is equal to the sum of its shoudlers(o">
 
 
 
@@ -322,14 +322,14 @@
       
 
       
-        <h2>&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;</h2>
+        <h2 id="problem"><font color="black">Problem:</font></h2>
 <blockquote>
-<p>Given numRows, generate the first numRows of Pascal's triangle.</p>
+<p>Given numRows, generate the first numRows of Pascal’s triangle.</p>
 </blockquote>
-<h2>&lt;font color=&quot;red&quot;&gt;Idea:&lt;/font&gt;</h2>
-<p> Pascal's triangle is a triangular array of the binomial coefficients, every num is equal to the sum of its shoudlers(one or two numbers' sum).</p>
-<h2>&lt;font color=&quot;orange&quot;&gt;Java Code:&lt;/font&gt;</h2>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public List&lt;List&lt;Integer&gt;&gt; generate(int numRows) &#123;</div><div class="line">       List&lt;List&lt;Integer&gt;&gt; allrows = new ArrayList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">    ArrayList&lt;Integer&gt; row = new ArrayList&lt;Integer&gt;();</div><div class="line">    for (int i=0;i&lt;numRows;i++) &#123;</div><div class="line">        row.add(0,1);</div><div class="line">        for(int j=1;j&lt;row.size()-1;j++)</div><div class="line">            row.set(j, row.get(j)+row.get(j+1));</div><div class="line">        allrows.add(new ArrayList&lt;Integer&gt;(row));</div><div class="line">    &#125;</div><div class="line">    return allrows; </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="idea"><font color="red">Idea:</font></h2>
+<p> Pascal’s triangle is a triangular array of the binomial coefficients, every num is equal to the sum of its shoudlers(one or two numbers’ sum).</p>
+<h2 id="java-code"><font color="orange">Java Code:</font></h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public List&lt;List&lt;Integer&gt;&gt; generate(int numRows) &#123;</div><div class="line">       List&lt;List&lt;Integer&gt;&gt; allrows = new ArrayList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">    ArrayList&lt;Integer&gt; row = new ArrayList&lt;Integer&gt;();</div><div class="line">    for (int i=0;i&lt;numRows;i++) &#123;</div><div class="line">        row.add(0,1);</div><div class="line">        for(int j=1;j&lt;row.size()-1;j++)</div><div class="line">            row.set(j, row.get(j)+row.get(j+1));</div><div class="line">        allrows.add(new ArrayList&lt;Integer&gt;(row));</div><div class="line">    &#125;</div><div class="line">    return allrows; </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -539,7 +539,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text"><font color="black">Problem:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text"><font color="red">Idea:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text"><font color="orange">Java Code:</font></span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li></ol></div>
             
 
           </div>
