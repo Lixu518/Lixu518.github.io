@@ -7,7 +7,7 @@
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="题目 Given an array of integers, return  indices of the two numbers such that they add up to a specific target.You may assume that each input would have exactly one solution, and you may not use the sam">
+<meta name="description" content="题目  Given an array of integers, return  indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use the s">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="1. Two Sum">
 <meta property="og:url" content="http://www.mysry.com/2017/10/25/Two-Sum/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="题目 Given an array of integers, return  indices of the two numbers such that they add up to a specific target.You may assume that each input would have exactly one solution, and you may not use the sam">
+<meta property="og:description" content="题目  Given an array of integers, return  indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use the s">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-10-26T03:01:01.911Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="1. Two Sum">
-<meta name="twitter:description" content="题目 Given an array of integers, return  indices of the two numbers such that they add up to a specific target.You may assume that each input would have exactly one solution, and you may not use the sam">
+<meta name="twitter:description" content="题目  Given an array of integers, return  indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use the s">
 
 
 
@@ -128,7 +128,7 @@
 
 
 
-  <title>1. Two Sum | Mysry</title>
+  <title>1. Two Sum | Mysry</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -147,7 +147,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 	<a href="https://github.com/Lixu518"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -322,11 +322,14 @@
       
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a><font color="black">题目</font></h2><blockquote>
-<p>Given an array of integers, return <font color="#0099ff"> indices</font> of the two numbers such that they add up to a specific target.<br>You may assume that each input would have exactly one solution, and you may not use the same element twice.</p>
+        <h2 id="题目"><font color="black">题目</font></h2>
+<blockquote>
+<p>Given an array of integers, return <font color="#0099ff"> indices</font> of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use the same element twice.</p>
 </blockquote>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a><font color="red">题解</font></h2><p>&emsp;&emsp;双层循环，对于数组的每一个数，遍历其之后的数据是否存在与之相加为target的解决方法，若存在则返回这两个数在数组中的<font color="#0099ff">下标</font></p>
-<h2 id="Java-code"><a href="#Java-code" class="headerlink" title="Java code:"></a><font color="orange">Java code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">public class twoSum &#123;</div><div class="line">    public static int[] twoSum(int[] nums, int target) &#123;</div><div class="line">        for (int i = 0; i &lt; nums.length; i++) &#123;</div><div class="line">            for (int j = i + 1; j &lt; nums.length; j++) &#123;</div><div class="line">                if (nums[j] == target - nums[i]) &#123;</div><div class="line">                    return new int[] &#123; i, j &#125;;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        throw new IllegalArgumentException(&quot;No two sum solution&quot;);</div><div class="line">    &#125;</div><div class="line">    public static void main(String [] args)&#123;</div><div class="line">        int []n=&#123;3,2,4&#125;;</div><div class="line">        int target =6;</div><div class="line">        int[]a= twoSum(n,target);</div><div class="line">        for (int i=0;i&lt;a.length;i++)&#123;</div><div class="line">            System.out.print(a[i]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h2 id="题解"><font color="red">题解</font></h2>
+<p>  双层循环，对于数组的每一个数，遍历其之后的数据是否存在与之相加为target的解决方法，若存在则返回这两个数在数组中的<font color="#0099ff">下标</font></p>
+<h2 id="java-code"><font color="orange">Java code:</font></h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">public class twoSum &#123;</div><div class="line">    public static int[] twoSum(int[] nums, int target) &#123;</div><div class="line">        for (int i = 0; i &lt; nums.length; i++) &#123;</div><div class="line">            for (int j = i + 1; j &lt; nums.length; j++) &#123;</div><div class="line">                if (nums[j] == target - nums[i]) &#123;</div><div class="line">                    return new int[] &#123; i, j &#125;;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        throw new IllegalArgumentException(&quot;No two sum solution&quot;);</div><div class="line">    &#125;</div><div class="line">    public static void main(String [] args)&#123;</div><div class="line">        int []n=&#123;3,2,4&#125;;</div><div class="line">        int target =6;</div><div class="line">        int[]a= twoSum(n,target);</div><div class="line">        for (int i=0;i&lt;a.length;i++)&#123;</div><div class="line">            System.out.print(a[i]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -536,7 +539,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题解"><span class="nav-number">2.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-code"><span class="nav-number">3.</span> <span class="nav-text">Java code:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题解"><span class="nav-number">2.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java code:</span></a></li></ol></div>
             
 
           </div>
@@ -713,7 +716,7 @@
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 

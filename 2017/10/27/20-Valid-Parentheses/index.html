@@ -7,7 +7,7 @@
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="题目 Given a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid. The brackets must close in the correct order, “()” and “()[]{}” are all valid">
+<meta name="description" content="题目  Given a string containing just the characters ‘(’, ‘)’, ‘{’, ‘}’, ‘[’ and ’]’, determine if the input string is valid.   The brackets must close in the correct order, “()” and “()” are all valid b">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="20. Valid Parentheses">
 <meta property="og:url" content="http://www.mysry.com/2017/10/27/20-Valid-Parentheses/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="题目 Given a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid. The brackets must close in the correct order, “()” and “()[]{}” are all valid">
+<meta property="og:description" content="题目  Given a string containing just the characters ‘(’, ‘)’, ‘{’, ‘}’, ‘[’ and ’]’, determine if the input string is valid.   The brackets must close in the correct order, “()” and “()” are all valid b">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-10-27T03:05:16.093Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="20. Valid Parentheses">
-<meta name="twitter:description" content="题目 Given a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid. The brackets must close in the correct order, “()” and “()[]{}” are all valid">
+<meta name="twitter:description" content="题目  Given a string containing just the characters ‘(’, ‘)’, ‘{’, ‘}’, ‘[’ and ’]’, determine if the input string is valid.   The brackets must close in the correct order, “()” and “()” are all valid b">
 
 
 
@@ -128,7 +128,7 @@
 
 
 
-  <title>20. Valid Parentheses | Mysry</title>
+  <title>20. Valid Parentheses | Mysry</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -147,7 +147,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 	<a href="https://github.com/Lixu518"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -322,12 +322,17 @@
       
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a><font color="black">题目</font></h2><blockquote>
-<p>Given a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid.</p>
-<p>The brackets must close in the correct order, “()” and “()[]{}” are all valid but “(]” and “([)]” are not.</p>
+        <h2 id="题目"><font color="black">题目</font></h2>
+<blockquote>
+<p>Given a string containing just the characters ‘(’, ‘)’, ‘{’, ‘}’, ‘[’ and ’]’, determine if the input string is valid.</p>
 </blockquote>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a><font color="red">题解</font></h2><p>&emsp;&emsp;给定只包含’(‘,’[‘,’{‘,’)’,’[‘,’}’的字符串，判断其是否成对顺序匹配，采用stack堆栈，每次遍历到左边的’[‘,’(‘,’{‘时，将右边的括号入栈，如果字符串出现右括号需要检查堆栈是否为空，以及顶部元素是否与右侧括号相同。 如果没有，字符串不是有效的。 最后，我们还需要检查堆栈是否为空。</p>
-<h2 id="Java-Code"><a href="#Java-Code" class="headerlink" title="Java Code:"></a><font color="orange">Java Code:</font></h2><pre><code>import java.util.Scanner;
+<blockquote>
+<p>The brackets must close in the correct order, “()” and “()<span></span>” are all valid but “(]” and “([)]” are not.</p>
+</blockquote>
+<h2 id="题解"><font color="red">题解</font></h2>
+<p>  给定只包含’(‘,’[‘,’{‘,’)‘,’[‘,’}‘的字符串，判断其是否成对顺序匹配，采用stack堆栈，每次遍历到左边的’[‘,’(‘,’{’时，将右边的括号入栈，如果字符串出现右括号需要检查堆栈是否为空，以及顶部元素是否与右侧括号相同。 如果没有，字符串不是有效的。 最后，我们还需要检查堆栈是否为空。</p>
+<h2 id="java-code"><font color="orange">Java Code:</font></h2>
+<pre><code>import java.util.Scanner;
 import java.util.Stack;
 
 public class ValidParentheses {
@@ -344,19 +349,19 @@ public class ValidParentheses {
     public static boolean isValid(String s) {
         Stack&lt;Character&gt; stack= new Stack&lt;Character&gt;();
         for (char c:s.toCharArray()) {
-            if (c==&apos;(&apos;)
-                stack.push(&apos;)&apos;);
-            else if (c==&apos;{&apos;)
-                stack.push(&apos;}&apos;);
-            else if (c==&apos;[&apos;)
-                stack.push(&apos;]&apos;);
+            if (c==&#39;(&#39;)
+                stack.push(&#39;)&#39;);
+            else if (c==&#39;{&#39;)
+                stack.push(&#39;}&#39;);
+            else if (c==&#39;[&#39;)
+                stack.push(&#39;]&#39;);
             else if (stack.isEmpty()||stack.pop()!=c)
                 return false;
         }
         return stack.isEmpty();
     }
-}
-</code></pre>
+}</code></pre>
+
       
     </div>
     
@@ -565,7 +570,7 @@ public class ValidParentheses {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题解"><span class="nav-number">2.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-Code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题解"><span class="nav-number">2.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li></ol></div>
             
 
           </div>
@@ -742,7 +747,7 @@ public class ValidParentheses {
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 

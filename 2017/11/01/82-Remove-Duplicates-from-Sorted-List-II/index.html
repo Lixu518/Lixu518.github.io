@@ -7,7 +7,7 @@
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="Problem: Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list. For example,Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;3-&amp;gt;4-&amp;gt;4-&amp;gt;5, return">
+<meta name="description" content="Problem:  Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list.   For example, Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;3-&amp;gt;4-&amp;gt;4-&amp;gt;5, re">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="82. Remove Duplicates from Sorted List II">
 <meta property="og:url" content="http://www.mysry.com/2017/11/01/82-Remove-Duplicates-from-Sorted-List-II/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="Problem: Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list. For example,Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;3-&amp;gt;4-&amp;gt;4-&amp;gt;5, return">
+<meta property="og:description" content="Problem:  Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list.   For example, Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;3-&amp;gt;4-&amp;gt;4-&amp;gt;5, re">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-11-01T04:24:05.305Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="82. Remove Duplicates from Sorted List II">
-<meta name="twitter:description" content="Problem: Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list. For example,Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;3-&amp;gt;4-&amp;gt;4-&amp;gt;5, return">
+<meta name="twitter:description" content="Problem:  Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list.   For example, Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;3-&amp;gt;4-&amp;gt;4-&amp;gt;5, re">
 
 
 
@@ -128,7 +128,7 @@
 
 
 
-  <title>82. Remove Duplicates from Sorted List II | Mysry</title>
+  <title>82. Remove Duplicates from Sorted List II | Mysry</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -147,7 +147,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 	<a href="https://github.com/Lixu518"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -322,12 +322,17 @@
       
 
       
-        <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a><font color="black">Problem:</font></h2><blockquote>
+        <h2 id="problem"><font color="black">Problem:</font></h2>
+<blockquote>
 <p>Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list.</p>
-<p>For example,<br>Given 1-&gt;2-&gt;3-&gt;3-&gt;4-&gt;4-&gt;5, return 1-&gt;2-&gt;5.<br>Given 1-&gt;1-&gt;1-&gt;2-&gt;3, return 2-&gt;3.</p>
 </blockquote>
-<h2 id="Idea"><a href="#Idea" class="headerlink" title="Idea:"></a><font color="red">Idea:</font></h2><p>&emsp;&emsp;We use two pointer, slow is to track the node before the dup nodes, fast is to fine the last nodes of dups. A while loop to find the last nodes of the dups, and than detect the dups and remove them.</p>
-<h2 id="Java-Code"><a href="#Java-Code" class="headerlink" title="Java Code:"></a><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for singly-linked list.</div><div class="line"> * public class ListNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     ListNode next;</div><div class="line"> *     ListNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">    public ListNode deleteDuplicates(ListNode head) &#123;</div><div class="line">        ListNode a=new ListNode(0),fast=head,slow=a;</div><div class="line">	    slow.next=fast;</div><div class="line">	while(fast!=null) &#123;</div><div class="line">		while(fast.next!=null&amp;&amp;fast.val==fast.next.val) &#123;</div><div class="line">			fast=fast.next;</div><div class="line">		&#125;</div><div class="line">		if (slow.next!=fast) &#123;</div><div class="line">			slow.next=fast.next;</div><div class="line">			fast=slow.next;</div><div class="line">		&#125;</div><div class="line">		else &#123;</div><div class="line">			slow=slow.next;</div><div class="line">			fast=fast.next;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	return a.next;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>For example, Given 1-&gt;2-&gt;3-&gt;3-&gt;4-&gt;4-&gt;5, return 1-&gt;2-&gt;5. Given 1-&gt;1-&gt;1-&gt;2-&gt;3, return 2-&gt;3.</p>
+</blockquote>
+<h2 id="idea"><font color="red">Idea:</font></h2>
+<p>  We use two pointer, slow is to track the node before the dup nodes, fast is to fine the last nodes of dups. A while loop to find the last nodes of the dups, and than detect the dups and remove them.</p>
+<h2 id="java-code"><font color="orange">Java Code:</font></h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for singly-linked list.</div><div class="line"> * public class ListNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     ListNode next;</div><div class="line"> *     ListNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">    public ListNode deleteDuplicates(ListNode head) &#123;</div><div class="line">        ListNode a=new ListNode(0),fast=head,slow=a;</div><div class="line">	    slow.next=fast;</div><div class="line">	while(fast!=null) &#123;</div><div class="line">		while(fast.next!=null&amp;&amp;fast.val==fast.next.val) &#123;</div><div class="line">			fast=fast.next;</div><div class="line">		&#125;</div><div class="line">		if (slow.next!=fast) &#123;</div><div class="line">			slow.next=fast.next;</div><div class="line">			fast=slow.next;</div><div class="line">		&#125;</div><div class="line">		else &#123;</div><div class="line">			slow=slow.next;</div><div class="line">			fast=fast.next;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	return a.next;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -537,7 +542,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-Code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li></ol></div>
             
 
           </div>
@@ -714,7 +719,7 @@
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
