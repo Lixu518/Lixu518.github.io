@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.mysry.com/about/index.html</loc>
+    
+    <lastmod>2017-11-03T02:57:08.279Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.mysry.com/2017/11/02/107-Binary-Tree-Level-Order-Traversal-II/</loc>
     
     <lastmod>2017-11-02T12:36:20.250Z</lastmod>
@@ -131,13 +138,6 @@
     <loc>http://www.mysry.com/2017/10/28/21-Merge-Two-Sorted-Lists/</loc>
     
     <lastmod>2017-10-28T03:25:40.319Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.mysry.com/about/index.html</loc>
-    
-    <lastmod>2017-10-27T03:25:53.454Z</lastmod>
     
   </url>
   
