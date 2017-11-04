@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2017-11-03T16:25:49.922Z</updated>
+  <updated>2017-11-04T05:26:26.967Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -15,6 +15,132 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>141. Linked List Cycle</title>
+    <link href="http://www.mysry.com/2017/11/04/141-Linked-List-Cycle/"/>
+    <id>http://www.mysry.com/2017/11/04/141-Linked-List-Cycle/</id>
+    <published>2017-11-04T05:19:51.000Z</published>
+    <updated>2017-11-04T05:26:26.967Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given a linked list, determine if it has a cycle in it.</p></blockquote><blockquote><p>Follow up: Can you solve it without using extra space?</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>&amp;emap;We creat two pointers–slower and faster, the slower one walks one step every time, the faster pointer walks two step every time. If there is a cycle in the linked listed, faster will meet slower on sometime.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for singly-linked list.</div><div class="line"> * class ListNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     ListNode next;</div><div class="line"> *     ListNode(int x) &#123;</div><div class="line"> *         val = x;</div><div class="line"> *         next = null;</div><div class="line"> *     &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">public class Solution &#123;</div><div class="line">    public boolean hasCycle(ListNode head) &#123;</div><div class="line">       if (head==null) return false;</div><div class="line">    ListNode slower=head;</div><div class="line">    ListNode faster=head;</div><div class="line">    while(faster.next!=null&amp;&amp;faster.next.next!=null) &#123;</div><div class="line">        slower = slower.next;</div><div class="line">        faster = faster.next.next;</div><div class="line">        if (slower ==faster) return true;</div><div class="line">    &#125;</div><div class="line">    return false; </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given a linked list, determine if it has a cycle in it.&lt;/p&gt;
+&lt;/bloc
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>136. Single Number</title>
+    <link href="http://www.mysry.com/2017/11/04/136-Single-Number/"/>
+    <id>http://www.mysry.com/2017/11/04/136-Single-Number/</id>
+    <published>2017-11-04T05:15:23.000Z</published>
+    <updated>2017-11-04T05:19:12.297Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given an array of integers, every element appears twice except for one. Find that single one.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> This could be very easy if you think of XOR, because a^a equals 0.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int singleNumber(int[] nums) &#123;</div><div class="line">     int result = 0;</div><div class="line">    for (int i=0;i&lt;nums.length;i++) &#123;</div><div class="line">        result^=nums[i];</div><div class="line">    &#125;</div><div class="line">    return result;   </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given an array of integers, every element appears twice except for
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>125. Valid Palindrome</title>
+    <link href="http://www.mysry.com/2017/11/04/125-Valid-Palindrome/"/>
+    <id>http://www.mysry.com/2017/11/04/125-Valid-Palindrome/</id>
+    <published>2017-11-04T05:08:15.000Z</published>
+    <updated>2017-11-04T05:14:40.747Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> First, we should remove punctuation and turn capital letters into lowercase letters to get string a. Second, reverse the string and set it to string b, compare the two string, return a.equals(b).</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public boolean isPalindrome(String s) &#123;</div><div class="line">       String realString = s.replaceAll(&quot;[^A-Za-z0-9]&quot;, &quot;&quot;).toLowerCase();</div><div class="line">       String reverseString = new StringBuffer(realString).reverse().toString();</div><div class="line">       return realString.equals(reverseString);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given a string, determine if it is a palindrome, considering only 
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>122. Best Time to Buy and Sell Stock II</title>
+    <link href="http://www.mysry.com/2017/11/04/122-Best-Time-to-Buy-and-Sell-Stock-II/"/>
+    <id>http://www.mysry.com/2017/11/04/122-Best-Time-to-Buy-and-Sell-Stock-II/</id>
+    <published>2017-11-04T05:00:32.000Z</published>
+    <updated>2017-11-04T05:07:18.498Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Say you have an array for which the ith element is the price of a given stock on day i. Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times). However, you may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> Just as the before problem, reverse the time line,because when the sell prices were bigger than the purcharse prices, there will be profit during this transaction. Accumulated profits will be what we need.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int maxProfit(int[] prices) &#123;</div><div class="line">        if (prices.length==0||prices.length==1) return 0;</div><div class="line">    int maxProfit=0;</div><div class="line">    for (int i=prices.length-1;i&gt;0;i--) &#123;</div><div class="line">        if (prices[i]-prices[i-1]&gt;0)maxProfit+=prices[i]-prices[i-1];</div><div class="line">    &#125;</div><div class="line">    return maxProfit;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Say you have an array for which the ith element is the price of a 
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>121. Best Time to Buy and Sell Stock</title>
+    <link href="http://www.mysry.com/2017/11/04/121-Best-Time-to-Buy-and-Sell-Stock/"/>
+    <id>http://www.mysry.com/2017/11/04/121-Best-Time-to-Buy-and-Sell-Stock/</id>
+    <published>2017-11-04T04:54:36.000Z</published>
+    <updated>2017-11-04T05:07:20.170Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Say you have an array for which the ith element is the price of a given stock on day i. If you were only permitted to complete at most one transaction (ie, buy one and sell one share of the stock), design an algorithm to find the maximum profit.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> This could be a easy dynamic programming ploblem. I’d like to use a for-loop to calculate the max difference and return the max-difference.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><pre><code>class Solution {    public int maxProfit(int[] prices) {        if (prices.length==0) return 0;    int max=0;    int softMin= prices[0];    for (int i=0;i&lt;prices.length;i++) {        if (prices[i]&gt;softMin) {            max=Math.max(max, prices[i]-softMin);        }        else {            softMin = prices[i];        }    }    return max;    }}</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Say you have an array for which the ith element is the price of a 
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>hexo+next personal setting</title>
@@ -384,134 +510,6 @@
         &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;You are climbing a stair case. It takes n steps to reach to the to
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>67. Add Binary</title>
-    <link href="http://www.mysry.com/2017/11/01/67-Add-Binary/"/>
-    <id>http://www.mysry.com/2017/11/01/67-Add-Binary/</id>
-    <published>2017-11-01T03:42:52.000Z</published>
-    <updated>2017-11-01T04:12:11.529Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problems"><font color="black">Problems:</font></h2><blockquote><p>Given two binary strings, return their sum (also a binary string).</p></blockquote><blockquote><p>For example, a = “11” b = “1” Return “100”.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>  So we need to fill the shorter array, and than the sum of the number of positions corresponding to the array and determine whether there is a carry.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public String addBinary(String a, String b) &#123;</div><div class="line">        StringBuilder sb = new StringBuilder();</div><div class="line">        int i = a.length() - 1, j = b.length() -1, carry = 0;</div><div class="line">        while (i &gt;= 0 || j &gt;= 0) &#123;</div><div class="line">            int sum = carry;</div><div class="line">            if (j &gt;= 0) sum += b.charAt(j--) - &apos;0&apos;;</div><div class="line">            if (i &gt;= 0) sum += a.charAt(i--) - &apos;0&apos;;</div><div class="line">            sb.append(sum % 2);</div><div class="line">            carry = sum / 2;</div><div class="line">        &#125;</div><div class="line">        if (carry != 0) sb.append(carry);</div><div class="line">        return sb.reverse().toString();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problems&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problems:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given two binary strings, return their sum (also a binary string
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>69. Sqrt(x)</title>
-    <link href="http://www.mysry.com/2017/10/31/69-Sqrt-x/"/>
-    <id>http://www.mysry.com/2017/10/31/69-Sqrt-x/</id>
-    <published>2017-10-31T12:15:17.000Z</published>
-    <updated>2017-10-31T12:36:41.330Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problems"><font color="black">Problems:</font></h2><blockquote><p>Implement int sqrt(int x).</p></blockquote><blockquote><p>Compute and return the square root of x.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>  Approximately the square root by least squares method.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">public class Solution &#123;</div><div class="line">public int returnSqrtRootx(int x) &#123;</div><div class="line">long r=x;</div><div class="line">while(r*r&gt;x) &#123;</div><div class="line">r=(r+x/r)/2;</div><div class="line">&#125;</div><div class="line">return (int) r;</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problems&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problems:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Implement int sqrt(int x).&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Com
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>66. Plus One</title>
-    <link href="http://www.mysry.com/2017/10/31/66-Plus-One/"/>
-    <id>http://www.mysry.com/2017/10/31/66-Plus-One/</id>
-    <published>2017-10-31T12:06:08.000Z</published>
-    <updated>2017-10-31T12:14:50.135Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problems"><font color="black">Problems:</font></h2><blockquote><p>Given a non-negative integer represented as a non-empty array of digits, plus one to the integer.</p></blockquote><blockquote><p>You may assume the integer do not contain any leading zero, except the number 0 itself.</p></blockquote><blockquote><p>The digits are stored such that the most significant digit is at the head of the list.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>  It’s important for us to find the 9 element in this array set it to be 0,so if we find the first element of array is nine, we need append the array, so we define a new array and set the first element 0,return this and return the the initial processed array.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int[] plusOne(int[] digits) &#123;</div><div class="line">        int n = digits.length;</div><div class="line">    for(int i=n-1; i&gt;=0; i--) &#123;</div><div class="line">        if(digits[i] &lt; 9) &#123;</div><div class="line">            digits[i]++;</div><div class="line">            return digits;</div><div class="line">        &#125;  </div><div class="line">        digits[i] = 0;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    int[] newNumber = new int [n+1];</div><div class="line">    newNumber[0] = 1;</div><div class="line">    </div><div class="line">    return newNumber;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problems&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problems:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given a non-negative integer represented as a non-empty array of
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>58. Length of Last Word</title>
-    <link href="http://www.mysry.com/2017/10/31/58-Length-of-Last-Word/"/>
-    <id>http://www.mysry.com/2017/10/31/58-Length-of-Last-Word/</id>
-    <published>2017-10-31T11:56:56.000Z</published>
-    <updated>2017-10-31T12:05:35.815Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problems"><font color="black">Problems:</font></h2><blockquote><p>Given a string s consists of upper/lower-case alphabets and empty space characters ‘’, return the length of last word in the string.</p></blockquote><blockquote><p>If the last word does not exist, return 0.</p></blockquote><blockquote><p>Note: A word is defined as a character sequence consists of non-space characters only.</p></blockquote><blockquote><p>For example, Given s = “Hello World”, return 5.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>  Easy problem,isn’t it? If you have know that function trim() is to delete the ‘’ of the beginning and end of the string and that the function lastIndexOf() the to return the index of the last occurrence of character such as ‘’.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int lengthOfLastWord(String s) &#123;</div><div class="line">        String t=s.trim();</div><div class="line">return t.length()-t.lastIndexOf(&apos; &apos;)-1;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problems&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problems:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given a string s consists of upper/lower-case alphabets and empt
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>53. Maximum Subarray</title>
-    <link href="http://www.mysry.com/2017/10/31/53-Maximum-Subarray/"/>
-    <id>http://www.mysry.com/2017/10/31/53-Maximum-Subarray/</id>
-    <published>2017-10-31T11:41:54.000Z</published>
-    <updated>2017-10-31T11:56:18.084Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problems"><font color="black">Problems:</font></h2><blockquote><p>Find the contiguous subarray within an array (containing at least one number) which has the largest sum.</p></blockquote><blockquote><p>For example, given the array [-2,1,-3,4,-1,2,1,-5,4], the contiguous subarray [4,-1,2,1] has the largest sum = 6.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>  We create two int array maxEnding and maxSofar, maxEnding is constantly update and other is to put the biggest sum subarray. MaEnding is the bigger one in maxEnding plus nums[i] and the maxSofar,and then compare maxEnding with maxSofar put maxSofar as the bigger one until we have traverse all the elements.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><pre><code>public class Solution {     public int maximumSubarray(int []nums) {         int maxSofar=nums[0];         int maxEnding=nums[0];         for (int i=1;i&lt;nums.length;i++) {             maxEnding = Math.max(maxEnding+nums[i],maxSofar);             maxSofar=Math.max(maxEnding,maxSofar);         }         return maxEnding;     }}</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problems&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problems:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Find the contiguous subarray within an array (containing at leas
       
     
     </summary>
