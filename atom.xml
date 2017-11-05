@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2017-11-04T05:26:26.967Z</updated>
+  <updated>2017-11-05T05:08:30.439Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -15,6 +15,157 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>172. Factorial Trailing Zeros</title>
+    <link href="http://www.mysry.com/2017/11/05/172-Factorial-Trailing-Zeros/"/>
+    <id>http://www.mysry.com/2017/11/05/172-Factorial-Trailing-Zeros/</id>
+    <published>2017-11-05T05:03:58.000Z</published>
+    <updated>2017-11-05T05:08:30.439Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given an integer n, return the number of trailing zeroes in n!. Note: Your solution should be in logarithmic time complexity.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> After you have cleared of the mathematical principles, you could konw how to solve this problem. Use a recursion</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int trailingZeroes(int n) &#123;</div><div class="line">         return n == 0 ? 0 : n / 5 + trailingZeroes(n / 5);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given an integer n, return the number of trailing zeroes in n!. No
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>169. Majority Element</title>
+    <link href="http://www.mysry.com/2017/11/05/169-Majority-Element/"/>
+    <id>http://www.mysry.com/2017/11/05/169-Majority-Element/</id>
+    <published>2017-11-05T04:58:35.000Z</published>
+    <updated>2017-11-05T05:02:36.848Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times. You may assume that the array is non-empty and the majority element always exist in the array.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> The majority element appears more than [n/2] means that the middle number of the sorted array must be the majority number.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int majorityElement(int[] nums) &#123;</div><div class="line">        Arrays.sort(nums);</div><div class="line">    return nums[nums.length/2];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given an array of size n, find the majority element. The majority 
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>168、171. Excel Sheet Column Title and Number</title>
+    <link href="http://www.mysry.com/2017/11/05/168%E3%80%81171-Excel-Sheet-Column-Title-and-Number/"/>
+    <id>http://www.mysry.com/2017/11/05/168、171-Excel-Sheet-Column-Title-and-Number/</id>
+    <published>2017-11-05T04:51:24.000Z</published>
+    <updated>2017-11-05T04:58:03.833Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problems"><font color="black">Problems:</font></h2><blockquote><ol style="list-style-type: decimal"><li>Given a positive integer, return its corresponding column title as appear in an Excel sheet.</li></ol></blockquote><blockquote><p>2.Given a column title as appear in an Excel sheet, return its corresponding column number.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> These two questions are symmetrical, together they are conversion of decimal and twenty-six hex.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public String convertToTitle(int n) &#123;</div><div class="line">      return n == 0 ? &quot;&quot; : convertToTitle(--n / 26) + (char)(&apos;A&apos; + (n % 26));  </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int titleToNumber(String s) &#123;</div><div class="line">        int result = 0;</div><div class="line">    for (int i=0;i&lt;s.length();i++) &#123;</div><div class="line">        result= result*26+(s.charAt(i)-&apos;A&apos;+1);</div><div class="line">    &#125;</div><div class="line">    return result;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problems&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problems:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;ol style=&quot;list-style-type: decimal&quot;&gt;
+&lt;li&gt;Given a positive integer,
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>167. Two Sum II - Input array is sorted</title>
+    <link href="http://www.mysry.com/2017/11/05/167-Two-Sum-II-Input-array-is-sorted/"/>
+    <id>http://www.mysry.com/2017/11/05/167-Two-Sum-II-Input-array-is-sorted/</id>
+    <published>2017-11-05T04:43:00.000Z</published>
+    <updated>2017-11-05T04:49:53.081Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given an array of integers that is already sorted in ascending order, find two numbers such that they add up to a specific target number. The function twoSum should return indices of the two numbers such that they add up to the target, where index1 must be less than index2. Please note that your returned answers (both index1 and index2) are not zero-based. You may assume that each input would have exactly one solution and you may not use the same element twice.</p></blockquote><h2 id="idea"><font color="red"> Idea:</font></h2><p> Find the two number from the tail and head of this array, if nums[l] plus nums[h] is bigger than target number, than h minus 1, but if samller than target number, l plus 1, until we get nums[l] plus nums[h] equals targte number, return an array contains l and h.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int[] twoSum(int[] nums, int target) &#123;</div><div class="line">        int l= 0,h=nums.length-1;</div><div class="line">    while (nums[l]+nums[h]!=target) &#123;</div><div class="line">        if (nums[l]+nums[h]&gt;target)h--;</div><div class="line">        else l++;</div><div class="line">    &#125;</div><div class="line">    return new int[]&#123;l+1,h+1&#125;;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given an array of integers that is already sorted in ascending ord
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>160. Intersection of Two Linked Lists</title>
+    <link href="http://www.mysry.com/2017/11/05/160-Intersection-of-Two-Linked-Lists/"/>
+    <id>http://www.mysry.com/2017/11/05/160-Intersection-of-Two-Linked-Lists/</id>
+    <published>2017-11-05T04:38:38.000Z</published>
+    <updated>2017-11-05T04:42:24.624Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Write a program to find the node at which the intersection of two singly linked lists begins.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> When a.next point to where b.next point to, return the node.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for singly-linked list.</div><div class="line"> * public class ListNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     ListNode next;</div><div class="line"> *     ListNode(int x) &#123;</div><div class="line"> *         val = x;</div><div class="line"> *         next = null;</div><div class="line"> *     &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">public class Solution &#123;</div><div class="line">    public ListNode getIntersectionNode(ListNode headA, ListNode headB) &#123;</div><div class="line">        if (headA==null||headB==null)return null;</div><div class="line">    ListNode a=headA;</div><div class="line">    ListNode b= headB;</div><div class="line">    while (a!=b) &#123;</div><div class="line">        a=a==null?headB:a.next;</div><div class="line">        b=b==null?headA:b.next;</div><div class="line">    &#125;</div><div class="line">    return a;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Write a program to find the node at which the intersection of two 
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>155. Min Stack</title>
+    <link href="http://www.mysry.com/2017/11/05/155-Min-Stack/"/>
+    <id>http://www.mysry.com/2017/11/05/155-Min-Stack/</id>
+    <published>2017-11-05T04:32:45.000Z</published>
+    <updated>2017-11-05T04:37:59.440Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Design a stack that supports push, pop, top, and retrieving the minimum element in constant time. push(x) – Push element x onto stack. pop() – Removes the element on top of the stack. top() – Get the top element. getMin() – Retrieve the minimum element in the stack.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> The idea is to store the gap between the min value and the current value. The problem for my solution is the cast. I have no idea to avoid the cast. Since the possible gap between the current value and the min value could be Integer.MAX_VALUE-Integer.MIN_VALUE;</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">class MinStack &#123;</div><div class="line"></div><div class="line">    /** initialize your data structure here. */</div><div class="line">   long min;</div><div class="line">    Stack&lt;Long&gt; stack;</div><div class="line">    public MinStack() &#123;</div><div class="line">        stack = new Stack&lt;&gt;();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    public void push(int x) &#123;</div><div class="line">        if(stack.isEmpty()) &#123;</div><div class="line">        stack.push(0L);</div><div class="line">        min = x;</div><div class="line">    &#125;else &#123;</div><div class="line">        stack.push(x-min);</div><div class="line">        if(x&lt;min) min = x;</div><div class="line">    &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    public void pop() &#123;</div><div class="line">        if(stack.isEmpty())return;</div><div class="line">    long pop=stack.pop();</div><div class="line">    if(pop&lt;0) min= min-pop;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    public int top() &#123;</div><div class="line">        long top = stack.peek();</div><div class="line">    if(top&gt;0) &#123;</div><div class="line">        return (int)(top+min);</div><div class="line">    &#125;else return (int)(min);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    public int getMin() &#123;</div><div class="line">        return (int)min;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Design a stack that supports push, pop, top, and retrieving the mi
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>141. Linked List Cycle</title>
@@ -362,154 +513,6 @@
 &lt;p&gt;Given a binary tree, find its maximum depth.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>101. Symmetric Tree</title>
-    <link href="http://www.mysry.com/2017/11/02/101-Symmetric-Tree/"/>
-    <id>http://www.mysry.com/2017/11/02/101-Symmetric-Tree/</id>
-    <published>2017-11-02T12:11:46.000Z</published>
-    <updated>2017-11-02T12:16:46.890Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>  Use recursive to costantly compare its left node with its right node. We will find that recursive is frequently occurred in solving tree ploblems.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for a binary tree node.</div><div class="line"> * public class TreeNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     TreeNode left;</div><div class="line"> *     TreeNode right;</div><div class="line"> *     TreeNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">    public boolean isSymmetric(TreeNode root) &#123;</div><div class="line">        if (root==null) return true;</div><div class="line">return isMirror(root.left,root.right);</div><div class="line">    &#125;</div><div class="line">    public boolean isMirror(TreeNode p,TreeNode q) &#123;</div><div class="line">if (p==null&amp;&amp;q==null)return true;</div><div class="line">if (p==null||q==null)return false;</div><div class="line">return (p.val==q.val)&amp;&amp; isMirror(p.left,q.right)&amp;&amp; isMirror(p.right,q.left);</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given a binary tree, check whether it is a mirror of itself (ie, s
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>100. Same Tree</title>
-    <link href="http://www.mysry.com/2017/11/02/100-Same-Tree/"/>
-    <id>http://www.mysry.com/2017/11/02/100-Same-Tree/</id>
-    <published>2017-11-02T12:05:29.000Z</published>
-    <updated>2017-11-02T12:11:15.469Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given two binary trees, write a function to check if they are equal or not.</p></blockquote><blockquote><p>Two binary trees are considered equal if they are structurally identical and the nodes have the same value.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>  Use recursive to constantly compare their left and right child bode.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Definition for a binary tree node.</div><div class="line"> public class TreeNode &#123;</div><div class="line">     int val;</div><div class="line">     TreeNode left;</div><div class="line">     TreeNode right;</div><div class="line">     TreeNode(int x) &#123; val = x; &#125;</div><div class="line">&#125;</div><div class="line">class Solution &#123;</div><div class="line">    public boolean isSameTree(TreeNode p, TreeNode q) &#123;</div><div class="line">        if (p==null &amp;&amp; q==null) return true;</div><div class="line">    if (p==null || q==null) return false;</div><div class="line">    if (p.val==q.val)   return isSameTree(p.left,q.left) &amp;&amp; isSameTree(p.right,q.right);</div><div class="line">return false;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given two binary trees, write a function to check if they are equa
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>88. Merge Sorted Array</title>
-    <link href="http://www.mysry.com/2017/11/01/88-Merge-Sorted-Array/"/>
-    <id>http://www.mysry.com/2017/11/01/88-Merge-Sorted-Array/</id>
-    <published>2017-11-01T04:31:04.000Z</published>
-    <updated>2017-11-01T04:36:32.854Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.</p></blockquote><blockquote><p>Note: You may assume that nums1 has enough space (size that is greater or equal to m + n) to hold additional elements from nums2. The number of elements initialized in nums1 and nums2 are m and n respectively.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>  Use ‘?:’ to judge what will be the next element of nums1(after merged), so all we should to do is to find the boundary conditions.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public void merge(int[] nums1, int m, int[] nums2, int n) &#123;</div><div class="line">     while(n&gt;0)&#123; </div><div class="line">         nums1[m+n-1] = (m==0||nums2[n-1] &gt; nums1[m-1]) ? nums2[--n] : nums1[--m];</div><div class="line">     &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given two sorted integer arrays nums1 and nums2, merge nums2 into 
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>83. Remove Duplicates from Sorted List</title>
-    <link href="http://www.mysry.com/2017/11/01/83-Remove-Duplicates-from-Sorted-List/"/>
-    <id>http://www.mysry.com/2017/11/01/83-Remove-Duplicates-from-Sorted-List/</id>
-    <published>2017-11-01T04:24:39.000Z</published>
-    <updated>2017-11-01T04:30:09.684Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given a sorted linked list, delete all duplicates such that each element appear only once.</p></blockquote><blockquote><p>For example, Given 1-&gt;1-&gt;2, return 1-&gt;2. Given 1-&gt;1-&gt;2-&gt;3-&gt;3, return 1-&gt;2-&gt;3</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>  This is a similar problem with the last one! It don’t need to wholely remove the dups and the original elements. We use a Recursive function to remove the dups.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><pre><code>/** * Definition for singly-linked list. * public class ListNode { *     int val; *     ListNode next; *     ListNode(int x) { val = x; } * } */class Solution {    public ListNode deleteDuplicates(ListNode head) {        if(head == null || head.next == null)return head;        head.next = deleteDuplicates(head.next);        return (head.val == head.next.val) ? head.next : head;    }}</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given a sorted linked list, delete all duplicates such that each e
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>82. Remove Duplicates from Sorted List II</title>
-    <link href="http://www.mysry.com/2017/11/01/82-Remove-Duplicates-from-Sorted-List-II/"/>
-    <id>http://www.mysry.com/2017/11/01/82-Remove-Duplicates-from-Sorted-List-II/</id>
-    <published>2017-11-01T04:18:03.000Z</published>
-    <updated>2017-11-01T04:24:05.305Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list.</p></blockquote><blockquote><p>For example, Given 1-&gt;2-&gt;3-&gt;3-&gt;4-&gt;4-&gt;5, return 1-&gt;2-&gt;5. Given 1-&gt;1-&gt;1-&gt;2-&gt;3, return 2-&gt;3.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>  We use two pointer, slow is to track the node before the dup nodes, fast is to fine the last nodes of dups. A while loop to find the last nodes of the dups, and than detect the dups and remove them.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for singly-linked list.</div><div class="line"> * public class ListNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     ListNode next;</div><div class="line"> *     ListNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">    public ListNode deleteDuplicates(ListNode head) &#123;</div><div class="line">        ListNode a=new ListNode(0),fast=head,slow=a;</div><div class="line">    slow.next=fast;</div><div class="line">while(fast!=null) &#123;</div><div class="line">while(fast.next!=null&amp;&amp;fast.val==fast.next.val) &#123;</div><div class="line">fast=fast.next;</div><div class="line">&#125;</div><div class="line">if (slow.next!=fast) &#123;</div><div class="line">slow.next=fast.next;</div><div class="line">fast=slow.next;</div><div class="line">&#125;</div><div class="line">else &#123;</div><div class="line">slow=slow.next;</div><div class="line">fast=fast.next;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">return a.next;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given a sorted linked list, delete all nodes that have duplicate n
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>70. Climbing Stairs</title>
-    <link href="http://www.mysry.com/2017/11/01/70-Climbing-Stairs/"/>
-    <id>http://www.mysry.com/2017/11/01/70-Climbing-Stairs/</id>
-    <published>2017-11-01T04:13:55.000Z</published>
-    <updated>2017-11-01T04:17:31.827Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>You are climbing a stair case. It takes n steps to reach to the top.</p></blockquote><blockquote><p>Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?</p></blockquote><blockquote><p>Note: Given n will be a positive integer.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>  This is basic use of fibonacci.The key intuition to solve the problem is that given a number of stairs n, if we know the number ways to get to the points [n-1] and [n-2] respectively, denoted as n1 and n2 , then the total ways to get to the point [n] is n1 + n2. Because from the [n-1] point, we can take one single step to reach [n]. And from the [n-2] point, we could take two steps to get there. There is NO overlapping between these two solution sets, because we differ in the final step.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int climbStairs(int n) &#123;</div><div class="line">        if (n==0) return 0;</div><div class="line">if (n==1) return 1;</div><div class="line">if (n==2) return 2;</div><div class="line">int oneStepBefore=2;</div><div class="line">int twoStepBefore=1;</div><div class="line">int allways=0;</div><div class="line">for (int i=2;i&lt;n;i++) &#123;</div><div class="line">allways=oneStepBefore+twoStepBefore;</div><div class="line">twoStepBefore=oneStepBefore;</div><div class="line">oneStepBefore=allways;</div><div class="line">&#125;</div><div class="line">return allways;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;You are climbing a stair case. It takes n steps to reach to the to
       
     
     </summary>
