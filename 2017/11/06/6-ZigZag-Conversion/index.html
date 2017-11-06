@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="Problem:  Given an array and a value, remove all instances of that value in place and return the new length.   Do not allocate extra space for another array, you must do this in place with constant me">
+<meta name="description" content="Problem:  The string “PAYPALISHIRING” is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility) P A H N A P L S I">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="27. Remove Element">
-<meta property="og:url" content="http://www.mysry.com/2017/10/28/27-Remove-Element/index.html">
+<meta property="og:title" content="6. ZigZag Conversion">
+<meta property="og:url" content="http://www.mysry.com/2017/11/06/6-ZigZag-Conversion/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="Problem:  Given an array and a value, remove all instances of that value in place and return the new length.   Do not allocate extra space for another array, you must do this in place with constant me">
+<meta property="og:description" content="Problem:  The string “PAYPALISHIRING” is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility) P A H N A P L S I">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-29T05:19:32.802Z">
+<meta property="og:updated_time" content="2017-11-06T13:49:35.750Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="27. Remove Element">
-<meta name="twitter:description" content="Problem:  Given an array and a value, remove all instances of that value in place and return the new length.   Do not allocate extra space for another array, you must do this in place with constant me">
+<meta name="twitter:title" content="6. ZigZag Conversion">
+<meta name="twitter:description" content="Problem:  The string “PAYPALISHIRING” is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility) P A H N A P L S I">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://www.mysry.com/2017/10/28/27-Remove-Element/"/>
+  <link rel="canonical" href="http://www.mysry.com/2017/11/06/6-ZigZag-Conversion/"/>
 
 
 
 
 
-  <title>27. Remove Element | Mysry</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>6. ZigZag Conversion | Mysry</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -255,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.mysry.com/2017/10/28/27-Remove-Element/">
+    <link itemprop="mainEntityOfPage" href="http://www.mysry.com/2017/11/06/6-ZigZag-Conversion/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mysry">
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">27. Remove Element</h1>
+          <h1 class="post-title" itemprop="name headline">6. ZigZag Conversion</h1>
         
 
         <div class="post-meta">
@@ -284,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-28T11:35:56+08:00">
-                2017-10-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-06T21:34:15+08:00">
+                2017-11-06
               </time>
             
 
@@ -324,24 +324,12 @@
       
         <h2 id="problem"><font color="black">Problem:</font></h2>
 <blockquote>
-<p>Given an array and a value, remove all instances of that value in place and return the new length.</p>
-</blockquote>
-<blockquote>
-<p>Do not allocate extra space for another array, you must do this in place with constant memory.</p>
-</blockquote>
-<blockquote>
-<p>The order of elements can be changed. It doesn’t matter what you leave beyond the new length.</p>
-</blockquote>
-<blockquote>
-<p>Example: Given input array nums = [3,2,2,3], val = 3</p>
-</blockquote>
-<blockquote>
-<p>Your function should return length = 2, with the first two elements of nums being 2.</p>
+<p>The string “PAYPALISHIRING” is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility) P A H N A P L S I I G Y I R And then read line by line: “PAHNAPLSIIGYIR” Write the code that will take a string and make this conversion given a number of rows: string convert(string text, int nRows); convert(“PAYPALISHIRING”, 3) should return “PAHNAPLSIIGYIR”</p>
 </blockquote>
 <h2 id="idea"><font color="red">Idea:</font></h2>
-<p>  This topic is handled in a manner similar to the previous article said, except that the compared element becomes a constant.</p>
+<p> First, Convert string s to a char array,than create a StringBuffer and init it. Now we need add char with the rules. At last, convert it back to a String and outpt.</p>
 <h2 id="java-code"><font color="orange">Java Code:</font></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">public class Solution &#123;</div><div class="line"></div><div class="line">	public static void main(String[] args) &#123;</div><div class="line">		// TODO Auto-generated method stub</div><div class="line">         int [] nums = &#123;3,2,2,3&#125;;</div><div class="line">         int val=3;</div><div class="line">         int a =removeElement(nums,val);</div><div class="line">         System.out.println(a);</div><div class="line">         for (int i=0;i&lt;nums.length;i++) &#123;</div><div class="line">       	  System.out.println(nums[i]);</div><div class="line">         &#125;</div><div class="line">	&#125;</div><div class="line">	public static int removeElement(int[]nums,int val) &#123;</div><div class="line">		if (nums.length==0) return 0;</div><div class="line">		int j=0;</div><div class="line">		for (int i=0;i&lt;nums.length;i++) &#123;</div><div class="line">			if (nums[i]!=val) &#123;</div><div class="line">			   nums[j]=nums[i];</div><div class="line">			   j++;</div><div class="line">	&#125;</div><div class="line">		&#125;</div><div class="line">		return j;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public String convert(String s, int numRows) &#123;</div><div class="line">        char[] c= s.toCharArray();</div><div class="line">	 int len = s.length();</div><div class="line">	 StringBuffer[] sb= new StringBuffer[numRows];</div><div class="line">	 for (int i=0;i&lt;sb.length;i++) &#123;</div><div class="line">		 sb[i]= new StringBuffer();</div><div class="line">	 &#125;</div><div class="line">	 int i=0;</div><div class="line">	 while(i&lt;len) &#123;</div><div class="line">		 for (int idx = 0;idx&lt;numRows&amp;&amp;i&lt;len;idx++) &#123;</div><div class="line">			 sb[idx].append(c[i++]);</div><div class="line">		 &#125;</div><div class="line">		 for (int idx = numRows-2;idx&gt;=1&amp;&amp;i&lt;len;idx--) &#123;</div><div class="line">			 sb[idx].append(c[i++]);</div><div class="line">		 &#125;</div><div class="line">	 &#125;</div><div class="line">	 for(int idx=1;idx&lt;sb.length;idx++) &#123;</div><div class="line">		 sb[0].append(sb[idx]);</div><div class="line">	 &#125;</div><div class="line">	 return sb[0].toString();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -383,8 +371,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/28/26-Remove-Duplicates-from-Sorted-Array/" rel="next" title="26. Remove Duplicates from Sorted Array">
-                <i class="fa fa-chevron-left"></i> 26. Remove Duplicates from Sorted Array
+              <a href="/2017/11/06/5-Longest-Palindromic-Substring/" rel="next" title="5. Longest Palindromic Substring">
+                <i class="fa fa-chevron-left"></i> 5. Longest Palindromic Substring
               </a>
             
           </div>
@@ -392,10 +380,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/10/29/28-Implement-strStr/" rel="prev" title="28. Implement strStr()">
-                28. Implement strStr() <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

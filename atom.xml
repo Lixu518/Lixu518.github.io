@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2017-11-05T05:08:30.439Z</updated>
+  <updated>2017-11-06T13:49:35.750Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>6. ZigZag Conversion</title>
+    <link href="http://www.mysry.com/2017/11/06/6-ZigZag-Conversion/"/>
+    <id>http://www.mysry.com/2017/11/06/6-ZigZag-Conversion/</id>
+    <published>2017-11-06T13:34:15.000Z</published>
+    <updated>2017-11-06T13:49:35.750Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>The string “PAYPALISHIRING” is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility) P A H N A P L S I I G Y I R And then read line by line: “PAHNAPLSIIGYIR” Write the code that will take a string and make this conversion given a number of rows: string convert(string text, int nRows); convert(“PAYPALISHIRING”, 3) should return “PAHNAPLSIIGYIR”</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> First, Convert string s to a char array,than create a StringBuffer and init it. Now we need add char with the rules. At last, convert it back to a String and outpt.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public String convert(String s, int numRows) &#123;</div><div class="line">        char[] c= s.toCharArray();</div><div class="line"> int len = s.length();</div><div class="line"> StringBuffer[] sb= new StringBuffer[numRows];</div><div class="line"> for (int i=0;i&lt;sb.length;i++) &#123;</div><div class="line"> sb[i]= new StringBuffer();</div><div class="line"> &#125;</div><div class="line"> int i=0;</div><div class="line"> while(i&lt;len) &#123;</div><div class="line"> for (int idx = 0;idx&lt;numRows&amp;&amp;i&lt;len;idx++) &#123;</div><div class="line"> sb[idx].append(c[i++]);</div><div class="line"> &#125;</div><div class="line"> for (int idx = numRows-2;idx&gt;=1&amp;&amp;i&lt;len;idx--) &#123;</div><div class="line"> sb[idx].append(c[i++]);</div><div class="line"> &#125;</div><div class="line"> &#125;</div><div class="line"> for(int idx=1;idx&lt;sb.length;idx++) &#123;</div><div class="line"> sb[0].append(sb[idx]);</div><div class="line"> &#125;</div><div class="line"> return sb[0].toString();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The string “PAYPALISHIRING” is written in a zigzag pattern on a gi
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>5. Longest Palindromic Substring</title>
+    <link href="http://www.mysry.com/2017/11/06/5-Longest-Palindromic-Substring/"/>
+    <id>http://www.mysry.com/2017/11/06/5-Longest-Palindromic-Substring/</id>
+    <published>2017-11-06T13:23:36.000Z</published>
+    <updated>2017-11-06T13:33:49.054Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> We define a support function, find palindromic substring of the i-centered substring. And we extend the i-centered substring from both sides untile we have found the palindromic substring or tranvse string s.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    private int lo,maxLen;</div><div class="line">    public String longestPalindrome(String s) &#123;</div><div class="line">        if (s.length()&lt;=2) return s;</div><div class="line">for (int i=0;i&lt;s.length()-1;i++) &#123;</div><div class="line">extendPalindrom(s,i,i);</div><div class="line">extendPalindrom(s,i,i+1);</div><div class="line">&#125;</div><div class="line">return s.substring(lo,lo+maxLen);</div><div class="line">    &#125;</div><div class="line">    private void extendPalindrom(String s,int k,int j) &#123;</div><div class="line">while(j&gt;=0&amp;&amp;k&lt;s.length()&amp;&amp;s.charAt(j)==s.charAt(k)) &#123;</div><div class="line">j--;</div><div class="line">k++;</div><div class="line">&#125;</div><div class="line">if(maxLen&lt;k-j-1) &#123;</div><div class="line">lo = j+1;</div><div class="line">maxLen = k-j-1;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given a string s, find the longest palindromic substring in s. You
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>172. Factorial Trailing Zeros</title>
@@ -461,58 +511,6 @@
         &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Given an array where elements are sorted in ascending order, conve
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>107.Binary Tree Level Order Traversal II</title>
-    <link href="http://www.mysry.com/2017/11/02/107-Binary-Tree-Level-Order-Traversal-II/"/>
-    <id>http://www.mysry.com/2017/11/02/107-Binary-Tree-Level-Order-Traversal-II/</id>
-    <published>2017-11-02T12:25:09.000Z</published>
-    <updated>2017-11-02T12:36:20.250Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given a binary tree, return the bottom-up level order traversal of its nodes’ values. (ie, from left to right, level by level from leaf to root).</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>  I am puzzled of this question even if I have seen the answer. If you have very clear understand of this problem, could you email to me? Thank you very much!</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for a binary tree node.</div><div class="line"> * public class TreeNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     TreeNode left;</div><div class="line"> *     TreeNode right;</div><div class="line"> *     TreeNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">    public List&lt;List&lt;Integer&gt;&gt; levelOrderBottom(TreeNode root) &#123;</div><div class="line">        List&lt;List&lt;Integer&gt;&gt; result=new ArrayList&lt;&gt;();</div><div class="line">       if(root==null) return result;</div><div class="line">       Queue&lt;TreeNode&gt;q= new LinkedList&lt;&gt;();</div><div class="line">       q.add(root);</div><div class="line">       while(q.size()&gt;0) &#123;</div><div class="line">       List&lt;Integer&gt; list=new ArrayList&lt;&gt;();</div><div class="line">       int size= q.size();</div><div class="line">       for(int i=0;i&lt;size;i++) &#123;</div><div class="line">       TreeNode node=q.poll();</div><div class="line">       list.add(node.val);</div><div class="line">       if (node.left!=null) q.add(node.left);</div><div class="line">       if(node.right!=null) q.add(node.right);</div><div class="line">       &#125;</div><div class="line">       result.add(0,list);</div><div class="line">       &#125;</div><div class="line">       return result;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given a binary tree, return the bottom-up level order traversal of
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>104. Maximum Depth of Binary Tree</title>
-    <link href="http://www.mysry.com/2017/11/02/104-Maximum-Depth-of-Binary-Tree/"/>
-    <id>http://www.mysry.com/2017/11/02/104-Maximum-Depth-of-Binary-Tree/</id>
-    <published>2017-11-02T12:17:13.000Z</published>
-    <updated>2017-11-02T12:24:38.024Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problems"><font color="black">Problems:</font></h2><blockquote><p>Given a binary tree, find its maximum depth.</p></blockquote><blockquote><p>The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>  Use recursive to find the most depth child tree by search if its left or right node is null.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for a binary tree node.</div><div class="line"> * public class TreeNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     TreeNode left;</div><div class="line"> *     TreeNode right;</div><div class="line"> *     TreeNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">    public int maxDepth(TreeNode root) &#123;</div><div class="line">        if(root==null) return 0;</div><div class="line">return 1+Math.max(maxDepth(root.left), maxDepth(root.right));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problems&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problems:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given a binary tree, find its maximum depth.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;
       
     
     </summary>
