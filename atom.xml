@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2017-11-06T13:49:35.750Z</updated>
+  <updated>2017-11-07T15:56:49.563Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -15,6 +15,80 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Machine Learning Q&amp;A 1</title>
+    <link href="http://www.mysry.com/2017/11/07/Machine-Learning-Q-A-1/"/>
+    <id>http://www.mysry.com/2017/11/07/Machine-Learning-Q-A-1/</id>
+    <published>2017-11-07T14:34:02.000Z</published>
+    <updated>2017-11-07T15:56:49.563Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="请简要介绍svm"><font color="black">1.请简要介绍SVM？</font></h2><p>  SVM,全称是surpport vector machine(支持向量机),SVM是一个面向数据的分类算法，其目标是确定一个分类超平面，从而将不同的数据集分开。 扩展：<a href="www.mysry.com">SVM</a></p><h2 id="简要介绍tensorflow的计算图"><font color="black">2.简要介绍tensorflow的计算图？</font></h2><p>  Tensorflow是一个通过计算图的形式来表述计算的编程系统，计算图也叫数据流图，可以把计算图看成是一种有向图，Tensorflow中的每一个计算都是计算图上的一个节点，二节点之间的边描述了计算之间的依赖关系。 &gt; Tensorflow一般可分为两部分 - 构造部分，包含计算流图 - 执行部分，通过session来执行图中的计算 &gt; 构建图 - 创建源节点(source op) - 源节点输出传递给其他节点做运算 &gt; Tensorflow默认图 - Tensorflow python 库有一个默认图(default graph) - 节点构造器(op构造器)可以增加节点</p><h2 id="在knn或k-means我们常用欧式距离来计算最近邻之间的距离有时也用曼哈顿距离请对比两者的差别"><font color="black">3.在kNN或k-means，我们常用欧式距离来计算最近邻之间的距离，有时也用曼哈顿距离，请对比两者的差别：</font></h2><p> 欧式距离，最常见的两点之间或多点之间的距离表示法，定义于欧几里德空间;  曼哈顿距离，l1距离或城市区块儿距离，即欧几里德空间的固定直角坐标系上两点形成的线段对轴产生的投影的距离综合。</p><h2 id="关于linear-regression"><font color="black">4.关于Linear Regression</font></h2><p> <a href="www.mysry.com">LR</a></p><h2 id="overfitting过拟合的解决方法"><font color="black">5.overfitting(过拟合)的解决方法</font></h2><p> Dropout、Regularization、Batch normalization。</p><h2 id="lr和svm的联系于区别"><font color="black">6.LR和SVM的联系于区别</font></h2><h3 id="联系"><font color="black">联系：</font></h3><ul><li>LR和SVM都可以处理分类问题，而且一般都用于处理线性二分类问题（再改进的情况下可以处理多分类问题）。</li><li>两个方法都可以增加不同规则的正则化项，所以在很多实验中，两种算法结果接近。</li></ul><h3 id="区别"><font color="black">区别</font></h3><ul><li>LR是参数模型，SVM是非参数模型。</li><li>从目标函数看，区别在于逻辑回归采用的是logistical loss，SVM采用的是hinge loss。这两个损失函数的目的都是增加对分类影响较大的数据点的权重，减少分类关系较小的数据点的权重。</li><li>SVM的处理方法是只考虑Support Vectors，也就是和分类最相关的少数点，去学习分类器。而LR通过非线性映射，大大减小了距离分类平面较远的点的权重，提升了与分类最相关的数据点的权重。</li><li>LR相对来说模型更为简单，好理解，特别是大规模线性分类时比较方便。而SVM的理解和优化相对来说更为复杂一点，转化为对偶问题后分类只需要计算与少数几个支持向量的距离，在计算复杂核函数时优势明显，能够大大简化模型和计算。</li><li>LR能做的SVM能做，但可能在准确率稍弱，但是有些SVM能做的LR不能做。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;请简要介绍svm&quot;&gt;&lt;font color=&quot;black&quot;&gt;1.请简要介绍SVM？&lt;/font&gt;&lt;/h2&gt;
+&lt;p&gt;  SVM,全称是surpport vector machine(支持向量机),SVM是一个面向数据的分类算法，其目标是确定一个分类超平面，从而将不同
+      
+    
+    </summary>
+    
+    
+      <category term="Machine learning" scheme="http://www.mysry.com/tags/Machine-learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>11. Container With Most Water</title>
+    <link href="http://www.mysry.com/2017/11/07/11-Container-With-Most-Water/"/>
+    <id>http://www.mysry.com/2017/11/07/11-Container-With-Most-Water/</id>
+    <published>2017-11-07T14:27:44.000Z</published>
+    <updated>2017-11-07T14:32:38.154Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given n non-negative integers a1, a2, …, an, where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two lines, which together with x-axis forms a container, such that the container contains the most water.</p></blockquote><h2 id="idea"><font color="red"> Idea:</font></h2><p> General idea to find some max is to go through all cases where max value can possibly occur and keep updating the max value.The efficiency of the scan depends on the size of cases you plan to scan.</p><p> To increase efficiency, all we need to do is to find a smart way of scan to cut off the useless cases and meanwhile 100% guarantee the max value can be reached through the rest of cases.</p><p> In this problem, the smart scan way is to set two pointers initialized at both ends of the array. Every time move the smaller value pointer to inner array. Then after the two pointers meet, all possible max cases have been scanned and the max situation is 100% reached somewhere in the scan. Following is a brief prove of this.</p><p> Given a1,a2,a3…..an as input array. Lets assume a10 and a20 are the max area situation. We need to prove that a10 can be reached by left pointer and during the time left pointer stays at a10, a20 can be reached by right pointer. That is to say, the core problem is to prove: when left pointer is at a10 and right pointer is at a21, the next move must be right pointer to a20.  Since we are always moving the pointer with the smaller value, i.e. if a10 &gt; a21, we should move pointer at a21 to a20, as we hope. Why a10 &gt;a21? Because if a21&gt;a10, then area of a10 and a20 must be less than area of a10 and a21. Because the area of a10 and a21 is at least height[a10] * (21-10) while the area of a10 and a20 is at most height[a10] * (20-10). So there is a contradiction of assumption a10 and a20 has the max area. So, a10 must be greater than a21, then next move a21 has to be move to a20. The max cases must be reached.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">  public int maxArea(int[] height) &#123;</div><div class="line">    int left = 0, right = height.length - 1;</div><div class="line">int maxArea = 0;</div><div class="line"></div><div class="line">while (left &lt; right) &#123;</div><div class="line">maxArea = Math.max(maxArea, Math.min(height[left], height[right])</div><div class="line">* (right - left));</div><div class="line">if (height[left] &lt; height[right])</div><div class="line">left++;</div><div class="line">else</div><div class="line">right--;</div><div class="line">&#125;</div><div class="line"></div><div class="line">return maxArea;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given n non-negative integers a1, a2, …, an, where each represents
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>8. String to Integer (atoi)</title>
+    <link href="http://www.mysry.com/2017/11/07/8-String-to-Integer-atoi/"/>
+    <id>http://www.mysry.com/2017/11/07/8-String-to-Integer-atoi/</id>
+    <published>2017-11-07T14:07:40.000Z</published>
+    <updated>2017-11-07T14:27:16.500Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Implement atoi to convert a string to an integer. Hint: Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases. Notes: It is intended for this problem to be specified vaguely (ie, no given input specs). You are responsible to gather all the input requirements up front. Requirements for atoi: The function first discards as many whitespace characters as necessary until the first non-whitespace character is found. Then, starting from this character, takes an optional initial plus or minus sign followed by as many numerical digits as possible, and interprets them as a numerical value. The string can contain additional characters after those that form the integral number, which are ignored and have no effect on the behavior of this function. If the first sequence of non-whitespace characters in str is not a valid integral number, or if no such sequence exists because either str is empty or it contains only whitespace characters, no conversion is performed. If no valid conversion could be performed, a zero value is returned. If the correct value is out of the range of representable values, INT_MAX (2147483647) or INT_MIN (-2147483648) is returned.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> This question is a litter strange. What we need to do: - Discard the space before the string - Record sign information - A string can contain characters other than 0-9. If a non-numeric character is encountered, only the portion before the character, such as “-00123a66”, is returned as “-123” - Exceeds the int range, returning the boundary value(Integer.MaxValue or Integer.MinValue)</p><h2 id="java-code"><font color="orange">Java Code: </font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int myAtoi(String str) &#123;</div><div class="line">        if (str==null||str.length()==0) return 0;</div><div class="line">str = str.trim();</div><div class="line">char firstChar = str.charAt(0);</div><div class="line">int sign = 1, start = 0,len = str.length();</div><div class="line">long sum = 0;</div><div class="line">if (firstChar == &apos;+&apos;) &#123;</div><div class="line">sign = 1;</div><div class="line">start++;</div><div class="line">&#125;else if (firstChar == &apos;-&apos;) &#123;</div><div class="line">sign = -1;</div><div class="line">start++;</div><div class="line">&#125;</div><div class="line">for (int i=start;i&lt;len;i++) &#123;</div><div class="line">if (!Character.isDigit(str.charAt(i)))</div><div class="line">return (int) sum*sign;</div><div class="line">sum = sum*10+str.charAt(i)-&apos;0&apos;;</div><div class="line">if(sign==1&amp;&amp;sum&gt;Integer.MAX_VALUE)</div><div class="line">return Integer.MAX_VALUE;</div><div class="line">if(sign ==-1&amp;&amp;(-1*sum)&lt;Integer.MIN_VALUE)</div><div class="line">return Integer.MIN_VALUE;</div><div class="line">&#125;</div><div class="line">return (int)sum*sign;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Implement atoi to convert a string to an integer. Hint: Carefully 
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>6. ZigZag Conversion</title>
@@ -433,84 +507,6 @@
         &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Given a binary tree and a sum, determine if the tree has a root-to
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>111. Minimum Depth of Binary Tree</title>
-    <link href="http://www.mysry.com/2017/11/03/111-Minimum-Depth-of-Binary-Tree/"/>
-    <id>http://www.mysry.com/2017/11/03/111-Minimum-Depth-of-Binary-Tree/</id>
-    <published>2017-11-03T07:03:09.000Z</published>
-    <updated>2017-11-03T07:16:34.921Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given a binary tree, find its minimum depth.</p></blockquote><blockquote><p>The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>  Use a recursion, constantly return the shallow children subtree, until the child node equals null.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for a binary tree node.</div><div class="line"> * public class TreeNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     TreeNode left;</div><div class="line"> *     TreeNode right;</div><div class="line"> *     TreeNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">    public int minDepth(TreeNode root) &#123;</div><div class="line">        if(root==null)return 0;</div><div class="line">    int  left =minDepth(root.left);</div><div class="line">    int  right=minDepth(root.right);</div><div class="line">    return (left==0||right==0)?left+right+1:Math.min(left,right)+1;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given a binary tree, find its minimum depth.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;bl
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>110. Balanced Binary Tree</title>
-    <link href="http://www.mysry.com/2017/11/03/110-Balanced-Binary-Tree/"/>
-    <id>http://www.mysry.com/2017/11/03/110-Balanced-Binary-Tree/</id>
-    <published>2017-11-03T06:55:54.000Z</published>
-    <updated>2017-11-03T07:02:40.613Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given a binary tree, determine if it is height-balanced.</p></blockquote><blockquote><p>For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>  Use recursion to traverse the left and right nodes at the same time, if node depth between the left and right is no more than 1, we consider it as a balanced binary tree.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for a binary tree node.</div><div class="line"> * public class TreeNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     TreeNode left;</div><div class="line"> *     TreeNode right;</div><div class="line"> *     TreeNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">    public boolean isBalanced(TreeNode root) &#123;</div><div class="line">    if (root==null) return true;</div><div class="line">    return height(root)!=-1;    </div><div class="line">&#125;</div><div class="line">public int height(TreeNode node) &#123;</div><div class="line">    if(node==null) &#123;</div><div class="line">        return 0;</div><div class="line">    &#125;</div><div class="line">    int lH=height(node.left);</div><div class="line">    if(lH==-1) return -1;</div><div class="line">    int rH =height(node.right);</div><div class="line">    if (rH==-1) return -1;</div><div class="line">    if(lH-rH&lt;-1||lH-rH&gt;1) return -1;</div><div class="line">    return Math.max(lH, rH)+1;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given a binary tree, determine if it is height-balanced.&lt;/p&gt;
-&lt;/blo
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>108. Convert Sorted Array to Binary Search Tree</title>
-    <link href="http://www.mysry.com/2017/11/03/108-Convert-Sorted-Array-to-Binary-Search-Tree/"/>
-    <id>http://www.mysry.com/2017/11/03/108-Convert-Sorted-Array-to-Binary-Search-Tree/</id>
-    <published>2017-11-03T06:47:33.000Z</published>
-    <updated>2017-11-03T06:54:58.997Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given an array where elements are sorted in ascending order, convert it to a height balanced BST.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>  Fisrt, find the middle number of the array, and than put the smaller number to be the left tree node, the larger be the right tree node.Also to use a recursive to solve this problem.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for a binary tree node.</div><div class="line"> * public class TreeNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     TreeNode left;</div><div class="line"> *     TreeNode right;</div><div class="line"> *     TreeNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">    public TreeNode sortedArrayToBST(int[] nums) &#123;</div><div class="line">        if (nums.length==0)return null;</div><div class="line">    TreeNode head=helper(nums,0,nums.length-1);</div><div class="line">    return head;</div><div class="line">    &#125;</div><div class="line">    public TreeNode helper(int []nums,int low,int high) &#123;</div><div class="line">    if(low&gt;high)return null;</div><div class="line">    int mid=(low+high)/2;</div><div class="line">    TreeNode node=new TreeNode(nums[mid]);</div><div class="line">    node.left=helper(nums,low,mid-1);</div><div class="line">    node.right=helper(nums,mid+1,high);</div><div class="line">    return node;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given an array where elements are sorted in ascending order, conve
       
     
     </summary>
