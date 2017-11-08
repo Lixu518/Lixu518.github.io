@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.mysry.com/about/index.html</loc>
+    
+    <lastmod>2017-11-08T05:09:51.872Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.mysry.com/2017/11/07/Machine-Learning-Q-A-1/</loc>
     
     <lastmod>2017-11-07T15:56:49.563Z</lastmod>
@@ -159,13 +166,6 @@
     <loc>http://www.mysry.com/2017/11/03/108-Convert-Sorted-Array-to-Binary-Search-Tree/</loc>
     
     <lastmod>2017-11-03T06:54:58.997Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.mysry.com/about/index.html</loc>
-    
-    <lastmod>2017-11-03T02:58:54.475Z</lastmod>
     
   </url>
   
