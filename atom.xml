@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2017-11-08T05:20:40.901Z</updated>
+  <updated>2017-11-08T15:18:58.080Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -15,6 +15,79 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linear Regression</title>
+    <link href="http://www.mysry.com/2017/11/08/Linear-Regression/"/>
+    <id>http://www.mysry.com/2017/11/08/Linear-Regression/</id>
+    <published>2017-11-08T14:04:31.000Z</published>
+    <updated>2017-11-08T15:18:58.080Z</updated>
+    
+    <content type="html"><![CDATA[<p>  在统计学中，线性回归（Linear regression）是利用称为线性回归方程的最小平方函數对一个或多个自变量和因变量之间关系进行建模的一种回归分析。 这种函数是一个或多个称为回归系数的模型参数的线性组合。 只有一个自变量的情况称为简单回归，大于一个自变量情况的叫做多元回归。   我们用x1,x2,…,xn,描述feature中的分量，作出估计函数： <img src="https://i.loli.net/2017/11/08/5a031ccb62eb6.png" alt="Screenshot from 2017-11-08 22-58-21.png" title="Screenshot from 2017-11-08 22-58-21.png"> 若令x0=1,则可得： <img src="https://i.loli.net/2017/11/08/5a031de40ba2d.png" alt="Screenshot from 2017-11-08 23-07-39.png" title="Screenshot from 2017-11-08 23-07-39.png">   我们需要一个机制去评估，所以需要对h函数进行评估，称为损失函数(loss function)，接下里，我们用J函数来表述损失函数： <img src="https://i.loli.net/2017/11/08/5a03203733e27.png" alt="Screenshot from 2017-11-08 23-15-39.png" title="Screenshot from 2017-11-08 23-15-39.png"> 待续。。。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;  在统计学中，线性回归（Linear regression）是利用称为线性回归方程的最小平方函數对一个或多个自变量和因变量之间关系进行建模的一种回归分析。 这种函数是一个或多个称为回归系数的模型参数的线性组合。 只有一个自变量的情况称为简单回归，大于一个自变量情况的叫做多
+      
+    
+    </summary>
+    
+    
+      <category term="Machine Learning" scheme="http://www.mysry.com/tags/Machine-Learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>15. 3Sum</title>
+    <link href="http://www.mysry.com/2017/11/08/15-3Sum/"/>
+    <id>http://www.mysry.com/2017/11/08/15-3Sum/</id>
+    <published>2017-11-08T13:57:56.000Z</published>
+    <updated>2017-11-08T14:01:13.032Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given an array S of n integers, are there elements a, b, c in S such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> The idea is to sort an input array and then run through all indices of a possible first element of a triplet. For each possible first element we make a standard bi-directional 2Sum sweep of the remaining part of the array. Also we want to skip equal elements to avoid duplicates in the answer without making a set or smth like that.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">        public List&lt;List&lt;Integer&gt;&gt; threeSum(int[] nums) &#123;</div><div class="line">     Arrays.sort(nums);</div><div class="line">    List&lt;List&lt;Integer&gt;&gt; res = new LinkedList&lt;&gt;(); </div><div class="line">    for (int i = 0; i &lt; nums.length-2; i++) &#123;</div><div class="line">        if (i == 0 || (i &gt; 0 &amp;&amp; nums[i] != nums[i-1])) &#123;</div><div class="line">            int lo = i+1, hi = nums.length-1, sum = 0 - nums[i];</div><div class="line">            while (lo &lt; hi) &#123;</div><div class="line">                if (nums[lo] + nums[hi] == sum) &#123;</div><div class="line">                    res.add(Arrays.asList(nums[i], nums[lo], nums[hi]));</div><div class="line">                    while (lo &lt; hi &amp;&amp; nums[lo] == nums[lo+1]) lo++;</div><div class="line">                    while (lo &lt; hi &amp;&amp; nums[hi] == nums[hi-1]) hi--;</div><div class="line">                    lo++; hi--;</div><div class="line">                &#125; else if (nums[lo] + nums[hi] &lt; sum) lo++;</div><div class="line">                else hi--;</div><div class="line">           &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given an array S of n integers, are there elements a, b, c in S su
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>12. Integer to Roman</title>
+    <link href="http://www.mysry.com/2017/11/08/12-Integer-to-Roman/"/>
+    <id>http://www.mysry.com/2017/11/08/12-Integer-to-Roman/</id>
+    <published>2017-11-08T13:41:54.000Z</published>
+    <updated>2017-11-08T13:57:20.451Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given an integer, convert it to a roman numeral. Input is guaranteed to be within the range from 1 to 3999.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> We need to understand corresponding relationship for integer and Roman number, than create an int array and a string array to store integer and Roman number respectively. From the bigger Roman number to substract the nums to zero.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public String intToRoman(int num) &#123;</div><div class="line">        int[] values= &#123;1000,900,500,400,100,90,50,40,10,9,5,4,1&#125;;</div><div class="line">String[]str= &#123;&quot;M&quot;,&quot;CM&quot;,&quot;D&quot;,&quot;CD&quot;,&quot;C&quot;,&quot;XC&quot;,&quot;L&quot;,&quot;XL&quot;,&quot;X&quot;,&quot;IX&quot;,&quot;V&quot;,&quot;IV&quot;,&quot;I&quot;&#125;;</div><div class="line">StringBuilder sb = new StringBuilder();</div><div class="line">for (int i=0;i&lt;values.length;i++) &#123;</div><div class="line">while(num&gt;=values[i]) &#123;</div><div class="line">num-=values[i];</div><div class="line">sb.append(str[i]);</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">return sb.toString();</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given an integer, convert it to a roman numeral. Input is guarante
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>Machine Learning Q&amp;A 1</title>
@@ -438,81 +511,6 @@
     
     
       <category term="skills" scheme="http://www.mysry.com/tags/skills/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>119. Pascal&#39;s Triangle II</title>
-    <link href="http://www.mysry.com/2017/11/03/119-Pascal-s-Triangle-II/"/>
-    <id>http://www.mysry.com/2017/11/03/119-Pascal-s-Triangle-II/</id>
-    <published>2017-11-03T07:39:37.000Z</published>
-    <updated>2017-11-03T07:45:19.284Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given an index k, return the kth row of the Pascal’s triangle.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> Use 2 layer for loop to get the k row of the Pascla’s triangle.</p><h2 id="java-code"><font color="black">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public List&lt;Integer&gt; getRow(int rowIndex) &#123;</div><div class="line">        List&lt;Integer&gt; res = new ArrayList&lt;Integer&gt;();</div><div class="line">    for(int i=0;i&lt;rowIndex+1;i++) &#123;</div><div class="line">        res.add(1);</div><div class="line">        for (int j=i-1;j&gt;0;j--)</div><div class="line">            res.set(j,res.get(j-1)+res.get(j));</div><div class="line">    &#125;</div><div class="line">    return res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given an index k, return the kth row of the Pascal’s triangle.&lt;/p&gt;
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>118. Pascal&#39;s Triangle</title>
-    <link href="http://www.mysry.com/2017/11/03/118-Pascal-s-Triangle/"/>
-    <id>http://www.mysry.com/2017/11/03/118-Pascal-s-Triangle/</id>
-    <published>2017-11-03T07:17:27.000Z</published>
-    <updated>2017-11-03T07:38:56.635Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given numRows, generate the first numRows of Pascal’s triangle.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> Pascal’s triangle is a triangular array of the binomial coefficients, every num is equal to the sum of its shoudlers(one or two numbers’ sum).</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public List&lt;List&lt;Integer&gt;&gt; generate(int numRows) &#123;</div><div class="line">       List&lt;List&lt;Integer&gt;&gt; allrows = new ArrayList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">    ArrayList&lt;Integer&gt; row = new ArrayList&lt;Integer&gt;();</div><div class="line">    for (int i=0;i&lt;numRows;i++) &#123;</div><div class="line">        row.add(0,1);</div><div class="line">        for(int j=1;j&lt;row.size()-1;j++)</div><div class="line">            row.set(j, row.get(j)+row.get(j+1));</div><div class="line">        allrows.add(new ArrayList&lt;Integer&gt;(row));</div><div class="line">    &#125;</div><div class="line">    return allrows; </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given numRows, generate the first numRows of Pascal’s triangle.&lt;/p
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>112. Path Sum</title>
-    <link href="http://www.mysry.com/2017/11/03/112-Path-Sum/"/>
-    <id>http://www.mysry.com/2017/11/03/112-Path-Sum/</id>
-    <published>2017-11-03T07:09:38.000Z</published>
-    <updated>2017-11-03T07:15:05.304Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>  Use the recursion to traversal its path, every level has two choice, and reduce the sum with node.val(left.val or right.val).</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for a binary tree node.</div><div class="line"> * public class TreeNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     TreeNode left;</div><div class="line"> *     TreeNode right;</div><div class="line"> *     TreeNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">    public boolean hasPathSum(TreeNode root, int sum) &#123;</div><div class="line">        if (root==null)return false;</div><div class="line">    if(root.left==null&amp;&amp;root.right==null&amp;&amp;sum-root.val==0)</div><div class="line">        return true;</div><div class="line">    return hasPathSum(root.left,sum-root.val)||hasPathSum(root.right,sum-root.val);</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given a binary tree and a sum, determine if the tree has a root-to
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
     
   </entry>
   

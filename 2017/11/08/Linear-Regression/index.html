@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="leetcode," />
+  <meta name="keywords" content="Machine Learning," />
 
 
 
@@ -81,18 +81,22 @@
 
 
 
-<meta name="description" content="Problem:  The count-and-say sequence is the sequence of integers with the first five terms as following:    1 11 21 1211 111221    1 is read off as “one 1” or 11. 11 is read off as “two 1s” or 21. 21">
-<meta name="keywords" content="leetcode">
+<meta name="description" content="在统计学中，线性回归（Linear regression）是利用称为线性回归方程的最小平方函數对一个或多个自变量和因变量之间关系进行建模的一种回归分析。 这种函数是一个或多个称为回归系数的模型参数的线性组合。 只有一个自变量的情况称为简单回归，大于一个自变量情况的叫做多元回归。   我们用x1,x2,…,xn,描述feature中的分量，作出估计函数：  若令x0=1,则可得：    我们需要">
+<meta name="keywords" content="Machine Learning">
 <meta property="og:type" content="article">
-<meta property="og:title" content="38. Count and Say">
-<meta property="og:url" content="http://www.mysry.com/2017/10/29/38-Count-and-Say/index.html">
+<meta property="og:title" content="Linear Regression">
+<meta property="og:url" content="http://www.mysry.com/2017/11/08/Linear-Regression/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="Problem:  The count-and-say sequence is the sequence of integers with the first five terms as following:    1 11 21 1211 111221    1 is read off as “one 1” or 11. 11 is read off as “two 1s” or 21. 21">
+<meta property="og:description" content="在统计学中，线性回归（Linear regression）是利用称为线性回归方程的最小平方函數对一个或多个自变量和因变量之间关系进行建模的一种回归分析。 这种函数是一个或多个称为回归系数的模型参数的线性组合。 只有一个自变量的情况称为简单回归，大于一个自变量情况的叫做多元回归。   我们用x1,x2,…,xn,描述feature中的分量，作出估计函数：  若令x0=1,则可得：    我们需要">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-29T05:11:43.184Z">
+<meta property="og:image" content="https://i.loli.net/2017/11/08/5a031ccb62eb6.png">
+<meta property="og:image" content="https://i.loli.net/2017/11/08/5a031de40ba2d.png">
+<meta property="og:image" content="https://i.loli.net/2017/11/08/5a03203733e27.png">
+<meta property="og:updated_time" content="2017-11-08T15:18:58.080Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="38. Count and Say">
-<meta name="twitter:description" content="Problem:  The count-and-say sequence is the sequence of integers with the first five terms as following:    1 11 21 1211 111221    1 is read off as “one 1” or 11. 11 is read off as “two 1s” or 21. 21">
+<meta name="twitter:title" content="Linear Regression">
+<meta name="twitter:description" content="在统计学中，线性回归（Linear regression）是利用称为线性回归方程的最小平方函數对一个或多个自变量和因变量之间关系进行建模的一种回归分析。 这种函数是一个或多个称为回归系数的模型参数的线性组合。 只有一个自变量的情况称为简单回归，大于一个自变量情况的叫做多元回归。   我们用x1,x2,…,xn,描述feature中的分量，作出估计函数：  若令x0=1,则可得：    我们需要">
+<meta name="twitter:image" content="https://i.loli.net/2017/11/08/5a031ccb62eb6.png">
 
 
 
@@ -122,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://www.mysry.com/2017/10/29/38-Count-and-Say/"/>
+  <link rel="canonical" href="http://www.mysry.com/2017/11/08/Linear-Regression/"/>
 
 
 
 
 
-  <title>38. Count and Say | Mysry</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Linear Regression | Mysry</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -255,7 +259,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.mysry.com/2017/10/29/38-Count-and-Say/">
+    <link itemprop="mainEntityOfPage" href="http://www.mysry.com/2017/11/08/Linear-Regression/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mysry">
@@ -272,7 +276,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">38. Count and Say</h1>
+          <h1 class="post-title" itemprop="name headline">Linear Regression</h1>
         
 
         <div class="post-meta">
@@ -284,8 +288,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-29T13:00:30+08:00">
-                2017-10-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-08T22:04:31+08:00">
+                2017-11-08
               </time>
             
 
@@ -322,32 +326,7 @@
       
 
       
-        <h2 id="problem"><font color="black">Problem:</font></h2>
-<blockquote>
-<p>The count-and-say sequence is the sequence of integers with the first five terms as following:</p>
-</blockquote>
-<blockquote>
-<ol style="list-style-type: decimal">
-<li>1</li>
-<li>11</li>
-<li>21</li>
-<li>1211</li>
-<li>111221</li>
-</ol>
-</blockquote>
-<blockquote>
-<p>1 is read off as “one 1” or 11. 11 is read off as “two 1s” or 21. 21 is read off as “one 2, then one 1” or 1211.</p>
-</blockquote>
-<blockquote>
-<p>Given an integer n, generate the nth term of the count-and-say sequence.</p>
-</blockquote>
-<blockquote>
-<p>Note: Each term of the sequence of integers will be represented as a string.</p>
-</blockquote>
-<h2 id="idea"><font color="red">Idea:</font></h2>
-<p>  This problem is a litter longer than before, so it take a few seconds to understand the problem. Don’t be afraid of the complicated desription. I construct a StringBuilder to store the characters to be added and its number, and then add it by law.</p>
-<h2 id="java-code"><font color="orange">Java Code:</font></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public String countAndSay(int n) &#123;</div><div class="line">        StringBuilder builder=new StringBuilder(&quot;1&quot;);</div><div class="line">	  StringBuilder prev;</div><div class="line">	  int count;</div><div class="line">	  char say;</div><div class="line">	  for (int i=1;i&lt;n;i++) &#123;</div><div class="line">		  prev=builder;</div><div class="line">		  builder=new StringBuilder();</div><div class="line">		  count=1;</div><div class="line">		  say=prev.charAt(0);</div><div class="line">		  for (int j=1,len=prev.length();j&lt;len;j++) &#123;</div><div class="line">			  if (prev.charAt(j)!=say) &#123;</div><div class="line">				  builder.append(count).append(say);</div><div class="line">				  count=1;</div><div class="line">				  say=prev.charAt(j);</div><div class="line">			  &#125;</div><div class="line">			  else count++;</div><div class="line">		  &#125;</div><div class="line">		builder.append(count).append(say);</div><div class="line">	  &#125;</div><div class="line">	  return builder.toString();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p>  在统计学中，线性回归（Linear regression）是利用称为线性回归方程的最小平方函數对一个或多个自变量和因变量之间关系进行建模的一种回归分析。 这种函数是一个或多个称为回归系数的模型参数的线性组合。 只有一个自变量的情况称为简单回归，大于一个自变量情况的叫做多元回归。   我们用x1,x2,…,xn,描述feature中的分量，作出估计函数： <img src="https://i.loli.net/2017/11/08/5a031ccb62eb6.png" alt="Screenshot from 2017-11-08 22-58-21.png" title="Screenshot from 2017-11-08 22-58-21.png"> 若令x0=1,则可得： <img src="https://i.loli.net/2017/11/08/5a031de40ba2d.png" alt="Screenshot from 2017-11-08 23-07-39.png" title="Screenshot from 2017-11-08 23-07-39.png">   我们需要一个机制去评估，所以需要对h函数进行评估，称为损失函数(loss function)，接下里，我们用J函数来表述损失函数： <img src="https://i.loli.net/2017/11/08/5a03203733e27.png" alt="Screenshot from 2017-11-08 23-15-39.png" title="Screenshot from 2017-11-08 23-15-39.png"> 待续。。。</p>
 
       
     </div>
@@ -376,7 +355,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
+            <a href="/tags/Machine-Learning/" rel="tag"><i class="fa fa-tag"></i> Machine Learning</a>
           
         </div>
       
@@ -389,8 +368,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/29/35-Search-Insert-Position/" rel="next" title="35. Search Insert Position">
-                <i class="fa fa-chevron-left"></i> 35. Search Insert Position
+              <a href="/2017/11/08/15-3Sum/" rel="next" title="15. 3Sum">
+                <i class="fa fa-chevron-left"></i> 15. 3Sum
               </a>
             
           </div>
@@ -398,10 +377,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/10/31/53-Maximum-Subarray/" rel="prev" title="53. Maximum Subarray">
-                53. Maximum Subarray <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -453,17 +428,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -547,22 +513,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
