@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2017-11-08T15:18:58.080Z</updated>
+  <updated>2017-11-09T04:30:11.163Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://www.mysry.com/2017/11/08/Linear-Regression/"/>
     <id>http://www.mysry.com/2017/11/08/Linear-Regression/</id>
     <published>2017-11-08T14:04:31.000Z</published>
-    <updated>2017-11-08T15:18:58.080Z</updated>
+    <updated>2017-11-09T04:30:11.163Z</updated>
     
-    <content type="html"><![CDATA[<p>  在统计学中，线性回归（Linear regression）是利用称为线性回归方程的最小平方函數对一个或多个自变量和因变量之间关系进行建模的一种回归分析。 这种函数是一个或多个称为回归系数的模型参数的线性组合。 只有一个自变量的情况称为简单回归，大于一个自变量情况的叫做多元回归。   我们用x1,x2,…,xn,描述feature中的分量，作出估计函数： <img src="https://i.loli.net/2017/11/08/5a031ccb62eb6.png" alt="Screenshot from 2017-11-08 22-58-21.png" title="Screenshot from 2017-11-08 22-58-21.png"> 若令x0=1,则可得： <img src="https://i.loli.net/2017/11/08/5a031de40ba2d.png" alt="Screenshot from 2017-11-08 23-07-39.png" title="Screenshot from 2017-11-08 23-07-39.png">   我们需要一个机制去评估，所以需要对h函数进行评估，称为损失函数(loss function)，接下里，我们用J函数来表述损失函数： <img src="https://i.loli.net/2017/11/08/5a03203733e27.png" alt="Screenshot from 2017-11-08 23-15-39.png" title="Screenshot from 2017-11-08 23-15-39.png"> 待续。。。</p>]]></content>
+    <content type="html"><![CDATA[<p>  在统计学中，线性回归（Linear regression）是利用称为线性回归方程的最小平方函數对一个或多个自变量和因变量之间关系进行建模的一种回归分析。 这种函数是一个或多个称为回归系数的模型参数的线性组合。 只有一个自变量的情况称为简单回归，大于一个自变量情况的叫做多元回归。   我们用x1,x2,…,xn,描述feature中的分量，作出估计函数： <img src="https://i.loli.net/2017/11/08/5a031ccb62eb6.png" alt="Screenshot from 2017-11-08 22-58-21.png"> 若令x0=1,则可得： <img src="https://i.loli.net/2017/11/08/5a031de40ba2d.png" alt="Screenshot from 2017-11-08 23-07-39.png" title="Screenshot from 2017-11-08 23-07-39.png">   我们需要一个机制去评估，所以需要对h函数进行评估，称为损失函数(loss function)，接下里，我们用J函数来表述损失函数： <img src="https://i.loli.net/2017/11/08/5a03203733e27.png" alt="Screenshot from 2017-11-08 23-15-39.png" title="Screenshot from 2017-11-08 23-15-39.png"> 待续。。。</p>]]></content>
     
     <summary type="html">
     
