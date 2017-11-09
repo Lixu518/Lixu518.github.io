@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2017-11-09T04:33:01.107Z</updated>
+  <updated>2017-11-09T15:26:53.823Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -17,13 +17,63 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>17. Letter Combinations of a Phone Number</title>
+    <link href="http://www.mysry.com/2017/11/09/17-Letter-Combinations-of-a-Phone-Number/"/>
+    <id>http://www.mysry.com/2017/11/09/17-Letter-Combinations-of-a-Phone-Number/</id>
+    <published>2017-11-09T15:17:51.000Z</published>
+    <updated>2017-11-09T15:26:53.823Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given a digit string, return all possible letter combinations that the number could represent.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> We use a FIFO queue.See the code:</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public List&lt;String&gt; letterCombinations(String digits) &#123;</div><div class="line"> LinkedList&lt;String&gt; ans = new LinkedList&lt;String&gt;();</div><div class="line">        if(digits==null||digits.length() ==0) return ans;</div><div class="line">    String[] mapping = new String[] &#123;&quot;0&quot;, &quot;1&quot;, &quot;abc&quot;, &quot;def&quot;, &quot;ghi&quot;, &quot;jkl&quot;, &quot;mno&quot;, &quot;pqrs&quot;, &quot;tuv&quot;, &quot;wxyz&quot;&#125;;</div><div class="line">    ans.add(&quot;&quot;);</div><div class="line">    for(int i =0; i&lt;digits.length();i++)&#123;</div><div class="line">        int x = Character.getNumericValue(digits.charAt(i));</div><div class="line">        while(ans.peek().length()==i)&#123;</div><div class="line">            String t = ans.remove();</div><div class="line">            for(char s : mapping[x].toCharArray())</div><div class="line">                ans.add(t+s);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return ans;  </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given a digit string, return all possible letter combinations that
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>16. 3Sum Closest</title>
+    <link href="http://www.mysry.com/2017/11/09/16-3Sum-Closest/"/>
+    <id>http://www.mysry.com/2017/11/09/16-3Sum-Closest/</id>
+    <published>2017-11-09T15:08:41.000Z</published>
+    <updated>2017-11-09T15:17:16.433Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given an array S of n integers, find three integers in S such that the sum is closest to a given number, target. Return the sum of the three integers. You may assume that each input would have exactly one solution.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> If we want to solve this problem in o(n^2) space, we need to approach the target number both from the head and tail of this array, and the inner loop begin from i+1.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int threeSumClosest(int[] nums, int target) &#123;</div><div class="line">        // if(nums==null||nums.length&lt;=2) return 0;    </div><div class="line">        int result = nums[0] +nums[1]+nums[nums.length-1];    </div><div class="line">        Arrays.sort(nums);    </div><div class="line">        for (int i = 0; i&lt;nums.length-2;i++)&#123;    </div><div class="line">            int start = i+1,end = nums.length-1;    </div><div class="line">            while(start&lt;end)&#123;    </div><div class="line">                int sum = nums[i] + nums[start] + nums[end];    </div><div class="line">                if(sum&gt;target) end--;    </div><div class="line">                else start++;    </div><div class="line">                if (Math.abs(sum - target) &lt; Math.abs(result - target))    </div><div class="line">                    result = sum;    </div><div class="line">            &#125;    </div><div class="line">        &#125;    </div><div class="line">        return result; </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given an array S of n integers, find three integers in S such that
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Linear Regression</title>
     <link href="http://www.mysry.com/2017/11/08/Linear-Regression/"/>
     <id>http://www.mysry.com/2017/11/08/Linear-Regression/</id>
     <published>2017-11-08T14:04:31.000Z</published>
-    <updated>2017-11-09T04:33:01.107Z</updated>
+    <updated>2017-11-09T04:52:01.020Z</updated>
     
-    <content type="html"><![CDATA[<p>  在统计学中，线性回归（Linear regression）是利用称为线性回归方程的最小平方函數对一个或多个自变量和因变量之间关系进行建模的一种回归分析。 这种函数是一个或多个称为回归系数的模型参数的线性组合。 只有一个自变量的情况称为简单回归，大于一个自变量情况的叫做多元回归。   我们用x1,x2,…,xn,描述feature中的分量，作出估计函数： <img src="https://i.loli.net/2017/11/08/5a031ccb62eb6.png"> 若令x0=1,则可得： <img src="https://i.loli.net/2017/11/08/5a031de40ba2d.png" alt="Screenshot from 2017-11-08 23-07-39.png" title="Screenshot from 2017-11-08 23-07-39.png">   我们需要一个机制去评估，所以需要对h函数进行评估，称为损失函数(loss function)，接下里，我们用J函数来表述损失函数： <img src="https://i.loli.net/2017/11/08/5a03203733e27.png" alt="Screenshot from 2017-11-08 23-15-39.png" title="Screenshot from 2017-11-08 23-15-39.png"> 待续。。。</p>]]></content>
+    <content type="html"><![CDATA[<p>  在统计学中，线性回归（Linear regression）是利用称为线性回归方程的最小平方函數对一个或多个自变量和因变量之间关系进行建模的一种回归分析。 这种函数是一个或多个称为回归系数的模型参数的线性组合。 只有一个自变量的情况称为简单回归，大于一个自变量情况的叫做多元回归。   我们用x1,x2,…,xn,描述feature中的分量，作出估计函数：</p><p>若令X0=1,则可得：   我们需要一个机制去评估，所以需要对h函数进行评估，称为损失函数(loss function)，接下里，我们用J函数来表述损失函数： 待续。。。</p>]]></content>
     
     <summary type="html">
     
@@ -462,55 +512,6 @@
     
     
       <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>121. Best Time to Buy and Sell Stock</title>
-    <link href="http://www.mysry.com/2017/11/04/121-Best-Time-to-Buy-and-Sell-Stock/"/>
-    <id>http://www.mysry.com/2017/11/04/121-Best-Time-to-Buy-and-Sell-Stock/</id>
-    <published>2017-11-04T04:54:36.000Z</published>
-    <updated>2017-11-04T05:07:20.170Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Say you have an array for which the ith element is the price of a given stock on day i. If you were only permitted to complete at most one transaction (ie, buy one and sell one share of the stock), design an algorithm to find the maximum profit.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> This could be a easy dynamic programming ploblem. I’d like to use a for-loop to calculate the max difference and return the max-difference.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><pre><code>class Solution {    public int maxProfit(int[] prices) {        if (prices.length==0) return 0;    int max=0;    int softMin= prices[0];    for (int i=0;i&lt;prices.length;i++) {        if (prices[i]&gt;softMin) {            max=Math.max(max, prices[i]-softMin);        }        else {            softMin = prices[i];        }    }    return max;    }}</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Say you have an array for which the ith element is the price of a 
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo+next personal setting</title>
-    <link href="http://www.mysry.com/2017/11/03/hexo-next%E4%B8%AA%E6%80%A7%E9%85%8D%E7%BD%AE/"/>
-    <id>http://www.mysry.com/2017/11/03/hexo-next个性配置/</id>
-    <published>2017-11-03T15:18:24.000Z</published>
-    <updated>2017-11-03T16:25:49.922Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="add-fork-me-on-github"><font color="red">Add “Fork me on github”:</font></h2><p> <a href="https://github.com/blog/273-github-ribbons" target="_blank" rel="external">click here</a> to select your favoriate style and copy the link code, like this: <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;a href=&quot;https://github.com/yourGithubAddress&quot;&gt;&lt;img style=&quot;position: absolute; top: 0; left: 0; border: 0;&quot; src=&quot;https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67&quot; alt=&quot;Fork me on GitHub&quot; data-canonical-src=&quot;https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png&quot;&gt;&lt;/a&gt;</div></pre></td></tr></table></figure></p><p>Than open the swig file use <code>vim themes/next/layout/_layout.swig</code>, put the code under <code>&lt;div class=&quot;headband&quot;&gt;&lt;/div&gt;</code> and change the href to your github address.</p><h2 id="add-some-click-effect"><font color="red">Add some click effect:</font></h2><p> <a href="http://7u2ss1.com1.z0.glb.clouddn.com/love.js" target="_blank" rel="external">click here</a> to get the love.js code and copy it. Than use <code>vim thems/next/source/js/src/love.js</code> to create and edit file, copy love.js to this file. And than edit another file use <code>vim thems/next/layout/_layout.swig</code>. At the tail of this file add code like this: <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 页面点击小红心 --&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;/js/src/love.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure></p><h2 id="add-tag-at-the-tail-of-every-article"><font color="red">Add tag at the tail of every article</font></h2><p> use <code>vim thems/next/layout/_macro/passage-end-tag.swig</code>, and add the behind code: <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">    &#123;% if not is_index %&#125;</div><div class="line">        &lt;div style=&quot;text-align:center;color: #ccc;font-size:14px;&quot;&gt;-------------End&lt;i class=&quot;fa fa-paw&quot;&gt;&lt;/i&gt;Thank you for watching!-------------&lt;/div&gt;</div><div class="line">    &#123;% endif %&#125;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p><p> Than <code>vim thems/next/layout/_macro/post.swig</code> add the below code between <code>post-body</code> and <code>post-footer</code>: <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">  &#123;% if not is_index %&#125;</div><div class="line">    &#123;% include &apos;passage-end-tag.swig&apos; %&#125;</div><div class="line">  &#123;% endif %&#125;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p><p> After that, <code>vim _config.yml</code> and set passage-end-tag to be true: <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">passage_end_tag:</div><div class="line">  enabled: true</div></pre></td></tr></table></figure></p><h2 id="add-visitors-number"><font color="red">Add visitors number:</font></h2><p> <code>vim thems/next/layout_partials/footer.swig</code>, add the below code before copy right: <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script async src=&quot;https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure></p><p> Than add the statistical code in any where if suitable: <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;powered-by&quot;&gt;</div><div class="line">&lt;i class=&quot;fa fa-user-md&quot;&gt;&lt;/i&gt;&lt;span id=&quot;busuanzi_container_site_uv&quot;&gt;</div><div class="line">  Viditors:&lt;span id=&quot;busuanzi_value_site_uv&quot;&gt;&lt;/span&gt;</div><div class="line">&lt;/span&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p><p> There are two kind ways of statistical vistors, pv and uv: pv: <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;span id=&quot;busuanzi_container_site_pv&quot;&gt;</div><div class="line">    Visitors:&lt;span id=&quot;busuanzi_value_site_pv&quot;&gt;&lt;/span&gt;次</div><div class="line">&lt;/span&gt;</div></pre></td></tr></table></figure></p><p>uv: <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;span id=&quot;busuanzi_container_site_uv&quot;&gt;</div><div class="line">  Visitors:&lt;span id=&quot;busuanzi_value_site_uv&quot;&gt;&lt;/span&gt;次</div><div class="line">&lt;/span&gt;</div></pre></td></tr></table></figure></p><h2 id="hide-power-by-hexo"><font color="red">Hide “Power By Hexo”:</font></h2><p> use <code>vim thems/next/layout/_partials/footer.swig</code>, use <code>&lt;!----&gt;</code>to hide below code or directly delete the code: <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;dir class = &quot;powered-by&quot;&gt;</div><div class="line">&#123;&#123;_(&apos;footer.powered&apos;,&apos;&lt;a class=&quot;theme-link&quot; href =&quot;http://hexo.io&quot; rel = &quot;external nofollow&quot;&gt;Hexo&lt;/a&gt;&apos;)&#125;&#125;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div class &quot;theme-info&quot;&gt;</div><div class="line">&#123;&#123;_(&apos;footer.theme&apos;)&#125;&#125; - &lt;a class = &quot;theme-link&quot; href=&quot;https://github.com/iissnan/hexo-theme-next&quot; rel = &quot;extenal nofollow&quot;&gt;</div><div class="line">NexT.&#123;&#123; theme.scheme&#125;&#125;</div><div class="line">&lt;/a&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;add-fork-me-on-github&quot;&gt;&lt;font color=&quot;red&quot;&gt;Add “Fork me on github”:&lt;/font&gt;&lt;/h2&gt;
-&lt;p&gt; &lt;a href=&quot;https://github.com/blog/273-github-ribbon
-      
-    
-    </summary>
-    
-    
-      <category term="skills" scheme="http://www.mysry.com/tags/skills/"/>
     
   </entry>
   
