@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2017-11-11T13:27:16.292Z</updated>
+  <updated>2017-11-11T14:00:10.598Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo + Mathjax</title>
+    <link href="http://www.mysry.com/2017/11/11/hexo-Mathjax/"/>
+    <id>http://www.mysry.com/2017/11/11/hexo-Mathjax/</id>
+    <published>2017-11-11T13:38:24.000Z</published>
+    <updated>2017-11-11T14:00:10.598Z</updated>
+    
+    <content type="html"><![CDATA[<p>  最近写博客遇到了很多的数学公式，以前的想法是讲述学工是写出来后街图上传到sm.ms图床，获取html或markdown链接贴到博客里，后来发现实在繁琐，而且公式清晰度不够，排版也相对难看，于是便想到了Latex强大的数学公式编辑能力。</p><p>  对于Mathjax，早有大神写好了hexo的Math插件，只需安装即可: <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install hexo-math --save</div><div class="line">hexo math install</div></pre></td></tr></table></figure></p><p>但是我的hexo的渲染并不成功，不断报错，经检查发现，改插件和hexo-inject冲突，狠心卸载inject，并没有什么影响，再更改<code>/node_modules/marked/lib</code>中: <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">escape: /^\\([\\`*&#123;&#125;\[\]()# +\-.!_&gt;])/</div></pre></td></tr></table></figure></p><p>替换成 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">escape: /^\\([`*\[\]()# +\-.!_&gt;])/</div></pre></td></tr></table></figure></p><p>em: /^_((?:[^_]|__)+?)_|^*((?:**|[])+?)*(?!*)/ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">替换成:</div></pre></td></tr></table></figure></p><p>em:/^*((?:**|[])+?)*(?!*)/ ``` 这样MathJax和marked.js就可以共存了。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;  最近写博客遇到了很多的数学公式，以前的想法是讲述学工是写出来后街图上传到sm.ms图床，获取html或markdown链接贴到博客里，后来发现实在繁琐，而且公式清晰度不够，排版也相对难看，于是便想到了Latex强大的数学公式编辑能力。&lt;/p&gt;
+&lt;p&gt;  对于Mathja
+      
+    
+    </summary>
+    
+    
+      <category term="skills" scheme="http://www.mysry.com/tags/skills/"/>
+    
+  </entry>
   
   <entry>
     <title>4. Median of Two Sorted Arrays</title>
@@ -480,31 +504,6 @@
         &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Given an array of integers that is already sorted in ascending ord
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>160. Intersection of Two Linked Lists</title>
-    <link href="http://www.mysry.com/2017/11/05/160-Intersection-of-Two-Linked-Lists/"/>
-    <id>http://www.mysry.com/2017/11/05/160-Intersection-of-Two-Linked-Lists/</id>
-    <published>2017-11-05T04:38:38.000Z</published>
-    <updated>2017-11-05T04:42:24.624Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Write a program to find the node at which the intersection of two singly linked lists begins.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> When a.next point to where b.next point to, return the node.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for singly-linked list.</div><div class="line"> * public class ListNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     ListNode next;</div><div class="line"> *     ListNode(int x) &#123;</div><div class="line"> *         val = x;</div><div class="line"> *         next = null;</div><div class="line"> *     &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">public class Solution &#123;</div><div class="line">    public ListNode getIntersectionNode(ListNode headA, ListNode headB) &#123;</div><div class="line">        if (headA==null||headB==null)return null;</div><div class="line">    ListNode a=headA;</div><div class="line">    ListNode b= headB;</div><div class="line">    while (a!=b) &#123;</div><div class="line">        a=a==null?headB:a.next;</div><div class="line">        b=b==null?headA:b.next;</div><div class="line">    &#125;</div><div class="line">    return a;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Write a program to find the node at which the intersection of two 
       
     
     </summary>
