@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="leetcode," />
+  <meta name="keywords" content="Machine learning," />
 
 
 
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="Problem:  Given a binary tree, return the bottom-up level order traversal of its nodes’ values. (ie, from left to right, level by level from leaf to root).  Idea:   I am puzzled of this question even">
-<meta name="keywords" content="leetcode">
+<meta name="description" content="线性回归   线性回归假设满足线性关系，每个特征对于结果的影响由其前面的参数决定，而且每个特征变量可以先映射到一个函数，在参与线性计算，如此一来即可表达特征与结果的的非线性关系。   我们用\(X_1\).\(X_2\),…,\(X_n\)去描述feature中的分量，作出估计函数: \[h(x)={h_\theta}(x)=\theta_0+{\theta_1}{x_1}+{\theta_2}{">
+<meta name="keywords" content="Machine learning">
 <meta property="og:type" content="article">
-<meta property="og:title" content="107.Binary Tree Level Order Traversal II">
-<meta property="og:url" content="http://www.mysry.com/2017/11/02/107-Binary-Tree-Level-Order-Traversal-II/index.html">
+<meta property="og:title" content="Linear Regression">
+<meta property="og:url" content="http://www.mysry.com/2017/11/11/Linear-Regression/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="Problem:  Given a binary tree, return the bottom-up level order traversal of its nodes’ values. (ie, from left to right, level by level from leaf to root).  Idea:   I am puzzled of this question even">
+<meta property="og:description" content="线性回归   线性回归假设满足线性关系，每个特征对于结果的影响由其前面的参数决定，而且每个特征变量可以先映射到一个函数，在参与线性计算，如此一来即可表达特征与结果的的非线性关系。   我们用\(X_1\).\(X_2\),…,\(X_n\)去描述feature中的分量，作出估计函数: \[h(x)={h_\theta}(x)=\theta_0+{\theta_1}{x_1}+{\theta_2}{">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-02T12:36:20.250Z">
+<meta property="og:updated_time" content="2017-11-11T02:13:29.953Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="107.Binary Tree Level Order Traversal II">
-<meta name="twitter:description" content="Problem:  Given a binary tree, return the bottom-up level order traversal of its nodes’ values. (ie, from left to right, level by level from leaf to root).  Idea:   I am puzzled of this question even">
+<meta name="twitter:title" content="Linear Regression">
+<meta name="twitter:description" content="线性回归   线性回归假设满足线性关系，每个特征对于结果的影响由其前面的参数决定，而且每个特征变量可以先映射到一个函数，在参与线性计算，如此一来即可表达特征与结果的的非线性关系。   我们用\(X_1\).\(X_2\),…,\(X_n\)去描述feature中的分量，作出估计函数: \[h(x)={h_\theta}(x)=\theta_0+{\theta_1}{x_1}+{\theta_2}{">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://www.mysry.com/2017/11/02/107-Binary-Tree-Level-Order-Traversal-II/"/>
+  <link rel="canonical" href="http://www.mysry.com/2017/11/11/Linear-Regression/"/>
 
 
 
 
 
-  <title>107.Binary Tree Level Order Traversal II | Mysry</title>
+  <title>Linear Regression | Mysry</title>
   
 
 
@@ -255,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.mysry.com/2017/11/02/107-Binary-Tree-Level-Order-Traversal-II/">
+    <link itemprop="mainEntityOfPage" href="http://www.mysry.com/2017/11/11/Linear-Regression/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mysry">
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">107.Binary Tree Level Order Traversal II</h1>
+          <h1 class="post-title" itemprop="name headline">Linear Regression</h1>
         
 
         <div class="post-meta">
@@ -284,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-02T20:25:09+08:00">
-                2017-11-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-11T09:23:57+08:00">
+                2017-11-11
               </time>
             
 
@@ -322,14 +322,8 @@
       
 
       
-        <h2 id="problem"><font color="black">Problem:</font></h2>
-<blockquote>
-<p>Given a binary tree, return the bottom-up level order traversal of its nodes’ values. (ie, from left to right, level by level from leaf to root).</p>
-</blockquote>
-<h2 id="idea"><font color="red">Idea:</font></h2>
-<p>  I am puzzled of this question even if I have seen the answer. If you have very clear understand of this problem, could you email to me? Thank you very much!</p>
-<h2 id="java-code"><font color="orange">Java Code:</font></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for a binary tree node.</div><div class="line"> * public class TreeNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     TreeNode left;</div><div class="line"> *     TreeNode right;</div><div class="line"> *     TreeNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">    public List&lt;List&lt;Integer&gt;&gt; levelOrderBottom(TreeNode root) &#123;</div><div class="line">        List&lt;List&lt;Integer&gt;&gt; result=new ArrayList&lt;&gt;();</div><div class="line">       if(root==null) return result;</div><div class="line">       Queue&lt;TreeNode&gt;q= new LinkedList&lt;&gt;();</div><div class="line">       q.add(root);</div><div class="line">       while(q.size()&gt;0) &#123;</div><div class="line">    	   List&lt;Integer&gt; list=new ArrayList&lt;&gt;();</div><div class="line">    	   int size= q.size();</div><div class="line">    	   for(int i=0;i&lt;size;i++) &#123;</div><div class="line">    		   TreeNode node=q.poll();</div><div class="line">    		   list.add(node.val);</div><div class="line">    		   if (node.left!=null) q.add(node.left);</div><div class="line">    		   if(node.right!=null) q.add(node.right);</div><div class="line">    	   &#125;</div><div class="line">    	   result.add(0,list);</div><div class="line">       &#125;</div><div class="line">       return result;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h2 id="线性回归">线性回归</h2>
+<p>  线性回归假设满足线性关系，每个特征对于结果的影响由其前面的参数决定，而且每个特征变量可以先映射到一个函数，在参与线性计算，如此一来即可表达特征与结果的的非线性关系。   我们用<span class="math inline">\(X_1\)</span>.<span class="math inline">\(X_2\)</span>,…,<span class="math inline">\(X_n\)</span>去描述feature中的分量，作出估计函数: <span class="math display">\[h(x)={h_\theta}(x)=\theta_0+{\theta_1}{x_1}+{\theta_2}{x_2}+\cdots+{\theta_n}{x_n}\]</span> 其中，意思是调整feature中的每次参数的影响，若我们<span class="math inline">\(X_0=1\)</span>,就可以把上述公式向量化:<span class="math display">\[{h_\theta}(x) = {\theta^T}X\]</span>   我们同样需要评估机制去评判我们的，所以需要对h函数进行评估，把评估函数称为损失函数(loss function)，认为损失函数如下:<span class="math display">\[J(\theta)={\frac{1}{2}}\sum_{i=1}^{n}({h_\theta}(x^{(i)})-y^{(i)})^2\]</span> <span class="math display">\[\min_{\theta}J_\theta\]</span>   损失函数是对<span class="math inline">\(x(i)\)</span>的估计值与真实值<span class="math inline">\(y(i)\)</span>差的平方和作为错误估计函数，那么如何调整<span class="math inline">\(\theta\)</span>以使得<span class="math inline">\(J(\theta)\)</span>取得最小值呢? 参考<a href="http://www.mysry.com/">几种常见的求解无约束最优化问题的方法</a></p>
 
       
     </div>
@@ -358,7 +352,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
+            <a href="/tags/Machine-learning/" rel="tag"><i class="fa fa-tag"></i> Machine learning</a>
           
         </div>
       
@@ -371,8 +365,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/02/104-Maximum-Depth-of-Binary-Tree/" rel="next" title="104. Maximum Depth of Binary Tree">
-                <i class="fa fa-chevron-left"></i> 104. Maximum Depth of Binary Tree
+              <a href="/2017/11/10/19-Remove-Nth-Node-From-End-of-List/" rel="next" title="19. Remove Nth Node From End of List">
+                <i class="fa fa-chevron-left"></i> 19. Remove Nth Node From End of List
               </a>
             
           </div>
@@ -381,8 +375,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/11/03/108-Convert-Sorted-Array-to-Binary-Search-Tree/" rel="prev" title="108. Convert Sorted Array to Binary Search Tree">
-                108. Convert Sorted Array to Binary Search Tree <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/11/几种常见的求解无约束最优化问题的方法/" rel="prev" title="几种常见的求解无约束最优化问题的方法">
+                几种常见的求解无约束最优化问题的方法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -539,7 +533,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#线性回归"><span class="nav-number">1.</span> <span class="nav-text">线性回归</span></a></li></ol></div>
             
 
           </div>
