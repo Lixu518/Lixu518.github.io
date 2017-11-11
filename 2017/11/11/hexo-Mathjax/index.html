@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="最近写博客遇到了很多的数学公式，以前的想法是讲述学工是写出来后街图上传到sm.ms图床，获取html或markdown链接贴到博客里，后来发现实在繁琐，而且公式清晰度不够，排版也相对难看，于是便想到了Latex强大的数学公式编辑能力。   对于Mathjax，早有大神写好了hexo的Math插件，只需安装即可: 12npm install hexo-math --savehexo math i">
+<meta name="description" content="最近写博客遇到了很多的数学公式，以前的想法是讲述学工是写出来后街图上传到sm.ms图床，获取html或markdown链接贴到博客里，后来发现实在繁琐，而且公式清晰度不够，排版也相对难看，于是便想到了Latex强大的数学公式编辑能力。   对于MathJax，早有大神写好了hexo的Math插件，只需安装即可: 12npm install hexo-math --savehexo math i">
 <meta name="keywords" content="skills">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo + Mathjax">
+<meta property="og:title" content="hexo + MathJax">
 <meta property="og:url" content="http://www.mysry.com/2017/11/11/hexo-Mathjax/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="最近写博客遇到了很多的数学公式，以前的想法是讲述学工是写出来后街图上传到sm.ms图床，获取html或markdown链接贴到博客里，后来发现实在繁琐，而且公式清晰度不够，排版也相对难看，于是便想到了Latex强大的数学公式编辑能力。   对于Mathjax，早有大神写好了hexo的Math插件，只需安装即可: 12npm install hexo-math --savehexo math i">
+<meta property="og:description" content="最近写博客遇到了很多的数学公式，以前的想法是讲述学工是写出来后街图上传到sm.ms图床，获取html或markdown链接贴到博客里，后来发现实在繁琐，而且公式清晰度不够，排版也相对难看，于是便想到了Latex强大的数学公式编辑能力。   对于MathJax，早有大神写好了hexo的Math插件，只需安装即可: 12npm install hexo-math --savehexo math i">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-11T14:00:10.598Z">
+<meta property="og:updated_time" content="2017-11-11T14:04:25.127Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo + Mathjax">
-<meta name="twitter:description" content="最近写博客遇到了很多的数学公式，以前的想法是讲述学工是写出来后街图上传到sm.ms图床，获取html或markdown链接贴到博客里，后来发现实在繁琐，而且公式清晰度不够，排版也相对难看，于是便想到了Latex强大的数学公式编辑能力。   对于Mathjax，早有大神写好了hexo的Math插件，只需安装即可: 12npm install hexo-math --savehexo math i">
+<meta name="twitter:title" content="hexo + MathJax">
+<meta name="twitter:description" content="最近写博客遇到了很多的数学公式，以前的想法是讲述学工是写出来后街图上传到sm.ms图床，获取html或markdown链接贴到博客里，后来发现实在繁琐，而且公式清晰度不够，排版也相对难看，于是便想到了Latex强大的数学公式编辑能力。   对于MathJax，早有大神写好了hexo的Math插件，只需安装即可: 12npm install hexo-math --savehexo math i">
 
 
 
@@ -128,7 +128,7 @@
 
 
 
-  <title>hexo + Mathjax | Mysry</title>
+  <title>hexo + MathJax | Mysry</title>
   
 
 
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">hexo + Mathjax</h1>
+          <h1 class="post-title" itemprop="name headline">hexo + MathJax</h1>
         
 
         <div class="post-meta">
@@ -323,11 +323,12 @@
 
       
         <p>  最近写博客遇到了很多的数学公式，以前的想法是讲述学工是写出来后街图上传到sm.ms图床，获取html或markdown链接贴到博客里，后来发现实在繁琐，而且公式清晰度不够，排版也相对难看，于是便想到了Latex强大的数学公式编辑能力。</p>
-<p>  对于Mathjax，早有大神写好了hexo的Math插件，只需安装即可: <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install hexo-math --save</div><div class="line">hexo math install</div></pre></td></tr></table></figure></p>
+<p>  对于MathJax，早有大神写好了hexo的Math插件，只需安装即可: <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install hexo-math --save</div><div class="line">hexo math install</div></pre></td></tr></table></figure></p>
 <p>但是我的hexo的渲染并不成功，不断报错，经检查发现，改插件和hexo-inject冲突，狠心卸载inject，并没有什么影响，再更改<code>/node_modules/marked/lib</code>中: <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">escape: /^\\([\\`*&#123;&#125;\[\]()# +\-.!_&gt;])/</div></pre></td></tr></table></figure></p>
 <p>替换成 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">escape: /^\\([`*\[\]()# +\-.!_&gt;])/</div></pre></td></tr></table></figure></p>
-<p>em: /^_((?:[^_]|__)+?)_|^*((?:**|[])+?)*(?!*)/ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">替换成:</div></pre></td></tr></table></figure></p>
-<p>em:/^*((?:**|[])+?)*(?!*)/ ``` 这样MathJax和marked.js就可以共存了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">em: /^\b_((?:[^_]|__)+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</div></pre></td></tr></table></figure>
+<p>替换成: <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">em:/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</div></pre></td></tr></table></figure></p>
+<p>这样MathJax和marked.js就可以共存了。 更为详细的<a href="https://github.com/hexojs/hexo-math" target="_blank" rel="external">hexo-math</a>信息。</p>
 
       
     </div>
