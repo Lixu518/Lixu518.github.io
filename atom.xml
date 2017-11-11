@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2017-11-11T09:42:18.026Z</updated>
+  <updated>2017-11-11T13:27:16.292Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>4. Median of Two Sorted Arrays</title>
+    <link href="http://www.mysry.com/2017/11/11/4-Median-of-Two-Sorted-Arrays/"/>
+    <id>http://www.mysry.com/2017/11/11/4-Median-of-Two-Sorted-Arrays/</id>
+    <published>2017-11-11T13:11:43.000Z</published>
+    <updated>2017-11-11T13:27:16.292Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>There are two sorted arrays nums1 and nums2 of size m and n respectively.</p></blockquote><blockquote><p>Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>  In order to make time complexity <span class="math inline">\(O(\log(m+n))\)</span>, we should ignore half part of A and B recursively by comparing the median of remaining A and B: <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">if (aMid &lt; bMid) Keep [aRight + bLeft]    </div><div class="line">else Keep [bRight + aLeft]</div></pre></td></tr></table></figure></p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public double findMedianSortedArrays(int[] nums1, int[] nums2) &#123;</div><div class="line">      int m=nums1.length,n=nums2.length;</div><div class="line">int left = (m+n+1)/2;</div><div class="line">int right = (m+n+2)/2;</div><div class="line">return (getkth(nums1,0,nums2,0,left)+getkth(nums1,0,nums2,0,right))/2.0;  </div><div class="line">    &#125;</div><div class="line">    public double getkth(int[]nums1,int aStart,int []nums2,int bStart,int k) &#123;</div><div class="line">if(aStart&gt;nums1.length-1) return nums2[bStart +k -1];</div><div class="line">if(bStart&gt;nums2.length-1) return nums1[aStart +k -1];</div><div class="line">if(k==1) return Math.min(nums1[aStart], nums2[bStart]);</div><div class="line"></div><div class="line">int aMid = Integer.MAX_VALUE,bMid=Integer.MAX_VALUE;</div><div class="line">if(aStart +k/2-1&lt;nums1.length) aMid = nums1[aStart + k/2-1];</div><div class="line">if(bStart +k/2-1&lt;nums2.length) bMid = nums2[bStart + k/2-1];</div><div class="line">if(aMid&lt;bMid) return getkth(nums1,aStart +k/2,nums2,bStart,k-k/2);</div><div class="line">else return getkth(nums1,aStart,nums2,bStart+k/2,k-k/2);</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;There are two sorted arrays nums1 and nums2 of size m and n respec
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>22. Generate Parentheses</title>
+    <link href="http://www.mysry.com/2017/11/11/22-Generate-Parentheses/"/>
+    <id>http://www.mysry.com/2017/11/11/22-Generate-Parentheses/</id>
+    <published>2017-11-11T13:01:15.000Z</published>
+    <updated>2017-11-11T13:10:58.319Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>  Easy recurison. When left parenthesis’s number is smaller than n, we could creat new left parenthesis, when right parenthesis’s number is smaller than n, we could set new parenthesis.</p><h2 id="java-code"><font color="orange">Java Code:<font></font></font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public List&lt;String&gt; generateParenthesis(int n) &#123;</div><div class="line">       List&lt;String&gt; list= new ArrayList&lt;String&gt;();</div><div class="line">backtrack(list,&quot;&quot;,0,0,n);</div><div class="line">return list; </div><div class="line">    &#125;</div><div class="line">    public void backtrack(List&lt;String&gt;list,String str,int open,int close,int max) &#123;</div><div class="line">if(str.length()==max*2)&#123;</div><div class="line">        list.add(str);</div><div class="line">        return;</div><div class="line">    &#125;</div><div class="line">if(open&lt;max)backtrack(list,str+&quot;(&quot;,open+1,close,max);</div><div class="line">if(close&lt;open) backtrack(list,str+&quot;)&quot;,open,close+1,max);</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given n pairs of parentheses, write a function to generate all com
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>几种常见的求解无约束最优化问题的方法</title>
@@ -455,57 +505,6 @@
         &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Write a program to find the node at which the intersection of two 
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>155. Min Stack</title>
-    <link href="http://www.mysry.com/2017/11/05/155-Min-Stack/"/>
-    <id>http://www.mysry.com/2017/11/05/155-Min-Stack/</id>
-    <published>2017-11-05T04:32:45.000Z</published>
-    <updated>2017-11-05T04:37:59.440Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Design a stack that supports push, pop, top, and retrieving the minimum element in constant time. push(x) – Push element x onto stack. pop() – Removes the element on top of the stack. top() – Get the top element. getMin() – Retrieve the minimum element in the stack.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> The idea is to store the gap between the min value and the current value. The problem for my solution is the cast. I have no idea to avoid the cast. Since the possible gap between the current value and the min value could be Integer.MAX_VALUE-Integer.MIN_VALUE;</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">class MinStack &#123;</div><div class="line"></div><div class="line">    /** initialize your data structure here. */</div><div class="line">   long min;</div><div class="line">    Stack&lt;Long&gt; stack;</div><div class="line">    public MinStack() &#123;</div><div class="line">        stack = new Stack&lt;&gt;();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    public void push(int x) &#123;</div><div class="line">        if(stack.isEmpty()) &#123;</div><div class="line">        stack.push(0L);</div><div class="line">        min = x;</div><div class="line">    &#125;else &#123;</div><div class="line">        stack.push(x-min);</div><div class="line">        if(x&lt;min) min = x;</div><div class="line">    &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    public void pop() &#123;</div><div class="line">        if(stack.isEmpty())return;</div><div class="line">    long pop=stack.pop();</div><div class="line">    if(pop&lt;0) min= min-pop;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    public int top() &#123;</div><div class="line">        long top = stack.peek();</div><div class="line">    if(top&gt;0) &#123;</div><div class="line">        return (int)(top+min);</div><div class="line">    &#125;else return (int)(min);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    public int getMin() &#123;</div><div class="line">        return (int)min;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Design a stack that supports push, pop, top, and retrieving the mi
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>141. Linked List Cycle</title>
-    <link href="http://www.mysry.com/2017/11/04/141-Linked-List-Cycle/"/>
-    <id>http://www.mysry.com/2017/11/04/141-Linked-List-Cycle/</id>
-    <published>2017-11-04T05:19:51.000Z</published>
-    <updated>2017-11-04T05:26:26.967Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given a linked list, determine if it has a cycle in it.</p></blockquote><blockquote><p>Follow up: Can you solve it without using extra space?</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>&amp;emap;We creat two pointers–slower and faster, the slower one walks one step every time, the faster pointer walks two step every time. If there is a cycle in the linked listed, faster will meet slower on sometime.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for singly-linked list.</div><div class="line"> * class ListNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     ListNode next;</div><div class="line"> *     ListNode(int x) &#123;</div><div class="line"> *         val = x;</div><div class="line"> *         next = null;</div><div class="line"> *     &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">public class Solution &#123;</div><div class="line">    public boolean hasCycle(ListNode head) &#123;</div><div class="line">       if (head==null) return false;</div><div class="line">    ListNode slower=head;</div><div class="line">    ListNode faster=head;</div><div class="line">    while(faster.next!=null&amp;&amp;faster.next.next!=null) &#123;</div><div class="line">        slower = slower.next;</div><div class="line">        faster = faster.next.next;</div><div class="line">        if (slower ==faster) return true;</div><div class="line">    &#125;</div><div class="line">    return false; </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given a linked list, determine if it has a cycle in it.&lt;/p&gt;
-&lt;/bloc
       
     
     </summary>
