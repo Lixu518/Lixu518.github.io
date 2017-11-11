@@ -81,17 +81,17 @@
 
 
 
-<meta name="description" content="Problem:  Given a sorted linked list, delete all duplicates such that each element appear only once.   For example, Given 1-&amp;gt;1-&amp;gt;2, return 1-&amp;gt;2. Given 1-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;3, return 1-&amp;gt;2">
+<meta name="description" content="&amp;lt;font color =black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given a sorted linked list, delete all duplicates such that each element appear only once.   For example, Given 1-&amp;gt;1-&amp;gt;2, return 1-&amp;gt;2. Given 1-&amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="83. Remove Duplicates from Sorted List">
 <meta property="og:url" content="http://www.mysry.com/2017/11/01/83-Remove-Duplicates-from-Sorted-List/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="Problem:  Given a sorted linked list, delete all duplicates such that each element appear only once.   For example, Given 1-&amp;gt;1-&amp;gt;2, return 1-&amp;gt;2. Given 1-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;3, return 1-&amp;gt;2">
+<meta property="og:description" content="&amp;lt;font color =black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given a sorted linked list, delete all duplicates such that each element appear only once.   For example, Given 1-&amp;gt;1-&amp;gt;2, return 1-&amp;gt;2. Given 1-&amp;">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-11-01T04:30:09.684Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="83. Remove Duplicates from Sorted List">
-<meta name="twitter:description" content="Problem:  Given a sorted linked list, delete all duplicates such that each element appear only once.   For example, Given 1-&amp;gt;1-&amp;gt;2, return 1-&amp;gt;2. Given 1-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;3, return 1-&amp;gt;2">
+<meta name="twitter:description" content="&amp;lt;font color =black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given a sorted linked list, delete all duplicates such that each element appear only once.   For example, Given 1-&amp;gt;1-&amp;gt;2, return 1-&amp;gt;2. Given 1-&amp;">
 
 
 
@@ -321,16 +321,18 @@
       
 
       
-        <h2 id="problem"><font color="black">Problem:</font></h2>
+        <h2>&lt;font color =black&gt;Problem:&lt;/font&gt;</h2>
 <blockquote>
 <p>Given a sorted linked list, delete all duplicates such that each element appear only once.</p>
 </blockquote>
 <blockquote>
-<p>For example, Given 1-&gt;1-&gt;2, return 1-&gt;2. Given 1-&gt;1-&gt;2-&gt;3-&gt;3, return 1-&gt;2-&gt;3</p>
+<p>For example,
+Given 1-&gt;1-&gt;2, return 1-&gt;2.
+Given 1-&gt;1-&gt;2-&gt;3-&gt;3, return 1-&gt;2-&gt;3</p>
 </blockquote>
-<h2 id="idea"><font color="red">Idea:</font></h2>
-<p>  This is a similar problem with the last one! It don’t need to wholely remove the dups and the original elements. We use a Recursive function to remove the dups.</p>
-<h2 id="java-code"><font color="orange">Java Code:</font></h2>
+<h2>&lt;font color =red&gt;Idea:&lt;/font&gt;</h2>
+<p>  This is a similar problem with the last one! It don't need to wholely remove the dups and the original elements. We use a Recursive function to remove the dups.</p>
+<h2>&lt;font color =orange&gt;Java Code:&lt;/font&gt;</h2>
 <pre><code>/**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -345,7 +347,8 @@ class Solution {
         head.next = deleteDuplicates(head.next);
         return (head.val == head.next.val) ? head.next : head;
     }
-}</code></pre>
+}
+</code></pre>
 
       
     </div>
@@ -549,7 +552,7 @@ class Solution {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text"><font color =black>Problem:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text"><font color =red>Idea:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text"><font color =orange>Java Code:</font></span></a></li></ol></div>
             
 
           </div>

@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Mysry">
 <meta property="og:description" content="线性回归   线性回归假设满足线性关系，每个特征对于结果的影响由其前面的参数决定，而且每个特征变量可以先映射到一个函数，在参与线性计算，如此一来即可表达特征与结果的的非线性关系。   我们用$X_1$.$X_2$,...,$X_n$去描述feature中的分量，作出估计函数: $$h(x)={h_\theta}(x)=\theta_0+{\theta_1}{x_1}+{\theta_2}{x_2}">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-11T05:50:42.567Z">
+<meta property="og:updated_time" content="2017-11-11T05:52:00.275Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linear Regression">
 <meta name="twitter:description" content="线性回归   线性回归假设满足线性关系，每个特征对于结果的影响由其前面的参数决定，而且每个特征变量可以先映射到一个函数，在参与线性计算，如此一来即可表达特征与结果的的非线性关系。   我们用$X_1$.$X_2$,...,$X_n$去描述feature中的分量，作出估计函数: $$h(x)={h_\theta}(x)=\theta_0+{\theta_1}{x_1}+{\theta_2}{x_2}">
@@ -338,7 +338,7 @@ $$h(x)={h_\theta}(x)=\theta_0+{\theta_1}{x_1}+{\theta_2}{x_2}+\cdots+{\theta_n}{
 <li>Fit $\theta$ to $minimize\sum_i \omega^{(i)}(y^{(i)} - \theta^T x^{(i)})^2$</li>
 <li>Output $\theta^T x$</li>
 </ul>
-<p>其中假设$\omega^{(i)}$符合公式$$\omega^{(i)} = exp (-\frac{(x^{(i)}-x)^2}{2\tau^2}$$其中x是要预测的特征，这样假设的道理是离x越近的样本权重越大，越远的影响越小，这个公式与高斯分布不同，因为$\omega^{(i)}$不是随机变量。</p>
+<p>其中假设$\omega^{(i)}$符合公式$$\omega^{(i)} = exp (-\frac{(x^{(i)}-x)^2}{2\tau^2})$$其中x是要预测的特征，这样假设的道理是离x越近的样本权重越大，越远的影响越小，这个公式与高斯分布不同，因为$\omega^{(i)}$不是随机变量。</p>
 
       
     </div>
