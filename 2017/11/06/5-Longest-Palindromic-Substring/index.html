@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.  &amp;lt;font color = red &amp;gt;Idea:&amp;lt;">
+<meta name="description" content="Problem:  Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.  Idea:  We define a support function, find palindromic substring of the i-">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="5. Longest Palindromic Substring">
 <meta property="og:url" content="http://www.mysry.com/2017/11/06/5-Longest-Palindromic-Substring/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.  &amp;lt;font color = red &amp;gt;Idea:&amp;lt;">
+<meta property="og:description" content="Problem:  Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.  Idea:  We define a support function, find palindromic substring of the i-">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-11-06T13:33:49.054Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="5. Longest Palindromic Substring">
-<meta name="twitter:description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.  &amp;lt;font color = red &amp;gt;Idea:&amp;lt;">
+<meta name="twitter:description" content="Problem:  Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.  Idea:  We define a support function, find palindromic substring of the i-">
 
 
 
@@ -322,14 +322,14 @@
       
 
       
-        <h2>&lt;font color = black&gt;Problem:&lt;/font&gt;</h2>
+        <h2 id="problem"><font color="black">Problem:</font></h2>
 <blockquote>
 <p>Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.</p>
 </blockquote>
-<h2>&lt;font color = red &gt;Idea:&lt;/font&gt;</h2>
+<h2 id="idea"><font color="red">Idea:</font></h2>
 <p> We define a support function, find palindromic substring of the i-centered substring. And we extend the i-centered substring from both sides untile we have found the palindromic substring or tranvse string s.</p>
-<h2>&lt;font color = orange &gt;Java Code:&lt;/font&gt;</h2>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    private int lo,maxLen;</div><div class="line">    public String longestPalindrome(String s) &#123;</div><div class="line">        if (s.length()&lt;=2) return s;</div><div class="line">	for (int i=0;i&lt;s.length()-1;i++) &#123;</div><div class="line">		extendPalindrom(s,i,i);</div><div class="line">		extendPalindrom(s,i,i+1);</div><div class="line">	&#125;</div><div class="line">	return s.substring(lo,lo+maxLen);</div><div class="line">    &#125;</div><div class="line">    private void extendPalindrom(String s,int k,int j) &#123;</div><div class="line">	while(j&gt;=0&amp;&amp;k&lt;s.length()&amp;&amp;s.charAt(j)==s.charAt(k)) &#123;</div><div class="line">		j--;</div><div class="line">		k++;</div><div class="line">	&#125;</div><div class="line">	if(maxLen&lt;k-j-1) &#123;</div><div class="line">		lo = j+1;</div><div class="line">		maxLen = k-j-1;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="java-code"><font color="orange">Java Code:</font></h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    private int lo,maxLen;</div><div class="line">    public String longestPalindrome(String s) &#123;</div><div class="line">        if (s.length()&lt;=2) return s;</div><div class="line">	for (int i=0;i&lt;s.length()-1;i++) &#123;</div><div class="line">		extendPalindrom(s,i,i);</div><div class="line">		extendPalindrom(s,i,i+1);</div><div class="line">	&#125;</div><div class="line">	return s.substring(lo,lo+maxLen);</div><div class="line">    &#125;</div><div class="line">    private void extendPalindrom(String s,int k,int j) &#123;</div><div class="line">	while(j&gt;=0&amp;&amp;k&lt;s.length()&amp;&amp;s.charAt(j)==s.charAt(k)) &#123;</div><div class="line">		j--;</div><div class="line">		k++;</div><div class="line">	&#125;</div><div class="line">	if(maxLen&lt;k-j-1) &#123;</div><div class="line">		lo = j+1;</div><div class="line">		maxLen = k-j-1;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -539,7 +539,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text"><font color = black>Problem:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text"><font color = red >Idea:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text"><font color = orange >Java Code:</font></span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li></ol></div>
             
 
           </div>
