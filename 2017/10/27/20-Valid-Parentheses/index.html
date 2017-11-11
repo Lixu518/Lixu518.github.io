@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="题目  Given a string containing just the characters ‘(’, ‘)’, ‘{’, ‘}’, ‘[’ and ’]’, determine if the input string is valid.   The brackets must close in the correct order, “()” and “()” are all valid b">
+<meta name="description" content="&amp;lt;font color =black&amp;gt;题目&amp;lt;/font&amp;gt;  Given a string containing just the characters &apos;(&apos;, &apos;)&apos;, &apos;{&apos;, &apos;}&apos;, &apos;[&apos; and &apos;]&apos;, determine if the input string is valid.   The brackets must close in the correc">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="20. Valid Parentheses">
 <meta property="og:url" content="http://www.mysry.com/2017/10/27/20-Valid-Parentheses/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="题目  Given a string containing just the characters ‘(’, ‘)’, ‘{’, ‘}’, ‘[’ and ’]’, determine if the input string is valid.   The brackets must close in the correct order, “()” and “()” are all valid b">
+<meta property="og:description" content="&amp;lt;font color =black&amp;gt;题目&amp;lt;/font&amp;gt;  Given a string containing just the characters &apos;(&apos;, &apos;)&apos;, &apos;{&apos;, &apos;}&apos;, &apos;[&apos; and &apos;]&apos;, determine if the input string is valid.   The brackets must close in the correc">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-10-27T03:05:16.093Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="20. Valid Parentheses">
-<meta name="twitter:description" content="题目  Given a string containing just the characters ‘(’, ‘)’, ‘{’, ‘}’, ‘[’ and ’]’, determine if the input string is valid.   The brackets must close in the correct order, “()” and “()” are all valid b">
+<meta name="twitter:description" content="&amp;lt;font color =black&amp;gt;题目&amp;lt;/font&amp;gt;  Given a string containing just the characters &apos;(&apos;, &apos;)&apos;, &apos;{&apos;, &apos;}&apos;, &apos;[&apos; and &apos;]&apos;, determine if the input string is valid.   The brackets must close in the correc">
 
 
 
@@ -322,45 +322,46 @@
       
 
       
-        <h2 id="题目"><font color="black">题目</font></h2>
+        <h2>&lt;font color =black&gt;题目&lt;/font&gt;</h2>
 <blockquote>
-<p>Given a string containing just the characters ‘(’, ‘)’, ‘{’, ‘}’, ‘[’ and ’]’, determine if the input string is valid.</p>
+<p>Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.</p>
 </blockquote>
 <blockquote>
-<p>The brackets must close in the correct order, “()” and “()<span></span>” are all valid but “(]” and “([)]” are not.</p>
+<p>The brackets must close in the correct order, &quot;()&quot; and &quot;()[]{}&quot; are all valid but &quot;(]&quot; and &quot;([)]&quot; are not.</p>
 </blockquote>
-<h2 id="题解"><font color="red">题解</font></h2>
-<p>  给定只包含’(‘,’[‘,’{‘,’)‘,’[‘,’}‘的字符串，判断其是否成对顺序匹配，采用stack堆栈，每次遍历到左边的’[‘,’(‘,’{’时，将右边的括号入栈，如果字符串出现右括号需要检查堆栈是否为空，以及顶部元素是否与右侧括号相同。 如果没有，字符串不是有效的。 最后，我们还需要检查堆栈是否为空。</p>
-<h2 id="java-code"><font color="orange">Java Code:</font></h2>
+<h2>&lt;font color=red&gt;题解&lt;/font&gt;</h2>
+<p>  给定只包含'(','[','{',')','[','}'的字符串，判断其是否成对顺序匹配，采用stack堆栈，每次遍历到左边的'[','(','{'时，将右边的括号入栈，如果字符串出现右括号需要检查堆栈是否为空，以及顶部元素是否与右侧括号相同。 如果没有，字符串不是有效的。 最后，我们还需要检查堆栈是否为空。</p>
+<h2>&lt;font color=orange&gt;Java Code:&lt;/font&gt;</h2>
 <pre><code>import java.util.Scanner;
 import java.util.Stack;
 
 public class ValidParentheses {
 
-    public static void main(String[] args) {
-        // TODO Auto-generated method stub
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
       Scanner scanner=new Scanner(System.in);
       System.out.println(&quot;Please input the string: &quot;);
       String s = scanner.next();
       scanner.close();
       boolean result= isValid(s);
       System.out.print(result);
-    }
+	}
     public static boolean isValid(String s) {
-        Stack&lt;Character&gt; stack= new Stack&lt;Character&gt;();
-        for (char c:s.toCharArray()) {
-            if (c==&#39;(&#39;)
-                stack.push(&#39;)&#39;);
-            else if (c==&#39;{&#39;)
-                stack.push(&#39;}&#39;);
-            else if (c==&#39;[&#39;)
-                stack.push(&#39;]&#39;);
-            else if (stack.isEmpty()||stack.pop()!=c)
-                return false;
-        }
-        return stack.isEmpty();
+    	Stack&lt;Character&gt; stack= new Stack&lt;Character&gt;();
+    	for (char c:s.toCharArray()) {
+    		if (c=='(')
+    			stack.push(')');
+    		else if (c=='{')
+    			stack.push('}');
+    		else if (c=='[')
+    			stack.push(']');
+    		else if (stack.isEmpty()||stack.pop()!=c)
+    			return false;
+    	}
+    	return stack.isEmpty();
     }
-}</code></pre>
+}
+</code></pre>
 
       
     </div>
@@ -570,7 +571,7 @@ public class ValidParentheses {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题解"><span class="nav-number">2.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text"><font color =black>题目</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text"><font color=red>题解</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text"><font color=orange>Java Code:</font></span></a></li></ol></div>
             
 
           </div>
