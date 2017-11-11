@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="&amp;lt;font color=&amp;quot;black&amp;quot;&amp;gt;Problem:&amp;lt;/font&amp;gt;  Design a stack that supports push, pop, top, and retrieving the minimum element in constant time. push(x) -- Push element x onto stack. pop()">
+<meta name="description" content="Problem:  Design a stack that supports push, pop, top, and retrieving the minimum element in constant time. push(x) – Push element x onto stack. pop() – Removes the element on top of the stack. top()">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="155. Min Stack">
 <meta property="og:url" content="http://www.mysry.com/2017/11/05/155-Min-Stack/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="&amp;lt;font color=&amp;quot;black&amp;quot;&amp;gt;Problem:&amp;lt;/font&amp;gt;  Design a stack that supports push, pop, top, and retrieving the minimum element in constant time. push(x) -- Push element x onto stack. pop()">
+<meta property="og:description" content="Problem:  Design a stack that supports push, pop, top, and retrieving the minimum element in constant time. push(x) – Push element x onto stack. pop() – Removes the element on top of the stack. top()">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-11-05T04:37:59.440Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="155. Min Stack">
-<meta name="twitter:description" content="&amp;lt;font color=&amp;quot;black&amp;quot;&amp;gt;Problem:&amp;lt;/font&amp;gt;  Design a stack that supports push, pop, top, and retrieving the minimum element in constant time. push(x) -- Push element x onto stack. pop()">
+<meta name="twitter:description" content="Problem:  Design a stack that supports push, pop, top, and retrieving the minimum element in constant time. push(x) – Push element x onto stack. pop() – Removes the element on top of the stack. top()">
 
 
 
@@ -322,18 +322,14 @@
       
 
       
-        <h2>&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;</h2>
+        <h2 id="problem"><font color="black">Problem:</font></h2>
 <blockquote>
-<p>Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
-push(x) -- Push element x onto stack.
-pop() -- Removes the element on top of the stack.
-top() -- Get the top element.
-getMin() -- Retrieve the minimum element in the stack.</p>
+<p>Design a stack that supports push, pop, top, and retrieving the minimum element in constant time. push(x) – Push element x onto stack. pop() – Removes the element on top of the stack. top() – Get the top element. getMin() – Retrieve the minimum element in the stack.</p>
 </blockquote>
-<h2>&lt;font color=&quot;red&quot;&gt;Idea:&lt;/font&gt;</h2>
+<h2 id="idea"><font color="red">Idea:</font></h2>
 <p> The idea is to store the gap between the min value and the current value. The problem for my solution is the cast. I have no idea to avoid the cast. Since the possible gap between the current value and the min value could be Integer.MAX_VALUE-Integer.MIN_VALUE;</p>
-<h2>&lt;font color=&quot;orange&quot;&gt;Java Code:&lt;/font&gt;</h2>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">class MinStack &#123;</div><div class="line"></div><div class="line">    /** initialize your data structure here. */</div><div class="line">   long min;</div><div class="line">    Stack&lt;Long&gt; stack;</div><div class="line">    public MinStack() &#123;</div><div class="line">        stack = new Stack&lt;&gt;();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    public void push(int x) &#123;</div><div class="line">        if(stack.isEmpty()) &#123;</div><div class="line">        stack.push(0L);</div><div class="line">        min = x;</div><div class="line">    &#125;else &#123;</div><div class="line">        stack.push(x-min);</div><div class="line">        if(x&lt;min) min = x;</div><div class="line">    &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    public void pop() &#123;</div><div class="line">        if(stack.isEmpty())return;</div><div class="line">    long pop=stack.pop();</div><div class="line">    if(pop&lt;0) min= min-pop;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    public int top() &#123;</div><div class="line">        long top = stack.peek();</div><div class="line">    if(top&gt;0) &#123;</div><div class="line">        return (int)(top+min);</div><div class="line">    &#125;else return (int)(min);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    public int getMin() &#123;</div><div class="line">        return (int)min;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="java-code"><font color="orange">Java Code:</font></h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">class MinStack &#123;</div><div class="line"></div><div class="line">    /** initialize your data structure here. */</div><div class="line">   long min;</div><div class="line">    Stack&lt;Long&gt; stack;</div><div class="line">    public MinStack() &#123;</div><div class="line">        stack = new Stack&lt;&gt;();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    public void push(int x) &#123;</div><div class="line">        if(stack.isEmpty()) &#123;</div><div class="line">        stack.push(0L);</div><div class="line">        min = x;</div><div class="line">    &#125;else &#123;</div><div class="line">        stack.push(x-min);</div><div class="line">        if(x&lt;min) min = x;</div><div class="line">    &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    public void pop() &#123;</div><div class="line">        if(stack.isEmpty())return;</div><div class="line">    long pop=stack.pop();</div><div class="line">    if(pop&lt;0) min= min-pop;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    public int top() &#123;</div><div class="line">        long top = stack.peek();</div><div class="line">    if(top&gt;0) &#123;</div><div class="line">        return (int)(top+min);</div><div class="line">    &#125;else return (int)(min);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    public int getMin() &#123;</div><div class="line">        return (int)min;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -543,7 +539,7 @@ getMin() -- Retrieve the minimum element in the stack.</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text"><font color="black">Problem:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text"><font color="red">Idea:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text"><font color="orange">Java Code:</font></span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li></ol></div>
             
 
           </div>

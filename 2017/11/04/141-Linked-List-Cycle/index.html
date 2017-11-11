@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="&amp;lt;font color=&amp;quot;black&amp;quot;&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given a linked list, determine if it has a cycle in it.   Follow up: Can you solve it without using extra space?  &amp;lt;font color=&amp;quot;red&amp;qu">
+<meta name="description" content="Problem:  Given a linked list, determine if it has a cycle in it.   Follow up: Can you solve it without using extra space?  Idea: &amp;amp;emap;We creat two pointers–slower and faster, the slower one walk">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="141. Linked List Cycle">
 <meta property="og:url" content="http://www.mysry.com/2017/11/04/141-Linked-List-Cycle/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="&amp;lt;font color=&amp;quot;black&amp;quot;&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given a linked list, determine if it has a cycle in it.   Follow up: Can you solve it without using extra space?  &amp;lt;font color=&amp;quot;red&amp;qu">
+<meta property="og:description" content="Problem:  Given a linked list, determine if it has a cycle in it.   Follow up: Can you solve it without using extra space?  Idea: &amp;amp;emap;We creat two pointers–slower and faster, the slower one walk">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-11-04T05:26:26.967Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="141. Linked List Cycle">
-<meta name="twitter:description" content="&amp;lt;font color=&amp;quot;black&amp;quot;&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given a linked list, determine if it has a cycle in it.   Follow up: Can you solve it without using extra space?  &amp;lt;font color=&amp;quot;red&amp;qu">
+<meta name="twitter:description" content="Problem:  Given a linked list, determine if it has a cycle in it.   Follow up: Can you solve it without using extra space?  Idea: &amp;amp;emap;We creat two pointers–slower and faster, the slower one walk">
 
 
 
@@ -322,18 +322,17 @@
       
 
       
-        <h2>&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;</h2>
+        <h2 id="problem"><font color="black">Problem:</font></h2>
 <blockquote>
 <p>Given a linked list, determine if it has a cycle in it.</p>
 </blockquote>
 <blockquote>
-<p>Follow up:
-Can you solve it without using extra space?</p>
+<p>Follow up: Can you solve it without using extra space?</p>
 </blockquote>
-<h2>&lt;font color=&quot;red&quot;&gt;Idea:&lt;/font&gt;</h2>
-<p>&amp;emap;We creat two pointers--slower and faster, the slower one walks one step every time, the faster pointer walks two step every time. If there is a cycle in the linked listed, faster will meet slower on sometime.</p>
-<h2>&lt;font color=&quot;orange&quot;&gt;Java Code:&lt;/font&gt;</h2>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for singly-linked list.</div><div class="line"> * class ListNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     ListNode next;</div><div class="line"> *     ListNode(int x) &#123;</div><div class="line"> *         val = x;</div><div class="line"> *         next = null;</div><div class="line"> *     &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">public class Solution &#123;</div><div class="line">    public boolean hasCycle(ListNode head) &#123;</div><div class="line">       if (head==null) return false;</div><div class="line">    ListNode slower=head;</div><div class="line">    ListNode faster=head;</div><div class="line">    while(faster.next!=null&amp;&amp;faster.next.next!=null) &#123;</div><div class="line">        slower = slower.next;</div><div class="line">        faster = faster.next.next;</div><div class="line">        if (slower ==faster) return true;</div><div class="line">    &#125;</div><div class="line">    return false; </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="idea"><font color="red">Idea:</font></h2>
+<p>&amp;emap;We creat two pointers–slower and faster, the slower one walks one step every time, the faster pointer walks two step every time. If there is a cycle in the linked listed, faster will meet slower on sometime.</p>
+<h2 id="java-code"><font color="orange">Java Code:</font></h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for singly-linked list.</div><div class="line"> * class ListNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     ListNode next;</div><div class="line"> *     ListNode(int x) &#123;</div><div class="line"> *         val = x;</div><div class="line"> *         next = null;</div><div class="line"> *     &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">public class Solution &#123;</div><div class="line">    public boolean hasCycle(ListNode head) &#123;</div><div class="line">       if (head==null) return false;</div><div class="line">    ListNode slower=head;</div><div class="line">    ListNode faster=head;</div><div class="line">    while(faster.next!=null&amp;&amp;faster.next.next!=null) &#123;</div><div class="line">        slower = slower.next;</div><div class="line">        faster = faster.next.next;</div><div class="line">        if (slower ==faster) return true;</div><div class="line">    &#125;</div><div class="line">    return false; </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -543,7 +542,7 @@ Can you solve it without using extra space?</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text"><font color="black">Problem:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text"><font color="red">Idea:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text"><font color="orange">Java Code:</font></span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li></ol></div>
             
 
           </div>

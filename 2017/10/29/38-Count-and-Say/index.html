@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  The count-and-say sequence is the sequence of integers with the first five terms as following:     1    11    21    1211    111221      1 is read off a">
+<meta name="description" content="Problem:  The count-and-say sequence is the sequence of integers with the first five terms as following:    1 11 21 1211 111221    1 is read off as “one 1” or 11. 11 is read off as “two 1s” or 21. 21">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="38. Count and Say">
 <meta property="og:url" content="http://www.mysry.com/2017/10/29/38-Count-and-Say/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  The count-and-say sequence is the sequence of integers with the first five terms as following:     1    11    21    1211    111221      1 is read off a">
+<meta property="og:description" content="Problem:  The count-and-say sequence is the sequence of integers with the first five terms as following:    1 11 21 1211 111221    1 is read off as “one 1” or 11. 11 is read off as “two 1s” or 21. 21">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-10-29T05:11:43.184Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="38. Count and Say">
-<meta name="twitter:description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  The count-and-say sequence is the sequence of integers with the first five terms as following:     1    11    21    1211    111221      1 is read off a">
+<meta name="twitter:description" content="Problem:  The count-and-say sequence is the sequence of integers with the first five terms as following:    1 11 21 1211 111221    1 is read off as “one 1” or 11. 11 is read off as “two 1s” or 21. 21">
 
 
 
@@ -322,38 +322,21 @@
       
 
       
-        <h2>&lt;font color = black&gt;Problem:&lt;/font&gt;</h2>
+        <h2 id="problem"><font color="black">Problem:</font></h2>
 <blockquote>
 <p>The count-and-say sequence is the sequence of integers with the first five terms as following:</p>
 </blockquote>
 <blockquote>
-<ol>
-<li>
-<pre><code>1
-</code></pre>
-</li>
-<li>
-<pre><code>11
-</code></pre>
-</li>
-<li>
-<pre><code>21
-</code></pre>
-</li>
-<li>
-<pre><code>1211
-</code></pre>
-</li>
-<li>
-<pre><code>111221
-</code></pre>
-</li>
+<ol style="list-style-type: decimal">
+<li>1</li>
+<li>11</li>
+<li>21</li>
+<li>1211</li>
+<li>111221</li>
 </ol>
 </blockquote>
 <blockquote>
-<p>1 is read off as &quot;one 1&quot; or 11.
-11 is read off as &quot;two 1s&quot; or 21.
-21 is read off as &quot;one 2, then one 1&quot; or 1211.</p>
+<p>1 is read off as “one 1” or 11. 11 is read off as “two 1s” or 21. 21 is read off as “one 2, then one 1” or 1211.</p>
 </blockquote>
 <blockquote>
 <p>Given an integer n, generate the nth term of the count-and-say sequence.</p>
@@ -361,10 +344,10 @@
 <blockquote>
 <p>Note: Each term of the sequence of integers will be represented as a string.</p>
 </blockquote>
-<h2>&lt;font color =red&gt;Idea:&lt;/font&gt;</h2>
-<p>  This problem is a litter longer than before, so it take a few seconds to understand the problem. Don't be afraid of the complicated desription. I construct a StringBuilder to store the characters to be added and its number, and then add it by law.</p>
-<h2>&lt;font color =orange&gt;Java Code:&lt;/font&gt;</h2>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public String countAndSay(int n) &#123;</div><div class="line">        StringBuilder builder=new StringBuilder(&quot;1&quot;);</div><div class="line">	  StringBuilder prev;</div><div class="line">	  int count;</div><div class="line">	  char say;</div><div class="line">	  for (int i=1;i&lt;n;i++) &#123;</div><div class="line">		  prev=builder;</div><div class="line">		  builder=new StringBuilder();</div><div class="line">		  count=1;</div><div class="line">		  say=prev.charAt(0);</div><div class="line">		  for (int j=1,len=prev.length();j&lt;len;j++) &#123;</div><div class="line">			  if (prev.charAt(j)!=say) &#123;</div><div class="line">				  builder.append(count).append(say);</div><div class="line">				  count=1;</div><div class="line">				  say=prev.charAt(j);</div><div class="line">			  &#125;</div><div class="line">			  else count++;</div><div class="line">		  &#125;</div><div class="line">		builder.append(count).append(say);</div><div class="line">	  &#125;</div><div class="line">	  return builder.toString();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="idea"><font color="red">Idea:</font></h2>
+<p>  This problem is a litter longer than before, so it take a few seconds to understand the problem. Don’t be afraid of the complicated desription. I construct a StringBuilder to store the characters to be added and its number, and then add it by law.</p>
+<h2 id="java-code"><font color="orange">Java Code:</font></h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public String countAndSay(int n) &#123;</div><div class="line">        StringBuilder builder=new StringBuilder(&quot;1&quot;);</div><div class="line">	  StringBuilder prev;</div><div class="line">	  int count;</div><div class="line">	  char say;</div><div class="line">	  for (int i=1;i&lt;n;i++) &#123;</div><div class="line">		  prev=builder;</div><div class="line">		  builder=new StringBuilder();</div><div class="line">		  count=1;</div><div class="line">		  say=prev.charAt(0);</div><div class="line">		  for (int j=1,len=prev.length();j&lt;len;j++) &#123;</div><div class="line">			  if (prev.charAt(j)!=say) &#123;</div><div class="line">				  builder.append(count).append(say);</div><div class="line">				  count=1;</div><div class="line">				  say=prev.charAt(j);</div><div class="line">			  &#125;</div><div class="line">			  else count++;</div><div class="line">		  &#125;</div><div class="line">		builder.append(count).append(say);</div><div class="line">	  &#125;</div><div class="line">	  return builder.toString();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -574,7 +557,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text"><font color = black>Problem:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text"><font color =red>Idea:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text"><font color =orange>Java Code:</font></span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li></ol></div>
             
 
           </div>
