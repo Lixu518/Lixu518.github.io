@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Machine learning," />
+  <meta name="keywords" content="skills," />
 
 
 
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="线性回归   线性回归假设满足线性关系，每个特征对于结果的影响由其前面的参数决定，而且每个特征变量可以先映射到一个函数，在参与线性计算，如此一来即可表达特征与结果的的非线性关系。   我们用\(X_1\).\(X_2\),…,\(X_n\)去描述feature中的分量，作出估计函数: \[h(x)={h_\theta}(x)=\theta_0+{\theta_1}{x_1}+{\theta_2}{">
-<meta name="keywords" content="Machine learning">
+<meta name="description" content="Why do this?   Today, I make a update for my vim from 7.4 to 8.0, and accidentally overwritten my previous profile. So I am here to make a copy. Vim Profile 1234567891011121314151617181920212223242526">
+<meta name="keywords" content="skills">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linear Regression">
-<meta property="og:url" content="http://www.mysry.com/2017/11/11/Linear-Regression/index.html">
+<meta property="og:title" content="My Personal Vim">
+<meta property="og:url" content="http://www.mysry.com/2017/11/12/My-Personal-Vim/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="线性回归   线性回归假设满足线性关系，每个特征对于结果的影响由其前面的参数决定，而且每个特征变量可以先映射到一个函数，在参与线性计算，如此一来即可表达特征与结果的的非线性关系。   我们用\(X_1\).\(X_2\),…,\(X_n\)去描述feature中的分量，作出估计函数: \[h(x)={h_\theta}(x)=\theta_0+{\theta_1}{x_1}+{\theta_2}{">
+<meta property="og:description" content="Why do this?   Today, I make a update for my vim from 7.4 to 8.0, and accidentally overwritten my previous profile. So I am here to make a copy. Vim Profile 1234567891011121314151617181920212223242526">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-11T05:52:00.275Z">
+<meta property="og:updated_time" content="2017-11-12T14:05:03.834Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linear Regression">
-<meta name="twitter:description" content="线性回归   线性回归假设满足线性关系，每个特征对于结果的影响由其前面的参数决定，而且每个特征变量可以先映射到一个函数，在参与线性计算，如此一来即可表达特征与结果的的非线性关系。   我们用\(X_1\).\(X_2\),…,\(X_n\)去描述feature中的分量，作出估计函数: \[h(x)={h_\theta}(x)=\theta_0+{\theta_1}{x_1}+{\theta_2}{">
+<meta name="twitter:title" content="My Personal Vim">
+<meta name="twitter:description" content="Why do this?   Today, I make a update for my vim from 7.4 to 8.0, and accidentally overwritten my previous profile. So I am here to make a copy. Vim Profile 1234567891011121314151617181920212223242526">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://www.mysry.com/2017/11/11/Linear-Regression/"/>
+  <link rel="canonical" href="http://www.mysry.com/2017/11/12/My-Personal-Vim/"/>
 
 
 
 
 
-  <title>Linear Regression | Mysry</title>
+  <title>My Personal Vim | Mysry</title>
   
 
 
@@ -255,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.mysry.com/2017/11/11/Linear-Regression/">
+    <link itemprop="mainEntityOfPage" href="http://www.mysry.com/2017/11/12/My-Personal-Vim/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mysry">
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linear Regression</h1>
+          <h1 class="post-title" itemprop="name headline">My Personal Vim</h1>
         
 
         <div class="post-meta">
@@ -284,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-11T09:23:57+08:00">
-                2017-11-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-12T21:52:50+08:00">
+                2017-11-12
               </time>
             
 
@@ -322,18 +322,10 @@
       
 
       
-        <h2 id="线性回归">线性回归</h2>
-<p>  线性回归假设满足线性关系，每个特征对于结果的影响由其前面的参数决定，而且每个特征变量可以先映射到一个函数，在参与线性计算，如此一来即可表达特征与结果的的非线性关系。   我们用<span class="math inline">\(X_1\)</span>.<span class="math inline">\(X_2\)</span>,…,<span class="math inline">\(X_n\)</span>去描述feature中的分量，作出估计函数: <span class="math display">\[h(x)={h_\theta}(x)=\theta_0+{\theta_1}{x_1}+{\theta_2}{x_2}+\cdots+{\theta_n}{x_n}\]</span> 其中，意思是调整feature中的每次参数的影响，若我们<span class="math inline">\(X_0=1\)</span>,就可以把上述公式向量化:<span class="math display">\[{h_\theta}(x) = {\theta^T}X\]</span>   我们同样需要评估机制去评判我们的，所以需要对h函数进行评估，把评估函数称为损失函数(loss function)，认为损失函数如下:<span class="math display">\[J(\theta)={\frac{1}{2}}\sum_{i=1}^{n}({h_\theta}(x^{(i)})-y^{(i)})^2\]</span> <span class="math display">\[\min_{\theta}J_\theta\]</span>   损失函数是对<span class="math inline">\(x(i)\)</span>的估计值与真实值<span class="math inline">\(y(i)\)</span>差的平方和作为错误估计函数，那么如何调整<span class="math inline">\(\theta\)</span>以使得<span class="math inline">\(J(\theta)\)</span>取得最小值呢? 参考<a href="http://www.mysry.com/2017/11/11/%E5%87%A0%E7%A7%8D%E5%B8%B8%E8%A7%81%E7%9A%84%E6%B1%82%E8%A7%A3%E6%97%A0%E7%BA%A6%E6%9D%9F%E6%9C%80%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98%E7%9A%84%E6%96%B9%E6%B3%95/">几种常见的求解无约束最优化问题的方法</a></p>
-<h2 id="误差函数为什么要选用平方和函数">误差函数为什么要选用平方和函数？</h2>
-<p>  假设根据特征的预测结果与实际结果有误差<span class="math inline">\(\varepsilon^{(i)}\)</span>,那么预测结果<span class="math inline">\(\theta^T x^{(i)}\)</span>和真实结果<span class="math inline">\(y^{(i)}\)</span>满足下式：<span class="math display">\[y^{(i)}=\theta^T x^{(i)} + \varepsilon^{(i)}\]</span>一般来将，误差满足平均值为0的高斯分布，也即正态分布。那么x和y的条件概率也就是：<span class="math display">\[p(y^{(i)}|x^{(i)};\theta)=\frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(y^{(i)}-\theta^T x^{(i)})^2}{2\sigma^2})\]</span></p>
-<p>  这里就估计了一条样本的结果概率，然而我们期待的模型能够在全部样本上预测最准，也就是概率积最大，这个概率积称为最大死然估计，我们希望在最大似然估计得到最大值时确定<span class="math inline">\(\theta\)</span>，那么需要对最大似然估计公式求导：<span class="math display">\[\frac{1}{2}\sum_{i=1}^{m}(y^{(i)}-\theta^T x^{(i)})^2\]</span>这就解释了为什么误差函数要使用平方和，在推导过程中也有一些前提条件，这里不在展开。</p>
-<h2 id="带权重的线性回归">带权重的线性回归</h2>
-<p>  前面提到的线性回归的误差函数里系统都是1，没有权重。带权重的线性回归加入了权重信息：</p>
-<ul>
-<li>Fit <span class="math inline">\(\theta\)</span> to <span class="math inline">\(minimize\sum_i \omega^{(i)}(y^{(i)} - \theta^T x^{(i)})^2\)</span></li>
-<li>Output <span class="math inline">\(\theta^T x\)</span></li>
-</ul>
-<p>其中假设<span class="math inline">\(\omega^{(i)}\)</span>符合公式<span class="math display">\[\omega^{(i)} = exp (-\frac{(x^{(i)}-x)^2}{2\tau^2})\]</span>其中x是要预测的特征，这样假设的道理是离x越近的样本权重越大，越远的影响越小，这个公式与高斯分布不同，因为<span class="math inline">\(\omega^{(i)}\)</span>不是随机变量。</p>
+        <h2 id="why-do-this"><font color="black">Why do this?</font></h2>
+<p>  Today, I make a update for my vim from 7.4 to 8.0, and accidentally overwritten my previous profile. So I am here to make a copy.</p>
+<h2 id="vim-profile"><font color="" red="">Vim Profile</font></h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div></pre></td><td class="code"><pre><div class="line">runtime! debian.vim                                                                                                                            </div><div class="line">set background=dark                                                              </div><div class="line">syntax on                     &quot;语法高亮                                                   </div><div class="line">set cul                       &quot;    </div><div class="line">set ruler                     &quot;设置标尺                                                   </div><div class="line">set autoindent                &quot;自动缩进                                           </div><div class="line">set tabstop=4                 &quot;设置tab长度                                                   </div><div class="line">set softtabstop=4             &quot;                                                   </div><div class="line">set shiftwidth=4              &quot;                                                   </div><div class="line">set history=1000              &quot;                                        </div><div class="line">set hlsearch                  &quot;搜索高亮                                                   </div><div class="line">set expandtab                 &quot;用空格代替tab                                                   </div><div class="line">&quot;filetype indent on           &quot;                                         </div><div class="line">set cursorline                &quot;当前行高亮                                                </div><div class="line">set nobackup                  &quot;                                                   </div><div class="line">set encoding=utf-8            &quot;设置默认编码格式                                         </div><div class="line">set textwidth=80              &quot;文本宽度                                               </div><div class="line">set colorcolumn=81            &quot;80列提醒                                           </div><div class="line">                                                                                 </div><div class="line">nnoremap &lt;F2&gt; :set number!&lt;CR&gt;  &quot;&lt;F2&gt; 一键开关行号，便于复制                                         </div><div class="line">                                                                                                                                        </div><div class="line">                                                                                 </div><div class="line">&quot;set Vundle                    &quot;Vundle 插件管理                     </div><div class="line">                                                                                 </div><div class="line">set nocompatible                                                                 </div><div class="line">filetype off                                                                     </div><div class="line">&quot; set the runtime path to include Vundle and initialize                          </div><div class="line">set rtp+=~/.vim/bundle/Vundle.vim                                                </div><div class="line">call vundle#begin()                                                              </div><div class="line">&quot; alternatively, pass a path where Vundle should install plugins                 </div><div class="line">&quot;call vundle#begin(&apos;~/some/path/here&apos;)                                           </div><div class="line">                                                                                 </div><div class="line">&quot; let Vundle manage Vundle, required                                             </div><div class="line">Plugin &apos;VundleVim/Vundle.vim&apos;                                                    </div><div class="line">                                                                                 </div><div class="line">&quot; The following are examples of different formats supported.                     </div><div class="line">&quot; Keep Plugin commands between vundle#begin/end.                                 </div><div class="line">&quot; plugin on GitHub repo                                                          </div><div class="line">Plugin &apos;tpope/vim-fugitive&apos;                                                      </div><div class="line">&quot; plugin from http://vim-scripts.org/vim/scripts.html                            </div><div class="line">&quot; Plugin &apos;L9&apos;                                                                    </div><div class="line">&quot; Git plugin not hosted on GitHub                                                </div><div class="line">Plugin &apos;git://git.wincent.com/command-t.git&apos;                                     </div><div class="line">                                                                                 </div><div class="line">Plugin &apos;Valloric/YouCompleteMe&apos;      &quot;语法补全，超级厉害的插件                                  </div><div class="line">                                                                                 </div><div class="line">Plugin &apos;plasticboy/vim-markdown&apos;     &quot;Markdown插件                   </div><div class="line">                                                                                 </div><div class="line">Plugin &apos;Raimondi/delimitMate&apos;        &quot;括号补全                               </div><div class="line">Plugin &apos;wakatime/vim-wakatime&apos;       &quot;统计coding信息的插件                                                                 </div><div class="line">&quot; git repos on your local machine (i.e. when working on your own plugin)         </div><div class="line">&quot;Plugin &apos;file:///home/gmarik/path/to/plugin&apos;                                      </div><div class="line">&quot; The sparkup vim script is in a subdirectory of this repo called vim.           </div><div class="line">&quot; Pass the path to set the runtimepath properly.                                 </div><div class="line">&quot;Plugin &apos;rstacruz/sparkup&apos;, &#123;&apos;rtp&apos;: &apos;vim/&apos;&#125;                                       </div><div class="line">&quot; Install L9 and avoid a Naming conflict if you&apos;ve already installed a           </div><div class="line">&quot; different version somewhere else.                                              </div><div class="line">&quot; Plugin &apos;ascenator/L9&apos;, &#123;&apos;name&apos;: &apos;newL9&apos;&#125;                                       </div><div class="line">                                                                                 </div><div class="line">&quot; All of your Plugins must be added before the following line                    </div><div class="line">call vundle#end()            &quot; required                                          </div><div class="line">filetype plugin indent on    &quot; required                                          </div><div class="line">&quot; To ignore plugin indent changes, instead use:                                                                                                </div><div class="line">&quot;filetype plugin on                                                              </div><div class="line">&quot;                                                                                </div><div class="line">&quot; Brief help                                                                     </div><div class="line">&quot; :PluginList       - lists configured plugins                                   </div><div class="line">&quot; :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate</div><div class="line">&quot; :PluginSearch foo - searches for foo; append `!` to refresh local cache        </div><div class="line">&quot; :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal</div><div class="line">&quot;                                                                                </div><div class="line">&quot; see :h vundle for more details or wiki for FAQ                                 </div><div class="line">&quot; Put your non-Plugin stuff after this line</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -362,7 +354,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Machine-learning/" rel="tag"><i class="fa fa-tag"></i> Machine learning</a>
+            <a href="/tags/skills/" rel="tag"><i class="fa fa-tag"></i> skills</a>
           
         </div>
       
@@ -375,8 +367,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/10/19-Remove-Nth-Node-From-End-of-List/" rel="next" title="19. Remove Nth Node From End of List">
-                <i class="fa fa-chevron-left"></i> 19. Remove Nth Node From End of List
+              <a href="/2017/11/12/24-Swap-Nodes-in-Pairs/" rel="next" title="24. Swap Nodes in Pairs">
+                <i class="fa fa-chevron-left"></i> 24. Swap Nodes in Pairs
               </a>
             
           </div>
@@ -384,10 +376,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/11/几种常见的求解无约束最优化问题的方法/" rel="prev" title="几种常见的求解无约束最优化问题的方法">
-                几种常见的求解无约束最优化问题的方法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -543,7 +531,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#线性回归"><span class="nav-number">1.</span> <span class="nav-text">线性回归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#误差函数为什么要选用平方和函数"><span class="nav-number">2.</span> <span class="nav-text">误差函数为什么要选用平方和函数？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#带权重的线性回归"><span class="nav-number">3.</span> <span class="nav-text">带权重的线性回归</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#why-do-this"><span class="nav-number">1.</span> <span class="nav-text">Why do this?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vim-profile"><span class="nav-number">2.</span> <span class="nav-text">Vim Profile</span></a></li></ol></div>
             
 
           </div>

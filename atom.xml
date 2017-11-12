@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2017-11-11T14:04:25.127Z</updated>
+  <updated>2017-11-12T14:05:03.834Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -15,6 +15,80 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>My Personal Vim</title>
+    <link href="http://www.mysry.com/2017/11/12/My-Personal-Vim/"/>
+    <id>http://www.mysry.com/2017/11/12/My-Personal-Vim/</id>
+    <published>2017-11-12T13:52:50.000Z</published>
+    <updated>2017-11-12T14:05:03.834Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="why-do-this"><font color="black">Why do this?</font></h2><p>  Today, I make a update for my vim from 7.4 to 8.0, and accidentally overwritten my previous profile. So I am here to make a copy.</p><h2 id="vim-profile"><font color="" red="">Vim Profile</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div></pre></td><td class="code"><pre><div class="line">runtime! debian.vim                                                                                                                            </div><div class="line">set background=dark                                                              </div><div class="line">syntax on                     &quot;语法高亮                                                   </div><div class="line">set cul                       &quot;    </div><div class="line">set ruler                     &quot;设置标尺                                                   </div><div class="line">set autoindent                &quot;自动缩进                                           </div><div class="line">set tabstop=4                 &quot;设置tab长度                                                   </div><div class="line">set softtabstop=4             &quot;                                                   </div><div class="line">set shiftwidth=4              &quot;                                                   </div><div class="line">set history=1000              &quot;                                        </div><div class="line">set hlsearch                  &quot;搜索高亮                                                   </div><div class="line">set expandtab                 &quot;用空格代替tab                                                   </div><div class="line">&quot;filetype indent on           &quot;                                         </div><div class="line">set cursorline                &quot;当前行高亮                                                </div><div class="line">set nobackup                  &quot;                                                   </div><div class="line">set encoding=utf-8            &quot;设置默认编码格式                                         </div><div class="line">set textwidth=80              &quot;文本宽度                                               </div><div class="line">set colorcolumn=81            &quot;80列提醒                                           </div><div class="line">                                                                                 </div><div class="line">nnoremap &lt;F2&gt; :set number!&lt;CR&gt;  &quot;&lt;F2&gt; 一键开关行号，便于复制                                         </div><div class="line">                                                                                                                                        </div><div class="line">                                                                                 </div><div class="line">&quot;set Vundle                    &quot;Vundle 插件管理                     </div><div class="line">                                                                                 </div><div class="line">set nocompatible                                                                 </div><div class="line">filetype off                                                                     </div><div class="line">&quot; set the runtime path to include Vundle and initialize                          </div><div class="line">set rtp+=~/.vim/bundle/Vundle.vim                                                </div><div class="line">call vundle#begin()                                                              </div><div class="line">&quot; alternatively, pass a path where Vundle should install plugins                 </div><div class="line">&quot;call vundle#begin(&apos;~/some/path/here&apos;)                                           </div><div class="line">                                                                                 </div><div class="line">&quot; let Vundle manage Vundle, required                                             </div><div class="line">Plugin &apos;VundleVim/Vundle.vim&apos;                                                    </div><div class="line">                                                                                 </div><div class="line">&quot; The following are examples of different formats supported.                     </div><div class="line">&quot; Keep Plugin commands between vundle#begin/end.                                 </div><div class="line">&quot; plugin on GitHub repo                                                          </div><div class="line">Plugin &apos;tpope/vim-fugitive&apos;                                                      </div><div class="line">&quot; plugin from http://vim-scripts.org/vim/scripts.html                            </div><div class="line">&quot; Plugin &apos;L9&apos;                                                                    </div><div class="line">&quot; Git plugin not hosted on GitHub                                                </div><div class="line">Plugin &apos;git://git.wincent.com/command-t.git&apos;                                     </div><div class="line">                                                                                 </div><div class="line">Plugin &apos;Valloric/YouCompleteMe&apos;      &quot;语法补全，超级厉害的插件                                  </div><div class="line">                                                                                 </div><div class="line">Plugin &apos;plasticboy/vim-markdown&apos;     &quot;Markdown插件                   </div><div class="line">                                                                                 </div><div class="line">Plugin &apos;Raimondi/delimitMate&apos;        &quot;括号补全                               </div><div class="line">Plugin &apos;wakatime/vim-wakatime&apos;       &quot;统计coding信息的插件                                                                 </div><div class="line">&quot; git repos on your local machine (i.e. when working on your own plugin)         </div><div class="line">&quot;Plugin &apos;file:///home/gmarik/path/to/plugin&apos;                                      </div><div class="line">&quot; The sparkup vim script is in a subdirectory of this repo called vim.           </div><div class="line">&quot; Pass the path to set the runtimepath properly.                                 </div><div class="line">&quot;Plugin &apos;rstacruz/sparkup&apos;, &#123;&apos;rtp&apos;: &apos;vim/&apos;&#125;                                       </div><div class="line">&quot; Install L9 and avoid a Naming conflict if you&apos;ve already installed a           </div><div class="line">&quot; different version somewhere else.                                              </div><div class="line">&quot; Plugin &apos;ascenator/L9&apos;, &#123;&apos;name&apos;: &apos;newL9&apos;&#125;                                       </div><div class="line">                                                                                 </div><div class="line">&quot; All of your Plugins must be added before the following line                    </div><div class="line">call vundle#end()            &quot; required                                          </div><div class="line">filetype plugin indent on    &quot; required                                          </div><div class="line">&quot; To ignore plugin indent changes, instead use:                                                                                                </div><div class="line">&quot;filetype plugin on                                                              </div><div class="line">&quot;                                                                                </div><div class="line">&quot; Brief help                                                                     </div><div class="line">&quot; :PluginList       - lists configured plugins                                   </div><div class="line">&quot; :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate</div><div class="line">&quot; :PluginSearch foo - searches for foo; append `!` to refresh local cache        </div><div class="line">&quot; :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal</div><div class="line">&quot;                                                                                </div><div class="line">&quot; see :h vundle for more details or wiki for FAQ                                 </div><div class="line">&quot; Put your non-Plugin stuff after this line</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;why-do-this&quot;&gt;&lt;font color=&quot;black&quot;&gt;Why do this?&lt;/font&gt;&lt;/h2&gt;
+&lt;p&gt;  Today, I make a update for my vim from 7.4 to 8.0, and accidentally o
+      
+    
+    </summary>
+    
+    
+      <category term="skills" scheme="http://www.mysry.com/tags/skills/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>24. Swap Nodes in Pairs</title>
+    <link href="http://www.mysry.com/2017/11/12/24-Swap-Nodes-in-Pairs/"/>
+    <id>http://www.mysry.com/2017/11/12/24-Swap-Nodes-in-Pairs/</id>
+    <published>2017-11-12T13:49:03.000Z</published>
+    <updated>2017-11-12T13:52:13.866Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given a linked list, swap every two adjacent nodes and return its head. Your algorithm should use only constant space. You may not modify the values in the list, only nodes itself can be changed.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>  Also a recursion to solve this problem.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for singly-linked list.</div><div class="line"> * public class ListNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     ListNode next;</div><div class="line"> *     ListNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">    public ListNode swapPairs(ListNode head) &#123;</div><div class="line">     if(head==null||head.next==null) return head;</div><div class="line">ListNode n=head.next;</div><div class="line">head.next=swapPairs(head.next.next);</div><div class="line">n.next=head;</div><div class="line">return n;   </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given a linked list, swap every two adjacent nodes and return its 
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>23. Merge k Sorted Lists</title>
+    <link href="http://www.mysry.com/2017/11/12/23-Merge-k-Sorted-Lists/"/>
+    <id>http://www.mysry.com/2017/11/12/23-Merge-k-Sorted-Lists/</id>
+    <published>2017-11-12T13:41:33.000Z</published>
+    <updated>2017-11-12T13:48:32.942Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>  This is a hard problem in leetcode, but wo could solve it in a easy way. We firstly make sure we can merge two sorted lists, it’s easy! Than what we think is how to make all this lists become pairs, we use a recursion to do this. So there are two auxiliary function. It’s not hard to understand, see the Java code.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for singly-linked list.</div><div class="line"> * public class ListNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     ListNode next;</div><div class="line"> *     ListNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">    public ListNode mergeKLists(ListNode[] lists) &#123;</div><div class="line">     return partion(lists,0,lists.length-1);</div><div class="line">    &#125;</div><div class="line">    public static ListNode merge(ListNode l1,ListNode l2) &#123;</div><div class="line">if(l1 == null) return l2;</div><div class="line">if(l2 == null) return l1;</div><div class="line">if(l1.val&lt;l2.val) &#123;</div><div class="line">l1.next=merge(l1.next,l2);</div><div class="line">return l1;</div><div class="line">&#125;else &#123;</div><div class="line">l2.next=merge(l1,l2.next);</div><div class="line">return l2;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">public static ListNode partion(ListNode []lists,int s,int e) &#123;</div><div class="line">if(s==e)return lists[s];</div><div class="line">if(s&lt;e) &#123;</div><div class="line">int q=(s+e)/2;</div><div class="line">ListNode l1=partion(lists,s,q);</div><div class="line">ListNode l2=partion(lists,q+1,e);</div><div class="line">return merge(l1,l2);</div><div class="line">&#125;</div><div class="line">else return null;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Merge k sorted linked lists and return it as one sorted list. Anal
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>hexo + MathJax</title>
@@ -428,82 +502,6 @@
         &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Given an integer n, return the number of trailing zeroes in n!. No
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>169. Majority Element</title>
-    <link href="http://www.mysry.com/2017/11/05/169-Majority-Element/"/>
-    <id>http://www.mysry.com/2017/11/05/169-Majority-Element/</id>
-    <published>2017-11-05T04:58:35.000Z</published>
-    <updated>2017-11-05T05:02:36.848Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times. You may assume that the array is non-empty and the majority element always exist in the array.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> The majority element appears more than [n/2] means that the middle number of the sorted array must be the majority number.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int majorityElement(int[] nums) &#123;</div><div class="line">        Arrays.sort(nums);</div><div class="line">    return nums[nums.length/2];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given an array of size n, find the majority element. The majority 
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>168、171. Excel Sheet Column Title and Number</title>
-    <link href="http://www.mysry.com/2017/11/05/168%E3%80%81171-Excel-Sheet-Column-Title-and-Number/"/>
-    <id>http://www.mysry.com/2017/11/05/168、171-Excel-Sheet-Column-Title-and-Number/</id>
-    <published>2017-11-05T04:51:24.000Z</published>
-    <updated>2017-11-05T04:58:03.833Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problems"><font color="black">Problems:</font></h2><blockquote><ol style="list-style-type: decimal"><li>Given a positive integer, return its corresponding column title as appear in an Excel sheet.</li></ol></blockquote><blockquote><p>2.Given a column title as appear in an Excel sheet, return its corresponding column number.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> These two questions are symmetrical, together they are conversion of decimal and twenty-six hex.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public String convertToTitle(int n) &#123;</div><div class="line">      return n == 0 ? &quot;&quot; : convertToTitle(--n / 26) + (char)(&apos;A&apos; + (n % 26));  </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int titleToNumber(String s) &#123;</div><div class="line">        int result = 0;</div><div class="line">    for (int i=0;i&lt;s.length();i++) &#123;</div><div class="line">        result= result*26+(s.charAt(i)-&apos;A&apos;+1);</div><div class="line">    &#125;</div><div class="line">    return result;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problems&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problems:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;ol style=&quot;list-style-type: decimal&quot;&gt;
-&lt;li&gt;Given a positive integer,
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>167. Two Sum II - Input array is sorted</title>
-    <link href="http://www.mysry.com/2017/11/05/167-Two-Sum-II-Input-array-is-sorted/"/>
-    <id>http://www.mysry.com/2017/11/05/167-Two-Sum-II-Input-array-is-sorted/</id>
-    <published>2017-11-05T04:43:00.000Z</published>
-    <updated>2017-11-05T04:49:53.081Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given an array of integers that is already sorted in ascending order, find two numbers such that they add up to a specific target number. The function twoSum should return indices of the two numbers such that they add up to the target, where index1 must be less than index2. Please note that your returned answers (both index1 and index2) are not zero-based. You may assume that each input would have exactly one solution and you may not use the same element twice.</p></blockquote><h2 id="idea"><font color="red"> Idea:</font></h2><p> Find the two number from the tail and head of this array, if nums[l] plus nums[h] is bigger than target number, than h minus 1, but if samller than target number, l plus 1, until we get nums[l] plus nums[h] equals targte number, return an array contains l and h.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int[] twoSum(int[] nums, int target) &#123;</div><div class="line">        int l= 0,h=nums.length-1;</div><div class="line">    while (nums[l]+nums[h]!=target) &#123;</div><div class="line">        if (nums[l]+nums[h]&gt;target)h--;</div><div class="line">        else l++;</div><div class="line">    &#125;</div><div class="line">    return new int[]&#123;l+1,h+1&#125;;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given an array of integers that is already sorted in ascending ord
       
     
     </summary>
