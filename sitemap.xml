@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.mysry.com/about/index.html</loc>
+    
+    <lastmod>2017-11-12T08:34:20.714Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.mysry.com/2017/11/11/hexo-Mathjax/</loc>
     
     <lastmod>2017-11-11T14:04:25.127Z</lastmod>
@@ -82,13 +89,6 @@
     <loc>http://www.mysry.com/2017/11/08/12-Integer-to-Roman/</loc>
     
     <lastmod>2017-11-08T13:57:20.451Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.mysry.com/about/index.html</loc>
-    
-    <lastmod>2017-11-08T05:17:13.621Z</lastmod>
     
   </url>
   
