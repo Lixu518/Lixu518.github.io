@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2017-11-12T14:05:03.834Z</updated>
+  <updated>2017-11-13T14:03:35.877Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>25. Reverse Nodes in k-Group</title>
+    <link href="http://www.mysry.com/2017/11/13/25-Reverse-Nodes-in-k-Group/"/>
+    <id>http://www.mysry.com/2017/11/13/25-Reverse-Nodes-in-k-Group/</id>
+    <published>2017-11-13T13:59:09.000Z</published>
+    <updated>2017-11-13T14:03:35.877Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="peoblem"><font color="black">Peoblem:</font></h2><blockquote><p>Given a linked list, reverse the nodes of a linked list k at a time and return its modified list. k is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of k then left-out nodes in the end should remain as it is. You may not alter the values in the nodes, only nodes itself may be changed. Only constant memory is allowed.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> We use a recursion to find every k node, and if the tail of the last lists don’t have k nodes, just despite them.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for singly-linked list.</div><div class="line"> * public class ListNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     ListNode next;</div><div class="line"> *     ListNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">    public ListNode reverseKGroup(ListNode head, int k) &#123;</div><div class="line">        ListNode curr = head;</div><div class="line">int count = 0;</div><div class="line">while(curr!= null&amp;&amp;count!= k) &#123;</div><div class="line">curr = curr.next;</div><div class="line">count++;</div><div class="line">&#125;</div><div class="line">if(count == k) &#123;</div><div class="line">curr = reverseKGroup(curr,k);</div><div class="line">while(count--&gt;0) &#123;</div><div class="line">ListNode tmp = head.next;</div><div class="line">head.next = curr;</div><div class="line">curr = head;</div><div class="line">head = tmp;</div><div class="line">&#125;</div><div class="line">head = curr;</div><div class="line">&#125;</div><div class="line">return head;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;peoblem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Peoblem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given a linked list, reverse the nodes of a linked list k at a tim
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>10. Regular Expression Matching</title>
+    <link href="http://www.mysry.com/2017/11/13/10-Regular-Expression-Matching/"/>
+    <id>http://www.mysry.com/2017/11/13/10-Regular-Expression-Matching/</id>
+    <published>2017-11-13T13:53:33.000Z</published>
+    <updated>2017-11-13T13:58:46.187Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Implement regular expression matching with support for ‘.’ and ‘<em>’. ’.’ Matches any single character. ’</em>’ Matches zero or more of the preceding element. The matching should cover the entire input string (not partial). The function prototype should be: bool isMatch(const char <em>s, const char </em>p) Some examples: isMatch(“aa”,“a”) → false isMatch(“aa”,“aa”) → true isMatch(“aaa”,“aa”) → false isMatch(“aa”, “a<em>“) → true isMatch(”aa“,”.</em>”) → true isMatch(“ab”, “.<em>“) → true isMatch(”aab“,”c</em>a*b“) → true</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> This solution use a 2D DP, here are some conditions to figure out, then logic can be very straightforward. 1, If p.charAt(j) == s.charAt(i) : dp[i][j] = dp[i-1][j-1]; 2, If p.charAt(j) == ‘.’ : dp[i][j] = dp[i-1][j-1]; 3, If p.charAt(j) == ‘<em>’: here are two sub conditions: 1 if p.charAt(j-1) != s.charAt(i) : dp[i][j] = dp[i][j-2] //in this case, a</em> only counts as empty 2 if p.charAt(i-1) == s.charAt(i) or p.charAt(i-1) ==’.’: dp[i][j] = dp[i-1][j] //in this case, a* counts as multiple a or dp[i][j] = dp[i][j-1] // in this case, a* counts as single a or dp[i][j] = dp[i][j-2] // in this case, a* counts as empty.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public boolean isMatch(String s, String p) &#123;</div><div class="line">     if(s==null||p==null)return false;</div><div class="line">boolean [][]dp = new boolean [s.length()+1][p.length()+1];</div><div class="line">dp[0][0] = true;</div><div class="line">for (int i =0;i&lt;p.length();i++) &#123;</div><div class="line">if(p.charAt(i) == &apos;*&apos;&amp;&amp;dp[0][i-1]) dp[0][i+1] = true;</div><div class="line">&#125;</div><div class="line">for(int i=0;i&lt;s.length();i++) &#123;</div><div class="line">for (int j=0;j&lt;p.length();j++) &#123;</div><div class="line">if(p.charAt(j)==&apos;.&apos;)</div><div class="line">dp[i+1][j+1]=dp[i][j];</div><div class="line">if(p.charAt(j)==s.charAt(i))</div><div class="line">dp[i+1][j+1]=dp[i][j];</div><div class="line">if(p.charAt(j)==&apos;*&apos;) &#123;</div><div class="line">if (p.charAt(j-1)!=s.charAt(i)&amp;&amp;p.charAt(j-1)!=&apos;.&apos;)</div><div class="line">dp[i+1][j+1] = dp[i+1][j-1];</div><div class="line">else</div><div class="line">dp[i+1][j+1] = (dp[i+1][j]||dp[i][j+1]||dp[i+1][j-1]);</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">return dp[s.length()][p.length()];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Implement regular expression matching with support for ‘.’ and ‘&lt;e
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>My Personal Vim</title>
@@ -452,56 +502,6 @@
         &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;The string “PAYPALISHIRING” is written in a zigzag pattern on a gi
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>5. Longest Palindromic Substring</title>
-    <link href="http://www.mysry.com/2017/11/06/5-Longest-Palindromic-Substring/"/>
-    <id>http://www.mysry.com/2017/11/06/5-Longest-Palindromic-Substring/</id>
-    <published>2017-11-06T13:23:36.000Z</published>
-    <updated>2017-11-06T13:33:49.054Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> We define a support function, find palindromic substring of the i-centered substring. And we extend the i-centered substring from both sides untile we have found the palindromic substring or tranvse string s.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    private int lo,maxLen;</div><div class="line">    public String longestPalindrome(String s) &#123;</div><div class="line">        if (s.length()&lt;=2) return s;</div><div class="line">for (int i=0;i&lt;s.length()-1;i++) &#123;</div><div class="line">extendPalindrom(s,i,i);</div><div class="line">extendPalindrom(s,i,i+1);</div><div class="line">&#125;</div><div class="line">return s.substring(lo,lo+maxLen);</div><div class="line">    &#125;</div><div class="line">    private void extendPalindrom(String s,int k,int j) &#123;</div><div class="line">while(j&gt;=0&amp;&amp;k&lt;s.length()&amp;&amp;s.charAt(j)==s.charAt(k)) &#123;</div><div class="line">j--;</div><div class="line">k++;</div><div class="line">&#125;</div><div class="line">if(maxLen&lt;k-j-1) &#123;</div><div class="line">lo = j+1;</div><div class="line">maxLen = k-j-1;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given a string s, find the longest palindromic substring in s. You
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>172. Factorial Trailing Zeros</title>
-    <link href="http://www.mysry.com/2017/11/05/172-Factorial-Trailing-Zeros/"/>
-    <id>http://www.mysry.com/2017/11/05/172-Factorial-Trailing-Zeros/</id>
-    <published>2017-11-05T05:03:58.000Z</published>
-    <updated>2017-11-05T05:08:30.439Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given an integer n, return the number of trailing zeroes in n!. Note: Your solution should be in logarithmic time complexity.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> After you have cleared of the mathematical principles, you could konw how to solve this problem. Use a recursion</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int trailingZeroes(int n) &#123;</div><div class="line">         return n == 0 ? 0 : n / 5 + trailingZeroes(n / 5);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given an integer n, return the number of trailing zeroes in n!. No
       
     
     </summary>
