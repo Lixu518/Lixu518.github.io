@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2017-11-13T14:03:35.877Z</updated>
+  <updated>2017-11-14T15:49:00.697Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>31. Next Permutation</title>
+    <link href="http://www.mysry.com/2017/11/14/31-Next-Permutation/"/>
+    <id>http://www.mysry.com/2017/11/14/31-Next-Permutation/</id>
+    <published>2017-11-14T15:41:15.000Z</published>
+    <updated>2017-11-14T15:49:00.697Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Implement next permutation, which rearranges numbers into the lexicographically next greater permutation of numbers.</p></blockquote><blockquote><p>If such arrangement is not possible, it must rearrange it as the lowest possible order (ie, sorted in ascending order).</p></blockquote><blockquote><p>The replacement must be in-place, do not allocate extra memory.</p></blockquote><blockquote><p>Here are some examples. Inputs are in the left-hand column and its corresponding outputs are in the right-hand column.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>  If you understand what is say about the problem is to find a new permutation to make the number of this string is much bigger than its origin, otherwise rearrange it as the lowest possible order.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public void nextPermutation(int[] nums) &#123;</div><div class="line">        if(nums==null || nums.length&lt;=1) return;</div><div class="line">int i=nums.length-2;</div><div class="line">while (i&gt;=0&amp;&amp;nums[i]&gt;=nums[i+1]) i--;</div><div class="line">if(i&gt;=0) &#123;</div><div class="line">int j=nums.length-1;</div><div class="line">while(nums[j]&lt;=nums[i])j--;</div><div class="line">swap(nums,i,j);</div><div class="line">&#125;</div><div class="line">reverse(nums,i+1,nums.length-1);</div><div class="line">    &#125;</div><div class="line">    public void swap(int[]nums,int i,int j) &#123;</div><div class="line">int tmp =nums[i];</div><div class="line">nums[i]=nums[j];</div><div class="line">nums[j] = tmp;</div><div class="line">&#125;</div><div class="line">public void reverse(int[]nums,int i,int j) &#123;</div><div class="line">while(i&lt;j) swap(nums,i++,j--);</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Implement next permutation, which rearranges numbers into the lexi
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>29. Divide Two Integers</title>
+    <link href="http://www.mysry.com/2017/11/14/29-Divide-Two-Integers/"/>
+    <id>http://www.mysry.com/2017/11/14/29-Divide-Two-Integers/</id>
+    <published>2017-11-14T15:35:38.000Z</published>
+    <updated>2017-11-14T15:40:47.121Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Divide two integers without using multiplication, division and mod operator.</p></blockquote><blockquote><p>If it is overflow, return MAX_INT.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>  The core idea is use many divisors to approach dividend.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int divide(int dividend, int divisor) &#123;</div><div class="line">        int sign=1;</div><div class="line">if((dividend &gt;0&amp;&amp;divisor&lt;0)||(dividend&lt;0&amp;&amp;divisor&gt;0)) sign =-1;</div><div class="line">long ldividend = Math.abs(dividend);</div><div class="line">long ldivisor = Math.abs(divisor);</div><div class="line">if(ldivisor == 0) return Integer.MAX_VALUE;</div><div class="line">if((ldividend == 0)||(ldividend&lt;ldivisor)) return 0;</div><div class="line">long lans = ldivide(ldividend,ldivisor);</div><div class="line">int ans;</div><div class="line">if(lans&gt;Integer.MAX_VALUE) ans = (sign ==1)?Integer.MAX_VALUE:Integer.MIN_VALUE;</div><div class="line">else ans = (int) (sign *lans);</div><div class="line">return ans;</div><div class="line">    &#125;</div><div class="line">    private long ldivide(long ldividend, long ldivisor) &#123;</div><div class="line">if(ldividend &lt;ldivisor) return 0;</div><div class="line">long sum = ldivisor;</div><div class="line">long multiple =1;</div><div class="line">while((sum+sum)&lt;=ldividend) &#123;</div><div class="line">sum+=sum;</div><div class="line">multiple += multiple;</div><div class="line">&#125;</div><div class="line">return multiple+ldivide(ldividend -sum ,ldivisor);</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Divide two integers without using multiplication, division and mod
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>25. Reverse Nodes in k-Group</title>
@@ -452,56 +502,6 @@
         &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Given n non-negative integers a1, a2, …, an, where each represents
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>8. String to Integer (atoi)</title>
-    <link href="http://www.mysry.com/2017/11/07/8-String-to-Integer-atoi/"/>
-    <id>http://www.mysry.com/2017/11/07/8-String-to-Integer-atoi/</id>
-    <published>2017-11-07T14:07:40.000Z</published>
-    <updated>2017-11-07T14:27:16.500Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Implement atoi to convert a string to an integer. Hint: Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases. Notes: It is intended for this problem to be specified vaguely (ie, no given input specs). You are responsible to gather all the input requirements up front. Requirements for atoi: The function first discards as many whitespace characters as necessary until the first non-whitespace character is found. Then, starting from this character, takes an optional initial plus or minus sign followed by as many numerical digits as possible, and interprets them as a numerical value. The string can contain additional characters after those that form the integral number, which are ignored and have no effect on the behavior of this function. If the first sequence of non-whitespace characters in str is not a valid integral number, or if no such sequence exists because either str is empty or it contains only whitespace characters, no conversion is performed. If no valid conversion could be performed, a zero value is returned. If the correct value is out of the range of representable values, INT_MAX (2147483647) or INT_MIN (-2147483648) is returned.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> This question is a litter strange. What we need to do: - Discard the space before the string - Record sign information - A string can contain characters other than 0-9. If a non-numeric character is encountered, only the portion before the character, such as “-00123a66”, is returned as “-123” - Exceeds the int range, returning the boundary value(Integer.MaxValue or Integer.MinValue)</p><h2 id="java-code"><font color="orange">Java Code: </font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int myAtoi(String str) &#123;</div><div class="line">        if (str==null||str.length()==0) return 0;</div><div class="line">str = str.trim();</div><div class="line">char firstChar = str.charAt(0);</div><div class="line">int sign = 1, start = 0,len = str.length();</div><div class="line">long sum = 0;</div><div class="line">if (firstChar == &apos;+&apos;) &#123;</div><div class="line">sign = 1;</div><div class="line">start++;</div><div class="line">&#125;else if (firstChar == &apos;-&apos;) &#123;</div><div class="line">sign = -1;</div><div class="line">start++;</div><div class="line">&#125;</div><div class="line">for (int i=start;i&lt;len;i++) &#123;</div><div class="line">if (!Character.isDigit(str.charAt(i)))</div><div class="line">return (int) sum*sign;</div><div class="line">sum = sum*10+str.charAt(i)-&apos;0&apos;;</div><div class="line">if(sign==1&amp;&amp;sum&gt;Integer.MAX_VALUE)</div><div class="line">return Integer.MAX_VALUE;</div><div class="line">if(sign ==-1&amp;&amp;(-1*sum)&lt;Integer.MIN_VALUE)</div><div class="line">return Integer.MIN_VALUE;</div><div class="line">&#125;</div><div class="line">return (int)sum*sign;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Implement atoi to convert a string to an integer. Hint: Carefully 
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>6. ZigZag Conversion</title>
-    <link href="http://www.mysry.com/2017/11/06/6-ZigZag-Conversion/"/>
-    <id>http://www.mysry.com/2017/11/06/6-ZigZag-Conversion/</id>
-    <published>2017-11-06T13:34:15.000Z</published>
-    <updated>2017-11-06T13:49:35.750Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>The string “PAYPALISHIRING” is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility) P A H N A P L S I I G Y I R And then read line by line: “PAHNAPLSIIGYIR” Write the code that will take a string and make this conversion given a number of rows: string convert(string text, int nRows); convert(“PAYPALISHIRING”, 3) should return “PAHNAPLSIIGYIR”</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> First, Convert string s to a char array,than create a StringBuffer and init it. Now we need add char with the rules. At last, convert it back to a String and outpt.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public String convert(String s, int numRows) &#123;</div><div class="line">        char[] c= s.toCharArray();</div><div class="line"> int len = s.length();</div><div class="line"> StringBuffer[] sb= new StringBuffer[numRows];</div><div class="line"> for (int i=0;i&lt;sb.length;i++) &#123;</div><div class="line"> sb[i]= new StringBuffer();</div><div class="line"> &#125;</div><div class="line"> int i=0;</div><div class="line"> while(i&lt;len) &#123;</div><div class="line"> for (int idx = 0;idx&lt;numRows&amp;&amp;i&lt;len;idx++) &#123;</div><div class="line"> sb[idx].append(c[i++]);</div><div class="line"> &#125;</div><div class="line"> for (int idx = numRows-2;idx&gt;=1&amp;&amp;i&lt;len;idx--) &#123;</div><div class="line"> sb[idx].append(c[i++]);</div><div class="line"> &#125;</div><div class="line"> &#125;</div><div class="line"> for(int idx=1;idx&lt;sb.length;idx++) &#123;</div><div class="line"> sb[0].append(sb[idx]);</div><div class="line"> &#125;</div><div class="line"> return sb[0].toString();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;The string “PAYPALISHIRING” is written in a zigzag pattern on a gi
       
     
     </summary>

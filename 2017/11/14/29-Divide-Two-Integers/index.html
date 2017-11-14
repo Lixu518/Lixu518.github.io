@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="Problem:  Design a stack that supports push, pop, top, and retrieving the minimum element in constant time. push(x) – Push element x onto stack. pop() – Removes the element on top of the stack. top()">
+<meta name="description" content="Problem:  Divide two integers without using multiplication, division and mod operator.   If it is overflow, return MAX_INT.  Idea:   The core idea is use many divisors to approach dividend. Java Code:">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="155. Min Stack">
-<meta property="og:url" content="http://www.mysry.com/2017/11/05/155-Min-Stack/index.html">
+<meta property="og:title" content="29. Divide Two Integers">
+<meta property="og:url" content="http://www.mysry.com/2017/11/14/29-Divide-Two-Integers/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="Problem:  Design a stack that supports push, pop, top, and retrieving the minimum element in constant time. push(x) – Push element x onto stack. pop() – Removes the element on top of the stack. top()">
+<meta property="og:description" content="Problem:  Divide two integers without using multiplication, division and mod operator.   If it is overflow, return MAX_INT.  Idea:   The core idea is use many divisors to approach dividend. Java Code:">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-05T04:37:59.440Z">
+<meta property="og:updated_time" content="2017-11-14T15:40:47.121Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="155. Min Stack">
-<meta name="twitter:description" content="Problem:  Design a stack that supports push, pop, top, and retrieving the minimum element in constant time. push(x) – Push element x onto stack. pop() – Removes the element on top of the stack. top()">
+<meta name="twitter:title" content="29. Divide Two Integers">
+<meta name="twitter:description" content="Problem:  Divide two integers without using multiplication, division and mod operator.   If it is overflow, return MAX_INT.  Idea:   The core idea is use many divisors to approach dividend. Java Code:">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://www.mysry.com/2017/11/05/155-Min-Stack/"/>
+  <link rel="canonical" href="http://www.mysry.com/2017/11/14/29-Divide-Two-Integers/"/>
 
 
 
 
 
-  <title>155. Min Stack | Mysry</title>
+  <title>29. Divide Two Integers | Mysry</title>
   
 
 
@@ -255,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.mysry.com/2017/11/05/155-Min-Stack/">
+    <link itemprop="mainEntityOfPage" href="http://www.mysry.com/2017/11/14/29-Divide-Two-Integers/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mysry">
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">155. Min Stack</h1>
+          <h1 class="post-title" itemprop="name headline">29. Divide Two Integers</h1>
         
 
         <div class="post-meta">
@@ -284,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-05T12:32:45+08:00">
-                2017-11-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-14T23:35:38+08:00">
+                2017-11-14
               </time>
             
 
@@ -324,12 +324,15 @@
       
         <h2 id="problem"><font color="black">Problem:</font></h2>
 <blockquote>
-<p>Design a stack that supports push, pop, top, and retrieving the minimum element in constant time. push(x) – Push element x onto stack. pop() – Removes the element on top of the stack. top() – Get the top element. getMin() – Retrieve the minimum element in the stack.</p>
+<p>Divide two integers without using multiplication, division and mod operator.</p>
+</blockquote>
+<blockquote>
+<p>If it is overflow, return MAX_INT.</p>
 </blockquote>
 <h2 id="idea"><font color="red">Idea:</font></h2>
-<p> The idea is to store the gap between the min value and the current value. The problem for my solution is the cast. I have no idea to avoid the cast. Since the possible gap between the current value and the min value could be Integer.MAX_VALUE-Integer.MIN_VALUE;</p>
+<p>  The core idea is use many divisors to approach dividend.</p>
 <h2 id="java-code"><font color="orange">Java Code:</font></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">class MinStack &#123;</div><div class="line"></div><div class="line">    /** initialize your data structure here. */</div><div class="line">   long min;</div><div class="line">    Stack&lt;Long&gt; stack;</div><div class="line">    public MinStack() &#123;</div><div class="line">        stack = new Stack&lt;&gt;();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    public void push(int x) &#123;</div><div class="line">        if(stack.isEmpty()) &#123;</div><div class="line">        stack.push(0L);</div><div class="line">        min = x;</div><div class="line">    &#125;else &#123;</div><div class="line">        stack.push(x-min);</div><div class="line">        if(x&lt;min) min = x;</div><div class="line">    &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    public void pop() &#123;</div><div class="line">        if(stack.isEmpty())return;</div><div class="line">    long pop=stack.pop();</div><div class="line">    if(pop&lt;0) min= min-pop;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    public int top() &#123;</div><div class="line">        long top = stack.peek();</div><div class="line">    if(top&gt;0) &#123;</div><div class="line">        return (int)(top+min);</div><div class="line">    &#125;else return (int)(min);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    public int getMin() &#123;</div><div class="line">        return (int)min;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int divide(int dividend, int divisor) &#123;</div><div class="line">        int sign=1;</div><div class="line">	if((dividend &gt;0&amp;&amp;divisor&lt;0)||(dividend&lt;0&amp;&amp;divisor&gt;0)) sign =-1;</div><div class="line">	long ldividend = Math.abs(dividend);</div><div class="line">	long ldivisor = Math.abs(divisor);</div><div class="line">	if(ldivisor == 0) return Integer.MAX_VALUE;</div><div class="line">	if((ldividend == 0)||(ldividend&lt;ldivisor)) return 0;</div><div class="line">	long lans = ldivide(ldividend,ldivisor);</div><div class="line">	int ans;</div><div class="line">	if(lans&gt;Integer.MAX_VALUE) ans = (sign ==1)?Integer.MAX_VALUE:Integer.MIN_VALUE;</div><div class="line">	else ans = (int) (sign *lans);</div><div class="line">	return ans;</div><div class="line">    &#125;</div><div class="line">    private long ldivide(long ldividend, long ldivisor) &#123;</div><div class="line">	if(ldividend &lt;ldivisor) return 0;</div><div class="line">	long sum = ldivisor;</div><div class="line">	long multiple =1;</div><div class="line">	while((sum+sum)&lt;=ldividend) &#123;</div><div class="line">		sum+=sum;</div><div class="line">		multiple += multiple;</div><div class="line">	&#125;</div><div class="line">	return multiple+ldivide(ldividend -sum ,ldivisor);</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -371,8 +374,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/04/141-Linked-List-Cycle/" rel="next" title="141. Linked List Cycle">
-                <i class="fa fa-chevron-left"></i> 141. Linked List Cycle
+              <a href="/2017/11/13/25-Reverse-Nodes-in-k-Group/" rel="next" title="25. Reverse Nodes in k-Group">
+                <i class="fa fa-chevron-left"></i> 25. Reverse Nodes in k-Group
               </a>
             
           </div>
@@ -381,8 +384,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/11/05/160-Intersection-of-Two-Linked-Lists/" rel="prev" title="160. Intersection of Two Linked Lists">
-                160. Intersection of Two Linked Lists <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/14/31-Next-Permutation/" rel="prev" title="31. Next Permutation">
+                31. Next Permutation <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
