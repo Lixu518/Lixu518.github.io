@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2017-11-14T15:49:00.697Z</updated>
+  <updated>2017-11-15T14:28:13.530Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>33. Search in Rotated Sorted Array </title>
+    <link href="http://www.mysry.com/2017/11/15/33-Search-in-Rotated-Sorted-Array/"/>
+    <id>http://www.mysry.com/2017/11/15/33-Search-in-Rotated-Sorted-Array/</id>
+    <published>2017-11-15T14:25:30.000Z</published>
+    <updated>2017-11-15T14:28:13.530Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.</p></blockquote><blockquote><p>(i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).</p></blockquote><blockquote><p>You are given a target value to search. If found in the array return its index, otherwise return -1.</p></blockquote><blockquote><p>You may assume no duplicate exists in the array.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> Use the binary search.The idea is that when rotating the array, there must be one half of the array that is still in sorted order.For example, 6 7 1 2 3 4 5, the order is disrupted from the point between 7 and 1. So when doing binary search, we can make a judgement that which part is ordered and whether the target is in that range, if yes, continue the search in that half, if not continue in the other half.</p><h2 id="section"><font color="orange"></font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int search(int[] nums, int target) &#123;</div><div class="line">        int lo =0,hi =nums.length-1;</div><div class="line">while(lo&lt;hi) &#123;</div><div class="line">int mid = (lo+hi)/2;</div><div class="line">if((nums[0]&gt;target)^(nums[0]&gt;nums[mid])^(target&gt;nums[mid]))&#123;</div><div class="line">lo =mid+1;</div><div class="line">&#125;</div><div class="line">else</div><div class="line">hi = mid;</div><div class="line">&#125;</div><div class="line">return lo ==hi &amp;&amp; nums[lo] == target?lo:-1;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Suppose an array sorted in ascending order is rotated at some pivo
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>32. Longest Valid Parentheses</title>
+    <link href="http://www.mysry.com/2017/11/15/32-Longest-Valid-Parentheses/"/>
+    <id>http://www.mysry.com/2017/11/15/32-Longest-Valid-Parentheses/</id>
+    <published>2017-11-15T14:19:25.000Z</published>
+    <updated>2017-11-15T14:25:03.784Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="blakc">Problem:</font></h2><blockquote><p>Given a string containing just the characters ‘(’ and ‘)’, find the length of the longest valid (well-formed) parentheses substring.</p></blockquote><blockquote><p>For “(()”, the longest valid parentheses substring is “()”, which has length = 2.</p></blockquote><blockquote><p>Another example is “)()())”, where the longest valid parentheses substring is “()()”, which has length = 4.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> Use a stack, if it is ‘)’, then push this into stack, or if it is empty, set left parameter to be j, otherwise pop the stack element and check aganin.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int longestValidParentheses(String s) &#123;</div><div class="line">        Stack&lt;Integer&gt; stack =new Stack&lt;Integer&gt;();</div><div class="line">int max=0, left =-1;</div><div class="line">for (int j=0;j&lt;s.length();j++) &#123;</div><div class="line">if(s.charAt(j)==&apos;(&apos;)stack.push(j);</div><div class="line">else &#123;</div><div class="line">if(stack.isEmpty()) left =j;</div><div class="line">else &#123;</div><div class="line">stack.pop();</div><div class="line">if(stack.isEmpty())max =Math.max(max, j-left);</div><div class="line">else max = Math.max(max, j-stack.peek());</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">return max;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;blakc&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given a string containing just the characters ‘(’ and ‘)’, find th
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>31. Next Permutation</title>
@@ -453,55 +503,6 @@
         &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Given an integer, convert it to a roman numeral. Input is guarante
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Machine Learning Q&amp;A 1</title>
-    <link href="http://www.mysry.com/2017/11/07/Machine-Learning-Q-A-1/"/>
-    <id>http://www.mysry.com/2017/11/07/Machine-Learning-Q-A-1/</id>
-    <published>2017-11-07T14:34:02.000Z</published>
-    <updated>2017-11-11T04:53:31.272Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="请简要介绍svm"><font color="black">请简要介绍SVM？</font></h2><p>  SVM,全称是surpport vector machine(支持向量机),SVM是一个面向数据的分类算法，其目标是确定一个分类超平面，从而将不同的数据集分开。 扩展：<a href="http://www.mysry.com/">SVM</a></p><h2 id="简要介绍tensorflow的计算图"><font color="black">简要介绍tensorflow的计算图？</font></h2><p>  Tensorflow是一个通过计算图的形式来表述计算的编程系统，计算图也叫数据流图，可以把计算图看成是一种有向图，Tensorflow中的每一个计算都是计算图上的一个节点，二节点之间的边描述了计算之间的依赖关系。</p><blockquote><p>Tensorflow一般可分为两部分 - 构造部分，包含计算流图 - 执行部分，通过session来执行图中的计算 构建图 - 创建源节点(source op) - 源节点输出传递给其他节点做运算 Tensorflow默认图 - Tensorflow python 库有一个默认图(default graph) - 节点构造器(op构造器)可以增加节点</p></blockquote><h2 id="在knn或k-means我们常用欧式距离来计算最近邻之间的距离有时也用曼哈顿距离请对比两者的差别"><font color="black">在kNN或k-means，我们常用欧式距离来计算最近邻之间的距离，有时也用曼哈顿距离，请对比两者的差别：</font></h2><p> 欧式距离，最常见的两点之间或多点之间的距离表示法，定义于欧几里德空间;  曼哈顿距离，l1距离或城市区块儿距离，即欧几里德空间的固定直角坐标系上两点形成的线段对轴产生的投影的距离综合。</p><h2 id="关于linear-regression"><font color="black">关于Linear Regression</font></h2><p> <a href="http://www.mysry.com/2017/11/11/Linear-Regression/">Linear Regression</a></p><h2 id="overfitting过拟合的解决方法"><font color="black">overfitting(过拟合)的解决方法</font></h2><p> Dropout、Regularization、Batch normalization。</p><h2 id="lr和svm的联系于区别"><font color="black">LR和SVM的联系于区别</font></h2><h3 id="联系"><font color="black">联系：</font></h3><ul><li>LR和SVM都可以处理分类问题，而且一般都用于处理线性二分类问题（再改进的情况下可以处理多分类问题）。</li><li>两个方法都可以增加不同规则的正则化项，所以在很多实验中，两种算法结果接近。</li></ul><h3 id="区别"><font color="black">区别</font></h3><ul><li>LR是参数模型，SVM是非参数模型。</li><li>从目标函数看，区别在于逻辑回归采用的是logistical loss，SVM采用的是hinge loss。这两个损失函数的目的都是增加对分类影响较大的数据点的权重，减少分类关系较小的数据点的权重。</li><li>SVM的处理方法是只考虑Support Vectors，也就是和分类最相关的少数点，去学习分类器。而LR通过非线性映射，大大减小了距离分类平面较远的点的权重，提升了与分类最相关的数据点的权重。</li><li>LR相对来说模型更为简单，好理解，特别是大规模线性分类时比较方便。而SVM的理解和优化相对来说更为复杂一点，转化为对偶问题后分类只需要计算与少数几个支持向量的距离，在计算复杂核函数时优势明显，能够大大简化模型和计算。</li><li>LR能做的SVM能做，但可能在准确率稍弱，但是有些SVM能做的LR不能做。</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;请简要介绍svm&quot;&gt;&lt;font color=&quot;black&quot;&gt;请简要介绍SVM？&lt;/font&gt;&lt;/h2&gt;
-&lt;p&gt;  SVM,全称是surpport vector machine(支持向量机),SVM是一个面向数据的分类算法，其目标是确定一个分类超平面，从而将不同的数
-      
-    
-    </summary>
-    
-    
-      <category term="Machine learning" scheme="http://www.mysry.com/tags/Machine-learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>11. Container With Most Water</title>
-    <link href="http://www.mysry.com/2017/11/07/11-Container-With-Most-Water/"/>
-    <id>http://www.mysry.com/2017/11/07/11-Container-With-Most-Water/</id>
-    <published>2017-11-07T14:27:44.000Z</published>
-    <updated>2017-11-07T14:32:38.154Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given n non-negative integers a1, a2, …, an, where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two lines, which together with x-axis forms a container, such that the container contains the most water.</p></blockquote><h2 id="idea"><font color="red"> Idea:</font></h2><p> General idea to find some max is to go through all cases where max value can possibly occur and keep updating the max value.The efficiency of the scan depends on the size of cases you plan to scan.</p><p> To increase efficiency, all we need to do is to find a smart way of scan to cut off the useless cases and meanwhile 100% guarantee the max value can be reached through the rest of cases.</p><p> In this problem, the smart scan way is to set two pointers initialized at both ends of the array. Every time move the smaller value pointer to inner array. Then after the two pointers meet, all possible max cases have been scanned and the max situation is 100% reached somewhere in the scan. Following is a brief prove of this.</p><p> Given a1,a2,a3…..an as input array. Lets assume a10 and a20 are the max area situation. We need to prove that a10 can be reached by left pointer and during the time left pointer stays at a10, a20 can be reached by right pointer. That is to say, the core problem is to prove: when left pointer is at a10 and right pointer is at a21, the next move must be right pointer to a20.  Since we are always moving the pointer with the smaller value, i.e. if a10 &gt; a21, we should move pointer at a21 to a20, as we hope. Why a10 &gt;a21? Because if a21&gt;a10, then area of a10 and a20 must be less than area of a10 and a21. Because the area of a10 and a21 is at least height[a10] * (21-10) while the area of a10 and a20 is at most height[a10] * (20-10). So there is a contradiction of assumption a10 and a20 has the max area. So, a10 must be greater than a21, then next move a21 has to be move to a20. The max cases must be reached.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">  public int maxArea(int[] height) &#123;</div><div class="line">    int left = 0, right = height.length - 1;</div><div class="line">int maxArea = 0;</div><div class="line"></div><div class="line">while (left &lt; right) &#123;</div><div class="line">maxArea = Math.max(maxArea, Math.min(height[left], height[right])</div><div class="line">* (right - left));</div><div class="line">if (height[left] &lt; height[right])</div><div class="line">left++;</div><div class="line">else</div><div class="line">right--;</div><div class="line">&#125;</div><div class="line"></div><div class="line">return maxArea;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given n non-negative integers a1, a2, …, an, where each represents
       
     
     </summary>
