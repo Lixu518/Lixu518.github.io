@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="Problem:  Given a linked list, remove the nth node from the end of list and return its head.  Idea:   We create two pointers, one is faster another is slower, locate the faster one to n+1, then contin">
+<meta name="description" content="Problem:  Determine if a Sudoku is valid, and click the Rules to see more details. Note: A valid Sudoku board (partially filled) is not necessarily solvable. Only the filled cells need to be validated">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="19. Remove Nth Node From End of List">
-<meta property="og:url" content="http://www.mysry.com/2017/11/10/19-Remove-Nth-Node-From-End-of-List/index.html">
+<meta property="og:title" content="36. Valid Sudoku">
+<meta property="og:url" content="http://www.mysry.com/2017/11/17/36-Valid-Sudoku/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="Problem:  Given a linked list, remove the nth node from the end of list and return its head.  Idea:   We create two pointers, one is faster another is slower, locate the faster one to n+1, then contin">
+<meta property="og:description" content="Problem:  Determine if a Sudoku is valid, and click the Rules to see more details. Note: A valid Sudoku board (partially filled) is not necessarily solvable. Only the filled cells need to be validated">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-10T13:56:38.503Z">
+<meta property="og:updated_time" content="2017-11-17T01:48:20.403Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="19. Remove Nth Node From End of List">
-<meta name="twitter:description" content="Problem:  Given a linked list, remove the nth node from the end of list and return its head.  Idea:   We create two pointers, one is faster another is slower, locate the faster one to n+1, then contin">
+<meta name="twitter:title" content="36. Valid Sudoku">
+<meta name="twitter:description" content="Problem:  Determine if a Sudoku is valid, and click the Rules to see more details. Note: A valid Sudoku board (partially filled) is not necessarily solvable. Only the filled cells need to be validated">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://www.mysry.com/2017/11/10/19-Remove-Nth-Node-From-End-of-List/"/>
+  <link rel="canonical" href="http://www.mysry.com/2017/11/17/36-Valid-Sudoku/"/>
 
 
 
 
 
-  <title>19. Remove Nth Node From End of List | Mysry</title>
+  <title>36. Valid Sudoku | Mysry</title>
   
 
 
@@ -255,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.mysry.com/2017/11/10/19-Remove-Nth-Node-From-End-of-List/">
+    <link itemprop="mainEntityOfPage" href="http://www.mysry.com/2017/11/17/36-Valid-Sudoku/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mysry">
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">19. Remove Nth Node From End of List</h1>
+          <h1 class="post-title" itemprop="name headline">36. Valid Sudoku</h1>
         
 
         <div class="post-meta">
@@ -284,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-10T21:50:35+08:00">
-                2017-11-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-17T09:42:01+08:00">
+                2017-11-17
               </time>
             
 
@@ -324,35 +324,18 @@
       
         <h2 id="problem"><font color="black">Problem:</font></h2>
 <blockquote>
-<p>Given a linked list, remove the nth node from the end of list and return its head.</p>
+<p>Determine if a Sudoku is valid, and click <a href="http://sudoku.com.au/TheRules.aspx" target="_blank" rel="external">the Rules</a> to see more details. Note: A valid Sudoku board (partially filled) is not necessarily solvable. Only the filled cells need to be validated.</p>
 </blockquote>
 <h2 id="idea"><font color="red">Idea:</font></h2>
-<p>  We create two pointers, one is faster another is slower, locate the faster one to n+1, then contineously move fast pointer and slower pointer, when faster equals 0, skip slower pointer to next.next.</p>
+<p> Collect the set of things we see, encoded as strings. For example:</p>
+<ul>
+<li>‘4’ in row 7 is encoded as “(4)7”.</li>
+<li>‘4’ in column 7 is encoded as “7(4)”.</li>
+<li>‘4’ in the top-right block is encoded as “0(4)2”.</li>
+</ul>
+<p> Scream false if we ever fail to add something because it was already added (i.e., seen before).</p>
 <h2 id="java-code"><font color="orange">Java Code:</font></h2>
-<pre><code>/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) { val = x; }
- * }
- */
-class Solution {
-    public ListNode removeNthFromEnd(ListNode head, int n) {
-        ListNode start = new ListNode(0);
-    ListNode slow = start,fast = start;
-    slow.next = head;
-    for (int i=1;i&lt;=n+1;i++) {
-        fast = fast.next;
-    }
-    while (fast != null) {
-        slow = slow.next;
-        fast = fast.next;
-    }
-    slow.next = slow.next.next;
-    return start.next;
-    }
-}</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public boolean isValidSudoku(char[][] board) &#123;</div><div class="line">       Set seen = new HashSet() ;</div><div class="line">        for (int i=0;i&lt;9;++i)&#123;</div><div class="line">            for (int j=0;j&lt;9;++j)&#123;</div><div class="line">                char number = board[i][j];</div><div class="line">                if(number!= &apos;.&apos;)</div><div class="line">                    if(!seen.add(number+&quot; in row &quot;+ i)||!seen.add(number +&quot; in colomn &quot;+j)||!seen.add(number+&quot; in block &quot;+i/3+&quot;-&quot;+j/3))</div><div class="line">                        return false;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return true;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -394,8 +377,8 @@ class Solution {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/10/18-4Sum/" rel="next" title="18. 4Sum">
-                <i class="fa fa-chevron-left"></i> 18. 4Sum
+              <a href="/2017/11/17/34-Search-for-a-Range/" rel="next" title="34. Search for a Range">
+                <i class="fa fa-chevron-left"></i> 34. Search for a Range
               </a>
             
           </div>
@@ -403,10 +386,6 @@ class Solution {
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/11/Linear-Regression/" rel="prev" title="Linear Regression">
-                Linear Regression <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

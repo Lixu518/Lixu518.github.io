@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2017-11-15T14:28:13.530Z</updated>
+  <updated>2017-11-17T01:48:20.403Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>36. Valid Sudoku</title>
+    <link href="http://www.mysry.com/2017/11/17/36-Valid-Sudoku/"/>
+    <id>http://www.mysry.com/2017/11/17/36-Valid-Sudoku/</id>
+    <published>2017-11-17T01:42:01.000Z</published>
+    <updated>2017-11-17T01:48:20.403Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Determine if a Sudoku is valid, and click <a href="http://sudoku.com.au/TheRules.aspx" target="_blank" rel="external">the Rules</a> to see more details. Note: A valid Sudoku board (partially filled) is not necessarily solvable. Only the filled cells need to be validated.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> Collect the set of things we see, encoded as strings. For example:</p><ul><li>‘4’ in row 7 is encoded as “(4)7”.</li><li>‘4’ in column 7 is encoded as “7(4)”.</li><li>‘4’ in the top-right block is encoded as “0(4)2”.</li></ul><p> Scream false if we ever fail to add something because it was already added (i.e., seen before).</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public boolean isValidSudoku(char[][] board) &#123;</div><div class="line">       Set seen = new HashSet() ;</div><div class="line">        for (int i=0;i&lt;9;++i)&#123;</div><div class="line">            for (int j=0;j&lt;9;++j)&#123;</div><div class="line">                char number = board[i][j];</div><div class="line">                if(number!= &apos;.&apos;)</div><div class="line">                    if(!seen.add(number+&quot; in row &quot;+ i)||!seen.add(number +&quot; in colomn &quot;+j)||!seen.add(number+&quot; in block &quot;+i/3+&quot;-&quot;+j/3))</div><div class="line">                        return false;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return true;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Determine if a Sudoku is valid, and click &lt;a href=&quot;http://sudoku.c
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>34. Search for a Range</title>
+    <link href="http://www.mysry.com/2017/11/17/34-Search-for-a-Range/"/>
+    <id>http://www.mysry.com/2017/11/17/34-Search-for-a-Range/</id>
+    <published>2017-11-17T01:33:33.000Z</published>
+    <updated>2017-11-17T01:41:27.873Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given an array of integers sorted in ascending order, find the starting and ending position of a given target value.</p></blockquote><blockquote><p>Your algorithm’s runtime complexity must be in the order of O(log n).</p></blockquote><blockquote><p>If the target is not found in the array, return [-1, -1].</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>  The core idea is to find the where the array element which equals taeget begins and its end, return the head and tail index. In order to find the target number, we’d like to use a binary search.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int[] searchRange(int[] nums, int target) &#123;</div><div class="line">        int start = firstGreaterEqual(nums,target);</div><div class="line">        if(start == nums.length|| nums[start]!= target)</div><div class="line">            return new int[] &#123;-1,-1&#125;;</div><div class="line">        return new int[]&#123;start,Solution.firstGreaterEqual(nums,target+1)-1&#125;;</div><div class="line">    &#125;</div><div class="line">    public static int firstGreaterEqual(int[]nums,int target)&#123;</div><div class="line">        int low =0,high = nums.length;</div><div class="line">        while(low&lt;high)&#123;</div><div class="line">            int mid = low + ((high -low)&gt;&gt;1);</div><div class="line">            if(nums[mid] &lt;target)&#123;</div><div class="line">                low = mid+1;</div><div class="line">            &#125;</div><div class="line">            else &#123;</div><div class="line">                high =mid;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return low;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given an array of integers sorted in ascending order, find the sta
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>33. Search in Rotated Sorted Array </title>
@@ -453,56 +503,6 @@
         &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Given an array S of n integers, find three integers in S such that
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>15. 3Sum</title>
-    <link href="http://www.mysry.com/2017/11/08/15-3Sum/"/>
-    <id>http://www.mysry.com/2017/11/08/15-3Sum/</id>
-    <published>2017-11-08T13:57:56.000Z</published>
-    <updated>2017-11-08T14:01:13.032Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given an array S of n integers, are there elements a, b, c in S such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> The idea is to sort an input array and then run through all indices of a possible first element of a triplet. For each possible first element we make a standard bi-directional 2Sum sweep of the remaining part of the array. Also we want to skip equal elements to avoid duplicates in the answer without making a set or smth like that.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">        public List&lt;List&lt;Integer&gt;&gt; threeSum(int[] nums) &#123;</div><div class="line">     Arrays.sort(nums);</div><div class="line">    List&lt;List&lt;Integer&gt;&gt; res = new LinkedList&lt;&gt;(); </div><div class="line">    for (int i = 0; i &lt; nums.length-2; i++) &#123;</div><div class="line">        if (i == 0 || (i &gt; 0 &amp;&amp; nums[i] != nums[i-1])) &#123;</div><div class="line">            int lo = i+1, hi = nums.length-1, sum = 0 - nums[i];</div><div class="line">            while (lo &lt; hi) &#123;</div><div class="line">                if (nums[lo] + nums[hi] == sum) &#123;</div><div class="line">                    res.add(Arrays.asList(nums[i], nums[lo], nums[hi]));</div><div class="line">                    while (lo &lt; hi &amp;&amp; nums[lo] == nums[lo+1]) lo++;</div><div class="line">                    while (lo &lt; hi &amp;&amp; nums[hi] == nums[hi-1]) hi--;</div><div class="line">                    lo++; hi--;</div><div class="line">                &#125; else if (nums[lo] + nums[hi] &lt; sum) lo++;</div><div class="line">                else hi--;</div><div class="line">           &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given an array S of n integers, are there elements a, b, c in S su
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>12. Integer to Roman</title>
-    <link href="http://www.mysry.com/2017/11/08/12-Integer-to-Roman/"/>
-    <id>http://www.mysry.com/2017/11/08/12-Integer-to-Roman/</id>
-    <published>2017-11-08T13:41:54.000Z</published>
-    <updated>2017-11-08T13:57:20.451Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given an integer, convert it to a roman numeral. Input is guaranteed to be within the range from 1 to 3999.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> We need to understand corresponding relationship for integer and Roman number, than create an int array and a string array to store integer and Roman number respectively. From the bigger Roman number to substract the nums to zero.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public String intToRoman(int num) &#123;</div><div class="line">        int[] values= &#123;1000,900,500,400,100,90,50,40,10,9,5,4,1&#125;;</div><div class="line">String[]str= &#123;&quot;M&quot;,&quot;CM&quot;,&quot;D&quot;,&quot;CD&quot;,&quot;C&quot;,&quot;XC&quot;,&quot;L&quot;,&quot;XL&quot;,&quot;X&quot;,&quot;IX&quot;,&quot;V&quot;,&quot;IV&quot;,&quot;I&quot;&#125;;</div><div class="line">StringBuilder sb = new StringBuilder();</div><div class="line">for (int i=0;i&lt;values.length;i++) &#123;</div><div class="line">while(num&gt;=values[i]) &#123;</div><div class="line">num-=values[i];</div><div class="line">sb.append(str[i]);</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">return sb.toString();</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given an integer, convert it to a roman numeral. Input is guarante
       
     
     </summary>
