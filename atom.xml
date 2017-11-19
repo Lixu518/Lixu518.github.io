@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2017-11-18T12:53:40.924Z</updated>
+  <updated>2017-11-19T12:15:58.710Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -17,20 +17,145 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>42. Trapping Rain Water</title>
+    <link href="http://www.mysry.com/2017/11/19/42-Trapping-Rain-Water/"/>
+    <id>http://www.mysry.com/2017/11/19/42-Trapping-Rain-Water/</id>
+    <published>2017-11-19T12:13:19.000Z</published>
+    <updated>2017-11-19T12:15:58.710Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>  Keep track of the maximum height from both forward directions backward directions, call them leftmax and rightmax.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int trap(int[] height) &#123;</div><div class="line">        int a=0,b=height.length-1,max=0,leftmax=0,rightmax=0;</div><div class="line">while(a&lt;b) &#123;</div><div class="line">leftmax=Math.max(leftmax, height[a]);</div><div class="line">rightmax=Math.max(rightmax, height[b]);</div><div class="line">if(leftmax&lt;rightmax) &#123;</div><div class="line">max+=leftmax-height[a];</div><div class="line">a++;</div><div class="line">&#125;</div><div class="line">else &#123;</div><div class="line">max+=(rightmax-height[b]);</div><div class="line">b--;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">return max;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given n non-negative integers representing an elevation map where 
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>41. First Missing Positive</title>
+    <link href="http://www.mysry.com/2017/11/19/41-First-Missing-Positive/"/>
+    <id>http://www.mysry.com/2017/11/19/41-First-Missing-Positive/</id>
+    <published>2017-11-19T12:07:34.000Z</published>
+    <updated>2017-11-19T12:12:59.298Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given an unsorted integer array, find the first missing positive integer.</p></blockquote><blockquote><p>For example, Given [1,2,0] return 3, and [3,4,-1,1] return 2.</p></blockquote><blockquote><p>Your algorithm should run in O(n) time and uses constant space.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> Swap the array element tomake the ith place store number i+1, then traverse the array, to find the first abnormal elements, return its index.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int firstMissingPositive(int[] nums) &#123;</div><div class="line">    int i = 0;</div><div class="line">        while(i &lt; nums.length)&#123;</div><div class="line">            if(nums[i] == i+1 || nums[i] &lt;= 0 || nums[i] &gt; nums.length) i++;</div><div class="line">            else if(nums[nums[i]-1] != nums[i]) swap(nums, i, nums[i]-1);</div><div class="line">            else i++;</div><div class="line">        &#125;</div><div class="line">        i = 0;</div><div class="line">        while(i &lt; nums.length &amp;&amp; nums[i] == i+1) i++;</div><div class="line">        return i+1;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    private void swap(int[] nums, int i, int j)&#123;</div><div class="line">        int temp = nums[i];</div><div class="line">        nums[i] = nums[j];</div><div class="line">        nums[j] = temp;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given an unsorted integer array, find the first missing positive i
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>40. Combination Sum II</title>
+    <link href="http://www.mysry.com/2017/11/19/40-Combination-Sum-II/"/>
+    <id>http://www.mysry.com/2017/11/19/40-Combination-Sum-II/</id>
+    <published>2017-11-19T10:01:40.000Z</published>
+    <updated>2017-11-19T12:07:05.147Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given a collection of candidate numbers (C) and a target number (T), find all unique combinations in C where the candidate numbers sums to T.</p></blockquote><blockquote><p>Each number in C may only be used once in the combination.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> Just skip the duplicated element!</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public List&lt;List&lt;Integer&gt;&gt; combinationSum2(int[] candidates, int target) &#123;</div><div class="line"></div><div class="line">    List&lt;List&lt;Integer&gt;&gt;list = new LinkedList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">Arrays.sort(candidates);</div><div class="line">backtrack(list,new ArrayList&lt;Integer&gt;(),candidates,target,0);</div><div class="line">return list;</div><div class="line">&#125;</div><div class="line">public void backtrack(List&lt;List&lt;Integer&gt;&gt;list,List&lt;Integer&gt;tempList,int[]can,int remain,int start) &#123;</div><div class="line">if(remain&lt;0) return;</div><div class="line">else if (remain==0) list.add(new ArrayList&lt;&gt;(tempList));</div><div class="line">else &#123;</div><div class="line">for (int i=start;i&lt;can.length;i++) &#123;</div><div class="line">if(i&gt;start&amp;&amp;can[i]==can[i-1])continue;</div><div class="line">tempList.add(can[i]);</div><div class="line">backtrack(list,tempList,can,remain-can[i],i+1);</div><div class="line">tempList.remove(tempList.size()-1);</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given a collection of candidate numbers (C) and a target number (T
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>39. Combination Sum</title>
+    <link href="http://www.mysry.com/2017/11/19/39-Combination-Sum/"/>
+    <id>http://www.mysry.com/2017/11/19/39-Combination-Sum/</id>
+    <published>2017-11-19T09:56:30.000Z</published>
+    <updated>2017-11-19T10:01:13.609Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given a set of candidate numbers (C) (without duplicates) and a target number (T), find all unique combinations in C where the candidate numbers sums to T.</p></blockquote><blockquote><p>The same repeated number may be chosen from C unlimited number of times.</p></blockquote><blockquote><p>Note: All numbers (including target) will be positive integers. The solution set must not contain duplicate combinations. For example, given candidate set [2, 3, 6, 7] and target 7, A solution set is:</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[7],</div><div class="line">[2, 2, 3]</div><div class="line"> ]</div></pre></td></tr></table></figure><h2 id="idea"><font color="red">Idea:</font></h2><p> The main idea reminds an approach for solving coins/knapsack problem - to store the result for all i lower than target and create the solution from them. For that for each t from 1 to our target we try every candidate which is less or equal to t in ascending order. For each candidate “c” we run through all combinations for target t-c starting with the value greater or equal than c to avoid duplicates and store only ordered combinations.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public List&lt;List&lt;Integer&gt;&gt; combinationSum(int[] candidates, int target) &#123;</div><div class="line">        Arrays.sort(candidates);</div><div class="line">List&lt;List&lt;List&lt;Integer&gt;&gt;&gt; dp = new ArrayList&lt;&gt;();</div><div class="line">for (int i=1;i&lt;=target;i++) &#123;</div><div class="line">List&lt;List&lt;Integer&gt;&gt; newList = new ArrayList();</div><div class="line">for (int j=0;j&lt;candidates.length &amp;&amp;candidates[j]&lt;=i;j++) &#123;</div><div class="line">if(i == candidates[j])newList.add(Arrays.asList(candidates[j]));</div><div class="line">else for (List&lt;Integer&gt; l :dp.get(i-candidates[j]-1)) &#123;</div><div class="line">if(candidates[j]&lt;=l.get(0)) &#123;</div><div class="line">List cl = new ArrayList&lt;&gt;();</div><div class="line">cl.add(candidates[j]);</div><div class="line">cl.addAll(l);</div><div class="line">newList.add(cl);</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">dp.add(newList);</div><div class="line">&#125;</div><div class="line">return dp.get(target-1);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given a set of candidate numbers (C) (without duplicates) and a ta
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>37. Sudoku Solver</title>
+    <link href="http://www.mysry.com/2017/11/19/37-Sudoku-Solver/"/>
+    <id>http://www.mysry.com/2017/11/19/37-Sudoku-Solver/</id>
+    <published>2017-11-19T09:52:05.000Z</published>
+    <updated>2017-11-19T09:55:23.036Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Write a program to solve a Sudoku puzzle by filling the empty cells.</p></blockquote><blockquote><p>Empty cells are indicated by the character ‘.’.</p></blockquote><blockquote><p>You may assume that there will be only one unique solution.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>  Try 1 through 9 for each cell. The time complexity should be 9 ^ m (m represents the number of blanks to be filled in), since each blank can have 9 choices. Details see the belong code.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">   public void solveSudoku(char[][]board) &#123;</div><div class="line">if (board ==null||board.length==0) return;</div><div class="line">solve(board);</div><div class="line">&#125;</div><div class="line">public boolean solve(char[][] board)&#123;</div><div class="line">    for(int i = 0; i &lt; board.length; i++)&#123;</div><div class="line">        for(int j = 0; j &lt; board[0].length; j++)&#123;</div><div class="line">            if(board[i][j] == &apos;.&apos;)&#123;</div><div class="line">                for(char c = &apos;1&apos;; c &lt;= &apos;9&apos;; c++)&#123;</div><div class="line">                    if(isValid(board, i, j, c))&#123;</div><div class="line">                        board[i][j] = c;</div><div class="line"></div><div class="line">                        if(solve(board))</div><div class="line">                            return true;</div><div class="line">                        else</div><div class="line">                            board[i][j] = &apos;.&apos;;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                return false;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return true;</div><div class="line">&#125;</div><div class="line">private boolean isValid(char[][] board, int row, int col, char c)&#123;</div><div class="line">    for(int i = 0; i &lt; 9; i++) &#123;</div><div class="line">        if(board[i][col] != &apos;.&apos; &amp;&amp; board[i][col] == c) return false;</div><div class="line">        if(board[row][i] != &apos;.&apos; &amp;&amp; board[row][i] == c) return false;</div><div class="line">        if(board[3 * (row / 3) + i / 3][ 3 * (col / 3) + i % 3] != &apos;.&apos; &amp;&amp;</div><div class="line">board[3 * (row / 3) + i / 3][3 * (col / 3) + i % 3] == c) return false;</div><div class="line">    &#125;</div><div class="line">    return true;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Write a program to solve a Sudoku puzzle by filling the empty cell
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Logistic Regression</title>
     <link href="http://www.mysry.com/2017/11/18/Logistic-Regression/"/>
     <id>http://www.mysry.com/2017/11/18/Logistic-Regression/</id>
     <published>2017-11-18T11:29:51.000Z</published>
-    <updated>2017-11-18T12:53:40.924Z</updated>
+    <updated>2017-11-19T09:55:44.364Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="sigmoid-函数">Sigmoid 函数</h2><p> &amp;esmp;在介绍逻辑回归前我们先引入sigmoid函数，其数学形式是<span class="math display">\[g(x) =\frac{1}{1+e^{-x}}\]</span>sigmoid函数是一个s型函数，取值在<span class="math inline">\([0,1]\)</span>之间，在原离0的地方函数的值会很快接近0/1。</p><h2 id="logistic-分布">Logistic 分布</h2><p>  设X是连续随机变量，X服从逻辑斯蒂分布是指X具有下列分布函数和密度函数：<span class="math display">\[F(x)=P(X\leq x)=\frac{1}{1+e^{-(x-\mu)/\gamma}}\]</span> <span class="math display">\[f(x)=F^\prime(x)=\frac{e^{-(x-\mu)/\gamma}}{\gamma (1+e^{-(x-\mu)/\gamma})^2}\]</span>其中，<span class="math inline">\(\mu\)</span>是位置参数，<span class="math inline">\(\gamma&gt;0\)</span>为形状参数。</p><h2 id="logistic-regression-模型">Logistic Regression 模型</h2><p>  二项Logistic Regression模型是如下条件概率分布:<span class="math display">\[P(Y=1|x)=\frac{exp(\omega\cdot x+b)}{1+exp(\omega\cdot x+b)}\]</span> <span class="math display">\[P(Y=0|x)=\frac{1}{1+exp(\omega\cdot x+b)}\]</span>其中，<span class="math inline">\(x\in R^n\)</span>是输入，<span class="math inline">\(Y\in\{0,1\}\)</span>是输出，<span class="math inline">\(\omega\in R^n\)</span>和<span class="math inline">\(b\in R\)</span>是参数，<span class="math inline">\(\omega\)</span>是权值向量，b称为偏置，<span class="math inline">\(\omega\cdot x\)</span>是内积。</p><h2 id="模型参数估计">模型参数估计</h2>  对于给定的训练数据集<span class="math inline">\(T=\{(x_1,y_1),(x_2,y_2),...,(x_N,y_N)\}\)</span>,其中<span class="math inline">\(x_i\in R^n\)</span>,<span class="math inline">\(y_i\in\{0,1\}\)</span>,用极大似然法来估计模型参数，设<span class="math display">\[P(Y=1|x)=\pi(x),  P(Y=0|x)=1-\pi(x)\]</span>则其似然函数为<span class="math display">\[\prod_{i=1}^N{[\pi(x_i)]^{y_i}}{[1-\pi(x_i)]^{1-y_i}}\]</span>对数似然函数为<span class="math display">\[\begin{align*}L(\omega)&amp;=\sum_{i=1}^N[y_i \log{\pi(x_i)}+(1-y_i)\log(1-\pi(x_i))]\\&amp;=\sum_{i=1}^N[y_i\log{\frac{\pi(x_i)}{1-\pi(x_i)}}+\log(1-\pi(x_i))]\\&amp;=\sum_{i=1}^N[y_i(\omega\cdot x_i)-\log(1+exp(\omega\cdot x_i))]\end{align*}\]</span><p>对<span class="math inline">\(L(\omega)\)</span>求极大值，得到，具体求法参考<a href="http://www.mysry.com/2017/11/11/%E5%87%A0%E7%A7%8D%E5%B8%B8%E8%A7%81%E7%9A%84%E6%B1%82%E8%A7%A3%E6%97%A0%E7%BA%A6%E6%9D%9F%E6%9C%80%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98%E7%9A%84%E6%96%B9%E6%B3%95/">几种常见的求无约束最优化问题的方法</a></p><h2 id="多项logistic-regression">多项Logistic Regression</h2><p>  上面我们谈到的都是二项Logistic Regression，用于二分类，可以将其推广为多项回归模型，用于多分类，假设离散随机变量Y的取值集合为<span class="math inline">\(\{1,2,...,K\}\)</span>，那么多项Logistic Regression模型是:<span class="math display">\[P(Y=k|x)=\frac{exp(\omega_k\cdot x)}{1+\sum_{k=1}^{K-1}exp(\omega_k\cdot x)}, k=1,2,...,K-1\]</span> <span class="math display">\[P(Y=K|x)=\frac{1}{1+\sum_{k=1}^{K-1}exp(\omega\cdot x)}\]</span>这里<span class="math inline">\(x\in R^{n+1}\)</span>,<span class="math inline">\(\omega\in R^{n+1}\)</span>.</p><h2 id="logistic-regression是softmax回归k2时的特例更多内容请查阅softmax">Logistic Regression是Softmax回归<span class="math inline">\(K=2\)</span>时的特例，更多内容请查阅<a href="http://www.mysry.com/">Softmax</a></h2>]]></content>
+    <content type="html"><![CDATA[<h2 id="sigmoid-函数">Sigmoid 函数</h2><p>  在介绍逻辑回归前我们先引入sigmoid函数，其数学形式是<span class="math display">\[g(x) =\frac{1}{1+e^{-x}}\]</span>sigmoid函数是一个s型函数，取值在<span class="math inline">\([0,1]\)</span>之间，在原离0的地方函数的值会很快接近0/1。</p><h2 id="logistic-分布">Logistic 分布</h2><p>  设X是连续随机变量，X服从逻辑斯蒂分布是指X具有下列分布函数和密度函数：<span class="math display">\[F(x)=P(X\leq x)=\frac{1}{1+e^{-(x-\mu)/\gamma}}\]</span> <span class="math display">\[f(x)=F^\prime(x)=\frac{e^{-(x-\mu)/\gamma}}{\gamma (1+e^{-(x-\mu)/\gamma})^2}\]</span>其中，<span class="math inline">\(\mu\)</span>是位置参数，<span class="math inline">\(\gamma&gt;0\)</span>为形状参数。</p><h2 id="logistic-regression-模型">Logistic Regression 模型</h2><p>  二项Logistic Regression模型是如下条件概率分布:<span class="math display">\[P(Y=1|x)=\frac{exp(\omega\cdot x+b)}{1+exp(\omega\cdot x+b)}\]</span> <span class="math display">\[P(Y=0|x)=\frac{1}{1+exp(\omega\cdot x+b)}\]</span>其中，<span class="math inline">\(x\in R^n\)</span>是输入，<span class="math inline">\(Y\in\{0,1\}\)</span>是输出，<span class="math inline">\(\omega\in R^n\)</span>和<span class="math inline">\(b\in R\)</span>是参数，<span class="math inline">\(\omega\)</span>是权值向量，b称为偏置，<span class="math inline">\(\omega\cdot x\)</span>是内积。</p><h2 id="模型参数估计">模型参数估计</h2>  对于给定的训练数据集<span class="math inline">\(T=\{(x_1,y_1),(x_2,y_2),...,(x_N,y_N)\}\)</span>,其中<span class="math inline">\(x_i\in R^n\)</span>,<span class="math inline">\(y_i\in\{0,1\}\)</span>,用极大似然法来估计模型参数，设<span class="math display">\[P(Y=1|x)=\pi(x),  P(Y=0|x)=1-\pi(x)\]</span>则其似然函数为<span class="math display">\[\prod_{i=1}^N{[\pi(x_i)]^{y_i}}{[1-\pi(x_i)]^{1-y_i}}\]</span>对数似然函数为<span class="math display">\[\begin{align*}L(\omega)&amp;=\sum_{i=1}^N[y_i \log{\pi(x_i)}+(1-y_i)\log(1-\pi(x_i))]\\&amp;=\sum_{i=1}^N[y_i\log{\frac{\pi(x_i)}{1-\pi(x_i)}}+\log(1-\pi(x_i))]\\&amp;=\sum_{i=1}^N[y_i(\omega\cdot x_i)-\log(1+exp(\omega\cdot x_i))]\end{align*}\]</span><p>对<span class="math inline">\(L(\omega)\)</span>求极大值，得到，具体求法参考<a href="http://www.mysry.com/2017/11/11/%E5%87%A0%E7%A7%8D%E5%B8%B8%E8%A7%81%E7%9A%84%E6%B1%82%E8%A7%A3%E6%97%A0%E7%BA%A6%E6%9D%9F%E6%9C%80%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98%E7%9A%84%E6%96%B9%E6%B3%95/">几种常见的求无约束最优化问题的方法</a></p><h2 id="多项logistic-regression">多项Logistic Regression</h2><p>  上面我们谈到的都是二项Logistic Regression，用于二分类，可以将其推广为多项回归模型，用于多分类，假设离散随机变量Y的取值集合为<span class="math inline">\(\{1,2,...,K\}\)</span>，那么多项Logistic Regression模型是:<span class="math display">\[P(Y=k|x)=\frac{exp(\omega_k\cdot x)}{1+\sum_{k=1}^{K-1}exp(\omega_k\cdot x)}, k=1,2,...,K-1\]</span> <span class="math display">\[P(Y=K|x)=\frac{1}{1+\sum_{k=1}^{K-1}exp(\omega\cdot x)}\]</span>这里<span class="math inline">\(x\in R^{n+1}\)</span>,<span class="math inline">\(\omega\in R^{n+1}\)</span>.</p><h2 id="logistic-regression是softmax回归k2时的特例更多内容请查阅softmax">Logistic Regression是Softmax回归<span class="math inline">\(K=2\)</span>时的特例，更多内容请查阅<a href="http://www.mysry.com/">Softmax</a></h2>]]></content>
     
     <summary type="html">
     
       
       
         &lt;h2 id=&quot;sigmoid-函数&quot;&gt;Sigmoid 函数&lt;/h2&gt;
-&lt;p&gt; &amp;amp;esmp;在介绍逻辑回归前我们先引入sigmoid函数，其数学形式是&lt;span class=&quot;math display&quot;&gt;\[g(x) =\frac{1}{1+e^{-x}}\]&lt;/span
+&lt;p&gt;  在介绍逻辑回归前我们先引入sigmoid函数，其数学形式是&lt;span class=&quot;math display&quot;&gt;\[g(x) =\frac{1}{1+e^{-x}}\]&lt;/span&gt;sigmoid函
       
     
     </summary>
@@ -379,129 +504,6 @@
         &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Given n pairs of parentheses, write a function to generate all com
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>几种常见的求解无约束最优化问题的方法</title>
-    <link href="http://www.mysry.com/2017/11/11/%E5%87%A0%E7%A7%8D%E5%B8%B8%E8%A7%81%E7%9A%84%E6%B1%82%E8%A7%A3%E6%97%A0%E7%BA%A6%E6%9D%9F%E6%9C%80%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98%E7%9A%84%E6%96%B9%E6%B3%95/"/>
-    <id>http://www.mysry.com/2017/11/11/几种常见的求解无约束最优化问题的方法/</id>
-    <published>2017-11-11T02:15:28.000Z</published>
-    <updated>2017-11-11T09:42:18.026Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="梯度下降法">梯度下降法</h2><p>  梯度下降法是一种迭代算法，通过选取适当的初值<span class="math inline">\(\theta\)</span>，不断迭代,更新<span class="math inline">\(\theta\)</span>的值，进行目标函数的极小化，直到收敛，由于负梯度方向是使 函数值下降最快的方向，在迭代的每一步，以负的梯度方向更新<span class="math inline">\(\theta\)</span>，从而达到减小函数值的目的。算法流程如下:</p><ul><li>首先对<span class="math inline">\(\theta\)</span>进行赋值，这个值可以使随机的也可以让<span class="math inline">\(\theta\)</span>是一个全0的向量</li><li>改变<span class="math inline">\(\theta\)</span>的值，使得 <span class="math inline">\(J_\theta\)</span>按照梯度下降的方向进行减少:<span class="math display">\[\theta_j := \theta_j + \alpha(y^{(i)} - h_\theta(x^{(i)}))x_{j}^{x(i)}\]</span></li></ul><p>  迭代更新的方式有两种，一种是批梯度下降，即对全部的训练数据求得误差后在对，另外一中是增量梯度下降，没扫描一步都要 对，前一种方法能够不断收敛，后一种方法结果可能不断在收敛处徘徊。一般来说，梯度下降法的收敛速度还是比较慢的。</p><h2 id="最小二乘法">最小二乘法</h2><p>  将训练特征表示为X矩阵，结果表示为y向量，仍然是线性回归模型，误差函数不变，那么:<span class="math display">\[ \theta = ({X^T}X)^{-1}X^T{\vec y}\]</span>.</p><h2 id="牛顿法和拟牛顿法">牛顿法和拟牛顿法</h2><h3 id="牛顿法">牛顿法</h3><p>  考虑无约束最优化问题<span class="math display">\[\min_{x \in R^n}f(x)\]</span>其中<span class="math inline">\(x^*\)</span>为目标函数极小点。</p><p>  假设<span class="math inline">\(f(x)\)</span>具有二阶连续偏导数，若第k次迭代值为<span class="math inline">\(x^{(k)}\)</span>，则可将<span class="math inline">\(f(x)\)</span>在<span class="math inline">\(x^{(k)}\)</span>附近进行二阶泰勒展开:<span class="math display">\[ f(x)=f(x^{(k)}+{g_k^T}(x-x^{(k)}) + \frac{1}{2}{(x-x^{(k)})^T}H(x^{(k)})(x-x^{(k)})\]</span>其中<span class="math inline">\(g_k = g(x^{(k)}) = \nabla f(x^{(k)})\)</span>是<span class="math inline">\(f(x)\)</span>的梯度在点<span class="math inline">\(x^{(k)}\)</span>的值，<span class="math inline">\(H(x^{(k)})\)</span>是<span class="math inline">\(f(x)\)</span>的海赛矩阵(Hesse   matrix):<span class="math display">\[ H(x) = [\frac{\vartheta^2 f}{\vartheta x_i \vartheta x_j}]_{n \times n}\]</span>在点<span class="math inline">\(x^{(k)}\)</span>的值。</p><p>  牛顿法利用的极小点的必要条件<span class="math display">\[\nabla f(x) = 0\]</span>,每次迭代都是从点<span class="math inline">\(x^{(k)}\)</span>开始，求目标函数的极小点，作为第<span class="math inline">\(k+1\)</span>次迭代值<span class="math inline">\(x^{(k+1)}\)</span>,具体的，假设<span class="math inline">\(x^{(k+1)}\)</span>满足:<span class="math display">\[\nabla f(x^{(k+1)}) = 0\]</span>有<span class="math display">\[\nabla f(x) = g_k + H_k(x-x^{(k)})\]</span>其中<span class="math inline">\(H_k = H(x^{(k)})\)</span>，如此一来：<span class="math display">\[g_k + H_k(x^{(k+1)}-x^{(k)}) = 0\]</span>因而，<span class="math display">\[x^{(k+1)}=x^{(k)}+P_k\]</span>其中，<span class="math display">\[{H_k}{P_k} = -g_k\]</span>.</p><h4 id="算法牛顿法">算法(牛顿法）:</h4><ul><li>取初始值<span class="math inline">\(x^{(k)}\)</span>，置k = 0;</li><li>计算<span class="math inline">\(g_k = g(x^{(k)})\)</span>;</li><li>若<span class="math inline">\(\lVert g_k \lVert &lt; \varepsilon\)</span>，则停止计算，得近似解<span class="math inline">\(x^* = x^{(k)}\)</span>;</li><li>计算<span class="math inline">\(H_k=H(x^{(k)})\)</span>,并根据<span class="math inline">\(H_k P_k =-g_k\)</span>求解<span class="math inline">\(p_k\)</span>;</li><li>置<span class="math inline">\(x^{(k+1)} = x^{(k)} +p_k\)</span>;<br></li><li>置<span class="math inline">\(k=k+1\)</span>,转（2）.</li></ul><p>  步骤（4）求解<span class="math inline">\(p_k\)</span>，要求<span class="math inline">\(H_{k}^{-1}\)</span>,计算比较复杂，针对其提出改进，则有了下面的拟牛顿法.</p><h3 id="拟牛顿法">拟牛顿法</h3><p>  拟牛顿法的基本思路是考虑利用一个n阶矩阵<span class="math inline">\(G_k=G(x^{(i)})\)</span>来近似代替<span class="math inline">\(H_k^{-1}=H^{-1}(x^{(k)})\)</span>。</p><p>  先看牛顿法迭代中的海赛矩阵<span class="math inline">\(H_k\)</span>满足的条件，首先<span class="math inline">\(H_k\)</span>满足以下关系：<span class="math display">\[g_{k+1}-g_k=H_k(x^{(k+1)}-x^{(k)})\]</span>记<span class="math inline">\(y_k=g_{k+1} -g_k\)</span>,<span class="math inline">\(\delta_k=x^{(k+1)}-x^{(k)}\)</span>,则<span class="math display">\[y_k=H_k \delta_k\]</span>或<span class="math display">\[H_k^{-1}y_k=\delta_k\]</span>上述公式被称为拟牛顿条件。</p><p>  如果<span class="math inline">\(H_k\)</span>是正定的(<span class="math inline">\(H_k^{-1}\)</span>也是正定的),那么可以保证牛顿法的搜索方向 <span class="math inline">\(p_k\)</span>是下降方向，这是因为搜索方向是<span class="math inline">\(p_k=-H_k^{-1}g_k\)</span>, <span class="math display">\[x=x^{(k)}+\lambda p_k =x^{(k)}-\lambda H_k^{-1}g_k\]</span>所以<span class="math inline">\(f(x)\)</span>在<span class="math inline">\(x^{(k)}\)</span>的泰勒展开式可以近似写成:<span class="math display">\[f(x)=f(x^{(k)})-\lambda g_k^TH_k^{-1}g_k\]</span>因<span class="math inline">\(H_k^{-1}\)</span>正定，固有<span class="math inline">\(g_k^TH_k^{-1}g_k &gt; 0\)</span>.当<span class="math inline">\(\lambda\)</span>为一个充分小的正数时，总有<span class="math inline">\(f(x)&lt;f(x^{(k)})\)</span>,也即<span class="math inline">\(p_k\)</span>下降的方向。</p><p>  是将<span class="math inline">\(G_k\)</span>作为<span class="math inline">\(H_k^{-1}\)</span>的近似或选择<span class="math inline">\(B_k\)</span>作为<span class="math inline">\(H_k\)</span>的近似的算法称为拟牛顿法，参照拟牛顿法的条件，每次迭代可以选择更新矩阵<span class="math inline">\(G_{k+1}\)</span>:<span class="math display">\[G_{k+1}=G_k+\Delta G_k\]</span>先面介绍几种拟牛顿法：</p><h4 id="dfpdavidon-fletcher-powerii算法dfp-algorithm">DFP(Davidon-Fletcher-PowerII)算法（DFP algorithm）</h4><ul><li>取初始值<span class="math inline">\(x^{(k)}\)</span>，置k = 0,取<span class="math inline">\(G_0\)</span>为正定对称矩阵;<br></li><li>计算<span class="math inline">\(g_k = g(x^{(k)})\)</span>，若<span class="math inline">\(\lVert g_k \lVert &lt; \varepsilon\)</span>，则停止计算，得近似解<span class="math inline">\(x^* = x^{(k)}\)</span>，否则转下一步;<br></li><li>置<span class="math inline">\(p_k=-G_k g_k\)</span>;<br></li><li>一维搜索:求<span class="math inline">\(\lambda\)</span>使得<span class="math display">\[f(x^{(k)}+\lambda_k p_k)=\min_{\lambda\geq 0}f(x^{(k)}+\lambda p_k)\]</span></li><li>置<span class="math inline">\(x^{(k+1)}=x^{(k)}+\lambda_kp_k\)</span>;</li><li>计算<span class="math inline">\(g_{k+1}=g(x^{(k+1)})\)</span>,若<span class="math inline">\(\lVert g_{k+1}\lVert&lt;\epsilon\)</span>,则停止计算，得近似解<span class="math inline">\(x^*=x^{(k+1)}\)</span>,否则按照<span class="math display">\[G_{k+1}=G_k+\frac{\delta_k\delta_k^T}{\delta_k^T y_k}-\frac{G_k y_k y_K^T G_k}{y_k^T G_k y_k}\]</span></li><li>置<span class="math inline">\(k=k+1\)</span>,转（3）.</li></ul><h5 id="caution"><font color="red">Caution:</font></h5><ul><li>DFP算法是利用<span class="math inline">\(G_k\)</span>逼近海赛矩阵的逆矩阵<span class="math inline">\(H^{-1}\)</span>;</li><li>可以证明如果初始矩阵<span class="math inline">\(G_0\)</span>是正定的，则迭代过程中的每一个矩阵<span class="math inline">\(G_k\)</span>都是正定的。</li></ul><h4 id="bfgsbroyden-fletcher-goldfarb-shanno算法bfgs-algorithm">BFGS(Broyden-Fletcher-Goldfarb-Shanno)算法(BFGS algorithm):</h4><ul><li>BFGS算法大体流程和DFP算法相同，不过采用<span class="math inline">\(B_k\)</span>逼近海赛矩阵H;</li><li><span class="math display">\[B_{k+1}=B_k+\frac{\delta_k\delta_k^T}{\delta_k^T y_k}-\frac{B_k y_k y_K^T B_k}{y_k^T B_k y_k}\]</span>其中<span class="math inline">\(y_k=p_k \delta_k\)</span>;</li></ul><h4 id="broyden类算法broydens-algorithm">Broyden类算法(Broyden’s algorithm)</h4><p>  我们可以从BFGS算法矩阵<span class="math inline">\(B_k\)</span>的迭代公式中得到BFGS算法中的关于<span class="math inline">\(G_k\)</span>的迭代公式，事实上，若记<span class="math inline">\(G_k=B_k^{-1}\)</span>,<span class="math inline">\(G_{k+1}=B_{k+1}^{-1}\)</span>,那么对<span class="math inline">\(B_k\)</span>的计算公式两次应用Sherman-Morrison公式既得<span class="math display">\[G_{k+1}=(I-\frac{\delta_k y_k^{-1}}{\delta_k^T y_k})G_k(I-\frac{\delta_k y_k^T}{\delta_k^T y_k})^T+\frac{\delta_k \delta_k^T}{\delta_k^T y_k}\]</span>称为BFGS关于<span class="math inline">\(G_K\)</span>的迭代公式，上述两个算法还可以取其线性组合<span class="math display">\[G_{k+1}=\alpha G^{DFP}+(1-\alpha)G^{BFGS}\]</span>也是正定的，满足拟牛顿条件，其中<span class="math inline">\(0\leq \alpha \leq 1\)</span>,如此即可得到一类拟牛顿算法，称为Broyden类算法。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;梯度下降法&quot;&gt;梯度下降法&lt;/h2&gt;
-&lt;p&gt;  梯度下降法是一种迭代算法，通过选取适当的初值&lt;span class=&quot;math inline&quot;&gt;\(\theta\)&lt;/span&gt;，不断迭代,更新&lt;span class=&quot;math inline&quot;&gt;\(\theta\)
-      
-    
-    </summary>
-    
-    
-      <category term="Machine learning" scheme="http://www.mysry.com/tags/Machine-learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linear Regression</title>
-    <link href="http://www.mysry.com/2017/11/11/Linear-Regression/"/>
-    <id>http://www.mysry.com/2017/11/11/Linear-Regression/</id>
-    <published>2017-11-11T01:23:57.000Z</published>
-    <updated>2017-11-11T05:52:00.275Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="线性回归">线性回归</h2><p>  线性回归假设满足线性关系，每个特征对于结果的影响由其前面的参数决定，而且每个特征变量可以先映射到一个函数，在参与线性计算，如此一来即可表达特征与结果的的非线性关系。   我们用<span class="math inline">\(X_1\)</span>.<span class="math inline">\(X_2\)</span>,…,<span class="math inline">\(X_n\)</span>去描述feature中的分量，作出估计函数: <span class="math display">\[h(x)={h_\theta}(x)=\theta_0+{\theta_1}{x_1}+{\theta_2}{x_2}+\cdots+{\theta_n}{x_n}\]</span> 其中，意思是调整feature中的每次参数的影响，若我们<span class="math inline">\(X_0=1\)</span>,就可以把上述公式向量化:<span class="math display">\[{h_\theta}(x) = {\theta^T}X\]</span>   我们同样需要评估机制去评判我们的，所以需要对h函数进行评估，把评估函数称为损失函数(loss function)，认为损失函数如下:<span class="math display">\[J(\theta)={\frac{1}{2}}\sum_{i=1}^{n}({h_\theta}(x^{(i)})-y^{(i)})^2\]</span> <span class="math display">\[\min_{\theta}J_\theta\]</span>   损失函数是对<span class="math inline">\(x(i)\)</span>的估计值与真实值<span class="math inline">\(y(i)\)</span>差的平方和作为错误估计函数，那么如何调整<span class="math inline">\(\theta\)</span>以使得<span class="math inline">\(J(\theta)\)</span>取得最小值呢? 参考<a href="http://www.mysry.com/2017/11/11/%E5%87%A0%E7%A7%8D%E5%B8%B8%E8%A7%81%E7%9A%84%E6%B1%82%E8%A7%A3%E6%97%A0%E7%BA%A6%E6%9D%9F%E6%9C%80%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98%E7%9A%84%E6%96%B9%E6%B3%95/">几种常见的求解无约束最优化问题的方法</a></p><h2 id="误差函数为什么要选用平方和函数">误差函数为什么要选用平方和函数？</h2><p>  假设根据特征的预测结果与实际结果有误差<span class="math inline">\(\varepsilon^{(i)}\)</span>,那么预测结果<span class="math inline">\(\theta^T x^{(i)}\)</span>和真实结果<span class="math inline">\(y^{(i)}\)</span>满足下式：<span class="math display">\[y^{(i)}=\theta^T x^{(i)} + \varepsilon^{(i)}\]</span>一般来将，误差满足平均值为0的高斯分布，也即正态分布。那么x和y的条件概率也就是：<span class="math display">\[p(y^{(i)}|x^{(i)};\theta)=\frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(y^{(i)}-\theta^T x^{(i)})^2}{2\sigma^2})\]</span></p><p>  这里就估计了一条样本的结果概率，然而我们期待的模型能够在全部样本上预测最准，也就是概率积最大，这个概率积称为最大死然估计，我们希望在最大似然估计得到最大值时确定<span class="math inline">\(\theta\)</span>，那么需要对最大似然估计公式求导：<span class="math display">\[\frac{1}{2}\sum_{i=1}^{m}(y^{(i)}-\theta^T x^{(i)})^2\]</span>这就解释了为什么误差函数要使用平方和，在推导过程中也有一些前提条件，这里不在展开。</p><h2 id="带权重的线性回归">带权重的线性回归</h2><p>  前面提到的线性回归的误差函数里系统都是1，没有权重。带权重的线性回归加入了权重信息：</p><ul><li>Fit <span class="math inline">\(\theta\)</span> to <span class="math inline">\(minimize\sum_i \omega^{(i)}(y^{(i)} - \theta^T x^{(i)})^2\)</span></li><li>Output <span class="math inline">\(\theta^T x\)</span></li></ul><p>其中假设<span class="math inline">\(\omega^{(i)}\)</span>符合公式<span class="math display">\[\omega^{(i)} = exp (-\frac{(x^{(i)}-x)^2}{2\tau^2})\]</span>其中x是要预测的特征，这样假设的道理是离x越近的样本权重越大，越远的影响越小，这个公式与高斯分布不同，因为<span class="math inline">\(\omega^{(i)}\)</span>不是随机变量。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;线性回归&quot;&gt;线性回归&lt;/h2&gt;
-&lt;p&gt;  线性回归假设满足线性关系，每个特征对于结果的影响由其前面的参数决定，而且每个特征变量可以先映射到一个函数，在参与线性计算，如此一来即可表达特征与结果的的非线性关系。   我们用&lt;span class=&quot;math inlin
-      
-    
-    </summary>
-    
-    
-      <category term="Machine learning" scheme="http://www.mysry.com/tags/Machine-learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>19. Remove Nth Node From End of List</title>
-    <link href="http://www.mysry.com/2017/11/10/19-Remove-Nth-Node-From-End-of-List/"/>
-    <id>http://www.mysry.com/2017/11/10/19-Remove-Nth-Node-From-End-of-List/</id>
-    <published>2017-11-10T13:50:35.000Z</published>
-    <updated>2017-11-10T13:56:38.503Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given a linked list, remove the nth node from the end of list and return its head.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>  We create two pointers, one is faster another is slower, locate the faster one to n+1, then contineously move fast pointer and slower pointer, when faster equals 0, skip slower pointer to next.next.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><pre><code>/** * Definition for singly-linked list. * public class ListNode { *     int val; *     ListNode next; *     ListNode(int x) { val = x; } * } */class Solution {    public ListNode removeNthFromEnd(ListNode head, int n) {        ListNode start = new ListNode(0);    ListNode slow = start,fast = start;    slow.next = head;    for (int i=1;i&lt;=n+1;i++) {        fast = fast.next;    }    while (fast != null) {        slow = slow.next;        fast = fast.next;    }    slow.next = slow.next.next;    return start.next;    }}</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given a linked list, remove the nth node from the end of list and 
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>18. 4Sum</title>
-    <link href="http://www.mysry.com/2017/11/10/18-4Sum/"/>
-    <id>http://www.mysry.com/2017/11/10/18-4Sum/</id>
-    <published>2017-11-10T13:39:55.000Z</published>
-    <updated>2017-11-10T13:49:58.494Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given an array S of n integers, are there elements a, b, c, and d in S such that a + b + c + d = target? Find all unique quadruplets in the array which gives the sum of target.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> I separate this problem to three pieces to simplify 4sum to 3sum, 2sumuntil find the solution. It’s a litter complicated.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">   public List&lt;List&lt;Integer&gt;&gt; fourSum(int[]nums,int target)&#123;</div><div class="line">ArrayList&lt;List&lt;Integer&gt;&gt; res = new ArrayList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">int len = nums.length;</div><div class="line">if(nums==null|| len&lt; 4) return res;</div><div class="line">Arrays.sort(nums);</div><div class="line">int max = nums[len-1];</div><div class="line">if(4*nums[0]&gt;target || 4*max&lt;target)return res;</div><div class="line">int i,z;</div><div class="line">for(i=0;i&lt;len;i++) &#123;</div><div class="line">z = nums[i];</div><div class="line">if(i&gt;0 &amp;&amp; z==nums[i-1]) continue;</div><div class="line">if(z + 3*max &lt;target) continue;</div><div class="line">if (4*z &gt; target ) break;</div><div class="line">if(4*z == target ) &#123;</div><div class="line">if(i+3&lt;len &amp;&amp; nums[i+3]==z)res.add(Arrays.asList(z,z,z,z));</div><div class="line">break;</div><div class="line">&#125;</div><div class="line">threeSumForFourSum(nums,target-z,i+1,len-1,res,z);</div><div class="line">&#125;</div><div class="line">return res;</div><div class="line">&#125;</div><div class="line">public void threeSumForFourSum(int[]nums,int target,int low,int high,ArrayList&lt;List&lt;Integer&gt;&gt;fourSumList,int z1) &#123;</div><div class="line">if(low+1&gt;=high)return;</div><div class="line">int max= nums[high];</div><div class="line">if(3*nums[low]&gt;target||3*max&lt;target) return;</div><div class="line">int i,z;</div><div class="line">for ( i=low;i&lt;high-1;i++) &#123;</div><div class="line">z = nums[i];</div><div class="line">if(i&gt;low&amp;&amp; z==nums[i-1]) continue;</div><div class="line">if(z+2*max&lt;target) continue;</div><div class="line">if(3*z&gt;target) break;</div><div class="line">if(3*z==target) &#123;</div><div class="line">if(i+1&lt;high&amp;&amp;nums[i+2]==z) fourSumList.add(Arrays.asList(z1,z,z,z));</div><div class="line">break;</div><div class="line">&#125;</div><div class="line">twoSumForFourSum(nums,target-z,i+1,high,fourSumList,z1,z);</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">public void twoSumForFourSum(int[]nums,int target, int low,int high,ArrayList&lt;List&lt;Integer&gt;&gt;fourSumList,int z1,int z2) &#123;</div><div class="line">if(low&gt;=high) return;</div><div class="line">if(2*nums[low]&gt;target||2*nums[high]&lt;target)return;</div><div class="line">int i=low,j=high,sum,x;</div><div class="line">while(i&lt;j) &#123;</div><div class="line">sum = nums[i]+nums[j];</div><div class="line">if(sum == target) &#123;</div><div class="line">fourSumList.add(Arrays.asList(z1,z2,nums[i],nums[j]));</div><div class="line"></div><div class="line">x=nums[i];</div><div class="line">while(++i&lt;j &amp;&amp; x==nums[i]);</div><div class="line">x=nums[j];</div><div class="line">while(i&lt;--j &amp;&amp; x== nums[j]);</div><div class="line">&#125;</div><div class="line">if(sum&lt;target) i++;</div><div class="line">if(sum&gt;target) j--;</div><div class="line">&#125;</div><div class="line">return;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given an array S of n integers, are there elements a, b, c, and d 
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>17. Letter Combinations of a Phone Number</title>
-    <link href="http://www.mysry.com/2017/11/09/17-Letter-Combinations-of-a-Phone-Number/"/>
-    <id>http://www.mysry.com/2017/11/09/17-Letter-Combinations-of-a-Phone-Number/</id>
-    <published>2017-11-09T15:17:51.000Z</published>
-    <updated>2017-11-09T15:26:53.823Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given a digit string, return all possible letter combinations that the number could represent.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> We use a FIFO queue.See the code:</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public List&lt;String&gt; letterCombinations(String digits) &#123;</div><div class="line"> LinkedList&lt;String&gt; ans = new LinkedList&lt;String&gt;();</div><div class="line">        if(digits==null||digits.length() ==0) return ans;</div><div class="line">    String[] mapping = new String[] &#123;&quot;0&quot;, &quot;1&quot;, &quot;abc&quot;, &quot;def&quot;, &quot;ghi&quot;, &quot;jkl&quot;, &quot;mno&quot;, &quot;pqrs&quot;, &quot;tuv&quot;, &quot;wxyz&quot;&#125;;</div><div class="line">    ans.add(&quot;&quot;);</div><div class="line">    for(int i =0; i&lt;digits.length();i++)&#123;</div><div class="line">        int x = Character.getNumericValue(digits.charAt(i));</div><div class="line">        while(ans.peek().length()==i)&#123;</div><div class="line">            String t = ans.remove();</div><div class="line">            for(char s : mapping[x].toCharArray())</div><div class="line">                ans.add(t+s);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return ans;  </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given a digit string, return all possible letter combinations that
       
     
     </summary>
