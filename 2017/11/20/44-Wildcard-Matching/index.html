@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="Problem:  Implement atoi to convert a string to an integer. Hint: Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible i">
+<meta name="description" content="Problem:  Implement wildcard pattern matching with support for ‘?’ and ‘’. ’?’ Matches any single character. ’’ Matches any sequence of characters (including the empty sequence).   The matching should">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="8. String to Integer (atoi)">
-<meta property="og:url" content="http://www.mysry.com/2017/11/07/8-String-to-Integer-atoi/index.html">
+<meta property="og:title" content="44. Wildcard Matching">
+<meta property="og:url" content="http://www.mysry.com/2017/11/20/44-Wildcard-Matching/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="Problem:  Implement atoi to convert a string to an integer. Hint: Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible i">
+<meta property="og:description" content="Problem:  Implement wildcard pattern matching with support for ‘?’ and ‘’. ’?’ Matches any single character. ’’ Matches any sequence of characters (including the empty sequence).   The matching should">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-07T14:27:16.500Z">
+<meta property="og:updated_time" content="2017-11-20T14:46:31.533Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="8. String to Integer (atoi)">
-<meta name="twitter:description" content="Problem:  Implement atoi to convert a string to an integer. Hint: Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible i">
+<meta name="twitter:title" content="44. Wildcard Matching">
+<meta name="twitter:description" content="Problem:  Implement wildcard pattern matching with support for ‘?’ and ‘’. ’?’ Matches any single character. ’’ Matches any sequence of characters (including the empty sequence).   The matching should">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://www.mysry.com/2017/11/07/8-String-to-Integer-atoi/"/>
+  <link rel="canonical" href="http://www.mysry.com/2017/11/20/44-Wildcard-Matching/"/>
 
 
 
 
 
-  <title>8. String to Integer (atoi) | Mysry</title>
+  <title>44. Wildcard Matching | Mysry</title>
   
 
 
@@ -255,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.mysry.com/2017/11/07/8-String-to-Integer-atoi/">
+    <link itemprop="mainEntityOfPage" href="http://www.mysry.com/2017/11/20/44-Wildcard-Matching/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mysry">
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">8. String to Integer (atoi)</h1>
+          <h1 class="post-title" itemprop="name headline">44. Wildcard Matching</h1>
         
 
         <div class="post-meta">
@@ -284,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-07T22:07:40+08:00">
-                2017-11-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-20T22:42:36+08:00">
+                2017-11-20
               </time>
             
 
@@ -324,12 +324,15 @@
       
         <h2 id="problem"><font color="black">Problem:</font></h2>
 <blockquote>
-<p>Implement atoi to convert a string to an integer. Hint: Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases. Notes: It is intended for this problem to be specified vaguely (ie, no given input specs). You are responsible to gather all the input requirements up front. Requirements for atoi: The function first discards as many whitespace characters as necessary until the first non-whitespace character is found. Then, starting from this character, takes an optional initial plus or minus sign followed by as many numerical digits as possible, and interprets them as a numerical value. The string can contain additional characters after those that form the integral number, which are ignored and have no effect on the behavior of this function. If the first sequence of non-whitespace characters in str is not a valid integral number, or if no such sequence exists because either str is empty or it contains only whitespace characters, no conversion is performed. If no valid conversion could be performed, a zero value is returned. If the correct value is out of the range of representable values, INT_MAX (2147483647) or INT_MIN (-2147483648) is returned.</p>
+<p>Implement wildcard pattern matching with support for ‘?’ and ‘<em>’. ’?’ Matches any single character. ’</em>’ Matches any sequence of characters (including the empty sequence).</p>
+</blockquote>
+<blockquote>
+<p>The matching should cover the entire input string (not partial).</p>
 </blockquote>
 <h2 id="idea"><font color="red">Idea:</font></h2>
-<p> This question is a litter strange. What we need to do: - Discard the space before the string - Record sign information - A string can contain characters other than 0-9. If a non-numeric character is encountered, only the portion before the character, such as “-00123a66”, is returned as “-123” - Exceeds the int range, returning the boundary value(Integer.MaxValue or Integer.MinValue)</p>
-<h2 id="java-code"><font color="orange">Java Code: </font></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int myAtoi(String str) &#123;</div><div class="line">        if (str==null||str.length()==0) return 0;</div><div class="line">	str = str.trim();</div><div class="line">	char firstChar = str.charAt(0);</div><div class="line">	int sign = 1, start = 0,len = str.length();</div><div class="line">	long sum = 0;</div><div class="line">	if (firstChar == &apos;+&apos;) &#123;</div><div class="line">		sign = 1;</div><div class="line">		start++;</div><div class="line">	&#125;else if (firstChar == &apos;-&apos;) &#123;</div><div class="line">		sign = -1;</div><div class="line">		start++;</div><div class="line">	&#125;</div><div class="line">	for (int i=start;i&lt;len;i++) &#123;</div><div class="line">		if (!Character.isDigit(str.charAt(i)))</div><div class="line">			return (int) sum*sign;</div><div class="line">		sum = sum*10+str.charAt(i)-&apos;0&apos;;</div><div class="line">		if(sign==1&amp;&amp;sum&gt;Integer.MAX_VALUE)</div><div class="line">			return Integer.MAX_VALUE;</div><div class="line">		if(sign ==-1&amp;&amp;(-1*sum)&lt;Integer.MIN_VALUE)</div><div class="line">			return Integer.MIN_VALUE;</div><div class="line">	&#125;</div><div class="line">	return (int)sum*sign;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> We use a dp table, just like the problem——<a href="http://www.mysry.com/2017/11/13/10-Regular-Expression-Matching/">Regular Expression Matching</a></p>
+<h2 id="java-code"><font color="orange">Java Code:</font></h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public boolean isMatch(String s, String p) &#123;</div><div class="line">        	boolean[][]match= new boolean[s.length()+1][p.length()+1];</div><div class="line">	match[s.length()][p.length()] = true;</div><div class="line">	for (int i=p.length()-1;i&gt;=0;i--) &#123;</div><div class="line">		if(p.charAt(i)!=&apos;*&apos;)</div><div class="line">			break;</div><div class="line">		else match[s.length()][i]=true;</div><div class="line">	&#125;</div><div class="line">	for (int i=s.length()-1;i&gt;=0;i--) &#123;</div><div class="line">		for (int j=p.length()-1;j&gt;=0;j--) &#123;</div><div class="line">			if(s.charAt(i)==p.charAt(j)||p.charAt(j)==&apos;?&apos;)</div><div class="line">				match[i][j]=match[i+1][j+1];</div><div class="line">			else if (p.charAt(j)==&apos;*&apos;)</div><div class="line">				match[i][j]=match[i+1][j]||match[i][j+1];</div><div class="line">			else</div><div class="line">				match[i][j]=false;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	return match[0][0];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -371,8 +374,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/06/6-ZigZag-Conversion/" rel="next" title="6. ZigZag Conversion">
-                <i class="fa fa-chevron-left"></i> 6. ZigZag Conversion
+              <a href="/2017/11/20/43Multiply-Strings/" rel="next" title="43. Multiply Strings">
+                <i class="fa fa-chevron-left"></i> 43. Multiply Strings
               </a>
             
           </div>
@@ -380,10 +383,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/07/11-Container-With-Most-Water/" rel="prev" title="11. Container With Most Water">
-                11. Container With Most Water <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -539,7 +538,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code: </span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li></ol></div>
             
 
           </div>

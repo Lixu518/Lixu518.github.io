@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2017-11-19T12:15:58.710Z</updated>
+  <updated>2017-11-20T14:46:31.533Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>44. Wildcard Matching</title>
+    <link href="http://www.mysry.com/2017/11/20/44-Wildcard-Matching/"/>
+    <id>http://www.mysry.com/2017/11/20/44-Wildcard-Matching/</id>
+    <published>2017-11-20T14:42:36.000Z</published>
+    <updated>2017-11-20T14:46:31.533Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Implement wildcard pattern matching with support for ‘?’ and ‘<em>’. ’?’ Matches any single character. ’</em>’ Matches any sequence of characters (including the empty sequence).</p></blockquote><blockquote><p>The matching should cover the entire input string (not partial).</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> We use a dp table, just like the problem——<a href="http://www.mysry.com/2017/11/13/10-Regular-Expression-Matching/">Regular Expression Matching</a></p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public boolean isMatch(String s, String p) &#123;</div><div class="line">        boolean[][]match= new boolean[s.length()+1][p.length()+1];</div><div class="line">match[s.length()][p.length()] = true;</div><div class="line">for (int i=p.length()-1;i&gt;=0;i--) &#123;</div><div class="line">if(p.charAt(i)!=&apos;*&apos;)</div><div class="line">break;</div><div class="line">else match[s.length()][i]=true;</div><div class="line">&#125;</div><div class="line">for (int i=s.length()-1;i&gt;=0;i--) &#123;</div><div class="line">for (int j=p.length()-1;j&gt;=0;j--) &#123;</div><div class="line">if(s.charAt(i)==p.charAt(j)||p.charAt(j)==&apos;?&apos;)</div><div class="line">match[i][j]=match[i+1][j+1];</div><div class="line">else if (p.charAt(j)==&apos;*&apos;)</div><div class="line">match[i][j]=match[i+1][j]||match[i][j+1];</div><div class="line">else</div><div class="line">match[i][j]=false;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">return match[0][0];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Implement wildcard pattern matching with support for ‘?’ and ‘&lt;em&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>43. Multiply Strings</title>
+    <link href="http://www.mysry.com/2017/11/20/43Multiply-Strings/"/>
+    <id>http://www.mysry.com/2017/11/20/43Multiply-Strings/</id>
+    <published>2017-11-20T14:38:02.000Z</published>
+    <updated>2017-11-20T14:42:14.609Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given two non-negative integers num1 and num2 represented as strings, return the product of num1 and num2.</p></blockquote><blockquote><p>Note:</p></blockquote><blockquote><p>The length of both num1 and num2 is &lt; 110. Both num1 and num2 contains only digits 0-9. Both num1 and num2 does not contain any leading zero. You must not use any built-in BigInteger library or convert the inputs to integer directly.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> Start from right to left, perform multiplication on every pair of digits, and add them together. Let’s draw the process! From the following draft, we can immediately conclude:<code>num1[i] * num2[j]</code> will be placed at indices <code>[i + j</code>, <code>i + j + 1]</code> .</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public String multiply(String num1, String num2) &#123;</div><div class="line">        int m = num1.length(),n=num2.length();</div><div class="line">int []pos = new int [m+n];</div><div class="line">for (int i=m-1;i&gt;=0;i--) &#123;</div><div class="line">for (int j=n-1;j&gt;=0;j--) &#123;</div><div class="line">int mul=(num1.charAt(i)-&apos;0&apos;)*(num2.charAt(j)-&apos;0&apos;);</div><div class="line">int p1= i+j,p2=i+j+1;</div><div class="line">int sum =mul+pos[p2];</div><div class="line">pos[p1]+=sum/10;</div><div class="line">pos[p2]= sum%10;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">StringBuilder sb = new StringBuilder();</div><div class="line">for (int p:pos)</div><div class="line">if(!(sb.length()==0&amp;&amp;p==0)) sb.append(p);</div><div class="line">return sb.length()==0?&quot;0&quot;:sb.toString();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given two non-negative integers num1 and num2 represented as strin
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>42. Trapping Rain Water</title>
@@ -460,56 +510,6 @@
     
     
       <category term="skills" scheme="http://www.mysry.com/tags/skills/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>4. Median of Two Sorted Arrays</title>
-    <link href="http://www.mysry.com/2017/11/11/4-Median-of-Two-Sorted-Arrays/"/>
-    <id>http://www.mysry.com/2017/11/11/4-Median-of-Two-Sorted-Arrays/</id>
-    <published>2017-11-11T13:11:43.000Z</published>
-    <updated>2017-11-11T13:27:16.292Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>There are two sorted arrays nums1 and nums2 of size m and n respectively.</p></blockquote><blockquote><p>Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>  In order to make time complexity <span class="math inline">\(O(\log(m+n))\)</span>, we should ignore half part of A and B recursively by comparing the median of remaining A and B: <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">if (aMid &lt; bMid) Keep [aRight + bLeft]    </div><div class="line">else Keep [bRight + aLeft]</div></pre></td></tr></table></figure></p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public double findMedianSortedArrays(int[] nums1, int[] nums2) &#123;</div><div class="line">      int m=nums1.length,n=nums2.length;</div><div class="line">int left = (m+n+1)/2;</div><div class="line">int right = (m+n+2)/2;</div><div class="line">return (getkth(nums1,0,nums2,0,left)+getkth(nums1,0,nums2,0,right))/2.0;  </div><div class="line">    &#125;</div><div class="line">    public double getkth(int[]nums1,int aStart,int []nums2,int bStart,int k) &#123;</div><div class="line">if(aStart&gt;nums1.length-1) return nums2[bStart +k -1];</div><div class="line">if(bStart&gt;nums2.length-1) return nums1[aStart +k -1];</div><div class="line">if(k==1) return Math.min(nums1[aStart], nums2[bStart]);</div><div class="line"></div><div class="line">int aMid = Integer.MAX_VALUE,bMid=Integer.MAX_VALUE;</div><div class="line">if(aStart +k/2-1&lt;nums1.length) aMid = nums1[aStart + k/2-1];</div><div class="line">if(bStart +k/2-1&lt;nums2.length) bMid = nums2[bStart + k/2-1];</div><div class="line">if(aMid&lt;bMid) return getkth(nums1,aStart +k/2,nums2,bStart,k-k/2);</div><div class="line">else return getkth(nums1,aStart,nums2,bStart+k/2,k-k/2);</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;There are two sorted arrays nums1 and nums2 of size m and n respec
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>22. Generate Parentheses</title>
-    <link href="http://www.mysry.com/2017/11/11/22-Generate-Parentheses/"/>
-    <id>http://www.mysry.com/2017/11/11/22-Generate-Parentheses/</id>
-    <published>2017-11-11T13:01:15.000Z</published>
-    <updated>2017-11-11T13:10:58.319Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>  Easy recurison. When left parenthesis’s number is smaller than n, we could creat new left parenthesis, when right parenthesis’s number is smaller than n, we could set new parenthesis.</p><h2 id="java-code"><font color="orange">Java Code:<font></font></font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public List&lt;String&gt; generateParenthesis(int n) &#123;</div><div class="line">       List&lt;String&gt; list= new ArrayList&lt;String&gt;();</div><div class="line">backtrack(list,&quot;&quot;,0,0,n);</div><div class="line">return list; </div><div class="line">    &#125;</div><div class="line">    public void backtrack(List&lt;String&gt;list,String str,int open,int close,int max) &#123;</div><div class="line">if(str.length()==max*2)&#123;</div><div class="line">        list.add(str);</div><div class="line">        return;</div><div class="line">    &#125;</div><div class="line">if(open&lt;max)backtrack(list,str+&quot;(&quot;,open+1,close,max);</div><div class="line">if(close&lt;open) backtrack(list,str+&quot;)&quot;,open,close+1,max);</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given n pairs of parentheses, write a function to generate all com
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
     
   </entry>
   
