@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2017-11-20T14:46:31.533Z</updated>
+  <updated>2017-11-21T15:33:39.083Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>45. Jump Game II</title>
+    <link href="http://www.mysry.com/2017/11/21/45-Jump-Game-II/"/>
+    <id>http://www.mysry.com/2017/11/21/45-Jump-Game-II/</id>
+    <published>2017-11-21T15:27:23.000Z</published>
+    <updated>2017-11-21T15:33:39.083Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given an array of non-negative integers, you are initially positioned at the first index of the array.</p></blockquote><blockquote><p>Each element in the array represents your maximum jump length at that position.</p></blockquote><blockquote><p>Your goal is to reach the last index in the minimum number of jumps.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> set e to be longest distance in current minimum step set sc to be minimum steps for reaching e. From i to e, even max is changed in a loop, it is reachable in one step.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int jump(int[] nums) &#123;</div><div class="line">        int sc=0;</div><div class="line">        int e=0;</div><div class="line">        int max=0;</div><div class="line">        for(int i=0;i&lt;nums.length-1;i++)&#123;</div><div class="line">            max=Math.max(max,i+nums[i]);</div><div class="line">            if (i==e)&#123;</div><div class="line">                sc++;</div><div class="line">                e=max;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return sc;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given an array of non-negative integers, you are initially positio
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>44. Wildcard Matching</title>
@@ -486,30 +511,6 @@
     
     
       <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo + MathJax</title>
-    <link href="http://www.mysry.com/2017/11/11/hexo-Mathjax/"/>
-    <id>http://www.mysry.com/2017/11/11/hexo-Mathjax/</id>
-    <published>2017-11-11T13:38:24.000Z</published>
-    <updated>2017-11-11T14:04:25.127Z</updated>
-    
-    <content type="html"><![CDATA[<p>  最近写博客遇到了很多的数学公式，以前的想法是讲述学工是写出来后街图上传到sm.ms图床，获取html或markdown链接贴到博客里，后来发现实在繁琐，而且公式清晰度不够，排版也相对难看，于是便想到了Latex强大的数学公式编辑能力。</p><p>  对于MathJax，早有大神写好了hexo的Math插件，只需安装即可: <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install hexo-math --save</div><div class="line">hexo math install</div></pre></td></tr></table></figure></p><p>但是我的hexo的渲染并不成功，不断报错，经检查发现，改插件和hexo-inject冲突，狠心卸载inject，并没有什么影响，再更改<code>/node_modules/marked/lib</code>中: <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">escape: /^\\([\\`*&#123;&#125;\[\]()# +\-.!_&gt;])/</div></pre></td></tr></table></figure></p><p>替换成 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">escape: /^\\([`*\[\]()# +\-.!_&gt;])/</div></pre></td></tr></table></figure></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">em: /^\b_((?:[^_]|__)+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</div></pre></td></tr></table></figure><p>替换成: <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">em:/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</div></pre></td></tr></table></figure></p><p>这样MathJax和marked.js就可以共存了。 更为详细的<a href="https://github.com/hexojs/hexo-math" target="_blank" rel="external">hexo-math</a>信息。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;  最近写博客遇到了很多的数学公式，以前的想法是讲述学工是写出来后街图上传到sm.ms图床，获取html或markdown链接贴到博客里，后来发现实在繁琐，而且公式清晰度不够，排版也相对难看，于是便想到了Latex强大的数学公式编辑能力。&lt;/p&gt;
-&lt;p&gt;  对于MathJa
-      
-    
-    </summary>
-    
-    
-      <category term="skills" scheme="http://www.mysry.com/tags/skills/"/>
     
   </entry>
   
