@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Implement atoi to convert a string to an integer. Hint: Carefully consider all possible input cases. If you want a challenge, please do not see below a">
+<meta name="description" content="Problem:  Implement atoi to convert a string to an integer. Hint: Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible i">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="8. String to Integer (atoi)">
 <meta property="og:url" content="http://www.mysry.com/2017/11/07/8-String-to-Integer-atoi/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Implement atoi to convert a string to an integer. Hint: Carefully consider all possible input cases. If you want a challenge, please do not see below a">
+<meta property="og:description" content="Problem:  Implement atoi to convert a string to an integer. Hint: Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible i">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-11-07T14:27:16.500Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="8. String to Integer (atoi)">
-<meta name="twitter:description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Implement atoi to convert a string to an integer. Hint: Carefully consider all possible input cases. If you want a challenge, please do not see below a">
+<meta name="twitter:description" content="Problem:  Implement atoi to convert a string to an integer. Hint: Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible i">
 
 
 
@@ -322,27 +322,14 @@
       
 
       
-        <h2>&lt;font color = black&gt;Problem:&lt;/font&gt;</h2>
+        <h2 id="problem"><font color="black">Problem:</font></h2>
 <blockquote>
-<p>Implement atoi to convert a string to an integer.
-Hint: Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases.
-Notes: It is intended for this problem to be specified vaguely (ie, no given input specs). You are responsible to gather all the input requirements up front.
-Requirements for atoi:
-The function first discards as many whitespace characters as necessary until the first non-whitespace character is found. Then, starting from this character, takes an optional initial plus or minus sign followed by as many numerical digits as possible, and interprets them as a numerical value.
-The string can contain additional characters after those that form the integral number, which are ignored and have no effect on the behavior of this function.
-If the first sequence of non-whitespace characters in str is not a valid integral number, or if no such sequence exists because either str is empty or it contains only whitespace characters, no conversion is performed.
-If no valid conversion could be performed, a zero value is returned. If the correct value is out of the range of representable values, INT_MAX (2147483647) or INT_MIN (-2147483648) is returned.</p>
+<p>Implement atoi to convert a string to an integer. Hint: Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases. Notes: It is intended for this problem to be specified vaguely (ie, no given input specs). You are responsible to gather all the input requirements up front. Requirements for atoi: The function first discards as many whitespace characters as necessary until the first non-whitespace character is found. Then, starting from this character, takes an optional initial plus or minus sign followed by as many numerical digits as possible, and interprets them as a numerical value. The string can contain additional characters after those that form the integral number, which are ignored and have no effect on the behavior of this function. If the first sequence of non-whitespace characters in str is not a valid integral number, or if no such sequence exists because either str is empty or it contains only whitespace characters, no conversion is performed. If no valid conversion could be performed, a zero value is returned. If the correct value is out of the range of representable values, INT_MAX (2147483647) or INT_MIN (-2147483648) is returned.</p>
 </blockquote>
-<h2>&lt;font color = red&gt;Idea:&lt;/font&gt;</h2>
-<p> This question is a litter strange. What we need to do:</p>
-<ul>
-<li>Discard the space before the string</li>
-<li>Record sign information</li>
-<li>A string can contain characters other than 0-9. If a non-numeric character is encountered, only the portion before the character, such as &quot;-00123a66&quot;, is returned as &quot;-123&quot;</li>
-<li>Exceeds the int range, returning the boundary value(Integer.MaxValue or Integer.MinValue)</li>
-</ul>
-<h2>&lt;font color = orange&gt;Java Code: &lt;/font&gt;</h2>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int myAtoi(String str) &#123;</div><div class="line">        if (str==null||str.length()==0) return 0;</div><div class="line">	str = str.trim();</div><div class="line">	char firstChar = str.charAt(0);</div><div class="line">	int sign = 1, start = 0,len = str.length();</div><div class="line">	long sum = 0;</div><div class="line">	if (firstChar == &apos;+&apos;) &#123;</div><div class="line">		sign = 1;</div><div class="line">		start++;</div><div class="line">	&#125;else if (firstChar == &apos;-&apos;) &#123;</div><div class="line">		sign = -1;</div><div class="line">		start++;</div><div class="line">	&#125;</div><div class="line">	for (int i=start;i&lt;len;i++) &#123;</div><div class="line">		if (!Character.isDigit(str.charAt(i)))</div><div class="line">			return (int) sum*sign;</div><div class="line">		sum = sum*10+str.charAt(i)-&apos;0&apos;;</div><div class="line">		if(sign==1&amp;&amp;sum&gt;Integer.MAX_VALUE)</div><div class="line">			return Integer.MAX_VALUE;</div><div class="line">		if(sign ==-1&amp;&amp;(-1*sum)&lt;Integer.MIN_VALUE)</div><div class="line">			return Integer.MIN_VALUE;</div><div class="line">	&#125;</div><div class="line">	return (int)sum*sign;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="idea"><font color="red">Idea:</font></h2>
+<p> This question is a litter strange. What we need to do: - Discard the space before the string - Record sign information - A string can contain characters other than 0-9. If a non-numeric character is encountered, only the portion before the character, such as “-00123a66”, is returned as “-123” - Exceeds the int range, returning the boundary value(Integer.MaxValue or Integer.MinValue)</p>
+<h2 id="java-code"><font color="orange">Java Code: </font></h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int myAtoi(String str) &#123;</div><div class="line">        if (str==null||str.length()==0) return 0;</div><div class="line">	str = str.trim();</div><div class="line">	char firstChar = str.charAt(0);</div><div class="line">	int sign = 1, start = 0,len = str.length();</div><div class="line">	long sum = 0;</div><div class="line">	if (firstChar == &apos;+&apos;) &#123;</div><div class="line">		sign = 1;</div><div class="line">		start++;</div><div class="line">	&#125;else if (firstChar == &apos;-&apos;) &#123;</div><div class="line">		sign = -1;</div><div class="line">		start++;</div><div class="line">	&#125;</div><div class="line">	for (int i=start;i&lt;len;i++) &#123;</div><div class="line">		if (!Character.isDigit(str.charAt(i)))</div><div class="line">			return (int) sum*sign;</div><div class="line">		sum = sum*10+str.charAt(i)-&apos;0&apos;;</div><div class="line">		if(sign==1&amp;&amp;sum&gt;Integer.MAX_VALUE)</div><div class="line">			return Integer.MAX_VALUE;</div><div class="line">		if(sign ==-1&amp;&amp;(-1*sum)&lt;Integer.MIN_VALUE)</div><div class="line">			return Integer.MIN_VALUE;</div><div class="line">	&#125;</div><div class="line">	return (int)sum*sign;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -552,7 +539,7 @@ If no valid conversion could be performed, a zero value is returned. If the corr
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text"><font color = black>Problem:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text"><font color = red>Idea:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text"><font color = orange>Java Code: </font></span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code: </span></a></li></ol></div>
             
 
           </div>
