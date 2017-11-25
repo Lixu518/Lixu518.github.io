@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.mysry.com/about/index.html</loc>
+    
+    <lastmod>2017-11-25T14:42:25.188Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.mysry.com/2017/11/25/55-Jump-Game/</loc>
     
     <lastmod>2017-11-25T14:24:47.437Z</lastmod>
@@ -208,13 +215,6 @@
     <loc>http://www.mysry.com/2017/11/12/23-Merge-k-Sorted-Lists/</loc>
     
     <lastmod>2017-11-12T13:48:32.942Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.mysry.com/about/index.html</loc>
-    
-    <lastmod>2017-11-12T08:34:20.714Z</lastmod>
     
   </url>
   

@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="Problem:  Write a program to solve a Sudoku puzzle by filling the empty cells.   Empty cells are indicated by the character ‘.’.   You may assume that there will be only one unique solution.  Idea:">
+<meta name="description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Write a program to solve a Sudoku puzzle by filling the empty cells.   Empty cells are indicated by the character &apos;.&apos;.   You may assume that there will">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="37. Sudoku Solver">
 <meta property="og:url" content="http://www.mysry.com/2017/11/19/37-Sudoku-Solver/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="Problem:  Write a program to solve a Sudoku puzzle by filling the empty cells.   Empty cells are indicated by the character ‘.’.   You may assume that there will be only one unique solution.  Idea:">
+<meta property="og:description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Write a program to solve a Sudoku puzzle by filling the empty cells.   Empty cells are indicated by the character &apos;.&apos;.   You may assume that there will">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-11-19T09:55:23.036Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="37. Sudoku Solver">
-<meta name="twitter:description" content="Problem:  Write a program to solve a Sudoku puzzle by filling the empty cells.   Empty cells are indicated by the character ‘.’.   You may assume that there will be only one unique solution.  Idea:">
+<meta name="twitter:description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Write a program to solve a Sudoku puzzle by filling the empty cells.   Empty cells are indicated by the character &apos;.&apos;.   You may assume that there will">
 
 
 
@@ -322,20 +322,20 @@
       
 
       
-        <h2 id="problem"><font color="black">Problem:</font></h2>
+        <h2>&lt;font color = black&gt;Problem:&lt;/font&gt;</h2>
 <blockquote>
 <p>Write a program to solve a Sudoku puzzle by filling the empty cells.</p>
 </blockquote>
 <blockquote>
-<p>Empty cells are indicated by the character ‘.’.</p>
+<p>Empty cells are indicated by the character '.'.</p>
 </blockquote>
 <blockquote>
 <p>You may assume that there will be only one unique solution.</p>
 </blockquote>
-<h2 id="idea"><font color="red">Idea:</font></h2>
+<h2>&lt;font color = red&gt;Idea:&lt;/font&gt;</h2>
 <p>  Try 1 through 9 for each cell. The time complexity should be 9 ^ m (m represents the number of blanks to be filled in), since each blank can have 9 choices. Details see the belong code.</p>
-<h2 id="java-code"><font color="orange">Java Code:</font></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">   public void solveSudoku(char[][]board) &#123;</div><div class="line">	if (board ==null||board.length==0) return;</div><div class="line">	solve(board);</div><div class="line">&#125;</div><div class="line">public boolean solve(char[][] board)&#123;</div><div class="line">    for(int i = 0; i &lt; board.length; i++)&#123;</div><div class="line">        for(int j = 0; j &lt; board[0].length; j++)&#123;</div><div class="line">            if(board[i][j] == &apos;.&apos;)&#123;</div><div class="line">                for(char c = &apos;1&apos;; c &lt;= &apos;9&apos;; c++)&#123;</div><div class="line">                    if(isValid(board, i, j, c))&#123;</div><div class="line">                        board[i][j] = c;</div><div class="line"></div><div class="line">                        if(solve(board))</div><div class="line">                            return true;</div><div class="line">                        else</div><div class="line">                            board[i][j] = &apos;.&apos;;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                return false;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return true;</div><div class="line">&#125;</div><div class="line">private boolean isValid(char[][] board, int row, int col, char c)&#123;</div><div class="line">    for(int i = 0; i &lt; 9; i++) &#123;</div><div class="line">        if(board[i][col] != &apos;.&apos; &amp;&amp; board[i][col] == c) return false;</div><div class="line">        if(board[row][i] != &apos;.&apos; &amp;&amp; board[row][i] == c) return false;</div><div class="line">        if(board[3 * (row / 3) + i / 3][ 3 * (col / 3) + i % 3] != &apos;.&apos; &amp;&amp;</div><div class="line">board[3 * (row / 3) + i / 3][3 * (col / 3) + i % 3] == c) return false;</div><div class="line">    &#125;</div><div class="line">    return true;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2>&lt;font color =orange&gt;Java Code:&lt;/font&gt;</h2>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">   public void solveSudoku(char[][]board) &#123;</div><div class="line">	if (board ==null||board.length==0) return;</div><div class="line">	solve(board);</div><div class="line">&#125;</div><div class="line">public boolean solve(char[][] board)&#123;</div><div class="line">    for(int i = 0; i &lt; board.length; i++)&#123;</div><div class="line">        for(int j = 0; j &lt; board[0].length; j++)&#123;</div><div class="line">            if(board[i][j] == &apos;.&apos;)&#123;</div><div class="line">                for(char c = &apos;1&apos;; c &lt;= &apos;9&apos;; c++)&#123;</div><div class="line">                    if(isValid(board, i, j, c))&#123;</div><div class="line">                        board[i][j] = c;</div><div class="line"></div><div class="line">                        if(solve(board))</div><div class="line">                            return true;</div><div class="line">                        else</div><div class="line">                            board[i][j] = &apos;.&apos;;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                return false;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return true;</div><div class="line">&#125;</div><div class="line">private boolean isValid(char[][] board, int row, int col, char c)&#123;</div><div class="line">    for(int i = 0; i &lt; 9; i++) &#123;</div><div class="line">        if(board[i][col] != &apos;.&apos; &amp;&amp; board[i][col] == c) return false;</div><div class="line">        if(board[row][i] != &apos;.&apos; &amp;&amp; board[row][i] == c) return false;</div><div class="line">        if(board[3 * (row / 3) + i / 3][ 3 * (col / 3) + i % 3] != &apos;.&apos; &amp;&amp;</div><div class="line">board[3 * (row / 3) + i / 3][3 * (col / 3) + i % 3] == c) return false;</div><div class="line">    &#125;</div><div class="line">    return true;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -545,7 +545,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text"><font color = black>Problem:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text"><font color = red>Idea:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text"><font color =orange>Java Code:</font></span></a></li></ol></div>
             
 
           </div>

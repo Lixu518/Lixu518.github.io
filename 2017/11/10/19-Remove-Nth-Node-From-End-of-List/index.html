@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="Problem:  Given a linked list, remove the nth node from the end of list and return its head.  Idea:   We create two pointers, one is faster another is slower, locate the faster one to n+1, then contin">
+<meta name="description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given a linked list, remove the nth node from the end of list and return its head.  &amp;lt;font color = red &amp;gt;Idea:&amp;lt;/font&amp;gt;   We create two pointer">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="19. Remove Nth Node From End of List">
 <meta property="og:url" content="http://www.mysry.com/2017/11/10/19-Remove-Nth-Node-From-End-of-List/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="Problem:  Given a linked list, remove the nth node from the end of list and return its head.  Idea:   We create two pointers, one is faster another is slower, locate the faster one to n+1, then contin">
+<meta property="og:description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given a linked list, remove the nth node from the end of list and return its head.  &amp;lt;font color = red &amp;gt;Idea:&amp;lt;/font&amp;gt;   We create two pointer">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-11-10T13:56:38.503Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="19. Remove Nth Node From End of List">
-<meta name="twitter:description" content="Problem:  Given a linked list, remove the nth node from the end of list and return its head.  Idea:   We create two pointers, one is faster another is slower, locate the faster one to n+1, then contin">
+<meta name="twitter:description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given a linked list, remove the nth node from the end of list and return its head.  &amp;lt;font color = red &amp;gt;Idea:&amp;lt;/font&amp;gt;   We create two pointer">
 
 
 
@@ -322,13 +322,13 @@
       
 
       
-        <h2 id="problem"><font color="black">Problem:</font></h2>
+        <h2>&lt;font color = black&gt;Problem:&lt;/font&gt;</h2>
 <blockquote>
 <p>Given a linked list, remove the nth node from the end of list and return its head.</p>
 </blockquote>
-<h2 id="idea"><font color="red">Idea:</font></h2>
+<h2>&lt;font color = red &gt;Idea:&lt;/font&gt;</h2>
 <p>  We create two pointers, one is faster another is slower, locate the faster one to n+1, then contineously move fast pointer and slower pointer, when faster equals 0, skip slower pointer to next.next.</p>
-<h2 id="java-code"><font color="orange">Java Code:</font></h2>
+<h2>&lt;font color = orange&gt;Java Code:&lt;/font&gt;</h2>
 <pre><code>/**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -340,19 +340,20 @@
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode start = new ListNode(0);
-    ListNode slow = start,fast = start;
-    slow.next = head;
-    for (int i=1;i&lt;=n+1;i++) {
-        fast = fast.next;
+	ListNode slow = start,fast = start;
+	slow.next = head;
+	for (int i=1;i&lt;=n+1;i++) {
+		fast = fast.next;
+	}
+	while (fast != null) {
+		slow = slow.next;
+		fast = fast.next;
+	}
+	slow.next = slow.next.next;
+	return start.next;
     }
-    while (fast != null) {
-        slow = slow.next;
-        fast = fast.next;
-    }
-    slow.next = slow.next.next;
-    return start.next;
-    }
-}</code></pre>
+}
+</code></pre>
 
       
     </div>
@@ -562,7 +563,7 @@ class Solution {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text"><font color = black>Problem:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text"><font color = red >Idea:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text"><font color = orange>Java Code:</font></span></a></li></ol></div>
             
 
           </div>
