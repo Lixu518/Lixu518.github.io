@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2017-11-22T14:45:35.249Z</updated>
+  <updated>2017-11-25T14:24:47.437Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -17,11 +17,189 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>55. Jump Game</title>
+    <link href="http://www.mysry.com/2017/11/25/55-Jump-Game/"/>
+    <id>http://www.mysry.com/2017/11/25/55-Jump-Game/</id>
+    <published>2017-11-25T14:17:29.000Z</published>
+    <updated>2017-11-25T14:24:47.437Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given an array of non-negative integers, you are initially positioned at the first index of the array.</p></blockquote><blockquote><p>Each element in the array represents your maximum jump length at that position.</p></blockquote><blockquote><p>Determine if you are able to reach the last index.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> Reverse checking from the tail step, if every step id reachable, than move forward.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public boolean canJump(int[] nums) &#123;</div><div class="line">        int last =nums.length-1,i,j;</div><div class="line">for(i=nums.length-2;i&gt;=0;i--) &#123;</div><div class="line">if(i+nums[i]&gt;=last)</div><div class="line">last=i;</div><div class="line">&#125;</div><div class="line">return last&lt;=0;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given an array of non-negative integers, you are initially positio
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>54. Spiral Matrix</title>
+    <link href="http://www.mysry.com/2017/11/25/54-Spiral-Matrix/"/>
+    <id>http://www.mysry.com/2017/11/25/54-Spiral-Matrix/</id>
+    <published>2017-11-25T14:13:16.000Z</published>
+    <updated>2017-11-25T14:17:40.976Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> We traverse right and increment rowBegin, then traverse down and decrement colEnd, then we traverse left and decrement rowEnd, and finally we traverse up and increment colBegin. The only tricky part is that when we traverse left or upwe have to check whether the row or col still exists to prevent duplicates.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public List&lt;Integer&gt; spiralOrder(int[][] matrix) &#123;</div><div class="line">      List&lt;Integer&gt; res =new ArrayList&lt;Integer&gt;();</div><div class="line">if(matrix.length==0)</div><div class="line">return res;</div><div class="line">int rowBegin=0;</div><div class="line">int rowEnd=matrix.length-1;</div><div class="line">int colBegin = 0;</div><div class="line">int colEnd = matrix[0].length-1;</div><div class="line">while(rowBegin&lt;=rowEnd&amp;&amp;colBegin&lt;=colEnd) &#123;</div><div class="line">for (int j=colBegin;j&lt;=colEnd;j++)</div><div class="line">res.add(matrix[rowBegin][j]);</div><div class="line">rowBegin++;</div><div class="line">for (int j=rowBegin;j&lt;=rowEnd;j++)</div><div class="line">res.add(matrix[j][colEnd]);</div><div class="line">colEnd--;</div><div class="line">if(rowBegin&lt;=rowEnd) &#123;</div><div class="line">for (int j=colEnd;j&gt;=colBegin;j--)</div><div class="line">res.add(matrix[rowEnd][j]);</div><div class="line">&#125;</div><div class="line">rowEnd--;</div><div class="line">if(colBegin&lt;=colEnd) &#123;</div><div class="line">for (int j=rowEnd;j&gt;=rowBegin;j--)</div><div class="line">res.add(matrix[j][colBegin]);</div><div class="line">&#125;</div><div class="line">colBegin++;</div><div class="line">&#125;</div><div class="line">return res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given a matrix of m x n elements (m rows, n columns), return all e
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>52. N-Queens II</title>
+    <link href="http://www.mysry.com/2017/11/25/52-N-Queens-II/"/>
+    <id>http://www.mysry.com/2017/11/25/52-N-Queens-II/</id>
+    <published>2017-11-25T14:09:57.000Z</published>
+    <updated>2017-11-25T14:12:56.144Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Follow up for N-Queens problem.</p></blockquote><blockquote><p>Now, instead outputting board configurations, return the total number of distinct solutions.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> See the previous blog.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    int count =0;</div><div class="line">public int totalNQueens(int n) &#123;</div><div class="line">boolean[]cols = new boolean[n];</div><div class="line">boolean[]d1 = new boolean[2*n];</div><div class="line">boolean[]d2 = new boolean[2*n];</div><div class="line">backtracking(0,cols,d1,d2,n);</div><div class="line">return count;</div><div class="line">&#125;</div><div class="line">public void backtracking(int row,boolean[]cols,boolean[]d1,boolean[]d2,int n) &#123;</div><div class="line">if(row ==n) count++;</div><div class="line">for(int col =0;col&lt;n;col++) &#123;</div><div class="line">int id1=col-row+n;</div><div class="line">int id2=col+row;</div><div class="line">if(cols[col]||d1[id1]||d2[id2]) continue;</div><div class="line">cols[col]=true;</div><div class="line">d1[id1]=true;</div><div class="line">d2[id2]=true;</div><div class="line">backtracking(row+1,cols,d1,d2,n);</div><div class="line">cols[col]=false;d1[id1]=false;d2[id2]=false;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Follow up for N-Queens problem.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>51. N-Queens</title>
+    <link href="http://www.mysry.com/2017/11/25/51-N-Queens/"/>
+    <id>http://www.mysry.com/2017/11/25/51-N-Queens/</id>
+    <published>2017-11-25T14:02:30.000Z</published>
+    <updated>2017-11-25T14:09:31.765Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>The n-queens puzzle is the problem of placing n queens on an n×n chessboard such that no two queens attack each other. Given an integer n, return all distinct solutions to the n-queens puzzle.</p></blockquote><blockquote><p>Each solution contains a distinct board configuration of the n-queens’ placement, where ‘Q’ and ‘.’ both indicate a queen and an empty space respectively.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> We use three boolean arrays to check if the queen disobey the rules, the tree boolean arrays respectively are col, diagonal1 and diagonal2, use a backtracking support function to check every boolean array.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public void solve(List&lt;List&lt;String&gt;&gt; result, List&lt;String&gt; cur, int n, int rowCur, boolean[] col, boolean[] diag1,</div><div class="line">boolean[] diag2) &#123;</div><div class="line">if (rowCur == n) &#123;</div><div class="line">result.add(new ArrayList&lt;String&gt;(cur));</div><div class="line">return;</div><div class="line">&#125;</div><div class="line">for (int j = 0; j &lt; n; j++) &#123;</div><div class="line">int d1 = rowCur + j;</div><div class="line">int d2 = j - rowCur + n - 1;</div><div class="line">if (!col[j] &amp;&amp; !diag1[d1] &amp;&amp; !diag2[d2]) &#123;</div><div class="line">col[j] = true;</div><div class="line">diag1[d1] = true;</div><div class="line">diag2[d2] = true;</div><div class="line">char[] helpChars = new char[n];</div><div class="line">Arrays.fill(helpChars, &apos;.&apos;);</div><div class="line">helpChars[j] = &apos;Q&apos;;</div><div class="line">cur.add(new String(helpChars));</div><div class="line"></div><div class="line">solve(result, cur, n, rowCur + 1, col, diag1, diag2);</div><div class="line"></div><div class="line">col[j] = false;</div><div class="line">diag1[d1] = false;</div><div class="line">diag2[d2] = false;</div><div class="line">cur.remove(cur.size() - 1);</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">public List&lt;List&lt;String&gt;&gt; solveNQueens(int n) &#123;</div><div class="line">List&lt;List&lt;String&gt;&gt; result = new ArrayList&lt;List&lt;String&gt;&gt;();</div><div class="line">if (n &lt; 1)</div><div class="line">return result;</div><div class="line">solve(result, new ArrayList&lt;String&gt;(), n, 0, new boolean[n], new boolean[2 * n], new boolean[2 * n]);</div><div class="line">return result;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The n-queens puzzle is the problem of placing n queens on an n×n c
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>50. Pow(x,n)</title>
+    <link href="http://www.mysry.com/2017/11/25/50-Pow-x-n/"/>
+    <id>http://www.mysry.com/2017/11/25/50-Pow-x-n/</id>
+    <published>2017-11-25T13:57:25.000Z</published>
+    <updated>2017-11-25T14:01:59.163Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Implement pow(x, n).</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> If n is odd, then we need (n+1)/2 times x<em>x, after that use the ans devide x; if n is even, just n/2 times x</em>x is OK.</p><h2 id="java-code"><font color="orange">Java Code</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public double myPow(double x, int n) &#123;</div><div class="line">        double tmp=x;</div><div class="line">if (n==0) return 1;</div><div class="line">tmp =myPow(x,n/2);</div><div class="line">if(n%2==0)</div><div class="line">return tmp*tmp;</div><div class="line">else &#123;</div><div class="line">if (n&gt;0)</div><div class="line">return tmp*tmp*x;</div><div class="line">else</div><div class="line">return tmp*tmp/x;</div><div class="line">&#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Implement pow(x, n).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;idea&quot;&gt;&lt;font color=&quot;
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>49. Group Anagrams </title>
+    <link href="http://www.mysry.com/2017/11/25/49-Group-Anagrams/"/>
+    <id>http://www.mysry.com/2017/11/25/49-Group-Anagrams/</id>
+    <published>2017-11-25T13:51:12.000Z</published>
+    <updated>2017-11-25T13:56:46.593Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given an array of strings, group anagrams together.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>  For every string, we first sorted the string and it will be easy for us to check if our map have such string and where we should put it to.</p><h2 id="java-code"><font color="" orange="">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public List&lt;List&lt;String&gt;&gt; groupAnagrams(String[] strs) &#123;</div><div class="line">        if(strs==null||strs.length==0) return new ArrayList&lt;List&lt;String&gt;&gt;();</div><div class="line">        Map&lt;String,List&lt;String&gt;&gt;map = new HashMap &lt;String,List&lt;String&gt;&gt;();</div><div class="line">        for (String s:strs)&#123;</div><div class="line">            char []ca = s.toCharArray();</div><div class="line">            Arrays.sort(ca);</div><div class="line">            String keyStr = String.valueOf(ca);</div><div class="line">            if(!map.containsKey(keyStr))</div><div class="line">                map.put(keyStr,new ArrayList&lt;String&gt;());</div><div class="line">            map.get(keyStr).add(s);</div><div class="line">        &#125;</div><div class="line">        return new ArrayList&lt;List&lt;String&gt;&gt;(map.values());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given an array of strings, group anagrams together.&lt;/p&gt;
+&lt;/blockquo
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>蚁群算法浅析</title>
+    <link href="http://www.mysry.com/2017/11/24/%E8%9A%81%E7%BE%A4%E7%AE%97%E6%B3%95%E6%B5%85%E6%9E%90/"/>
+    <id>http://www.mysry.com/2017/11/24/蚁群算法浅析/</id>
+    <published>2017-11-24T07:17:44.000Z</published>
+    <updated>2017-11-24T07:17:44.158Z</updated>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        
+
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>48. Rotate Image</title>
     <link href="http://www.mysry.com/2017/11/22/48-Rotate-Image/"/>
     <id>http://www.mysry.com/2017/11/22/48-Rotate-Image/</id>
     <published>2017-11-22T14:42:25.000Z</published>
-    <updated>2017-11-22T14:45:35.249Z</updated>
+    <updated>2017-11-25T13:50:42.557Z</updated>
     
     <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>You are given an n x n 2D matrix representing an image.</p></blockquote><blockquote><p>Rotate the image by 90 degrees (clockwise).</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> My suggestion is to plot the matrix with subindex, and then it may be clear.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public void rotate(int[][] matrix) &#123;</div><div class="line">        for (int i=0;i&lt;matrix.length;i++) &#123;</div><div class="line">for (int j=i;j&lt;matrix[0].length;j++) &#123;</div><div class="line">int tmp =0;</div><div class="line"> tmp = matrix[i][j];</div><div class="line"> matrix[i][j]= matrix[j][i];</div><div class="line"> matrix [j][i]=tmp;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">for (int i=0;i&lt;matrix.length;i++) &#123;</div><div class="line">for (int j=0;j&lt;matrix.length/2;j++) &#123;</div><div class="line">int tmp=0;</div><div class="line">tmp=matrix[i][j];</div><div class="line">matrix[i][j]=matrix[i][matrix.length-1-j];</div><div class="line">matrix[i][matrix.length-1-j]=tmp;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
     
@@ -332,181 +510,6 @@
         &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Determine if a Sudoku is valid, and click &lt;a href=&quot;http://sudoku.c
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>34. Search for a Range</title>
-    <link href="http://www.mysry.com/2017/11/17/34-Search-for-a-Range/"/>
-    <id>http://www.mysry.com/2017/11/17/34-Search-for-a-Range/</id>
-    <published>2017-11-17T01:33:33.000Z</published>
-    <updated>2017-11-17T01:41:27.873Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given an array of integers sorted in ascending order, find the starting and ending position of a given target value.</p></blockquote><blockquote><p>Your algorithm’s runtime complexity must be in the order of O(log n).</p></blockquote><blockquote><p>If the target is not found in the array, return [-1, -1].</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>  The core idea is to find the where the array element which equals taeget begins and its end, return the head and tail index. In order to find the target number, we’d like to use a binary search.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int[] searchRange(int[] nums, int target) &#123;</div><div class="line">        int start = firstGreaterEqual(nums,target);</div><div class="line">        if(start == nums.length|| nums[start]!= target)</div><div class="line">            return new int[] &#123;-1,-1&#125;;</div><div class="line">        return new int[]&#123;start,Solution.firstGreaterEqual(nums,target+1)-1&#125;;</div><div class="line">    &#125;</div><div class="line">    public static int firstGreaterEqual(int[]nums,int target)&#123;</div><div class="line">        int low =0,high = nums.length;</div><div class="line">        while(low&lt;high)&#123;</div><div class="line">            int mid = low + ((high -low)&gt;&gt;1);</div><div class="line">            if(nums[mid] &lt;target)&#123;</div><div class="line">                low = mid+1;</div><div class="line">            &#125;</div><div class="line">            else &#123;</div><div class="line">                high =mid;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return low;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given an array of integers sorted in ascending order, find the sta
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>33. Search in Rotated Sorted Array </title>
-    <link href="http://www.mysry.com/2017/11/15/33-Search-in-Rotated-Sorted-Array/"/>
-    <id>http://www.mysry.com/2017/11/15/33-Search-in-Rotated-Sorted-Array/</id>
-    <published>2017-11-15T14:25:30.000Z</published>
-    <updated>2017-11-15T14:28:13.530Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.</p></blockquote><blockquote><p>(i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).</p></blockquote><blockquote><p>You are given a target value to search. If found in the array return its index, otherwise return -1.</p></blockquote><blockquote><p>You may assume no duplicate exists in the array.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> Use the binary search.The idea is that when rotating the array, there must be one half of the array that is still in sorted order.For example, 6 7 1 2 3 4 5, the order is disrupted from the point between 7 and 1. So when doing binary search, we can make a judgement that which part is ordered and whether the target is in that range, if yes, continue the search in that half, if not continue in the other half.</p><h2 id="section"><font color="orange"></font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int search(int[] nums, int target) &#123;</div><div class="line">        int lo =0,hi =nums.length-1;</div><div class="line">while(lo&lt;hi) &#123;</div><div class="line">int mid = (lo+hi)/2;</div><div class="line">if((nums[0]&gt;target)^(nums[0]&gt;nums[mid])^(target&gt;nums[mid]))&#123;</div><div class="line">lo =mid+1;</div><div class="line">&#125;</div><div class="line">else</div><div class="line">hi = mid;</div><div class="line">&#125;</div><div class="line">return lo ==hi &amp;&amp; nums[lo] == target?lo:-1;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Suppose an array sorted in ascending order is rotated at some pivo
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>32. Longest Valid Parentheses</title>
-    <link href="http://www.mysry.com/2017/11/15/32-Longest-Valid-Parentheses/"/>
-    <id>http://www.mysry.com/2017/11/15/32-Longest-Valid-Parentheses/</id>
-    <published>2017-11-15T14:19:25.000Z</published>
-    <updated>2017-11-15T14:25:03.784Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="blakc">Problem:</font></h2><blockquote><p>Given a string containing just the characters ‘(’ and ‘)’, find the length of the longest valid (well-formed) parentheses substring.</p></blockquote><blockquote><p>For “(()”, the longest valid parentheses substring is “()”, which has length = 2.</p></blockquote><blockquote><p>Another example is “)()())”, where the longest valid parentheses substring is “()()”, which has length = 4.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> Use a stack, if it is ‘)’, then push this into stack, or if it is empty, set left parameter to be j, otherwise pop the stack element and check aganin.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int longestValidParentheses(String s) &#123;</div><div class="line">        Stack&lt;Integer&gt; stack =new Stack&lt;Integer&gt;();</div><div class="line">int max=0, left =-1;</div><div class="line">for (int j=0;j&lt;s.length();j++) &#123;</div><div class="line">if(s.charAt(j)==&apos;(&apos;)stack.push(j);</div><div class="line">else &#123;</div><div class="line">if(stack.isEmpty()) left =j;</div><div class="line">else &#123;</div><div class="line">stack.pop();</div><div class="line">if(stack.isEmpty())max =Math.max(max, j-left);</div><div class="line">else max = Math.max(max, j-stack.peek());</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">return max;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;blakc&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given a string containing just the characters ‘(’ and ‘)’, find th
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>31. Next Permutation</title>
-    <link href="http://www.mysry.com/2017/11/14/31-Next-Permutation/"/>
-    <id>http://www.mysry.com/2017/11/14/31-Next-Permutation/</id>
-    <published>2017-11-14T15:41:15.000Z</published>
-    <updated>2017-11-14T15:49:00.697Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Implement next permutation, which rearranges numbers into the lexicographically next greater permutation of numbers.</p></blockquote><blockquote><p>If such arrangement is not possible, it must rearrange it as the lowest possible order (ie, sorted in ascending order).</p></blockquote><blockquote><p>The replacement must be in-place, do not allocate extra memory.</p></blockquote><blockquote><p>Here are some examples. Inputs are in the left-hand column and its corresponding outputs are in the right-hand column.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>  If you understand what is say about the problem is to find a new permutation to make the number of this string is much bigger than its origin, otherwise rearrange it as the lowest possible order.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public void nextPermutation(int[] nums) &#123;</div><div class="line">        if(nums==null || nums.length&lt;=1) return;</div><div class="line">int i=nums.length-2;</div><div class="line">while (i&gt;=0&amp;&amp;nums[i]&gt;=nums[i+1]) i--;</div><div class="line">if(i&gt;=0) &#123;</div><div class="line">int j=nums.length-1;</div><div class="line">while(nums[j]&lt;=nums[i])j--;</div><div class="line">swap(nums,i,j);</div><div class="line">&#125;</div><div class="line">reverse(nums,i+1,nums.length-1);</div><div class="line">    &#125;</div><div class="line">    public void swap(int[]nums,int i,int j) &#123;</div><div class="line">int tmp =nums[i];</div><div class="line">nums[i]=nums[j];</div><div class="line">nums[j] = tmp;</div><div class="line">&#125;</div><div class="line">public void reverse(int[]nums,int i,int j) &#123;</div><div class="line">while(i&lt;j) swap(nums,i++,j--);</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Implement next permutation, which rearranges numbers into the lexi
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>29. Divide Two Integers</title>
-    <link href="http://www.mysry.com/2017/11/14/29-Divide-Two-Integers/"/>
-    <id>http://www.mysry.com/2017/11/14/29-Divide-Two-Integers/</id>
-    <published>2017-11-14T15:35:38.000Z</published>
-    <updated>2017-11-14T15:40:47.121Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Divide two integers without using multiplication, division and mod operator.</p></blockquote><blockquote><p>If it is overflow, return MAX_INT.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>  The core idea is use many divisors to approach dividend.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int divide(int dividend, int divisor) &#123;</div><div class="line">        int sign=1;</div><div class="line">if((dividend &gt;0&amp;&amp;divisor&lt;0)||(dividend&lt;0&amp;&amp;divisor&gt;0)) sign =-1;</div><div class="line">long ldividend = Math.abs(dividend);</div><div class="line">long ldivisor = Math.abs(divisor);</div><div class="line">if(ldivisor == 0) return Integer.MAX_VALUE;</div><div class="line">if((ldividend == 0)||(ldividend&lt;ldivisor)) return 0;</div><div class="line">long lans = ldivide(ldividend,ldivisor);</div><div class="line">int ans;</div><div class="line">if(lans&gt;Integer.MAX_VALUE) ans = (sign ==1)?Integer.MAX_VALUE:Integer.MIN_VALUE;</div><div class="line">else ans = (int) (sign *lans);</div><div class="line">return ans;</div><div class="line">    &#125;</div><div class="line">    private long ldivide(long ldividend, long ldivisor) &#123;</div><div class="line">if(ldividend &lt;ldivisor) return 0;</div><div class="line">long sum = ldivisor;</div><div class="line">long multiple =1;</div><div class="line">while((sum+sum)&lt;=ldividend) &#123;</div><div class="line">sum+=sum;</div><div class="line">multiple += multiple;</div><div class="line">&#125;</div><div class="line">return multiple+ldivide(ldividend -sum ,ldivisor);</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Divide two integers without using multiplication, division and mod
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>25. Reverse Nodes in k-Group</title>
-    <link href="http://www.mysry.com/2017/11/13/25-Reverse-Nodes-in-k-Group/"/>
-    <id>http://www.mysry.com/2017/11/13/25-Reverse-Nodes-in-k-Group/</id>
-    <published>2017-11-13T13:59:09.000Z</published>
-    <updated>2017-11-13T14:03:35.877Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="peoblem"><font color="black">Peoblem:</font></h2><blockquote><p>Given a linked list, reverse the nodes of a linked list k at a time and return its modified list. k is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of k then left-out nodes in the end should remain as it is. You may not alter the values in the nodes, only nodes itself may be changed. Only constant memory is allowed.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> We use a recursion to find every k node, and if the tail of the last lists don’t have k nodes, just despite them.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for singly-linked list.</div><div class="line"> * public class ListNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     ListNode next;</div><div class="line"> *     ListNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">    public ListNode reverseKGroup(ListNode head, int k) &#123;</div><div class="line">        ListNode curr = head;</div><div class="line">int count = 0;</div><div class="line">while(curr!= null&amp;&amp;count!= k) &#123;</div><div class="line">curr = curr.next;</div><div class="line">count++;</div><div class="line">&#125;</div><div class="line">if(count == k) &#123;</div><div class="line">curr = reverseKGroup(curr,k);</div><div class="line">while(count--&gt;0) &#123;</div><div class="line">ListNode tmp = head.next;</div><div class="line">head.next = curr;</div><div class="line">curr = head;</div><div class="line">head = tmp;</div><div class="line">&#125;</div><div class="line">head = curr;</div><div class="line">&#125;</div><div class="line">return head;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;peoblem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Peoblem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given a linked list, reverse the nodes of a linked list k at a tim
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>10. Regular Expression Matching</title>
-    <link href="http://www.mysry.com/2017/11/13/10-Regular-Expression-Matching/"/>
-    <id>http://www.mysry.com/2017/11/13/10-Regular-Expression-Matching/</id>
-    <published>2017-11-13T13:53:33.000Z</published>
-    <updated>2017-11-13T14:07:21.571Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Implement regular expression matching with support for ‘.’ and ‘<em>’. ’.’ Matches any single character. ’</em>’ Matches zero or more of the preceding element. The matching should cover the entire input string (not partial). The function prototype should be: bool isMatch(const char <em>s, const char </em>p) Some examples: isMatch(“aa”,“a”) → false isMatch(“aa”,“aa”) → true isMatch(“aaa”,“aa”) → false isMatch(“aa”, “a<em>“) → true isMatch(”aa“,”.</em>”) → true isMatch(“ab”, “.<em>“) → true isMatch(”aab“,”c</em>a*b“) → true</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> This solution use a 2D DP, here are some conditions to figure out, then logic can be very straightforward. <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">1, If p.charAt(j) == s.charAt(i) :  dp[i][j] = dp[i-1][j-1];</div><div class="line">2, If p.charAt(j) == &apos;.&apos; : dp[i][j] = dp[i-1][j-1];</div><div class="line">3, If p.charAt(j) == &apos;*&apos;:</div><div class="line">   here are two sub conditions:</div><div class="line">               1   if p.charAt(j-1) != s.charAt(i) : dp[i][j] = dp[i][j-2]  //in this case, a* only counts as empty</div><div class="line">               2   if p.charAt(i-1) == s.charAt(i) or p.charAt(i-1) == &apos;.&apos;:</div><div class="line">                              dp[i][j] = dp[i-1][j]    //in this case, a* counts as multiple a</div><div class="line">                           or dp[i][j] = dp[i][j-1]   // in this case, a* counts as single a</div><div class="line">                           or dp[i][j] = dp[i][j-2]   // in this case, a* counts as empty.</div></pre></td></tr></table></figure></p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public boolean isMatch(String s, String p) &#123;</div><div class="line">     if(s==null||p==null)return false;</div><div class="line">boolean [][]dp = new boolean [s.length()+1][p.length()+1];</div><div class="line">dp[0][0] = true;</div><div class="line">for (int i =0;i&lt;p.length();i++) &#123;</div><div class="line">if(p.charAt(i) == &apos;*&apos;&amp;&amp;dp[0][i-1]) dp[0][i+1] = true;</div><div class="line">&#125;</div><div class="line">for(int i=0;i&lt;s.length();i++) &#123;</div><div class="line">for (int j=0;j&lt;p.length();j++) &#123;</div><div class="line">if(p.charAt(j)==&apos;.&apos;)</div><div class="line">dp[i+1][j+1]=dp[i][j];</div><div class="line">if(p.charAt(j)==s.charAt(i))</div><div class="line">dp[i+1][j+1]=dp[i][j];</div><div class="line">if(p.charAt(j)==&apos;*&apos;) &#123;</div><div class="line">if (p.charAt(j-1)!=s.charAt(i)&amp;&amp;p.charAt(j-1)!=&apos;.&apos;)</div><div class="line">dp[i+1][j+1] = dp[i+1][j-1];</div><div class="line">else</div><div class="line">dp[i+1][j+1] = (dp[i+1][j]||dp[i][j+1]||dp[i+1][j-1]);</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">return dp[s.length()][p.length()];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Implement regular expression matching with support for ‘.’ and ‘&lt;e
       
     
     </summary>
