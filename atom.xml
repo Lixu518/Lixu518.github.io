@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2017-11-26T04:02:21.804Z</updated>
+  <updated>2017-11-26T12:54:28.018Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AdaBoost</title>
+    <link href="http://www.mysry.com/2017/11/26/AdaBoost/"/>
+    <id>http://www.mysry.com/2017/11/26/AdaBoost/</id>
+    <published>2017-11-26T11:28:00.000Z</published>
+    <updated>2017-11-26T12:54:28.018Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="提升boosting方法和adaboost">提升(boosting)方法和AdaBoost</h2><p>  Boosting是一种常用的统计学习方法，在分类问题中，它通过改变样本的权重学习多个分类器，并将这些分类器进行线性组合，以提升分类的性能。AdaBoost是Boosting算法的一种代表性算法。</p><p>  AdaBoost(Adaptive Boosting,自适应增强)，由Yoav Freund和Robert Schapire在1995年提出，其自适应在于：前一个基本分类器分错的样本会得到加强，加权后的全体样本再被用来训练下一个基本分类器。同时，在每一轮加入一个新的弱分类器，直接达到某个预定的足够小的错误率或达到预先指定的最大迭代次数。(总的来说，即加大被错误分类样本的权值和加大错误率小的分类器的权值)</p><p>  具体来说AdaBoost算法分为以下三步：<br> (1)初始化训练数据的权值分布。如果由n个样本，则每个训练样本最开始时都被赋予相同的权值：1/N。<br> (2)训练弱分类器。具体训练过程中，如果某个样本点已经被准确地分类，那么在构造下一个训练集中，它的权值就被降低；相反，如果某个样本点没有被准确地分类，那么它的权值就得到提高。然后，权值更新过的样本集被用于训练下一个分类器，整个训练过程如此迭代地进行下去。<br> (3)将各个训练得到的弱分类器组合成强分类器。各个弱分类器的训练过程结束后，加大分类误差率小的弱分类器的权重，使其在最终的分类函数中起着较大的决定作用，而降低分类误差率大的弱分类器的权重，使其在最终的分类函数中起着较小的决定作用。换言之，误差率低的弱分类器在最终分类器中占的权重较大，否则较小。<br></p><h2 id="adaboost算法的流程">AdaBoost算法的流程</h2><p>输入：训练数据集<span class="math inline">\(T=\{(x_1,y_1),(x_2,y_2),...,(x_N,y_N)\}\)</span>,其中<span class="math inline">\(x_i\in\chi\subseteq R^n\)</span>,<span class="math inline">\(y\in\nu=\{-1,+1\}\)</span>;若学习算法; 输出：最终分类器G(x)</p><ul><li>初始化训练权值分布<span class="math display">\[D_1=(\omega_{11},\omega_{12},...,\omega_{1N}),\omega_{1i}==\frac{1}{N},i=1,2,...,N\]</span></li><li>对m=1,2,…,M:<br>    (a)使用权值分布<span class="math inline">\(D_m\)</span>的训练数据集学习，得到基分类器<span class="math display">\[G_m(x):\chi\to\{-1,+1\}\]</span><br></li></ul><p>  (b)计算<span class="math inline">\(G_m\)</span>在训练数据集上的分类误差率<span class="math display">\[e_m=\sum_{i=1}^N P(G_m (x_i)\neq y_i)=\sum_{i=1}^N \omega_{mi} I(G_m (x_i)\neq y_i)\]</span> <br></p><p>  (c)计算<span class="math inline">\(G_m(x)\)</span>的系数<span class="math display">\[\alpha_m=\frac{1}{2}\log\frac{1-e_m}{e_m}\]</span>这里的对数是自然对数;<br></p><p>  (d)更新训练数据集的权值分布<span class="math display">\[D_{m+1}=(\omega_{m+1,1},...,\omega_{m+1,i},...,\omega_{m+1,N}\]</span> <span class="math display">\[\omega_{m+1,i}=\frac{\omega_{mi}}{Z_m}exp(-\alpha_m y_i G_m (x_i))\]</span>这里，<span class="math inline">\(Z_m\)</span>是规范化因子<span class="math display">\[Z_m = \sum_{i=1}^N \omega_{mi} exp(-\alpha_m y_i G_m (x_i))\]</span>它使得<span class="math inline">\(D_{m+1}\)</span>成为一个概率分布。</p><ul><li>构建基本分类器的线性组合<span class="math display">\[f(x)=\sum_{i=1}^M \alpha_m G_m (x)\]</span>得到最终分类器<span class="math display">\[G(x)=sign(f(x))=sign(\sum_{i=1}^M \alpha_m G_m (x))\]</span></li></ul><h2 id="adaboost算法的训练误差分析">AdaBoost算法的训练误差分析</h2><p>  AdaBoost最基本的性质是它能在学习过程中不断的减少训练误差，即在训练数据集上的分类误差率。</p><h3 id="adaboost的训练误差界">AdaBoost的训练误差界</h3><p>  AdaBoost算法最终分类器的训练误差界为<span class="math display">\[\frac{1}{N}\sum_{i=1}^N I(G(x_i)\neq y_i)\leq\frac{1}{N}\sum_i exp(-y_i f(x_i))=\prod_m Z_m\]</span>其中G(x),f(x)和<span class="math inline">\(Z_m\)</span>由算法流程中公式给出。</p><h3 id="二分类问题adaboost的训练误差界">二分类问题AdaBoost的训练误差界</h3><p><span class="math display">\[\prod_{m=1}^M Z_m=\prod_{m=1}^M [2\sqrt{e_m (1-e_m)}]=\prod_{m=1}^M \sqrt(1-4\gamma_m^2)}\leq exp(-2\sum_{m=1}^M\gamma_m^2)\]</span>其中<span class="math inline">\(\gamma_m^2=\frac{1}{2}-e_m\)</span></p><p>  相关推论:<br> 如果存在<span class="math inline">\(\gamma&gt;0\)</span>,且对所有的m都有<span class="math inline">\(\gamma_m\geq\gamma\)</span>，那么<span class="math display">\[\frac{1}{N}=\sum_{i=1}^N I(G(x_i)\neq y_i)\leq exp(-2M\gamma^2)\]</span>这表明在此条件下AdaBoost的训练误差界是以指数速率下降。</p><p>To be continued…</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;提升boosting方法和adaboost&quot;&gt;提升(boosting)方法和AdaBoost&lt;/h2&gt;
+&lt;p&gt;  Boosting是一种常用的统计学习方法，在分类问题中，它通过改变样本的权重学习多个分类器，并将这些分类器进行线性组合，以提升分类的性能。AdaBoo
+      
+    
+    </summary>
+    
+    
+      <category term="Machine learning" scheme="http://www.mysry.com/tags/Machine-learning/"/>
+    
+  </entry>
   
   <entry>
     <title>Ant Colony Optimization</title>
@@ -493,31 +517,6 @@
     
     
       <category term="Machine learning" scheme="http://www.mysry.com/tags/Machine-learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>36. Valid Sudoku</title>
-    <link href="http://www.mysry.com/2017/11/17/36-Valid-Sudoku/"/>
-    <id>http://www.mysry.com/2017/11/17/36-Valid-Sudoku/</id>
-    <published>2017-11-17T01:42:01.000Z</published>
-    <updated>2017-11-17T01:48:20.403Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Determine if a Sudoku is valid, and click <a href="http://sudoku.com.au/TheRules.aspx" target="_blank" rel="external">the Rules</a> to see more details. Note: A valid Sudoku board (partially filled) is not necessarily solvable. Only the filled cells need to be validated.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> Collect the set of things we see, encoded as strings. For example:</p><ul><li>‘4’ in row 7 is encoded as “(4)7”.</li><li>‘4’ in column 7 is encoded as “7(4)”.</li><li>‘4’ in the top-right block is encoded as “0(4)2”.</li></ul><p> Scream false if we ever fail to add something because it was already added (i.e., seen before).</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public boolean isValidSudoku(char[][] board) &#123;</div><div class="line">       Set seen = new HashSet() ;</div><div class="line">        for (int i=0;i&lt;9;++i)&#123;</div><div class="line">            for (int j=0;j&lt;9;++j)&#123;</div><div class="line">                char number = board[i][j];</div><div class="line">                if(number!= &apos;.&apos;)</div><div class="line">                    if(!seen.add(number+&quot; in row &quot;+ i)||!seen.add(number +&quot; in colomn &quot;+j)||!seen.add(number+&quot; in block &quot;+i/3+&quot;-&quot;+j/3))</div><div class="line">                        return false;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return true;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Determine if a Sudoku is valid, and click &lt;a href=&quot;http://sudoku.c
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
     
   </entry>
   
