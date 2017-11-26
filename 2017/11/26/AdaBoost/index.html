@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Mysry">
 <meta property="og:description" content="提升(boosting)方法和AdaBoost   Boosting是一种常用的统计学习方法，在分类问题中，它通过改变样本的权重学习多个分类器，并将这些分类器进行线性组合，以提升分类的性能。AdaBoost是Boosting算法的一种代表性算法。   AdaBoost(Adaptive Boosting,自适应增强)，由Yoav Freund和Robert Schapire在1995年提出，其自适">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-26T12:54:28.018Z">
+<meta property="og:updated_time" content="2017-11-26T12:57:37.850Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AdaBoost">
 <meta name="twitter:description" content="提升(boosting)方法和AdaBoost   Boosting是一种常用的统计学习方法，在分类问题中，它通过改变样本的权重学习多个分类器，并将这些分类器进行线性组合，以提升分类的性能。AdaBoost是Boosting算法的一种代表性算法。   AdaBoost(Adaptive Boosting,自适应增强)，由Yoav Freund和Robert Schapire在1995年提出，其自适">
@@ -343,7 +343,7 @@
 <h3 id="adaboost的训练误差界">AdaBoost的训练误差界</h3>
 <p>  AdaBoost算法最终分类器的训练误差界为<span class="math display">\[\frac{1}{N}\sum_{i=1}^N I(G(x_i)\neq y_i)\leq\frac{1}{N}\sum_i exp(-y_i f(x_i))=\prod_m Z_m\]</span>其中G(x),f(x)和<span class="math inline">\(Z_m\)</span>由算法流程中公式给出。</p>
 <h3 id="二分类问题adaboost的训练误差界">二分类问题AdaBoost的训练误差界</h3>
-<p><span class="math display">\[\prod_{m=1}^M Z_m=\prod_{m=1}^M [2\sqrt{e_m (1-e_m)}]=\prod_{m=1}^M \sqrt(1-4\gamma_m^2)}\leq exp(-2\sum_{m=1}^M\gamma_m^2)\]</span>其中<span class="math inline">\(\gamma_m^2=\frac{1}{2}-e_m\)</span></p>
+<p><span class="math display">\[\prod_{m=1}^M Z_m=\prod_{m=1}^M [2\sqrt{e_m (1-e_m)}]=\prod_{m=1}^M \sqrt{(1-4\gamma_m^2)}\leq exp(-2\sum_{m=1}^M\gamma_m^2)\]</span>其中<span class="math inline">\(\gamma_m^2=\frac{1}{2}-e_m\)</span></p>
 <p>  相关推论:<br> 如果存在<span class="math inline">\(\gamma&gt;0\)</span>,且对所有的m都有<span class="math inline">\(\gamma_m\geq\gamma\)</span>，那么<span class="math display">\[\frac{1}{N}=\sum_{i=1}^N I(G(x_i)\neq y_i)\leq exp(-2M\gamma^2)\]</span>这表明在此条件下AdaBoost的训练误差界是以指数速率下降。</p>
 <p>To be continued…</p>
 
