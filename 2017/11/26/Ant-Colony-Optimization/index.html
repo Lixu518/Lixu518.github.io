@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Mysry">
 <meta property="og:description" content="蚁群算法介绍   最近在工作遇到了一个问题:遍历一个矩阵D(n,n)，矩阵元素是矩阵两两节点的距离，求使得路径最短的遍历路线？我上网查了一下，发现这个问题和有名的难题TSP(旅行商问题)是一致的，看了几种解法，最终选择了用蚁群算法来逼近最优解(这是一个NP hard的问题，通常时间复杂度为\(O(2^n)\))。   什么是蚁群算法？蚁群算法是一种模拟蚂蚁觅食行为提出的一种基于种群的模拟进化算法。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-26T03:45:31.780Z">
+<meta property="og:updated_time" content="2017-11-26T03:56:16.105Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ant Colony Optimization">
 <meta name="twitter:description" content="蚁群算法介绍   最近在工作遇到了一个问题:遍历一个矩阵D(n,n)，矩阵元素是矩阵两两节点的距离，求使得路径最短的遍历路线？我上网查了一下，发现这个问题和有名的难题TSP(旅行商问题)是一致的，看了几种解法，最终选择了用蚁群算法来逼近最优解(这是一个NP hard的问题，通常时间复杂度为\(O(2^n)\))。   什么是蚁群算法？蚁群算法是一种模拟蚂蚁觅食行为提出的一种基于种群的模拟进化算法。">
@@ -327,7 +327,9 @@
 <p>  什么是蚁群算法？蚁群算法是一种模拟蚂蚁觅食行为提出的一种基于种群的模拟进化算法。蚁群算法原理是一种正反馈机制或增强学习系统;它通过【最优路径上蚂蚁数量的增加→ 信息素强度增加→ 后来蚂蚁选择概率增大→ 最优路径上蚂蚁数量更大增加】达到最终收敛于最优路径上。蚁群算法是一种通用的随机优化算法，使用人工蚂蚁仿真，融入了智能人工蚂蚁（具有一定的记忆性），其复杂度为<span class="math inline">\(O(N_c * n^2 * m)\)</span>,<span class="math inline">\(N_c\)</span>是迭代次数，m是蚂蚁数量，n是节点数目。</p>
 <h2 id="蚁群算法的一般步骤">蚁群算法的一般步骤</h2>
 <h3 id="初始化">初始化</h3>
-<p>  将m只蚂蚁随机的放在n个城市，每只蚂蚁的禁忌表为当前蚂蚁所在的城市，各边的信息初始化为c。(禁忌表体现了人工蚂蚁的记忆性，使得蚂蚁不会走重复的路，提高了效率。)</p>
+<p>  m只蚂蚁随机的放在n个城市，每只蚂蚁的禁忌表为当前蚂蚁所在的城市，各边的信息初始化为c。(禁忌表体现了人工蚂蚁的记忆性，使得蚂蚁不会走重复的路，提高了效率。)</p>
+<h3 id="构造路径">构造路径</h3>
+<p>  在t时刻，蚂蚁k从城市i转移到城市j的概率为:<span class="math display">\[P^k(i,j) =\frac{[\tau(i,j)]^{\alpha} * [\varphi(i,j)]^{\beta}}{\sum_{s \notin J_k (i)} [\tau(i,s)]^\alpha*[\varphi(i,s)]^\beta}\]</span></p>
 
       
     </div>
@@ -533,7 +535,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#蚁群算法介绍"><span class="nav-number">1.</span> <span class="nav-text">蚁群算法介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#蚁群算法的一般步骤"><span class="nav-number">2.</span> <span class="nav-text">蚁群算法的一般步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化"><span class="nav-number">2.1.</span> <span class="nav-text">初始化</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#蚁群算法介绍"><span class="nav-number">1.</span> <span class="nav-text">蚁群算法介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#蚁群算法的一般步骤"><span class="nav-number">2.</span> <span class="nav-text">蚁群算法的一般步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化"><span class="nav-number">2.1.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造路径"><span class="nav-number">2.2.</span> <span class="nav-text">构造路径</span></a></li></ol></li></ol></div>
             
 
           </div>
