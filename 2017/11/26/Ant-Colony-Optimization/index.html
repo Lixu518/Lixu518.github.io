@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Mysry">
 <meta property="og:description" content="蚁群算法介绍   最近在工作遇到了一个问题:遍历一个矩阵D(n,n)，矩阵元素是矩阵两两节点的距离，求使得路径最短的遍历路线？我上网查了一下，发现这个问题和有名的难题TSP(旅行商问题)是一致的，看了几种解法，最终选择了用蚁群算法来逼近最优解(这是一个NP hard的问题，通常时间复杂度为\(O(2^n)\))。   什么是蚁群算法？蚁群算法是一种模拟蚂蚁觅食行为提出的一种基于种群的模拟进化算法。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-26T03:56:16.105Z">
+<meta property="og:updated_time" content="2017-11-26T03:56:55.634Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ant Colony Optimization">
 <meta name="twitter:description" content="蚁群算法介绍   最近在工作遇到了一个问题:遍历一个矩阵D(n,n)，矩阵元素是矩阵两两节点的距离，求使得路径最短的遍历路线？我上网查了一下，发现这个问题和有名的难题TSP(旅行商问题)是一致的，看了几种解法，最终选择了用蚁群算法来逼近最优解(这是一个NP hard的问题，通常时间复杂度为\(O(2^n)\))。   什么是蚁群算法？蚁群算法是一种模拟蚂蚁觅食行为提出的一种基于种群的模拟进化算法。">
@@ -329,7 +329,7 @@
 <h3 id="初始化">初始化</h3>
 <p>  m只蚂蚁随机的放在n个城市，每只蚂蚁的禁忌表为当前蚂蚁所在的城市，各边的信息初始化为c。(禁忌表体现了人工蚂蚁的记忆性，使得蚂蚁不会走重复的路，提高了效率。)</p>
 <h3 id="构造路径">构造路径</h3>
-<p>  在t时刻，蚂蚁k从城市i转移到城市j的概率为:<span class="math display">\[P^k(i,j) =\frac{[\tau(i,j)]^{\alpha} * [\varphi(i,j)]^{\beta}}{\sum_{s \notin J_k (i)} [\tau(i,s)]^\alpha*[\varphi(i,s)]^\beta}\]</span></p>
+<p>  在t时刻，蚂蚁k从城市i转移到城市j的概率为:<span class="math display">\[P^k(i,j) =\frac{[\tau(i,j)]^{\alpha} * [\varphi(i,j)]^{\beta}}{\sum_{s \notin J_k (i)} [\tau(i,s)]^\alpha*[\varphi(i,s)]^\beta}\]</span>其中<span class="math inline">\(Taub_k\)</span>保存的是蚂蚁k已访问过的城市的集合，<span class="math inline">\(\alpha\)</span>,<span class="math inline">\(\beta\)</span>是系统参数，分别代表信息素，距离对蚂蚁选择路径的影响。<span class="math inline">\(\tau(i,j)\)</span>表示边L(i，j)上的信息素强度，<span class="math inline">\(\varphi(i,j)\)</span>表示可以根据由城市i到城市j的期望程度，根据启发式算法决定，一般为<span class="math inline">\(\frac{1}{d_{ij}}\)</span>，当<span class="math inline">\(\alpha=0\)</span>算法演变为传统的随机贪婪算法，最近邻城市被选中的概率最大,<span class="math inline">\(\beta=0\)</span>蚂蚁只根据信息素浓度确定路径，算法将快速收敛这样够出的路径与实际目标有着较大的差距。，一般在AS中设<span class="math inline">\(\alpha=1 \sim 2\)</span>,<span class="math inline">\(\beta=2 \sim 5\)</span>较为合理。</p>
 
       
     </div>
