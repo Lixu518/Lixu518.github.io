@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2017-11-27T04:15:50.387Z</updated>
+  <updated>2017-11-28T14:56:54.036Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>60. Permutation Sequence</title>
+    <link href="http://www.mysry.com/2017/11/28/60-Permutation-Sequence/"/>
+    <id>http://www.mysry.com/2017/11/28/60-Permutation-Sequence/</id>
+    <published>2017-11-28T14:52:49.000Z</published>
+    <updated>2017-11-28T14:56:54.036Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>The set [1,2,3,…,n] contains a total of n! unique permutations.</p></blockquote><blockquote><p>By listing and labeling all of the permutations in order,Given n and k, return the kth permutation sequence.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> It’s more likely to be a math problem! <a href="https://leetcode.com/problems/permutation-sequence/discuss/" target="_blank" rel="external">more details</a></p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public String getPermutation(int n, int k) &#123;</div><div class="line">      List&lt;Integer&gt;num = new LinkedList&lt;Integer&gt;();</div><div class="line">for(int i=1;i&lt;=n;i++)</div><div class="line">num.add(i);</div><div class="line">int[]fact = new int[n];</div><div class="line">fact[0]=1;</div><div class="line">for (int i=1;i&lt;n;i++)</div><div class="line">fact[i]=i*fact[i-1];</div><div class="line">k=k-1;</div><div class="line">StringBuilder sb=new StringBuilder();</div><div class="line">for(int i=n;i&gt;0;i--) &#123;</div><div class="line">int ind =k/fact[i-1];</div><div class="line">k=k%fact[i-1];</div><div class="line">sb.append(num.get(ind));</div><div class="line">num.remove(ind);</div><div class="line">&#125;</div><div class="line">return sb.toString();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The set [1,2,3,…,n] contains a total of n! unique permutations.&lt;/p
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>59. Spiral Matrix II</title>
+    <link href="http://www.mysry.com/2017/11/28/59-Spiral-Matrix-II/"/>
+    <id>http://www.mysry.com/2017/11/28/59-Spiral-Matrix-II/</id>
+    <published>2017-11-28T14:48:57.000Z</published>
+    <updated>2017-11-28T14:52:31.863Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given an integer n, generate a square matrix filled with elements from 1 to <span class="math inline">\(n^2\)</span> in spiral order.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> Generate matrix as the order, and be careful of the stopping condition.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int[][] generateMatrix(int n) &#123;</div><div class="line">      int[][] matrix = new int[n][n];</div><div class="line">if (n == 0)</div><div class="line">return matrix;</div><div class="line">int num=1;</div><div class="line">int rowStart = 0, rowEnd = n - 1, colStart = 0, colEnd = n - 1;</div><div class="line">while(rowStart&lt;=rowEnd&amp;&amp;colStart&lt;=colEnd) &#123;</div><div class="line">for (int i=colStart;i&lt;=colEnd;i++)</div><div class="line">matrix[rowStart][i]=num++;</div><div class="line">rowStart++;</div><div class="line">for(int i=rowStart;i&lt;=rowEnd;i++)</div><div class="line">matrix[i][colEnd]=num++;</div><div class="line">colEnd--;</div><div class="line">for (int i=colEnd;i&gt;=colStart;i--)</div><div class="line">if(rowStart&lt;=rowEnd)</div><div class="line">matrix[rowEnd][i]=num++;</div><div class="line">rowEnd--;</div><div class="line">for (int i=rowEnd;i&gt;=rowStart;i--)</div><div class="line">if(colStart&lt;=colEnd)</div><div class="line">matrix[i][colStart]=num++;</div><div class="line">colStart++;</div><div class="line">&#125;</div><div class="line">return matrix;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given an integer n, generate a square matrix filled with elements 
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>57. Insert Interval</title>
@@ -462,56 +512,6 @@
         &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Given an unsorted integer array, find the first missing positive i
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>40. Combination Sum II</title>
-    <link href="http://www.mysry.com/2017/11/19/40-Combination-Sum-II/"/>
-    <id>http://www.mysry.com/2017/11/19/40-Combination-Sum-II/</id>
-    <published>2017-11-19T10:01:40.000Z</published>
-    <updated>2017-11-19T12:07:05.147Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given a collection of candidate numbers (C) and a target number (T), find all unique combinations in C where the candidate numbers sums to T.</p></blockquote><blockquote><p>Each number in C may only be used once in the combination.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> Just skip the duplicated element!</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public List&lt;List&lt;Integer&gt;&gt; combinationSum2(int[] candidates, int target) &#123;</div><div class="line"></div><div class="line">    List&lt;List&lt;Integer&gt;&gt;list = new LinkedList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">Arrays.sort(candidates);</div><div class="line">backtrack(list,new ArrayList&lt;Integer&gt;(),candidates,target,0);</div><div class="line">return list;</div><div class="line">&#125;</div><div class="line">public void backtrack(List&lt;List&lt;Integer&gt;&gt;list,List&lt;Integer&gt;tempList,int[]can,int remain,int start) &#123;</div><div class="line">if(remain&lt;0) return;</div><div class="line">else if (remain==0) list.add(new ArrayList&lt;&gt;(tempList));</div><div class="line">else &#123;</div><div class="line">for (int i=start;i&lt;can.length;i++) &#123;</div><div class="line">if(i&gt;start&amp;&amp;can[i]==can[i-1])continue;</div><div class="line">tempList.add(can[i]);</div><div class="line">backtrack(list,tempList,can,remain-can[i],i+1);</div><div class="line">tempList.remove(tempList.size()-1);</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given a collection of candidate numbers (C) and a target number (T
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>39. Combination Sum</title>
-    <link href="http://www.mysry.com/2017/11/19/39-Combination-Sum/"/>
-    <id>http://www.mysry.com/2017/11/19/39-Combination-Sum/</id>
-    <published>2017-11-19T09:56:30.000Z</published>
-    <updated>2017-11-19T10:01:13.609Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given a set of candidate numbers (C) (without duplicates) and a target number (T), find all unique combinations in C where the candidate numbers sums to T.</p></blockquote><blockquote><p>The same repeated number may be chosen from C unlimited number of times.</p></blockquote><blockquote><p>Note: All numbers (including target) will be positive integers. The solution set must not contain duplicate combinations. For example, given candidate set [2, 3, 6, 7] and target 7, A solution set is:</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[7],</div><div class="line">[2, 2, 3]</div><div class="line"> ]</div></pre></td></tr></table></figure><h2 id="idea"><font color="red">Idea:</font></h2><p> The main idea reminds an approach for solving coins/knapsack problem - to store the result for all i lower than target and create the solution from them. For that for each t from 1 to our target we try every candidate which is less or equal to t in ascending order. For each candidate “c” we run through all combinations for target t-c starting with the value greater or equal than c to avoid duplicates and store only ordered combinations.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public List&lt;List&lt;Integer&gt;&gt; combinationSum(int[] candidates, int target) &#123;</div><div class="line">        Arrays.sort(candidates);</div><div class="line">List&lt;List&lt;List&lt;Integer&gt;&gt;&gt; dp = new ArrayList&lt;&gt;();</div><div class="line">for (int i=1;i&lt;=target;i++) &#123;</div><div class="line">List&lt;List&lt;Integer&gt;&gt; newList = new ArrayList();</div><div class="line">for (int j=0;j&lt;candidates.length &amp;&amp;candidates[j]&lt;=i;j++) &#123;</div><div class="line">if(i == candidates[j])newList.add(Arrays.asList(candidates[j]));</div><div class="line">else for (List&lt;Integer&gt; l :dp.get(i-candidates[j]-1)) &#123;</div><div class="line">if(candidates[j]&lt;=l.get(0)) &#123;</div><div class="line">List cl = new ArrayList&lt;&gt;();</div><div class="line">cl.add(candidates[j]);</div><div class="line">cl.addAll(l);</div><div class="line">newList.add(cl);</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">dp.add(newList);</div><div class="line">&#125;</div><div class="line">return dp.get(target-1);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given a set of candidate numbers (C) (without duplicates) and a ta
       
     
     </summary>
