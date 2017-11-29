@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2017-11-29T13:00:19.033Z</updated>
+  <updated>2017-11-29T13:05:45.003Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>61. Rotate List</title>
+    <link href="http://www.mysry.com/2017/11/29/61-Rotate-List/"/>
+    <id>http://www.mysry.com/2017/11/29/61-Rotate-List/</id>
+    <published>2017-11-29T13:01:30.000Z</published>
+    <updated>2017-11-29T13:05:45.003Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given a list, rotate the list to the right by k places, where k is non-negative.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> Get the length of the list and then chang move to the (i-k%i)th node before we do rotate.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for singly-linked list.</div><div class="line"> * public class ListNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     ListNode next;</div><div class="line"> *     ListNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">    public ListNode rotateRight(ListNode head, int k) &#123;</div><div class="line">      if (head == null || head.next == null)</div><div class="line">return head;</div><div class="line">ListNode d = new ListNode(0);</div><div class="line">d.next = head;</div><div class="line">ListNode fast = d, slow = d;</div><div class="line">int i;</div><div class="line">for (i = 0; fast.next != null; i++)</div><div class="line">fast = fast.next;</div><div class="line">for (int j = i - k % i; j &gt; 0; j--)</div><div class="line">slow = slow.next;</div><div class="line">fast.next = d.next;</div><div class="line">d.next = slow.next;</div><div class="line">slow.next = null;</div><div class="line">return d.next;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given a list, rotate the list to the right by k places, where k is
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>62. Unique Paths</title>
@@ -487,31 +512,6 @@
         &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Given two non-negative integers num1 and num2 represented as strin
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>42. Trapping Rain Water</title>
-    <link href="http://www.mysry.com/2017/11/19/42-Trapping-Rain-Water/"/>
-    <id>http://www.mysry.com/2017/11/19/42-Trapping-Rain-Water/</id>
-    <published>2017-11-19T12:13:19.000Z</published>
-    <updated>2017-11-19T12:15:58.710Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>  Keep track of the maximum height from both forward directions backward directions, call them leftmax and rightmax.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int trap(int[] height) &#123;</div><div class="line">        int a=0,b=height.length-1,max=0,leftmax=0,rightmax=0;</div><div class="line">while(a&lt;b) &#123;</div><div class="line">leftmax=Math.max(leftmax, height[a]);</div><div class="line">rightmax=Math.max(rightmax, height[b]);</div><div class="line">if(leftmax&lt;rightmax) &#123;</div><div class="line">max+=leftmax-height[a];</div><div class="line">a++;</div><div class="line">&#125;</div><div class="line">else &#123;</div><div class="line">max+=(rightmax-height[b]);</div><div class="line">b--;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">return max;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given n non-negative integers representing an elevation map where 
       
     
     </summary>
