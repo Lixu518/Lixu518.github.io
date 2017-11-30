@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.   (i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).   Yo">
+<meta name="description" content="Problem:  Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.   (i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).   You are given a target value to search. I">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="33. Search in Rotated Sorted Array ">
 <meta property="og:url" content="http://www.mysry.com/2017/11/15/33-Search-in-Rotated-Sorted-Array/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.   (i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).   Yo">
+<meta property="og:description" content="Problem:  Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.   (i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).   You are given a target value to search. I">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-11-15T14:28:13.530Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="33. Search in Rotated Sorted Array ">
-<meta name="twitter:description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.   (i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).   Yo">
+<meta name="twitter:description" content="Problem:  Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.   (i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).   You are given a target value to search. I">
 
 
 
@@ -322,7 +322,7 @@
       
 
       
-        <h2>&lt;font color = black&gt;Problem:&lt;/font&gt;</h2>
+        <h2 id="problem"><font color="black">Problem:</font></h2>
 <blockquote>
 <p>Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.</p>
 </blockquote>
@@ -335,10 +335,10 @@
 <blockquote>
 <p>You may assume no duplicate exists in the array.</p>
 </blockquote>
-<h2>&lt;font color = red&gt;Idea:&lt;/font&gt;</h2>
+<h2 id="idea"><font color="red">Idea:</font></h2>
 <p> Use the binary search.The idea is that when rotating the array, there must be one half of the array that is still in sorted order.For example, 6 7 1 2 3 4 5, the order is disrupted from the point between 7 and 1. So when doing binary search, we can make a judgement that which part is ordered and whether the target is in that range, if yes, continue the search in that half, if not continue in the other half.</p>
-<h2>&lt;font color = orange&gt;&lt;/font&gt;</h2>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int search(int[] nums, int target) &#123;</div><div class="line">        int lo =0,hi =nums.length-1;</div><div class="line">	while(lo&lt;hi) &#123;</div><div class="line">		int mid = (lo+hi)/2;</div><div class="line">		if((nums[0]&gt;target)^(nums[0]&gt;nums[mid])^(target&gt;nums[mid]))&#123;</div><div class="line">			lo =mid+1;</div><div class="line">		&#125;</div><div class="line">		else</div><div class="line">			hi = mid;</div><div class="line">	&#125;</div><div class="line">	return lo ==hi &amp;&amp; nums[lo] == target?lo:-1;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="section"><font color="orange"></font></h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int search(int[] nums, int target) &#123;</div><div class="line">        int lo =0,hi =nums.length-1;</div><div class="line">	while(lo&lt;hi) &#123;</div><div class="line">		int mid = (lo+hi)/2;</div><div class="line">		if((nums[0]&gt;target)^(nums[0]&gt;nums[mid])^(target&gt;nums[mid]))&#123;</div><div class="line">			lo =mid+1;</div><div class="line">		&#125;</div><div class="line">		else</div><div class="line">			hi = mid;</div><div class="line">	&#125;</div><div class="line">	return lo ==hi &amp;&amp; nums[lo] == target?lo:-1;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -548,7 +548,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text"><font color = black>Problem:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text"><font color = red>Idea:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text"><font color = orange></font></span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section"><span class="nav-number">3.</span> <span class="nav-text"></span></a></li></ol></div>
             
 
           </div>

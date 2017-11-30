@@ -323,17 +323,12 @@
 
       
         <p>  最近写博客遇到了很多的数学公式，以前的想法是讲述学工是写出来后街图上传到sm.ms图床，获取html或markdown链接贴到博客里，后来发现实在繁琐，而且公式清晰度不够，排版也相对难看，于是便想到了Latex强大的数学公式编辑能力。</p>
-<p>  对于MathJax，早有大神写好了hexo的Math插件，只需安装即可:
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install hexo-math --save</div><div class="line">hexo math install</div></pre></td></tr></table></figure></p>
-<p>但是我的hexo的渲染并不成功，不断报错，经检查发现，改插件和hexo-inject冲突，狠心卸载inject，并没有什么影响，再更改<code>/node_modules/marked/lib</code>中:
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">escape: /^\\([\\`*&#123;&#125;\[\]()# +\-.!_&gt;])/</div></pre></td></tr></table></figure></p>
-<p>替换成
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">escape: /^\\([`*\[\]()# +\-.!_&gt;])/</div></pre></td></tr></table></figure></p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">em: /^\b_((?:[^_]|__)+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</div></pre></td></tr></table></figure></p>
-<p>替换成:
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">em:/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</div></pre></td></tr></table></figure></p>
-<p>这样MathJax和marked.js就可以共存了。
-更为详细的<a href="https://github.com/hexojs/hexo-math" target="_blank" rel="external">hexo-math</a>信息。</p>
+<p>  对于MathJax，早有大神写好了hexo的Math插件，只需安装即可: <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install hexo-math --save</div><div class="line">hexo math install</div></pre></td></tr></table></figure></p>
+<p>但是我的hexo的渲染并不成功，不断报错，经检查发现，改插件和hexo-inject冲突，狠心卸载inject，并没有什么影响，再更改<code>/node_modules/marked/lib</code>中: <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">escape: /^\\([\\`*&#123;&#125;\[\]()# +\-.!_&gt;])/</div></pre></td></tr></table></figure></p>
+<p>替换成 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">escape: /^\\([`*\[\]()# +\-.!_&gt;])/</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">em: /^\b_((?:[^_]|__)+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</div></pre></td></tr></table></figure>
+<p>替换成: <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">em:/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</div></pre></td></tr></table></figure></p>
+<p>这样MathJax和marked.js就可以共存了。 更为详细的<a href="https://github.com/hexojs/hexo-math" target="_blank" rel="external">hexo-math</a>信息。</p>
 
       
     </div>

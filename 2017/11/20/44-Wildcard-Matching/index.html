@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="&amp;lt;font color =black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Implement wildcard pattern matching with support for &apos;?&apos; and &apos;&apos;. &apos;?&apos; Matches any single character. &apos;&apos; Matches any sequence of characters (including the">
+<meta name="description" content="Problem:  Implement wildcard pattern matching with support for ‘?’ and ‘’. ’?’ Matches any single character. ’’ Matches any sequence of characters (including the empty sequence).   The matching should">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="44. Wildcard Matching">
 <meta property="og:url" content="http://www.mysry.com/2017/11/20/44-Wildcard-Matching/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="&amp;lt;font color =black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Implement wildcard pattern matching with support for &apos;?&apos; and &apos;&apos;. &apos;?&apos; Matches any single character. &apos;&apos; Matches any sequence of characters (including the">
+<meta property="og:description" content="Problem:  Implement wildcard pattern matching with support for ‘?’ and ‘’. ’?’ Matches any single character. ’’ Matches any sequence of characters (including the empty sequence).   The matching should">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-11-20T14:46:31.533Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="44. Wildcard Matching">
-<meta name="twitter:description" content="&amp;lt;font color =black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Implement wildcard pattern matching with support for &apos;?&apos; and &apos;&apos;. &apos;?&apos; Matches any single character. &apos;&apos; Matches any sequence of characters (including the">
+<meta name="twitter:description" content="Problem:  Implement wildcard pattern matching with support for ‘?’ and ‘’. ’?’ Matches any single character. ’’ Matches any sequence of characters (including the empty sequence).   The matching should">
 
 
 
@@ -322,19 +322,17 @@
       
 
       
-        <h2>&lt;font color =black&gt;Problem:&lt;/font&gt;</h2>
+        <h2 id="problem"><font color="black">Problem:</font></h2>
 <blockquote>
-<p>Implement wildcard pattern matching with support for '?' and '<em>'.
-'?' Matches any single character.
-'</em>' Matches any sequence of characters (including the empty sequence).</p>
+<p>Implement wildcard pattern matching with support for ‘?’ and ‘<em>’. ’?’ Matches any single character. ’</em>’ Matches any sequence of characters (including the empty sequence).</p>
 </blockquote>
 <blockquote>
 <p>The matching should cover the entire input string (not partial).</p>
 </blockquote>
-<h2>&lt;font color = red&gt;Idea:&lt;/font&gt;</h2>
+<h2 id="idea"><font color="red">Idea:</font></h2>
 <p> We use a dp table, just like the problem——<a href="http://www.mysry.com/2017/11/13/10-Regular-Expression-Matching/">Regular Expression Matching</a></p>
-<h2>&lt;font color =orange&gt;Java Code:&lt;/font&gt;</h2>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public boolean isMatch(String s, String p) &#123;</div><div class="line">        	boolean[][]match= new boolean[s.length()+1][p.length()+1];</div><div class="line">	match[s.length()][p.length()] = true;</div><div class="line">	for (int i=p.length()-1;i&gt;=0;i--) &#123;</div><div class="line">		if(p.charAt(i)!=&apos;*&apos;)</div><div class="line">			break;</div><div class="line">		else match[s.length()][i]=true;</div><div class="line">	&#125;</div><div class="line">	for (int i=s.length()-1;i&gt;=0;i--) &#123;</div><div class="line">		for (int j=p.length()-1;j&gt;=0;j--) &#123;</div><div class="line">			if(s.charAt(i)==p.charAt(j)||p.charAt(j)==&apos;?&apos;)</div><div class="line">				match[i][j]=match[i+1][j+1];</div><div class="line">			else if (p.charAt(j)==&apos;*&apos;)</div><div class="line">				match[i][j]=match[i+1][j]||match[i][j+1];</div><div class="line">			else</div><div class="line">				match[i][j]=false;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	return match[0][0];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="java-code"><font color="orange">Java Code:</font></h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public boolean isMatch(String s, String p) &#123;</div><div class="line">        	boolean[][]match= new boolean[s.length()+1][p.length()+1];</div><div class="line">	match[s.length()][p.length()] = true;</div><div class="line">	for (int i=p.length()-1;i&gt;=0;i--) &#123;</div><div class="line">		if(p.charAt(i)!=&apos;*&apos;)</div><div class="line">			break;</div><div class="line">		else match[s.length()][i]=true;</div><div class="line">	&#125;</div><div class="line">	for (int i=s.length()-1;i&gt;=0;i--) &#123;</div><div class="line">		for (int j=p.length()-1;j&gt;=0;j--) &#123;</div><div class="line">			if(s.charAt(i)==p.charAt(j)||p.charAt(j)==&apos;?&apos;)</div><div class="line">				match[i][j]=match[i+1][j+1];</div><div class="line">			else if (p.charAt(j)==&apos;*&apos;)</div><div class="line">				match[i][j]=match[i+1][j]||match[i][j+1];</div><div class="line">			else</div><div class="line">				match[i][j]=false;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	return match[0][0];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -544,7 +542,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text"><font color =black>Problem:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text"><font color = red>Idea:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text"><font color =orange>Java Code:</font></span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li></ol></div>
             
 
           </div>

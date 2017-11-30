@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="梯度下降法   梯度下降法是一种迭代算法，通过选取适当的初值$\theta$，不断迭代,更新$\theta$的值，进行目标函数的极小化，直到收敛，由于负梯度方向是使 函数值下降最快的方向，在迭代的每一步，以负的梯度方向更新$\theta$，从而达到减小函数值的目的。算法流程如下:  首先对$\theta$进行赋值，这个值可以使随机的也可以让$\theta$是一个全0的向量 改变$\theta$的值">
+<meta name="description" content="梯度下降法   梯度下降法是一种迭代算法，通过选取适当的初值\(\theta\)，不断迭代,更新\(\theta\)的值，进行目标函数的极小化，直到收敛，由于负梯度方向是使 函数值下降最快的方向，在迭代的每一步，以负的梯度方向更新\(\theta\)，从而达到减小函数值的目的。算法流程如下:  首先对\(\theta\)进行赋值，这个值可以使随机的也可以让\(\theta\)是一个全0的向量 改变">
 <meta name="keywords" content="Machine learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="几种常见的求解无约束最优化问题的方法">
 <meta property="og:url" content="http://www.mysry.com/2017/11/11/几种常见的求解无约束最优化问题的方法/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="梯度下降法   梯度下降法是一种迭代算法，通过选取适当的初值$\theta$，不断迭代,更新$\theta$的值，进行目标函数的极小化，直到收敛，由于负梯度方向是使 函数值下降最快的方向，在迭代的每一步，以负的梯度方向更新$\theta$，从而达到减小函数值的目的。算法流程如下:  首先对$\theta$进行赋值，这个值可以使随机的也可以让$\theta$是一个全0的向量 改变$\theta$的值">
+<meta property="og:description" content="梯度下降法   梯度下降法是一种迭代算法，通过选取适当的初值\(\theta\)，不断迭代,更新\(\theta\)的值，进行目标函数的极小化，直到收敛，由于负梯度方向是使 函数值下降最快的方向，在迭代的每一步，以负的梯度方向更新\(\theta\)，从而达到减小函数值的目的。算法流程如下:  首先对\(\theta\)进行赋值，这个值可以使随机的也可以让\(\theta\)是一个全0的向量 改变">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-11-11T09:42:18.026Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="几种常见的求解无约束最优化问题的方法">
-<meta name="twitter:description" content="梯度下降法   梯度下降法是一种迭代算法，通过选取适当的初值$\theta$，不断迭代,更新$\theta$的值，进行目标函数的极小化，直到收敛，由于负梯度方向是使 函数值下降最快的方向，在迭代的每一步，以负的梯度方向更新$\theta$，从而达到减小函数值的目的。算法流程如下:  首先对$\theta$进行赋值，这个值可以使随机的也可以让$\theta$是一个全0的向量 改变$\theta$的值">
+<meta name="twitter:description" content="梯度下降法   梯度下降法是一种迭代算法，通过选取适当的初值\(\theta\)，不断迭代,更新\(\theta\)的值，进行目标函数的极小化，直到收敛，由于负梯度方向是使 函数值下降最快的方向，在迭代的每一步，以负的梯度方向更新\(\theta\)，从而达到减小函数值的目的。算法流程如下:  首先对\(\theta\)进行赋值，这个值可以使随机的也可以让\(\theta\)是一个全0的向量 改变">
 
 
 
@@ -322,60 +322,61 @@
       
 
       
-        <h2>梯度下降法</h2>
-<p>  梯度下降法是一种迭代算法，通过选取适当的初值$\theta$，不断迭代,更新$\theta$的值，进行目标函数的极小化，直到收敛，由于负梯度方向是使
-函数值下降最快的方向，在迭代的每一步，以负的梯度方向更新$\theta$，从而达到减小函数值的目的。算法流程如下:</p>
+        <h2 id="梯度下降法">梯度下降法</h2>
+<p>  梯度下降法是一种迭代算法，通过选取适当的初值<span class="math inline">\(\theta\)</span>，不断迭代,更新<span class="math inline">\(\theta\)</span>的值，进行目标函数的极小化，直到收敛，由于负梯度方向是使 函数值下降最快的方向，在迭代的每一步，以负的梯度方向更新<span class="math inline">\(\theta\)</span>，从而达到减小函数值的目的。算法流程如下:</p>
 <ul>
-<li>首先对$\theta$进行赋值，这个值可以使随机的也可以让$\theta$是一个全0的向量</li>
-<li>改变$\theta$的值，使得 $J_\theta$按照梯度下降的方向进行减少:$$\theta_j := \theta_j + \alpha(y^{(i)} - h_\theta(x^{(i)}))x_{j}^{x(i)}$$</li>
+<li>首先对<span class="math inline">\(\theta\)</span>进行赋值，这个值可以使随机的也可以让<span class="math inline">\(\theta\)</span>是一个全0的向量</li>
+<li>改变<span class="math inline">\(\theta\)</span>的值，使得 <span class="math inline">\(J_\theta\)</span>按照梯度下降的方向进行减少:<span class="math display">\[\theta_j := \theta_j + \alpha(y^{(i)} - h_\theta(x^{(i)}))x_{j}^{x(i)}\]</span></li>
 </ul>
-<p>  迭代更新的方式有两种，一种是批梯度下降，即对全部的训练数据求得误差后在对\theta进行更新，另外一中是增量梯度下降，没扫描一步都要
-对\theta进行更新，前一种方法能够不断收敛，后一种方法结果可能不断在收敛处徘徊。一般来说，梯度下降法的收敛速度还是比较慢的。</p>
-<h2>最小二乘法</h2>
-<p>  将训练特征表示为X矩阵，结果表示为y向量，仍然是线性回归模型，误差函数不变，那么\theta可以由下面的公式推出:$$ \theta = ({X^T}X)^{-1}X^T{\vec y}$$.</p>
-<h2>牛顿法和拟牛顿法</h2>
-<h3>牛顿法</h3>
-<p>  考虑无约束最优化问题$$\min_{x \in R^n}f(x)$$其中$x^*$为目标函数极小点。</p>
-<p>  假设$f(x)$具有二阶连续偏导数，若第k次迭代值为$x^{(k)}$，则可将$f(x)$在$x^{(k)}$附近进行二阶泰勒展开:$$ f(x)=f(x^{(k)}+{g_k^T}(x-x^{(k)}) + \frac{1}{2}{(x-x^{(k)})^T}H(x^{(k)})(x-x^{(k)})$$其中$g_k = g(x^{(k)}) = \nabla f(x^{(k)})$是$f(x)$的梯度在点$x^{(k)}$的值，$H(x^{(k)})$是$f(x)$的海赛矩阵(Hesse   matrix):$$ H(x) = [\frac{\vartheta^2 f}{\vartheta x_i \vartheta x_j}]_{n \times n}$$在点$x^{(k)}$的值。</p>
-<p>  牛顿法利用的极小点的必要条件$$\nabla f(x) = 0$$,每次迭代都是从点$x^{(k)}$开始，求目标函数的极小点，作为第$k+1$次迭代值$x^{(k+1)}$,具体的，假设$x^{(k+1)}$满足:$$\nabla f(x^{(k+1)}) = 0$$有$$\nabla f(x) = g_k + H_k(x-x^{(k)})$$其中$H_k = H(x^{(k)})$，如此一来：$$g_k + H_k(x^{(k+1)}-x^{(k)}) = 0$$因而，$$x^{(k+1)}=x^{(k)}+P_k$$其中，$${H_k}{P_k} = -g_k$$.</p>
-<h4>算法(牛顿法）:</h4>
+<p>  迭代更新的方式有两种，一种是批梯度下降，即对全部的训练数据求得误差后在对，另外一中是增量梯度下降，没扫描一步都要 对，前一种方法能够不断收敛，后一种方法结果可能不断在收敛处徘徊。一般来说，梯度下降法的收敛速度还是比较慢的。</p>
+<h2 id="最小二乘法">最小二乘法</h2>
+<p>  将训练特征表示为X矩阵，结果表示为y向量，仍然是线性回归模型，误差函数不变，那么:<span class="math display">\[ \theta = ({X^T}X)^{-1}X^T{\vec y}\]</span>.</p>
+<h2 id="牛顿法和拟牛顿法">牛顿法和拟牛顿法</h2>
+<h3 id="牛顿法">牛顿法</h3>
+<p>  考虑无约束最优化问题<span class="math display">\[\min_{x \in R^n}f(x)\]</span>其中<span class="math inline">\(x^*\)</span>为目标函数极小点。</p>
+<p>  假设<span class="math inline">\(f(x)\)</span>具有二阶连续偏导数，若第k次迭代值为<span class="math inline">\(x^{(k)}\)</span>，则可将<span class="math inline">\(f(x)\)</span>在<span class="math inline">\(x^{(k)}\)</span>附近进行二阶泰勒展开:<span class="math display">\[ f(x)=f(x^{(k)}+{g_k^T}(x-x^{(k)}) + \frac{1}{2}{(x-x^{(k)})^T}H(x^{(k)})(x-x^{(k)})\]</span>其中<span class="math inline">\(g_k = g(x^{(k)}) = \nabla f(x^{(k)})\)</span>是<span class="math inline">\(f(x)\)</span>的梯度在点<span class="math inline">\(x^{(k)}\)</span>的值，<span class="math inline">\(H(x^{(k)})\)</span>是<span class="math inline">\(f(x)\)</span>的海赛矩阵(Hesse   matrix):<span class="math display">\[ H(x) = [\frac{\vartheta^2 f}{\vartheta x_i \vartheta x_j}]_{n \times n}\]</span>在点<span class="math inline">\(x^{(k)}\)</span>的值。</p>
+<p>  牛顿法利用的极小点的必要条件<span class="math display">\[\nabla f(x) = 0\]</span>,每次迭代都是从点<span class="math inline">\(x^{(k)}\)</span>开始，求目标函数的极小点，作为第<span class="math inline">\(k+1\)</span>次迭代值<span class="math inline">\(x^{(k+1)}\)</span>,具体的，假设<span class="math inline">\(x^{(k+1)}\)</span>满足:<span class="math display">\[\nabla f(x^{(k+1)}) = 0\]</span>有<span class="math display">\[\nabla f(x) = g_k + H_k(x-x^{(k)})\]</span>其中<span class="math inline">\(H_k = H(x^{(k)})\)</span>，如此一来：<span class="math display">\[g_k + H_k(x^{(k+1)}-x^{(k)}) = 0\]</span>因而，<span class="math display">\[x^{(k+1)}=x^{(k)}+P_k\]</span>其中，<span class="math display">\[{H_k}{P_k} = -g_k\]</span>.</p>
+<h4 id="算法牛顿法">算法(牛顿法）:</h4>
 <ul>
-<li>取初始值$x^{(k)}$，置k = 0;</li>
-<li>计算$g_k = g(x^{(k)})$;</li>
-<li>若$\lVert g_k \lVert &lt; \varepsilon$，则停止计算，得近似解$x^* = x^{(k)}$;</li>
-<li>计算$H_k=H(x^{(k)})$,并根据$H_k P_k =-g_k$求解$p_k$;</li>
-<li>置$x^{(k+1)} = x^{(k)} +p_k$;</li>
-<li>置$k=k+1$,转（2）.</li>
+<li>取初始值<span class="math inline">\(x^{(k)}\)</span>，置k = 0;</li>
+<li>计算<span class="math inline">\(g_k = g(x^{(k)})\)</span>;</li>
+<li>若<span class="math inline">\(\lVert g_k \lVert &lt; \varepsilon\)</span>，则停止计算，得近似解<span class="math inline">\(x^* = x^{(k)}\)</span>;</li>
+<li>计算<span class="math inline">\(H_k=H(x^{(k)})\)</span>,并根据<span class="math inline">\(H_k P_k =-g_k\)</span>求解<span class="math inline">\(p_k\)</span>;</li>
+<li>置<span class="math inline">\(x^{(k+1)} = x^{(k)} +p_k\)</span>;<br>
+</li>
+<li>置<span class="math inline">\(k=k+1\)</span>,转（2）.</li>
 </ul>
-<p>  步骤（4）求解$p_k$，要求$H_{k}^{-1}$,计算比较复杂，针对其提出改进，则有了下面的拟牛顿法.</p>
-<h3>拟牛顿法</h3>
-<p>  拟牛顿法的基本思路是考虑利用一个n阶矩阵$G_k=G(x^{(i)})$来近似代替$H_k^{-1}=H^{-1}(x^{(k)})$。</p>
-<p>  先看牛顿法迭代中的海赛矩阵$H_k$满足的条件，首先$H_k$满足以下关系：$$g_{k+1}-g_k=H_k(x^{(k+1)}-x^{(k)})$$记$y_k=g_{k+1} -g_k$,$\delta_k=x^{(k+1)}-x^{(k)}$,则$$y_k=H_k \delta_k$$或$$H_k^{-1}y_k=\delta_k$$上述公式被称为拟牛顿条件。</p>
-<p>  如果$H_k$是正定的($H_k^{-1}$也是正定的),那么可以保证牛顿法的搜索方向
-$p_k$是下降方向，这是因为搜索方向是$p_k=-H_k^{-1}g_k$, $$x=x^{(k)}+\lambda p_k =x^{(k)}-\lambda H_k^{-1}g_k$$所以$f(x)$在$x^{(k)}$的泰勒展开式可以近似写成:$$f(x)=f(x^{(k)})-\lambda g_k^TH_k^{-1}g_k$$因$H_k^{-1}$正定，固有$g_k^TH_k^{-1}g_k &gt; 0$.当$\lambda$为一个充分小的正数时，总有$f(x)&lt;f(x^{(k)})$,也即$p_k$下降的方向。</p>
-<p>  是将$G_k$作为$H_k^{-1}$的近似或选择$B_k$作为$H_k$的近似的算法称为拟牛顿法，参照拟牛顿法的条件，每次迭代可以选择更新矩阵$G_{k+1}$:$$G_{k+1}=G_k+\Delta G_k$$先面介绍几种拟牛顿法：</p>
-<h4>DFP(Davidon-Fletcher-PowerII)算法（DFP algorithm）</h4>
+<p>  步骤（4）求解<span class="math inline">\(p_k\)</span>，要求<span class="math inline">\(H_{k}^{-1}\)</span>,计算比较复杂，针对其提出改进，则有了下面的拟牛顿法.</p>
+<h3 id="拟牛顿法">拟牛顿法</h3>
+<p>  拟牛顿法的基本思路是考虑利用一个n阶矩阵<span class="math inline">\(G_k=G(x^{(i)})\)</span>来近似代替<span class="math inline">\(H_k^{-1}=H^{-1}(x^{(k)})\)</span>。</p>
+<p>  先看牛顿法迭代中的海赛矩阵<span class="math inline">\(H_k\)</span>满足的条件，首先<span class="math inline">\(H_k\)</span>满足以下关系：<span class="math display">\[g_{k+1}-g_k=H_k(x^{(k+1)}-x^{(k)})\]</span>记<span class="math inline">\(y_k=g_{k+1} -g_k\)</span>,<span class="math inline">\(\delta_k=x^{(k+1)}-x^{(k)}\)</span>,则<span class="math display">\[y_k=H_k \delta_k\]</span>或<span class="math display">\[H_k^{-1}y_k=\delta_k\]</span>上述公式被称为拟牛顿条件。</p>
+<p>  如果<span class="math inline">\(H_k\)</span>是正定的(<span class="math inline">\(H_k^{-1}\)</span>也是正定的),那么可以保证牛顿法的搜索方向 <span class="math inline">\(p_k\)</span>是下降方向，这是因为搜索方向是<span class="math inline">\(p_k=-H_k^{-1}g_k\)</span>, <span class="math display">\[x=x^{(k)}+\lambda p_k =x^{(k)}-\lambda H_k^{-1}g_k\]</span>所以<span class="math inline">\(f(x)\)</span>在<span class="math inline">\(x^{(k)}\)</span>的泰勒展开式可以近似写成:<span class="math display">\[f(x)=f(x^{(k)})-\lambda g_k^TH_k^{-1}g_k\]</span>因<span class="math inline">\(H_k^{-1}\)</span>正定，固有<span class="math inline">\(g_k^TH_k^{-1}g_k &gt; 0\)</span>.当<span class="math inline">\(\lambda\)</span>为一个充分小的正数时，总有<span class="math inline">\(f(x)&lt;f(x^{(k)})\)</span>,也即<span class="math inline">\(p_k\)</span>下降的方向。</p>
+<p>  是将<span class="math inline">\(G_k\)</span>作为<span class="math inline">\(H_k^{-1}\)</span>的近似或选择<span class="math inline">\(B_k\)</span>作为<span class="math inline">\(H_k\)</span>的近似的算法称为拟牛顿法，参照拟牛顿法的条件，每次迭代可以选择更新矩阵<span class="math inline">\(G_{k+1}\)</span>:<span class="math display">\[G_{k+1}=G_k+\Delta G_k\]</span>先面介绍几种拟牛顿法：</p>
+<h4 id="dfpdavidon-fletcher-powerii算法dfp-algorithm">DFP(Davidon-Fletcher-PowerII)算法（DFP algorithm）</h4>
 <ul>
-<li>取初始值$x^{(k)}$，置k = 0,取$G_0$为正定对称矩阵;</li>
-<li>计算$g_k = g(x^{(k)})$，若$\lVert g_k \lVert &lt; \varepsilon$，则停止计算，得近似解$x^* = x^{(k)}$，否则转下一步;</li>
-<li>置$p_k=-G_k g_k$;</li>
-<li>一维搜索:求$\lambda$使得$$f(x^{(k)}+\lambda_k p_k)=\min_{\lambda\geq 0}f(x^{(k)}+\lambda p_k)$$</li>
-<li>置$x^{(k+1)}=x^{(k)}+\lambda_kp_k$;</li>
-<li>计算$g_{k+1}=g(x^{(k+1)})$,若$\lVert g_{k+1}\lVert&lt;\epsilon$,则停止计算，得近似解$x^*=x^{(k+1)}$,否则按照$$G_{k+1}=G_k+\frac{\delta_k\delta_k^T}{\delta_k^T y_k}-\frac{G_k y_k y_K^T G_k}{y_k^T G_k y_k}$$</li>
-<li>置$k=k+1$,转（3）.</li>
+<li>取初始值<span class="math inline">\(x^{(k)}\)</span>，置k = 0,取<span class="math inline">\(G_0\)</span>为正定对称矩阵;<br>
+</li>
+<li>计算<span class="math inline">\(g_k = g(x^{(k)})\)</span>，若<span class="math inline">\(\lVert g_k \lVert &lt; \varepsilon\)</span>，则停止计算，得近似解<span class="math inline">\(x^* = x^{(k)}\)</span>，否则转下一步;<br>
+</li>
+<li>置<span class="math inline">\(p_k=-G_k g_k\)</span>;<br>
+</li>
+<li>一维搜索:求<span class="math inline">\(\lambda\)</span>使得<span class="math display">\[f(x^{(k)}+\lambda_k p_k)=\min_{\lambda\geq 0}f(x^{(k)}+\lambda p_k)\]</span></li>
+<li>置<span class="math inline">\(x^{(k+1)}=x^{(k)}+\lambda_kp_k\)</span>;</li>
+<li>计算<span class="math inline">\(g_{k+1}=g(x^{(k+1)})\)</span>,若<span class="math inline">\(\lVert g_{k+1}\lVert&lt;\epsilon\)</span>,则停止计算，得近似解<span class="math inline">\(x^*=x^{(k+1)}\)</span>,否则按照<span class="math display">\[G_{k+1}=G_k+\frac{\delta_k\delta_k^T}{\delta_k^T y_k}-\frac{G_k y_k y_K^T G_k}{y_k^T G_k y_k}\]</span></li>
+<li>置<span class="math inline">\(k=k+1\)</span>,转（3）.</li>
 </ul>
-<h5>&lt;font color =red&gt;Caution:&lt;/font&gt;</h5>
+<h5 id="caution"><font color="red">Caution:</font></h5>
 <ul>
-<li>DFP算法是利用$G_k$逼近海赛矩阵的逆矩阵$H^{-1}$;</li>
-<li>可以证明如果初始矩阵$G_0$是正定的，则迭代过程中的每一个矩阵$G_k$都是正定的。</li>
+<li>DFP算法是利用<span class="math inline">\(G_k\)</span>逼近海赛矩阵的逆矩阵<span class="math inline">\(H^{-1}\)</span>;</li>
+<li>可以证明如果初始矩阵<span class="math inline">\(G_0\)</span>是正定的，则迭代过程中的每一个矩阵<span class="math inline">\(G_k\)</span>都是正定的。</li>
 </ul>
-<h4>BFGS(Broyden-Fletcher-Goldfarb-Shanno)算法(BFGS algorithm):</h4>
+<h4 id="bfgsbroyden-fletcher-goldfarb-shanno算法bfgs-algorithm">BFGS(Broyden-Fletcher-Goldfarb-Shanno)算法(BFGS algorithm):</h4>
 <ul>
-<li>BFGS算法大体流程和DFP算法相同，不过采用$B_k$逼近海赛矩阵H;</li>
-<li>$$B_{k+1}=B_k+\frac{\delta_k\delta_k^T}{\delta_k^T y_k}-\frac{B_k y_k y_K^T B_k}{y_k^T B_k y_k}$$其中$y_k=p_k \delta_k$;</li>
+<li>BFGS算法大体流程和DFP算法相同，不过采用<span class="math inline">\(B_k\)</span>逼近海赛矩阵H;</li>
+<li><span class="math display">\[B_{k+1}=B_k+\frac{\delta_k\delta_k^T}{\delta_k^T y_k}-\frac{B_k y_k y_K^T B_k}{y_k^T B_k y_k}\]</span>其中<span class="math inline">\(y_k=p_k \delta_k\)</span>;</li>
 </ul>
-<h4>Broyden类算法(Broyden's algorithm)</h4>
-<p>  我们可以从BFGS算法矩阵$B_k$的迭代公式中得到BFGS算法中的关于$G_k$的迭代公式，事实上，若记$G_k=B_k^{-1}$,$G_{k+1}=B_{k+1}^{-1}$,那么对$B_k$的计算公式两次应用Sherman-Morrison公式既得$$G_{k+1}=(I-\frac{\delta_k y_k^{-1}}{\delta_k^T y_k})G_k(I-\frac{\delta_k y_k^T}{\delta_k^T y_k})^T+\frac{\delta_k \delta_k^T}{\delta_k^T y_k}$$称为BFGS关于$G_K$的迭代公式，上述两个算法还可以取其线性组合$$G_{k+1}=\alpha G^{DFP}+(1-\alpha)G^{BFGS}$$也是正定的，满足拟牛顿条件，其中$0\leq \alpha \leq 1$,如此即可得到一类拟牛顿算法，称为Broyden类算法。</p>
+<h4 id="broyden类算法broydens-algorithm">Broyden类算法(Broyden’s algorithm)</h4>
+<p>  我们可以从BFGS算法矩阵<span class="math inline">\(B_k\)</span>的迭代公式中得到BFGS算法中的关于<span class="math inline">\(G_k\)</span>的迭代公式，事实上，若记<span class="math inline">\(G_k=B_k^{-1}\)</span>,<span class="math inline">\(G_{k+1}=B_{k+1}^{-1}\)</span>,那么对<span class="math inline">\(B_k\)</span>的计算公式两次应用Sherman-Morrison公式既得<span class="math display">\[G_{k+1}=(I-\frac{\delta_k y_k^{-1}}{\delta_k^T y_k})G_k(I-\frac{\delta_k y_k^T}{\delta_k^T y_k})^T+\frac{\delta_k \delta_k^T}{\delta_k^T y_k}\]</span>称为BFGS关于<span class="math inline">\(G_K\)</span>的迭代公式，上述两个算法还可以取其线性组合<span class="math display">\[G_{k+1}=\alpha G^{DFP}+(1-\alpha)G^{BFGS}\]</span>也是正定的，满足拟牛顿条件，其中<span class="math inline">\(0\leq \alpha \leq 1\)</span>,如此即可得到一类拟牛顿算法，称为Broyden类算法。</p>
 
       
     </div>
@@ -585,7 +586,7 @@ $p_k$是下降方向，这是因为搜索方向是$p_k=-H_k^{-1}g_k$, $$x=x^{(k)
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">梯度下降法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">最小二乘法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">牛顿法和拟牛顿法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.</span> <span class="nav-text">牛顿法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.1.</span> <span class="nav-text">算法(牛顿法）:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.2.</span> <span class="nav-text">拟牛顿法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">3.2.1.</span> <span class="nav-text">DFP(Davidon-Fletcher-PowerII)算法（DFP algorithm）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">3.2.1.1.</span> <span class="nav-text"><font color =red>Caution:</font></span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">3.2.2.</span> <span class="nav-text">BFGS(Broyden-Fletcher-Goldfarb-Shanno)算法(BFGS algorithm):</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">3.2.3.</span> <span class="nav-text">Broyden类算法(Broyden's algorithm)</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#梯度下降法"><span class="nav-number">1.</span> <span class="nav-text">梯度下降法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最小二乘法"><span class="nav-number">2.</span> <span class="nav-text">最小二乘法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#牛顿法和拟牛顿法"><span class="nav-number">3.</span> <span class="nav-text">牛顿法和拟牛顿法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#牛顿法"><span class="nav-number">3.1.</span> <span class="nav-text">牛顿法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#算法牛顿法"><span class="nav-number">3.1.1.</span> <span class="nav-text">算法(牛顿法）:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拟牛顿法"><span class="nav-number">3.2.</span> <span class="nav-text">拟牛顿法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#dfpdavidon-fletcher-powerii算法dfp-algorithm"><span class="nav-number">3.2.1.</span> <span class="nav-text">DFP(Davidon-Fletcher-PowerII)算法（DFP algorithm）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#caution"><span class="nav-number">3.2.1.1.</span> <span class="nav-text">Caution:</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bfgsbroyden-fletcher-goldfarb-shanno算法bfgs-algorithm"><span class="nav-number">3.2.2.</span> <span class="nav-text">BFGS(Broyden-Fletcher-Goldfarb-Shanno)算法(BFGS algorithm):</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#broyden类算法broydens-algorithm"><span class="nav-number">3.2.3.</span> <span class="nav-text">Broyden类算法(Broyden’s algorithm)</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

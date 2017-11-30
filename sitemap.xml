@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.mysry.com/2017/10/25/Add-Two-Numbers/</loc>
+    
+    <lastmod>2017-11-30T14:22:22.396Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.mysry.com/2017/11/30/63-Unique-Paths-II/</loc>
     
     <lastmod>2017-11-30T13:53:00.154Z</lastmod>
@@ -418,13 +425,6 @@
     <loc>http://www.mysry.com/2017/10/25/3-Longest-Substring-Without-Repeating-Characters/</loc>
     
     <lastmod>2017-10-26T02:58:53.692Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.mysry.com/2017/10/25/Add-Two-Numbers/</loc>
-    
-    <lastmod>2017-10-26T02:58:41.772Z</lastmod>
     
   </url>
   
