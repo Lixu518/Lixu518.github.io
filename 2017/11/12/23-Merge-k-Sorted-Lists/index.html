@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="Problem:  Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.  Idea:   This is a hard problem in leetcode, but wo could solve it in a easy way. We firstl">
+<meta name="description" content="&amp;lt;font color =black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.  &amp;lt;font color =red&amp;gt;Idea:&amp;lt;/font&amp;gt;   This is">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="23. Merge k Sorted Lists">
 <meta property="og:url" content="http://www.mysry.com/2017/11/12/23-Merge-k-Sorted-Lists/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="Problem:  Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.  Idea:   This is a hard problem in leetcode, but wo could solve it in a easy way. We firstl">
+<meta property="og:description" content="&amp;lt;font color =black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.  &amp;lt;font color =red&amp;gt;Idea:&amp;lt;/font&amp;gt;   This is">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-11-12T13:48:32.942Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="23. Merge k Sorted Lists">
-<meta name="twitter:description" content="Problem:  Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.  Idea:   This is a hard problem in leetcode, but wo could solve it in a easy way. We firstl">
+<meta name="twitter:description" content="&amp;lt;font color =black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.  &amp;lt;font color =red&amp;gt;Idea:&amp;lt;/font&amp;gt;   This is">
 
 
 
@@ -322,14 +322,18 @@
       
 
       
-        <h2 id="problem"><font color="black">Problem:</font></h2>
+        <h2>&lt;font color =black&gt;Problem:&lt;/font&gt;</h2>
 <blockquote>
 <p>Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.</p>
 </blockquote>
-<h2 id="idea"><font color="red">Idea:</font></h2>
-<p>  This is a hard problem in leetcode, but wo could solve it in a easy way. We firstly make sure we can merge two sorted lists, it’s easy! Than what we think is how to make all this lists become pairs, we use a recursion to do this. So there are two auxiliary function. It’s not hard to understand, see the Java code.</p>
-<h2 id="java-code"><font color="orange">Java Code:</font></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for singly-linked list.</div><div class="line"> * public class ListNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     ListNode next;</div><div class="line"> *     ListNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">    public ListNode mergeKLists(ListNode[] lists) &#123;</div><div class="line">     return partion(lists,0,lists.length-1);</div><div class="line">    &#125;</div><div class="line">    public static ListNode merge(ListNode l1,ListNode l2) &#123;</div><div class="line">	if(l1 == null) return l2;</div><div class="line">	if(l2 == null) return l1;</div><div class="line">	if(l1.val&lt;l2.val) &#123;</div><div class="line">		l1.next=merge(l1.next,l2);</div><div class="line">		return l1;</div><div class="line">	&#125;else &#123;</div><div class="line">		l2.next=merge(l1,l2.next);</div><div class="line">		return l2;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">public static ListNode partion(ListNode []lists,int s,int e) &#123;</div><div class="line">	if(s==e)return lists[s];</div><div class="line">	if(s&lt;e) &#123;</div><div class="line">		int q=(s+e)/2;</div><div class="line">		ListNode l1=partion(lists,s,q);</div><div class="line">		ListNode l2=partion(lists,q+1,e);</div><div class="line">		return merge(l1,l2);</div><div class="line">		&#125;</div><div class="line">	else return null;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2>&lt;font color =red&gt;Idea:&lt;/font&gt;</h2>
+<p>  This is a hard problem in leetcode, but wo could solve it in a easy
+way. We firstly make sure we can merge two sorted lists, it's easy! Than what we
+think is how to make all this lists become pairs, we use a recursion to do
+this. So there are two auxiliary function. It's not hard to understand, see the
+Java code.</p>
+<h2>&lt;font color = orange&gt;Java Code:&lt;/font&gt;</h2>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for singly-linked list.</div><div class="line"> * public class ListNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     ListNode next;</div><div class="line"> *     ListNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">    public ListNode mergeKLists(ListNode[] lists) &#123;</div><div class="line">     return partion(lists,0,lists.length-1);</div><div class="line">    &#125;</div><div class="line">    public static ListNode merge(ListNode l1,ListNode l2) &#123;</div><div class="line">	if(l1 == null) return l2;</div><div class="line">	if(l2 == null) return l1;</div><div class="line">	if(l1.val&lt;l2.val) &#123;</div><div class="line">		l1.next=merge(l1.next,l2);</div><div class="line">		return l1;</div><div class="line">	&#125;else &#123;</div><div class="line">		l2.next=merge(l1,l2.next);</div><div class="line">		return l2;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">public static ListNode partion(ListNode []lists,int s,int e) &#123;</div><div class="line">	if(s==e)return lists[s];</div><div class="line">	if(s&lt;e) &#123;</div><div class="line">		int q=(s+e)/2;</div><div class="line">		ListNode l1=partion(lists,s,q);</div><div class="line">		ListNode l2=partion(lists,q+1,e);</div><div class="line">		return merge(l1,l2);</div><div class="line">		&#125;</div><div class="line">	else return null;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -464,7 +468,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">61</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -539,7 +543,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text"><font color =black>Problem:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text"><font color =red>Idea:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text"><font color = orange>Java Code:</font></span></a></li></ol></div>
             
 
           </div>

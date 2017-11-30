@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="Problem:  The n-queens puzzle is the problem of placing n queens on an n×n chessboard such that no two queens attack each other. Given an integer n, return all distinct solutions to the n-queens puzzl">
+<meta name="description" content="&amp;lt;font color =black&amp;gt;Problem:&amp;lt;/font&amp;gt;  The n-queens puzzle is the problem of placing n queens on an n×n chessboard such that no two queens attack each other. Given an integer n, return all di">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="51. N-Queens">
 <meta property="og:url" content="http://www.mysry.com/2017/11/25/51-N-Queens/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="Problem:  The n-queens puzzle is the problem of placing n queens on an n×n chessboard such that no two queens attack each other. Given an integer n, return all distinct solutions to the n-queens puzzl">
+<meta property="og:description" content="&amp;lt;font color =black&amp;gt;Problem:&amp;lt;/font&amp;gt;  The n-queens puzzle is the problem of placing n queens on an n×n chessboard such that no two queens attack each other. Given an integer n, return all di">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-11-25T14:09:31.765Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="51. N-Queens">
-<meta name="twitter:description" content="Problem:  The n-queens puzzle is the problem of placing n queens on an n×n chessboard such that no two queens attack each other. Given an integer n, return all distinct solutions to the n-queens puzzl">
+<meta name="twitter:description" content="&amp;lt;font color =black&amp;gt;Problem:&amp;lt;/font&amp;gt;  The n-queens puzzle is the problem of placing n queens on an n×n chessboard such that no two queens attack each other. Given an integer n, return all di">
 
 
 
@@ -322,17 +322,18 @@
       
 
       
-        <h2 id="problem"><font color="black">Problem:</font></h2>
+        <h2>&lt;font color =black&gt;Problem:&lt;/font&gt;</h2>
 <blockquote>
-<p>The n-queens puzzle is the problem of placing n queens on an n×n chessboard such that no two queens attack each other. Given an integer n, return all distinct solutions to the n-queens puzzle.</p>
+<p>The n-queens puzzle is the problem of placing n queens on an n×n chessboard such that no two queens attack each other.
+Given an integer n, return all distinct solutions to the n-queens puzzle.</p>
 </blockquote>
 <blockquote>
-<p>Each solution contains a distinct board configuration of the n-queens’ placement, where ‘Q’ and ‘.’ both indicate a queen and an empty space respectively.</p>
+<p>Each solution contains a distinct board configuration of the n-queens' placement, where 'Q' and '.' both indicate a queen and an empty space respectively.</p>
 </blockquote>
-<h2 id="idea"><font color="red">Idea:</font></h2>
+<h2>&lt;font color = red&gt;Idea:&lt;/font&gt;</h2>
 <p> We use three boolean arrays to check if the queen disobey the rules, the tree boolean arrays respectively are col, diagonal1 and diagonal2, use a backtracking support function to check every boolean array.</p>
-<h2 id="java-code"><font color="orange">Java Code:</font></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    	public void solve(List&lt;List&lt;String&gt;&gt; result, List&lt;String&gt; cur, int n, int rowCur, boolean[] col, boolean[] diag1,</div><div class="line">			boolean[] diag2) &#123;</div><div class="line">		if (rowCur == n) &#123;</div><div class="line">			result.add(new ArrayList&lt;String&gt;(cur));</div><div class="line">			return;</div><div class="line">		&#125;</div><div class="line">		for (int j = 0; j &lt; n; j++) &#123;</div><div class="line">			int d1 = rowCur + j;</div><div class="line">			int d2 = j - rowCur + n - 1;</div><div class="line">			if (!col[j] &amp;&amp; !diag1[d1] &amp;&amp; !diag2[d2]) &#123;</div><div class="line">				col[j] = true;</div><div class="line">				diag1[d1] = true;</div><div class="line">				diag2[d2] = true;</div><div class="line">				char[] helpChars = new char[n];</div><div class="line">				Arrays.fill(helpChars, &apos;.&apos;);</div><div class="line">				helpChars[j] = &apos;Q&apos;;</div><div class="line">				cur.add(new String(helpChars));</div><div class="line"></div><div class="line">				solve(result, cur, n, rowCur + 1, col, diag1, diag2);</div><div class="line"></div><div class="line">				col[j] = false;</div><div class="line">				diag1[d1] = false;</div><div class="line">				diag2[d2] = false;</div><div class="line">				cur.remove(cur.size() - 1);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public List&lt;List&lt;String&gt;&gt; solveNQueens(int n) &#123;</div><div class="line">		List&lt;List&lt;String&gt;&gt; result = new ArrayList&lt;List&lt;String&gt;&gt;();</div><div class="line">		if (n &lt; 1)</div><div class="line">			return result;</div><div class="line">		solve(result, new ArrayList&lt;String&gt;(), n, 0, new boolean[n], new boolean[2 * n], new boolean[2 * n]);</div><div class="line">		return result;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2>&lt;font color = orange&gt;Java Code:&lt;/font&gt;</h2>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    	public void solve(List&lt;List&lt;String&gt;&gt; result, List&lt;String&gt; cur, int n, int rowCur, boolean[] col, boolean[] diag1,</div><div class="line">			boolean[] diag2) &#123;</div><div class="line">		if (rowCur == n) &#123;</div><div class="line">			result.add(new ArrayList&lt;String&gt;(cur));</div><div class="line">			return;</div><div class="line">		&#125;</div><div class="line">		for (int j = 0; j &lt; n; j++) &#123;</div><div class="line">			int d1 = rowCur + j;</div><div class="line">			int d2 = j - rowCur + n - 1;</div><div class="line">			if (!col[j] &amp;&amp; !diag1[d1] &amp;&amp; !diag2[d2]) &#123;</div><div class="line">				col[j] = true;</div><div class="line">				diag1[d1] = true;</div><div class="line">				diag2[d2] = true;</div><div class="line">				char[] helpChars = new char[n];</div><div class="line">				Arrays.fill(helpChars, &apos;.&apos;);</div><div class="line">				helpChars[j] = &apos;Q&apos;;</div><div class="line">				cur.add(new String(helpChars));</div><div class="line"></div><div class="line">				solve(result, cur, n, rowCur + 1, col, diag1, diag2);</div><div class="line"></div><div class="line">				col[j] = false;</div><div class="line">				diag1[d1] = false;</div><div class="line">				diag2[d2] = false;</div><div class="line">				cur.remove(cur.size() - 1);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public List&lt;List&lt;String&gt;&gt; solveNQueens(int n) &#123;</div><div class="line">		List&lt;List&lt;String&gt;&gt; result = new ArrayList&lt;List&lt;String&gt;&gt;();</div><div class="line">		if (n &lt; 1)</div><div class="line">			return result;</div><div class="line">		solve(result, new ArrayList&lt;String&gt;(), n, 0, new boolean[n], new boolean[2 * n], new boolean[2 * n]);</div><div class="line">		return result;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -467,7 +468,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">61</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -542,7 +543,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text"><font color =black>Problem:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text"><font color = red>Idea:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text"><font color = orange>Java Code:</font></span></a></li></ol></div>
             
 
           </div>

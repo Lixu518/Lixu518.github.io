@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="Sigmoid 函数   在介绍逻辑回归前我们先引入sigmoid函数，其数学形式是\[g(x) =\frac{1}{1+e^{-x}}\]sigmoid函数是一个s型函数，取值在\([0,1]\)之间，在原离0的地方函数的值会很快接近0/1。 Logistic 分布   设X是连续随机变量，X服从逻辑斯蒂分布是指X具有下列分布函数和密度函数：\[F(x)=P(X\leq x)=\frac{1}{">
+<meta name="description" content="Sigmoid 函数   在介绍逻辑回归前我们先引入sigmoid函数，其数学形式是$$g(x) =\frac{1}{1+e^{-x}}$$sigmoid函数是一个s型函数，取值在$[0,1]$之间，在原离0的地方函数的值会很快接近0/1。 Logistic 分布   设X是连续随机变量，X服从逻辑斯蒂分布是指X具有下列分布函数和密度函数：$$F(x)=P(X\leq x)=\frac{1}{1+">
 <meta name="keywords" content="Machine learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Logistic Regression">
 <meta property="og:url" content="http://www.mysry.com/2017/11/18/Logistic-Regression/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="Sigmoid 函数   在介绍逻辑回归前我们先引入sigmoid函数，其数学形式是\[g(x) =\frac{1}{1+e^{-x}}\]sigmoid函数是一个s型函数，取值在\([0,1]\)之间，在原离0的地方函数的值会很快接近0/1。 Logistic 分布   设X是连续随机变量，X服从逻辑斯蒂分布是指X具有下列分布函数和密度函数：\[F(x)=P(X\leq x)=\frac{1}{">
+<meta property="og:description" content="Sigmoid 函数   在介绍逻辑回归前我们先引入sigmoid函数，其数学形式是$$g(x) =\frac{1}{1+e^{-x}}$$sigmoid函数是一个s型函数，取值在$[0,1]$之间，在原离0的地方函数的值会很快接近0/1。 Logistic 分布   设X是连续随机变量，X服从逻辑斯蒂分布是指X具有下列分布函数和密度函数：$$F(x)=P(X\leq x)=\frac{1}{1+">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-11-19T09:55:44.364Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Logistic Regression">
-<meta name="twitter:description" content="Sigmoid 函数   在介绍逻辑回归前我们先引入sigmoid函数，其数学形式是\[g(x) =\frac{1}{1+e^{-x}}\]sigmoid函数是一个s型函数，取值在\([0,1]\)之间，在原离0的地方函数的值会很快接近0/1。 Logistic 分布   设X是连续随机变量，X服从逻辑斯蒂分布是指X具有下列分布函数和密度函数：\[F(x)=P(X\leq x)=\frac{1}{">
+<meta name="twitter:description" content="Sigmoid 函数   在介绍逻辑回归前我们先引入sigmoid函数，其数学形式是$$g(x) =\frac{1}{1+e^{-x}}$$sigmoid函数是一个s型函数，取值在$[0,1]$之间，在原离0的地方函数的值会很快接近0/1。 Logistic 分布   设X是连续随机变量，X服从逻辑斯蒂分布是指X具有下列分布函数和密度函数：$$F(x)=P(X\leq x)=\frac{1}{1+">
 
 
 
@@ -322,23 +322,23 @@
       
 
       
-        <h2 id="sigmoid-函数">Sigmoid 函数</h2>
-<p>  在介绍逻辑回归前我们先引入sigmoid函数，其数学形式是<span class="math display">\[g(x) =\frac{1}{1+e^{-x}}\]</span>sigmoid函数是一个s型函数，取值在<span class="math inline">\([0,1]\)</span>之间，在原离0的地方函数的值会很快接近0/1。</p>
-<h2 id="logistic-分布">Logistic 分布</h2>
-<p>  设X是连续随机变量，X服从逻辑斯蒂分布是指X具有下列分布函数和密度函数：<span class="math display">\[F(x)=P(X\leq x)=\frac{1}{1+e^{-(x-\mu)/\gamma}}\]</span> <span class="math display">\[f(x)=F^\prime(x)=\frac{e^{-(x-\mu)/\gamma}}{\gamma (1+e^{-(x-\mu)/\gamma})^2}\]</span>其中，<span class="math inline">\(\mu\)</span>是位置参数，<span class="math inline">\(\gamma&gt;0\)</span>为形状参数。</p>
-<h2 id="logistic-regression-模型">Logistic Regression 模型</h2>
-<p>  二项Logistic Regression模型是如下条件概率分布:<span class="math display">\[P(Y=1|x)=\frac{exp(\omega\cdot x+b)}{1+exp(\omega\cdot x+b)}\]</span> <span class="math display">\[P(Y=0|x)=\frac{1}{1+exp(\omega\cdot x+b)}\]</span>其中，<span class="math inline">\(x\in R^n\)</span>是输入，<span class="math inline">\(Y\in\{0,1\}\)</span>是输出，<span class="math inline">\(\omega\in R^n\)</span>和<span class="math inline">\(b\in R\)</span>是参数，<span class="math inline">\(\omega\)</span>是权值向量，b称为偏置，<span class="math inline">\(\omega\cdot x\)</span>是内积。</p>
-<h2 id="模型参数估计">模型参数估计</h2>
-  对于给定的训练数据集<span class="math inline">\(T=\{(x_1,y_1),(x_2,y_2),...,(x_N,y_N)\}\)</span>,其中<span class="math inline">\(x_i\in R^n\)</span>,<span class="math inline">\(y_i\in\{0,1\}\)</span>,用极大似然法来估计模型参数，设<span class="math display">\[P(Y=1|x)=\pi(x),  P(Y=0|x)=1-\pi(x)\]</span>则其似然函数为<span class="math display">\[\prod_{i=1}^N{[\pi(x_i)]^{y_i}}{[1-\pi(x_i)]^{1-y_i}}\]</span>对数似然函数为
-<span class="math display">\[\begin{align*}
-L(\omega)&amp;=\sum_{i=1}^N[y_i \log{\pi(x_i)}+(1-y_i)\log(1-\pi(x_i))]\\
-&amp;=\sum_{i=1}^N[y_i\log{\frac{\pi(x_i)}{1-\pi(x_i)}}+\log(1-\pi(x_i))]\\
+        <h2>Sigmoid 函数</h2>
+<p>  在介绍逻辑回归前我们先引入sigmoid函数，其数学形式是$$g(x) =\frac{1}{1+e^{-x}}$$sigmoid函数是一个s型函数，取值在$[0,1]$之间，在原离0的地方函数的值会很快接近0/1。</p>
+<h2>Logistic 分布</h2>
+<p>  设X是连续随机变量，X服从逻辑斯蒂分布是指X具有下列分布函数和密度函数：$$F(x)=P(X\leq x)=\frac{1}{1+e^{-(x-\mu)/\gamma}}$$ $$f(x)=F^\prime(x)=\frac{e^{-(x-\mu)/\gamma}}{\gamma (1+e^{-(x-\mu)/\gamma})^2}$$其中，$\mu$是位置参数，$\gamma&gt;0$为形状参数。</p>
+<h2>Logistic Regression 模型</h2>
+<p>  二项Logistic Regression模型是如下条件概率分布:$$P(Y=1|x)=\frac{exp(\omega\cdot x+b)}{1+exp(\omega\cdot x+b)}$$ $$P(Y=0|x)=\frac{1}{1+exp(\omega\cdot x+b)}$$其中，$x\in R^n$是输入，$Y\in{0,1}$是输出，$\omega\in R^n$和$b\in R$是参数，$\omega$是权值向量，b称为偏置，$\omega\cdot x$是内积。</p>
+<h2>模型参数估计</h2>
+<p>  对于给定的训练数据集$T={(x_1,y_1),(x_2,y_2),...,(x_N,y_N)}$,其中$x_i\in R^n$,$y_i\in{0,1}$,用极大似然法来估计模型参数，设$$P(Y=1|x)=\pi(x),  P(Y=0|x)=1-\pi(x)$$则其似然函数为$$\prod_{i=1}^N{[\pi(x_i)]^{y_i}}{[1-\pi(x_i)]^{1-y_i}}$$对数似然函数为
+\begin{align*}
+L(\omega)&amp;=\sum_{i=1}^N[y_i \log{\pi(x_i)}+(1-y_i)\log(1-\pi(x_i))]\
+&amp;=\sum_{i=1}^N[y_i\log{\frac{\pi(x_i)}{1-\pi(x_i)}}+\log(1-\pi(x_i))]\
 &amp;=\sum_{i=1}^N[y_i(\omega\cdot x_i)-\log(1+exp(\omega\cdot x_i))]
-\end{align*}\]</span>
-<p>对<span class="math inline">\(L(\omega)\)</span>求极大值，得到，具体求法参考<a href="http://www.mysry.com/2017/11/11/%E5%87%A0%E7%A7%8D%E5%B8%B8%E8%A7%81%E7%9A%84%E6%B1%82%E8%A7%A3%E6%97%A0%E7%BA%A6%E6%9D%9F%E6%9C%80%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98%E7%9A%84%E6%96%B9%E6%B3%95/">几种常见的求无约束最优化问题的方法</a></p>
-<h2 id="多项logistic-regression">多项Logistic Regression</h2>
-<p>  上面我们谈到的都是二项Logistic Regression，用于二分类，可以将其推广为多项回归模型，用于多分类，假设离散随机变量Y的取值集合为<span class="math inline">\(\{1,2,...,K\}\)</span>，那么多项Logistic Regression模型是:<span class="math display">\[P(Y=k|x)=\frac{exp(\omega_k\cdot x)}{1+\sum_{k=1}^{K-1}exp(\omega_k\cdot x)}, k=1,2,...,K-1\]</span> <span class="math display">\[P(Y=K|x)=\frac{1}{1+\sum_{k=1}^{K-1}exp(\omega\cdot x)}\]</span>这里<span class="math inline">\(x\in R^{n+1}\)</span>,<span class="math inline">\(\omega\in R^{n+1}\)</span>.</p>
-<h2 id="logistic-regression是softmax回归k2时的特例更多内容请查阅softmax">Logistic Regression是Softmax回归<span class="math inline">\(K=2\)</span>时的特例，更多内容请查阅<a href="http://www.mysry.com/">Softmax</a></h2>
+\end{align*}
+对$L(\omega)$求极大值，得到\omega的估计值，具体求法参考<a href="http://www.mysry.com/2017/11/11/%E5%87%A0%E7%A7%8D%E5%B8%B8%E8%A7%81%E7%9A%84%E6%B1%82%E8%A7%A3%E6%97%A0%E7%BA%A6%E6%9D%9F%E6%9C%80%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98%E7%9A%84%E6%96%B9%E6%B3%95/">几种常见的求无约束最优化问题的方法</a></p>
+<h2>多项Logistic Regression</h2>
+<p>  上面我们谈到的都是二项Logistic Regression，用于二分类，可以将其推广为多项回归模型，用于多分类，假设离散随机变量Y的取值集合为${1,2,...,K}$，那么多项Logistic Regression模型是:$$P(Y=k|x)=\frac{exp(\omega_k\cdot x)}{1+\sum_{k=1}^{K-1}exp(\omega_k\cdot x)}, k=1,2,...,K-1$$ $$P(Y=K|x)=\frac{1}{1+\sum_{k=1}^{K-1}exp(\omega\cdot x)}$$这里$x\in R^{n+1}$,$\omega\in R^{n+1}$.</p>
+<h2>Logistic Regression是Softmax回归$K=2$时的特例，更多内容请查阅<a href="http://www.mysry.com/">Softmax</a></h2>
 
       
     </div>
@@ -473,7 +473,7 @@ L(\omega)&amp;=\sum_{i=1}^N[y_i \log{\pi(x_i)}+(1-y_i)\log(1-\pi(x_i))]\\
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">61</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -548,7 +548,7 @@ L(\omega)&amp;=\sum_{i=1}^N[y_i \log{\pi(x_i)}+(1-y_i)\log(1-\pi(x_i))]\\
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sigmoid-函数"><span class="nav-number">1.</span> <span class="nav-text">Sigmoid 函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#logistic-分布"><span class="nav-number">2.</span> <span class="nav-text">Logistic 分布</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#logistic-regression-模型"><span class="nav-number">3.</span> <span class="nav-text">Logistic Regression 模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型参数估计"><span class="nav-number">4.</span> <span class="nav-text">模型参数估计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多项logistic-regression"><span class="nav-number">5.</span> <span class="nav-text">多项Logistic Regression</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#logistic-regression是softmax回归k2时的特例更多内容请查阅softmax"><span class="nav-number">6.</span> <span class="nav-text">Logistic Regression是Softmax回归\(K=2\)时的特例，更多内容请查阅Softmax</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Sigmoid 函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Logistic 分布</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">Logistic Regression 模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">模型参数估计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">多项Logistic Regression</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">Logistic Regression是Softmax回归$K=2$时的特例，更多内容请查阅Softmax</span></a></li></ol></div>
             
 
           </div>

@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="Problem:  Given a collection of distinct numbers, return all possible permutations.  Idea:  Traversing nums (the first for loop), the result in res is the full array of nums [0] through nums [i-1] whe">
+<meta name="description" content="&amp;lt;font color =black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given a collection of distinct numbers, return all possible permutations.  &amp;lt;font color =red&amp;gt;Idea:&amp;lt;/font&amp;gt;  Traversing nums (the first for loo">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="46. Permutations">
 <meta property="og:url" content="http://www.mysry.com/2017/11/21/46-Permutations/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="Problem:  Given a collection of distinct numbers, return all possible permutations.  Idea:  Traversing nums (the first for loop), the result in res is the full array of nums [0] through nums [i-1] whe">
+<meta property="og:description" content="&amp;lt;font color =black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given a collection of distinct numbers, return all possible permutations.  &amp;lt;font color =red&amp;gt;Idea:&amp;lt;/font&amp;gt;  Traversing nums (the first for loo">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-11-21T15:39:23.765Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="46. Permutations">
-<meta name="twitter:description" content="Problem:  Given a collection of distinct numbers, return all possible permutations.  Idea:  Traversing nums (the first for loop), the result in res is the full array of nums [0] through nums [i-1] whe">
+<meta name="twitter:description" content="&amp;lt;font color =black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given a collection of distinct numbers, return all possible permutations.  &amp;lt;font color =red&amp;gt;Idea:&amp;lt;/font&amp;gt;  Traversing nums (the first for loo">
 
 
 
@@ -322,14 +322,14 @@
       
 
       
-        <h2 id="problem"><font color="black">Problem:</font></h2>
+        <h2>&lt;font color =black&gt;Problem:&lt;/font&gt;</h2>
 <blockquote>
 <p>Given a collection of distinct numbers, return all possible permutations.</p>
 </blockquote>
-<h2 id="idea"><font color="red">Idea:</font></h2>
+<h2>&lt;font color =red&gt;Idea:&lt;/font&gt;</h2>
 <p> Traversing nums (the first for loop), the result in res is the full array of nums [0] through nums [i-1] when starting nums [i]. In each iteration, you need to add nums [i] to each of the res results, and then start the next iteration. Specifically, each cycle begins by recording the size of the current res, taking the first one in res, adding nums [i] at each location, and adding it to the end of res (the third for loop, r .size ()), a total of size times (the second for loop).</p>
-<h2 id="java-code"><font color="orange">Java Code:</font></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public List&lt;List&lt;Integer&gt;&gt; permute(int[] nums) &#123;</div><div class="line">        LinkedList&lt;List&lt;Integer&gt;&gt; res = new LinkedList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">        res.add(new ArrayList&lt;Integer&gt;());</div><div class="line">        for (int n:nums)&#123;</div><div class="line">            int size = res.size();</div><div class="line">            for(;size&gt;0;size--)&#123;</div><div class="line">                List&lt;Integer&gt; r= res.pollFirst();</div><div class="line">                for (int i=0;i&lt;=r.size();i++)&#123;</div><div class="line">                    List&lt;Integer&gt; t= new ArrayList&lt;Integer&gt;(r);</div><div class="line">                    t.add(i,n);</div><div class="line">                    res.add(t);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2>&lt;font color = orange&gt;Java Code:&lt;/font&gt;</h2>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public List&lt;List&lt;Integer&gt;&gt; permute(int[] nums) &#123;</div><div class="line">        LinkedList&lt;List&lt;Integer&gt;&gt; res = new LinkedList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">        res.add(new ArrayList&lt;Integer&gt;());</div><div class="line">        for (int n:nums)&#123;</div><div class="line">            int size = res.size();</div><div class="line">            for(;size&gt;0;size--)&#123;</div><div class="line">                List&lt;Integer&gt; r= res.pollFirst();</div><div class="line">                for (int i=0;i&lt;=r.size();i++)&#123;</div><div class="line">                    List&lt;Integer&gt; t= new ArrayList&lt;Integer&gt;(r);</div><div class="line">                    t.add(i,n);</div><div class="line">                    res.add(t);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -464,7 +464,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">61</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -539,7 +539,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text"><font color =black>Problem:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text"><font color =red>Idea:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text"><font color = orange>Java Code:</font></span></a></li></ol></div>
             
 
           </div>

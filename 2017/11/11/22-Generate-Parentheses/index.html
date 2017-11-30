@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="Problem:  Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.  Idea:   Easy recurison. When left parenthesis’s number is smaller than n, we could cr">
+<meta name="description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.  &amp;lt;font color =red&amp;gt;Idea:&amp;lt;/font&amp;gt;   Ea">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="22. Generate Parentheses">
 <meta property="og:url" content="http://www.mysry.com/2017/11/11/22-Generate-Parentheses/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="Problem:  Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.  Idea:   Easy recurison. When left parenthesis’s number is smaller than n, we could cr">
+<meta property="og:description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.  &amp;lt;font color =red&amp;gt;Idea:&amp;lt;/font&amp;gt;   Ea">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-11-11T13:10:58.319Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="22. Generate Parentheses">
-<meta name="twitter:description" content="Problem:  Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.  Idea:   Easy recurison. When left parenthesis’s number is smaller than n, we could cr">
+<meta name="twitter:description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.  &amp;lt;font color =red&amp;gt;Idea:&amp;lt;/font&amp;gt;   Ea">
 
 
 
@@ -322,14 +322,14 @@
       
 
       
-        <h2 id="problem"><font color="black">Problem:</font></h2>
+        <h2>&lt;font color = black&gt;Problem:&lt;/font&gt;</h2>
 <blockquote>
 <p>Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.</p>
 </blockquote>
-<h2 id="idea"><font color="red">Idea:</font></h2>
-<p>  Easy recurison. When left parenthesis’s number is smaller than n, we could creat new left parenthesis, when right parenthesis’s number is smaller than n, we could set new parenthesis.</p>
-<h2 id="java-code"><font color="orange">Java Code:<font></font></font></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public List&lt;String&gt; generateParenthesis(int n) &#123;</div><div class="line">       List&lt;String&gt; list= new ArrayList&lt;String&gt;();</div><div class="line">	backtrack(list,&quot;&quot;,0,0,n);</div><div class="line">	return list; </div><div class="line">    &#125;</div><div class="line">    public void backtrack(List&lt;String&gt;list,String str,int open,int close,int max) &#123;</div><div class="line">	if(str.length()==max*2)&#123;</div><div class="line">        list.add(str);</div><div class="line">        return;</div><div class="line">    &#125;</div><div class="line">	if(open&lt;max)backtrack(list,str+&quot;(&quot;,open+1,close,max);</div><div class="line">	if(close&lt;open) backtrack(list,str+&quot;)&quot;,open,close+1,max);</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2>&lt;font color =red&gt;Idea:&lt;/font&gt;</h2>
+<p>  Easy recurison. When left parenthesis's number is smaller than n, we could creat new left parenthesis, when right parenthesis's number is smaller than n, we could set new parenthesis.</p>
+<h2>&lt;font color = orange&gt;Java Code:&lt;font&gt;</h2>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public List&lt;String&gt; generateParenthesis(int n) &#123;</div><div class="line">       List&lt;String&gt; list= new ArrayList&lt;String&gt;();</div><div class="line">	backtrack(list,&quot;&quot;,0,0,n);</div><div class="line">	return list; </div><div class="line">    &#125;</div><div class="line">    public void backtrack(List&lt;String&gt;list,String str,int open,int close,int max) &#123;</div><div class="line">	if(str.length()==max*2)&#123;</div><div class="line">        list.add(str);</div><div class="line">        return;</div><div class="line">    &#125;</div><div class="line">	if(open&lt;max)backtrack(list,str+&quot;(&quot;,open+1,close,max);</div><div class="line">	if(close&lt;open) backtrack(list,str+&quot;)&quot;,open,close+1,max);</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -464,7 +464,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">61</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -539,7 +539,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text"><font color = black>Problem:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text"><font color =red>Idea:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text"><font color = orange>Java Code:<font></span></a></li></ol></div>
             
 
           </div>
