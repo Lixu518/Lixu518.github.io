@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.mysry.com/2017/11/13/10-Regular-Expression-Matching/</loc>
+    
+    <lastmod>2017-12-02T13:34:08.813Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.mysry.com/2017/12/02/68-Text-Justification/</loc>
     
     <lastmod>2017-12-02T12:21:21.334Z</lastmod>
@@ -292,13 +299,6 @@
     <loc>http://www.mysry.com/2017/11/14/29-Divide-Two-Integers/</loc>
     
     <lastmod>2017-11-14T15:40:47.121Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.mysry.com/2017/11/13/10-Regular-Expression-Matching/</loc>
-    
-    <lastmod>2017-11-13T14:07:21.571Z</lastmod>
     
   </url>
   
