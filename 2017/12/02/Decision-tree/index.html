@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="leetcode," />
+  <meta name="keywords" content="Machine learning," />
 
 
 
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="Problem:  Given a collection of intervals, merge all overlapping intervals.  Idea:   The idea is to sort the intervals by their starting points. Then, we take the first interval and compare its end wi">
-<meta name="keywords" content="leetcode">
+<meta name="description" content="决策树   决策树是一种基本的分类和回归算法。分类决策树是一种描述对实例进行分类的树形结构。决策树是由节点和有向边组成，节点分为内部节点和叶节点。内部节点表示一个特征或属性，叶节点表示一个类。   用决策树分类，从根节点开始，对实例的某一个特征进行测试，根据测试结果将实例分配给子节点，这时，每个子结点对应着改特征的一个取值，这样递归的进行分配测试，直到达到叶节点，把实例归为叶节点的类。 特征的选择">
+<meta name="keywords" content="Machine learning">
 <meta property="og:type" content="article">
-<meta property="og:title" content="56. Merge Intervals">
-<meta property="og:url" content="http://www.mysry.com/2017/11/27/56-Merge-Intervals/index.html">
+<meta property="og:title" content="Decision tree">
+<meta property="og:url" content="http://www.mysry.com/2017/12/02/Decision-tree/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="Problem:  Given a collection of intervals, merge all overlapping intervals.  Idea:   The idea is to sort the intervals by their starting points. Then, we take the first interval and compare its end wi">
+<meta property="og:description" content="决策树   决策树是一种基本的分类和回归算法。分类决策树是一种描述对实例进行分类的树形结构。决策树是由节点和有向边组成，节点分为内部节点和叶节点。内部节点表示一个特征或属性，叶节点表示一个类。   用决策树分类，从根节点开始，对实例的某一个特征进行测试，根据测试结果将实例分配给子节点，这时，每个子结点对应着改特征的一个取值，这样递归的进行分配测试，直到达到叶节点，把实例归为叶节点的类。 特征的选择">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-27T04:10:21.668Z">
+<meta property="og:updated_time" content="2017-12-02T09:42:01.716Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="56. Merge Intervals">
-<meta name="twitter:description" content="Problem:  Given a collection of intervals, merge all overlapping intervals.  Idea:   The idea is to sort the intervals by their starting points. Then, we take the first interval and compare its end wi">
+<meta name="twitter:title" content="Decision tree">
+<meta name="twitter:description" content="决策树   决策树是一种基本的分类和回归算法。分类决策树是一种描述对实例进行分类的树形结构。决策树是由节点和有向边组成，节点分为内部节点和叶节点。内部节点表示一个特征或属性，叶节点表示一个类。   用决策树分类，从根节点开始，对实例的某一个特征进行测试，根据测试结果将实例分配给子节点，这时，每个子结点对应着改特征的一个取值，这样递归的进行分配测试，直到达到叶节点，把实例归为叶节点的类。 特征的选择">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://www.mysry.com/2017/11/27/56-Merge-Intervals/"/>
+  <link rel="canonical" href="http://www.mysry.com/2017/12/02/Decision-tree/"/>
 
 
 
 
 
-  <title>56. Merge Intervals | Mysry</title>
+  <title>Decision tree | Mysry</title>
   
 
 
@@ -255,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.mysry.com/2017/11/27/56-Merge-Intervals/">
+    <link itemprop="mainEntityOfPage" href="http://www.mysry.com/2017/12/02/Decision-tree/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mysry">
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">56. Merge Intervals</h1>
+          <h1 class="post-title" itemprop="name headline">Decision tree</h1>
         
 
         <div class="post-meta">
@@ -284,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-27T12:05:48+08:00">
-                2017-11-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-02T14:57:27+08:00">
+                2017-12-02
               </time>
             
 
@@ -322,14 +322,24 @@
       
 
       
-        <h2 id="problem"><font color="black">Problem:</font></h2>
-<blockquote>
-<p>Given a collection of intervals, merge all overlapping intervals.</p>
-</blockquote>
-<h2 id="idea"><font color="red">Idea:</font></h2>
-<p>  The idea is to sort the intervals by their starting points. Then, we take the first interval and compare its end with the next intervals starts. As long as they overlap, we update the end to be the max end of the overlapping intervals. Once we find a non overlapping interval, we can add the previous “extended” interval and start over.</p>
-<h2 id="java-code"><font color="orange">Java Code:</font></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for an interval.</div><div class="line"> * public class Interval &#123;</div><div class="line"> *     int start;</div><div class="line"> *     int end;</div><div class="line"> *     Interval() &#123; start = 0; end = 0; &#125;</div><div class="line"> *     Interval(int s, int e) &#123; start = s; end = e; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">    public List&lt;Interval&gt; merge(List&lt;Interval&gt; intervals) &#123;</div><div class="line">      if (intervals.size() &lt;= 1)</div><div class="line">			return intervals;</div><div class="line">		intervals.sort((i1, i2) -&gt; Integer.compare(i1.start, i2.start));</div><div class="line">		List&lt;Interval&gt; result = new LinkedList&lt;Interval&gt;();</div><div class="line">		int start = intervals.get(0).start;</div><div class="line">		int end = intervals.get(0).end;</div><div class="line">		for (Interval interval : intervals) &#123;</div><div class="line">			if (interval.start &lt;= end)</div><div class="line">				end = Math.max(end, interval.end);</div><div class="line">			else &#123;</div><div class="line">				result.add(new Interval(start, end));</div><div class="line">				start = interval.start;</div><div class="line">				end = interval.end;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		result.add(new Interval(start, end));</div><div class="line">		return result;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h2 id="决策树">决策树</h2>
+<p>  决策树是一种基本的分类和回归算法。分类决策树是一种描述对实例进行分类的树形结构。决策树是由节点和有向边组成，节点分为内部节点和叶节点。内部节点表示一个特征或属性，叶节点表示一个类。<br>   用决策树分类，从根节点开始，对实例的某一个特征进行测试，根据测试结果将实例分配给子节点，这时，每个子结点对应着改特征的一个取值，这样递归的进行分配测试，直到达到叶节点，把实例归为叶节点的类。<br></p>
+<h2 id="特征的选择">特征的选择</h2>
+<p>  特征选择在于选择对数据分类能力较强的特征作为结点。通常的特征选择准则是信息增益或信息增益比。<br></p>
+<h3 id="信息熵">信息熵</h3>
+<p>  对于概率分布为<span class="math display">\[P(X=x_i)=p_i, i=1,2,...,n\]</span>的随机变量X，其信息熵定义为<span class="math display">\[H(p)=-\sum_{i=1}^n p_i \log p_i\]</span>若<span class="math inline">\(p_i=0\)</span>定义<span class="math inline">\(0\log0=0\)</span>熵越大，随机变量的不确定性也就越大。假设由随机变量(X,Y)，其联合概率分布为<span class="math display">\[P(X=x_i,Y=y_i)=p_{ij},i=1,2,...,n; j=1,2,...,m\]</span>条件熵<span class="math inline">\(H(Y|X)\)</span>表示在已知随机变量X的条件下随机变量Y的不确定性，随机变量X给定的条件下随机变量Y的条件熵<span class="math inline">\(H(Y|X)\)</span>，定义为X再给定条件Y的条件概率分布的熵对X的数学期望<span class="math display">\[H(Y|X)=\sum_{i=1}^n p_i H(Y|X=x_i)\]</span>其中<span class="math inline">\(p_i=P(X=x_i), i=1,2,...,n\)</span>.<br></p>
+<h3 id="信息增益">信息增益</h3>
+<p>  信息增益表示在已知条件X的信息而使得类Y的信息不确定度减少的程度。特征A对训练数据集D的信息增益g(D,A),定义为集合D的经验熵H(D)与特征A在给定的条件下D的经验条件熵之差，即<span class="math display">\[g(D,A)=H(D)-H(D|A)\]</span>决策树中的信息增益等价于训练数据集中类与特征的互信息。<br>   设训练数据集D，|D|表示样本容量，假设有k个子类<span class="math inline">\(C_k\)</span>，k=1,2,…,K,<span class="math inline">\(|C_k|\)</span>为类<span class="math inline">\(C_k\)</span>样本个数.<span class="math inline">\(\sum_{k=1}^K |C_k|=|D|\)</span>.设特征A有n个不同的取值<span class="math inline">\({a_1,a_2,...,a_n}\)</span>，根据特征A的取值将D划分为n个子集<span class="math inline">\(D_1,D_2,...,D_n\)</span>,|D_i|为<span class="math inline">\(D_i\)</span>的样本数目，同样<span class="math inline">\(\sum_{i=1}^n |D_i|=|D|\)</span>.记子集<span class="math inline">\(D_i\)</span>中属于样本的集合为<span class="math inline">\(D_{ik}\)</span>，即<span class="math inline">\(D_{ij}=D_i \cap C_k\)</span>,<span class="math inline">\(|D_{ik}|\)</span>为<span class="math inline">\(D_{ik}\)</span>的样本个数，则有如下信息增益的算法:<br> - 计算数据集D的经验熵H(D)<span class="math display">\[H(D)=-\sum_{i=1}^K \frac{|C_k|}{|D|}\log_2\frac{|C_k|}{|D|}\]</span><br> - 计算特征A对数据集D的经验条件熵H(D|A)<span class="math display">\[H(D|A)=\sum_{i=1}^n\frac{|D_i|}{|D|}H(D_i) = -\sum_{i=1}^n\frac{|D_i|}{|D|} \sum_{k=1}^K \frac{|D_{ik}|}{|D_i|}\log_2 \frac{|D_{ik}|}{|D_i|}\]</span><br> - 计算信息增益比<span class="math display">\[g(D,A)=H(D)-H(D|A)\]</span><br></p>
+<h3 id="信息增益比">信息增益比</h3>
+<p>  特征A对数据集D的信息增益比<span class="math inline">\(g_R (D,A)\)</span>定义为其信息增益g(D,A)与训练数据集D关于特征值A的熵<span class="math inline">\(H_A (D)\)</span>之比，即<span class="math display">\[g_R(D,A)=\frac{g(D,A)}{H_A (D)}\]</span>其中，<span class="math inline">\(H_A (D)= -\sum_{i=1}^n \frac{|D_i|}{|D|} \log_2 \frac{|D_i|}{|D|}\)</span>,n是特征A取值的个数。</p>
+<h2 id="决策树的生成">决策树的生成</h2>
+<h3 id="id3-算法">ID3 算法</h3>
+<p>输入：训练数据集D，特征集A，阈值<span class="math inline">\(\epsilon\)</span>;<br> 输出：决策树T.<br> - 若D中所有实例同属于一类<span class="math inline">\(C_k\)</span>，则T为单结点树，并将<span class="math inline">\(C_k\)</span>作为该结点的类标记，返回T;<br> - 若<span class="math inline">\(A=\varnothing\)</span>,则T为单结点树，并将D中实例数最大的类<span class="math inline">\(C_k\)</span>作为该结点的类标识，返回T;<br> - 否则，计算A中各特征对D的信息增益，选择信息增益最大的特征<span class="math inline">\(A_g\)</span>;<br> - 如果<span class="math inline">\(A_g\)</span>的信息增益小于阈值<span class="math inline">\(\varnothing\)</span>,则置T为单结点树，并将D中的实例数最大的类<span class="math inline">\(C_k\)</span>作为该节点的类标记，返回T;<br> - 否则，对<span class="math inline">\(A_g\)</span>的每一个可能的取值<span class="math inline">\(a_i\)</span>，依<span class="math inline">\(A_g=a_i\)</span>将D分割为若干个非空子集<span class="math inline">\(D_i\)</span>,<span class="math inline">\(D_i\)</span>中实例最大的类作为标记，构建子节点，由节点及其字节点构成树T，返回T;<br> - 对于第i个子结点，以<span class="math inline">\(D_i\)</span>为训练集，以<span class="math inline">\(A-\{A_g\}\)</span>为特征集。递归调用上述5步，得到字数<span class="math inline">\(T_i\)</span>，返回<span class="math inline">\(T_i\)</span>.<br></p>
+<h3 id="c4.5-生成算法">C4.5 生成算法</h3>
+<p>  以信息增益作为划分数据集的特征，存在偏向于选择特征较多的问题，使用信息增益比可以改善这一情况。<br> 输入：训练数据集D，特征集A，阈值<span class="math inline">\(\epsilon\)</span>;<br> 输出：决策树T.<br> - 若D中所有实例同属于一类<span class="math inline">\(C_k\)</span>，则T为单结点树，并将<span class="math inline">\(C_k\)</span>作为该结点的类标记，返回T;<br> - 若<span class="math inline">\(A=\varnothing\)</span>,则T为单结点树，并将D中实例数最大的类<span class="math inline">\(C_k\)</span>作为该结点的类标识，返回T;<br> - 否则，计算A中各特征对D的信息增益比，选择信息增益比最大的特征<span class="math inline">\(A_g\)</span>;<br> - 如果<span class="math inline">\(A_g\)</span>的信息增益比小于阈值<span class="math inline">\(\varnothing\)</span>,则置T为单结点树，并将D中的实例数最大的类<span class="math inline">\(C_k\)</span>作为该节点的类标记，返回T;<br> - 否则，对<span class="math inline">\(A_g\)</span>的每一个可能的取值<span class="math inline">\(a_i\)</span>，依<span class="math inline">\(A_g=a_i\)</span>将D分割为若干个非空子集<span class="math inline">\(D_i\)</span>,<span class="math inline">\(D_i\)</span>中实例最大的类作为标记，构建子节点，由节点及其字节点构成树 T，返回T;<br> - 对于第i个子结点，以<span class="math inline">\(D_i\)</span>为训练集，以<span class="math inline">\(A-\{A_g\}\)</span>为特征集。递归调用上述5步，得到字数<span class="math inline">\(T_i\)</span>，返回<span class="math inline">\(T_i\)</span>.<br></p>
+<center>
+To be continued…
+</center>
 
       
     </div>
@@ -358,7 +368,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
+            <a href="/tags/Machine-learning/" rel="tag"><i class="fa fa-tag"></i> Machine learning</a>
           
         </div>
       
@@ -371,8 +381,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/26/AdaBoost/" rel="next" title="AdaBoost">
-                <i class="fa fa-chevron-left"></i> AdaBoost
+              <a href="/2017/11/30/63-Unique-Paths-II/" rel="next" title="63. Unique Paths II">
+                <i class="fa fa-chevron-left"></i> 63. Unique Paths II
               </a>
             
           </div>
@@ -380,10 +390,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/27/57-Insert-Interval/" rel="prev" title="57. Insert Interval">
-                57. Insert Interval <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -539,7 +545,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#决策树"><span class="nav-number">1.</span> <span class="nav-text">决策树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特征的选择"><span class="nav-number">2.</span> <span class="nav-text">特征的选择</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#信息熵"><span class="nav-number">2.1.</span> <span class="nav-text">信息熵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信息增益"><span class="nav-number">2.2.</span> <span class="nav-text">信息增益</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信息增益比"><span class="nav-number">2.3.</span> <span class="nav-text">信息增益比</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#决策树的生成"><span class="nav-number">3.</span> <span class="nav-text">决策树的生成</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#id3-算法"><span class="nav-number">3.1.</span> <span class="nav-text">ID3 算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c4.5-生成算法"><span class="nav-number">3.2.</span> <span class="nav-text">C4.5 生成算法</span></a></li></ol></li></ol></div>
             
 
           </div>

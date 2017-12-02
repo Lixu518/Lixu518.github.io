@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2017-11-30T13:53:00.154Z</updated>
+  <updated>2017-12-02T09:42:01.716Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Decision tree</title>
+    <link href="http://www.mysry.com/2017/12/02/Decision-tree/"/>
+    <id>http://www.mysry.com/2017/12/02/Decision-tree/</id>
+    <published>2017-12-02T06:57:27.000Z</published>
+    <updated>2017-12-02T09:42:01.716Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="决策树">决策树</h2><p>  决策树是一种基本的分类和回归算法。分类决策树是一种描述对实例进行分类的树形结构。决策树是由节点和有向边组成，节点分为内部节点和叶节点。内部节点表示一个特征或属性，叶节点表示一个类。<br>   用决策树分类，从根节点开始，对实例的某一个特征进行测试，根据测试结果将实例分配给子节点，这时，每个子结点对应着改特征的一个取值，这样递归的进行分配测试，直到达到叶节点，把实例归为叶节点的类。<br></p><h2 id="特征的选择">特征的选择</h2><p>  特征选择在于选择对数据分类能力较强的特征作为结点。通常的特征选择准则是信息增益或信息增益比。<br></p><h3 id="信息熵">信息熵</h3><p>  对于概率分布为<span class="math display">\[P(X=x_i)=p_i, i=1,2,...,n\]</span>的随机变量X，其信息熵定义为<span class="math display">\[H(p)=-\sum_{i=1}^n p_i \log p_i\]</span>若<span class="math inline">\(p_i=0\)</span>定义<span class="math inline">\(0\log0=0\)</span>熵越大，随机变量的不确定性也就越大。假设由随机变量(X,Y)，其联合概率分布为<span class="math display">\[P(X=x_i,Y=y_i)=p_{ij},i=1,2,...,n; j=1,2,...,m\]</span>条件熵<span class="math inline">\(H(Y|X)\)</span>表示在已知随机变量X的条件下随机变量Y的不确定性，随机变量X给定的条件下随机变量Y的条件熵<span class="math inline">\(H(Y|X)\)</span>，定义为X再给定条件Y的条件概率分布的熵对X的数学期望<span class="math display">\[H(Y|X)=\sum_{i=1}^n p_i H(Y|X=x_i)\]</span>其中<span class="math inline">\(p_i=P(X=x_i), i=1,2,...,n\)</span>.<br></p><h3 id="信息增益">信息增益</h3><p>  信息增益表示在已知条件X的信息而使得类Y的信息不确定度减少的程度。特征A对训练数据集D的信息增益g(D,A),定义为集合D的经验熵H(D)与特征A在给定的条件下D的经验条件熵之差，即<span class="math display">\[g(D,A)=H(D)-H(D|A)\]</span>决策树中的信息增益等价于训练数据集中类与特征的互信息。<br>   设训练数据集D，|D|表示样本容量，假设有k个子类<span class="math inline">\(C_k\)</span>，k=1,2,…,K,<span class="math inline">\(|C_k|\)</span>为类<span class="math inline">\(C_k\)</span>样本个数.<span class="math inline">\(\sum_{k=1}^K |C_k|=|D|\)</span>.设特征A有n个不同的取值<span class="math inline">\({a_1,a_2,...,a_n}\)</span>，根据特征A的取值将D划分为n个子集<span class="math inline">\(D_1,D_2,...,D_n\)</span>,|D_i|为<span class="math inline">\(D_i\)</span>的样本数目，同样<span class="math inline">\(\sum_{i=1}^n |D_i|=|D|\)</span>.记子集<span class="math inline">\(D_i\)</span>中属于样本的集合为<span class="math inline">\(D_{ik}\)</span>，即<span class="math inline">\(D_{ij}=D_i \cap C_k\)</span>,<span class="math inline">\(|D_{ik}|\)</span>为<span class="math inline">\(D_{ik}\)</span>的样本个数，则有如下信息增益的算法:<br> - 计算数据集D的经验熵H(D)<span class="math display">\[H(D)=-\sum_{i=1}^K \frac{|C_k|}{|D|}\log_2\frac{|C_k|}{|D|}\]</span><br> - 计算特征A对数据集D的经验条件熵H(D|A)<span class="math display">\[H(D|A)=\sum_{i=1}^n\frac{|D_i|}{|D|}H(D_i) = -\sum_{i=1}^n\frac{|D_i|}{|D|} \sum_{k=1}^K \frac{|D_{ik}|}{|D_i|}\log_2 \frac{|D_{ik}|}{|D_i|}\]</span><br> - 计算信息增益比<span class="math display">\[g(D,A)=H(D)-H(D|A)\]</span><br></p><h3 id="信息增益比">信息增益比</h3><p>  特征A对数据集D的信息增益比<span class="math inline">\(g_R (D,A)\)</span>定义为其信息增益g(D,A)与训练数据集D关于特征值A的熵<span class="math inline">\(H_A (D)\)</span>之比，即<span class="math display">\[g_R(D,A)=\frac{g(D,A)}{H_A (D)}\]</span>其中，<span class="math inline">\(H_A (D)= -\sum_{i=1}^n \frac{|D_i|}{|D|} \log_2 \frac{|D_i|}{|D|}\)</span>,n是特征A取值的个数。</p><h2 id="决策树的生成">决策树的生成</h2><h3 id="id3-算法">ID3 算法</h3><p>输入：训练数据集D，特征集A，阈值<span class="math inline">\(\epsilon\)</span>;<br> 输出：决策树T.<br> - 若D中所有实例同属于一类<span class="math inline">\(C_k\)</span>，则T为单结点树，并将<span class="math inline">\(C_k\)</span>作为该结点的类标记，返回T;<br> - 若<span class="math inline">\(A=\varnothing\)</span>,则T为单结点树，并将D中实例数最大的类<span class="math inline">\(C_k\)</span>作为该结点的类标识，返回T;<br> - 否则，计算A中各特征对D的信息增益，选择信息增益最大的特征<span class="math inline">\(A_g\)</span>;<br> - 如果<span class="math inline">\(A_g\)</span>的信息增益小于阈值<span class="math inline">\(\varnothing\)</span>,则置T为单结点树，并将D中的实例数最大的类<span class="math inline">\(C_k\)</span>作为该节点的类标记，返回T;<br> - 否则，对<span class="math inline">\(A_g\)</span>的每一个可能的取值<span class="math inline">\(a_i\)</span>，依<span class="math inline">\(A_g=a_i\)</span>将D分割为若干个非空子集<span class="math inline">\(D_i\)</span>,<span class="math inline">\(D_i\)</span>中实例最大的类作为标记，构建子节点，由节点及其字节点构成树T，返回T;<br> - 对于第i个子结点，以<span class="math inline">\(D_i\)</span>为训练集，以<span class="math inline">\(A-\{A_g\}\)</span>为特征集。递归调用上述5步，得到字数<span class="math inline">\(T_i\)</span>，返回<span class="math inline">\(T_i\)</span>.<br></p><h3 id="c4.5-生成算法">C4.5 生成算法</h3><p>  以信息增益作为划分数据集的特征，存在偏向于选择特征较多的问题，使用信息增益比可以改善这一情况。<br> 输入：训练数据集D，特征集A，阈值<span class="math inline">\(\epsilon\)</span>;<br> 输出：决策树T.<br> - 若D中所有实例同属于一类<span class="math inline">\(C_k\)</span>，则T为单结点树，并将<span class="math inline">\(C_k\)</span>作为该结点的类标记，返回T;<br> - 若<span class="math inline">\(A=\varnothing\)</span>,则T为单结点树，并将D中实例数最大的类<span class="math inline">\(C_k\)</span>作为该结点的类标识，返回T;<br> - 否则，计算A中各特征对D的信息增益比，选择信息增益比最大的特征<span class="math inline">\(A_g\)</span>;<br> - 如果<span class="math inline">\(A_g\)</span>的信息增益比小于阈值<span class="math inline">\(\varnothing\)</span>,则置T为单结点树，并将D中的实例数最大的类<span class="math inline">\(C_k\)</span>作为该节点的类标记，返回T;<br> - 否则，对<span class="math inline">\(A_g\)</span>的每一个可能的取值<span class="math inline">\(a_i\)</span>，依<span class="math inline">\(A_g=a_i\)</span>将D分割为若干个非空子集<span class="math inline">\(D_i\)</span>,<span class="math inline">\(D_i\)</span>中实例最大的类作为标记，构建子节点，由节点及其字节点构成树 T，返回T;<br> - 对于第i个子结点，以<span class="math inline">\(D_i\)</span>为训练集，以<span class="math inline">\(A-\{A_g\}\)</span>为特征集。递归调用上述5步，得到字数<span class="math inline">\(T_i\)</span>，返回<span class="math inline">\(T_i\)</span>.<br></p><center>To be continued…</center>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;决策树&quot;&gt;决策树&lt;/h2&gt;
+&lt;p&gt;  决策树是一种基本的分类和回归算法。分类决策树是一种描述对实例进行分类的树形结构。决策树是由节点和有向边组成，节点分为内部节点和叶节点。内部节点表示一个特征或属性，叶节点表示一个类。&lt;br&gt;   用决策树分类，从根节点开始，对实
+      
+    
+    </summary>
+    
+    
+      <category term="Machine learning" scheme="http://www.mysry.com/tags/Machine-learning/"/>
+    
+  </entry>
   
   <entry>
     <title>63. Unique Paths II</title>
@@ -487,31 +511,6 @@
         &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Given a collection of distinct numbers, return all possible permut
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>45. Jump Game II</title>
-    <link href="http://www.mysry.com/2017/11/21/45-Jump-Game-II/"/>
-    <id>http://www.mysry.com/2017/11/21/45-Jump-Game-II/</id>
-    <published>2017-11-21T15:27:23.000Z</published>
-    <updated>2017-11-21T15:33:39.083Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given an array of non-negative integers, you are initially positioned at the first index of the array.</p></blockquote><blockquote><p>Each element in the array represents your maximum jump length at that position.</p></blockquote><blockquote><p>Your goal is to reach the last index in the minimum number of jumps.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> set e to be longest distance in current minimum step set sc to be minimum steps for reaching e. From i to e, even max is changed in a loop, it is reachable in one step.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int jump(int[] nums) &#123;</div><div class="line">        int sc=0;</div><div class="line">        int e=0;</div><div class="line">        int max=0;</div><div class="line">        for(int i=0;i&lt;nums.length-1;i++)&#123;</div><div class="line">            max=Math.max(max,i+nums[i]);</div><div class="line">            if (i==e)&#123;</div><div class="line">                sc++;</div><div class="line">                e=max;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return sc;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given an array of non-negative integers, you are initially positio
       
     
     </summary>
