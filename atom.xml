@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2017-12-02T09:42:01.716Z</updated>
+  <updated>2017-12-02T12:21:21.334Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>68. Text Justification</title>
+    <link href="http://www.mysry.com/2017/12/02/68-Text-Justification/"/>
+    <id>http://www.mysry.com/2017/12/02/68-Text-Justification/</id>
+    <published>2017-12-02T12:10:40.000Z</published>
+    <updated>2017-12-02T12:21:21.334Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given an array of words and a length L, format the text such that each line has exactly L characters and is fully (left and right) justified. You should pack your words in a greedy approach; that is, pack as many words as you can in each line. Pad extra spaces ‘’ when necessary so that each line has exactly L characters. Extra spaces between words should be distributed as evenly as possible. If the number of spaces on a line do not divide evenly between words, the empty slots on the left will be assigned more spaces than the slots on the right. For the last line of text, it should be left justified and no extra space is inserted between words.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> Travel through the String array to find how many words it is needed to suit the maxWidth and for the most situation the words length can’t be maxWidth, we need add extra space, such and to keep the space is generally similar, the last line is special because of we’d like to keep the extra space all set to be right.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public List&lt;String&gt; fullJustify(String[] words, int maxWidth) &#123;</div><div class="line">        List&lt;String&gt; res = new ArrayList&lt;&gt;();</div><div class="line">        int cur = 0;</div><div class="line">        while(cur&lt;words.length)&#123;</div><div class="line">            int last = cur +1;</div><div class="line">            int cnt = words[cur].length();</div><div class="line">            while(last&lt;words.length)&#123;</div><div class="line">                if(words[last].length()+cnt+1&gt;maxWidth)</div><div class="line">                    break;</div><div class="line">                cnt += words[last].length()+1;</div><div class="line">                last++;</div><div class="line">            &#125;</div><div class="line">            int gap = last -cur -1;</div><div class="line">            StringBuilder sb = new StringBuilder();</div><div class="line">            if(last == words.length||gap==0)&#123;</div><div class="line">                for (int i=cur;i&lt;last;i++)</div><div class="line">                    sb.append(words[i]+&quot; &quot;);</div><div class="line">                sb.deleteCharAt(sb.length()-1);</div><div class="line">                for (int i = sb.length();i&lt;maxWidth;i++)</div><div class="line">                    sb.append(&quot; &quot;);</div><div class="line">            &#125;</div><div class="line">            else&#123;</div><div class="line">                int spaces = (maxWidth - cnt) / gap;</div><div class="line">                int rem = (maxWidth - cnt) % gap;</div><div class="line">                for ( int i = cur; i&lt;last;i++)&#123;</div><div class="line">                    sb.append(words[i]);</div><div class="line">                    if(i&lt;last-1)&#123;</div><div class="line">                        for (int j=0;j&lt;=(spaces + (i-cur&lt;rem?1:0));j++)</div><div class="line">                            sb.append(&quot; &quot;);</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            res.add(sb.toString());</div><div class="line">            cur = last;</div><div class="line">        &#125;</div><div class="line">        return res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure><h2 id="c-code"><font color="gold">C++ Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    vector&lt;string&gt; fullJustify(vector&lt;string&gt;&amp; words, int maxWidth)</div><div class="line">    &#123;</div><div class="line">        vector&lt;string&gt; res ;</div><div class="line">        for (int i=0,k,l;i&lt;words.size();i+=k)</div><div class="line">        &#123;</div><div class="line">            for (k=l=0;i+k&lt;words.size() and l+words[i+k].size()&lt;=maxWidth-k;k++)</div><div class="line">            &#123;</div><div class="line">                l += words[i+k].size();</div><div class="line">            &#125;</div><div class="line">            string tmp = words[i];</div><div class="line">            for (int j=0;j&lt;k-1;j++)</div><div class="line">            &#123;</div><div class="line">                if(i+k&gt;=words.size())</div><div class="line">                    tmp += &quot; &quot;;</div><div class="line">                else</div><div class="line">                    tmp += string((maxWidth - l) / (k - 1) + (j &lt; (maxWidth - l) % (k - 1)), &apos; &apos;);</div><div class="line">                tmp+=words[i+j+1];</div><div class="line">            &#125;</div><div class="line">            tmp += string(maxWidth-tmp.size(),&apos; &apos;);</div><div class="line">            res.push_back(tmp);</div><div class="line">        &#125;</div><div class="line">        return res;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given an array of words and a length L, format the text such that 
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>Decision tree</title>
@@ -486,31 +511,6 @@
         &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Given a collection of numbers that might contain duplicates, retur
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>46. Permutations</title>
-    <link href="http://www.mysry.com/2017/11/21/46-Permutations/"/>
-    <id>http://www.mysry.com/2017/11/21/46-Permutations/</id>
-    <published>2017-11-21T15:35:43.000Z</published>
-    <updated>2017-11-21T15:39:23.765Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given a collection of distinct numbers, return all possible permutations.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> Traversing nums (the first for loop), the result in res is the full array of nums [0] through nums [i-1] when starting nums [i]. In each iteration, you need to add nums [i] to each of the res results, and then start the next iteration. Specifically, each cycle begins by recording the size of the current res, taking the first one in res, adding nums [i] at each location, and adding it to the end of res (the third for loop, r .size ()), a total of size times (the second for loop).</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public List&lt;List&lt;Integer&gt;&gt; permute(int[] nums) &#123;</div><div class="line">        LinkedList&lt;List&lt;Integer&gt;&gt; res = new LinkedList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">        res.add(new ArrayList&lt;Integer&gt;());</div><div class="line">        for (int n:nums)&#123;</div><div class="line">            int size = res.size();</div><div class="line">            for(;size&gt;0;size--)&#123;</div><div class="line">                List&lt;Integer&gt; r= res.pollFirst();</div><div class="line">                for (int i=0;i&lt;=r.size();i++)&#123;</div><div class="line">                    List&lt;Integer&gt; t= new ArrayList&lt;Integer&gt;(r);</div><div class="line">                    t.add(i,n);</div><div class="line">                    res.add(t);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given a collection of distinct numbers, return all possible permut
       
     
     </summary>
