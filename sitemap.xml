@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.mysry.com/2017/11/08/15-3Sum/</loc>
+    
+    <lastmod>2017-12-03T03:47:36.755Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.mysry.com/2017/11/08/12-Integer-to-Roman/</loc>
     
     <lastmod>2017-12-03T02:51:06.967Z</lastmod>
@@ -404,13 +411,6 @@
     <loc>http://www.mysry.com/2017/11/09/16-3Sum-Closest/</loc>
     
     <lastmod>2017-11-09T15:17:16.433Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.mysry.com/2017/11/08/15-3Sum/</loc>
-    
-    <lastmod>2017-11-08T14:01:13.032Z</lastmod>
     
   </url>
   
