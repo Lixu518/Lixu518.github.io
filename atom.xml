@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2017-12-03T02:39:38.229Z</updated>
+  <updated>2017-12-03T14:18:39.511Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>71. Simplify Path</title>
+    <link href="http://www.mysry.com/2017/12/03/71-Simplify-Path/"/>
+    <id>http://www.mysry.com/2017/12/03/71-Simplify-Path/</id>
+    <published>2017-12-03T14:11:35.000Z</published>
+    <updated>2017-12-03T14:18:39.511Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given an absolute path for a file (Unix-style), simplify it. For example, path = “/home/”, =&gt; “/home” path = “/a/./b/../../c/”, =&gt; “/c”</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> We split the path by “/”, and then judge the every section of the path. If the dir is “.”, just delete it and if the dir is “..”, delete it and its previous dir, other dirs will be stored int the stack.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public String simplifyPath(String path) &#123;</div><div class="line">        Deque&lt;String&gt; stack = new LinkedList&lt;&gt;();</div><div class="line">        Set&lt;String&gt; skip = new HashSet&lt;&gt;(Arrays.asList(&quot;..&quot;,&quot;.&quot;,&quot;&quot;));</div><div class="line">        for (String dir : path.split(&quot;/&quot;)) &#123;</div><div class="line">            if (dir.equals(&quot;..&quot;) &amp;&amp; !stack.isEmpty()) </div><div class="line">                stack.pop();</div><div class="line">            else if (!skip.contains(dir)) </div><div class="line">                stack.push(dir);</div><div class="line">        &#125;</div><div class="line">        String res = &quot;&quot;;</div><div class="line">        for (String dir : stack) res = &quot;/&quot; + dir + res;</div><div class="line">        return res.isEmpty() ? &quot;/&quot; : res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure><h2 id="c-code"><font color="gold">C++ Code</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    string simplifyPath(string path) &#123;</div><div class="line">        string res, tmp;</div><div class="line">    vector&lt;string&gt; stk;</div><div class="line">    stringstream ss(path);</div><div class="line">    while(getline(ss,tmp,&apos;/&apos;)) &#123;</div><div class="line">        if (tmp == &quot;&quot; or tmp == &quot;.&quot;) continue;</div><div class="line">        if (tmp == &quot;..&quot; and !stk.empty()) stk.pop_back();</div><div class="line">        else if (tmp != &quot;..&quot;) stk.push_back(tmp);</div><div class="line">    &#125;</div><div class="line">    for(auto str : stk) res += &quot;/&quot;+str;</div><div class="line">    return res.empty() ? &quot;/&quot; : res;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given an absolute path for a file (Unix-style), simplify it. For e
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>68. Text Justification</title>
@@ -486,31 +511,6 @@
 &lt;blockquote&gt;
 &lt;p&gt;You are given an n x n 2D matrix representing an image.&lt;/p&gt;
 &lt;/bloc
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>47. Permutations II</title>
-    <link href="http://www.mysry.com/2017/11/22/47-Permutations-II/"/>
-    <id>http://www.mysry.com/2017/11/22/47-Permutations-II/</id>
-    <published>2017-11-22T14:37:47.000Z</published>
-    <updated>2017-11-22T14:42:03.233Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given a collection of numbers that might contain duplicates, return all possible unique permutations.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> Similar to the previous problem, we use an extra boolean array &quot; boolean[] used&quot; to indicate whether the value is added to list. And sort the array “int[] nums” to make sure we can skip the same value. When a number has the same value with its previous, we can use this number only if his previous is used.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public List&lt;List&lt;Integer&gt;&gt; permuteUnique(int[] nums) &#123;</div><div class="line">        List&lt;List&lt;Integer&gt;&gt; res=new ArrayList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">if(nums==null||nums.length==0) return res;</div><div class="line">boolean []used = new boolean[nums.length];</div><div class="line">List&lt;Integer&gt;list = new ArrayList&lt;Integer&gt;();</div><div class="line">Arrays.sort(nums);</div><div class="line">dfs(nums,used,list,res);</div><div class="line">return res;</div><div class="line">&#125;</div><div class="line">public void dfs(int[]nums,boolean[]used,List&lt;Integer&gt;list,List&lt;List&lt;Integer&gt;&gt;res) &#123;</div><div class="line">if(list.size()==nums.length) &#123;</div><div class="line">res.add(new ArrayList&lt;Integer&gt;(list));</div><div class="line">return ;</div><div class="line">&#125;</div><div class="line">for (int i=0;i&lt;nums.length;i++) &#123;</div><div class="line">if(used[i])continue;</div><div class="line">if(i&gt;0&amp;&amp;nums[i-1]==nums[i]&amp;&amp;!used[i-1])continue;</div><div class="line">used[i]=true;</div><div class="line">list.add(nums[i]);</div><div class="line">dfs(nums,used,list,res);</div><div class="line">used[i]=false;</div><div class="line">list.remove(list.size()-1);</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given a collection of numbers that might contain duplicates, retur
       
     
     </summary>
