@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="Problem:  Implement pow(x, n).  Idea:  If n is odd, then we need (n+1)/2 times xx, after that use the ans devide x; if n is even, just n/2 times xx is OK. Java Code 12345678910111213141516class Soluti">
+<meta name="description" content="Problem:  Given an array with n objects colored red, white or blue, sort them so that objects of the same color are adjacent, with the colors in the order red, white and blue. Here, we will use the in">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="50. Pow(x,n)">
-<meta property="og:url" content="http://www.mysry.com/2017/11/25/50-Pow-x-n/index.html">
+<meta property="og:title" content="75. Sort Colors ">
+<meta property="og:url" content="http://www.mysry.com/2017/12/05/75-Sort-Colors/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="Problem:  Implement pow(x, n).  Idea:  If n is odd, then we need (n+1)/2 times xx, after that use the ans devide x; if n is even, just n/2 times xx is OK. Java Code 12345678910111213141516class Soluti">
+<meta property="og:description" content="Problem:  Given an array with n objects colored red, white or blue, sort them so that objects of the same color are adjacent, with the colors in the order red, white and blue. Here, we will use the in">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-25T14:01:59.163Z">
+<meta property="og:updated_time" content="2017-12-05T14:21:07.860Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="50. Pow(x,n)">
-<meta name="twitter:description" content="Problem:  Implement pow(x, n).  Idea:  If n is odd, then we need (n+1)/2 times xx, after that use the ans devide x; if n is even, just n/2 times xx is OK. Java Code 12345678910111213141516class Soluti">
+<meta name="twitter:title" content="75. Sort Colors ">
+<meta name="twitter:description" content="Problem:  Given an array with n objects colored red, white or blue, sort them so that objects of the same color are adjacent, with the colors in the order red, white and blue. Here, we will use the in">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://www.mysry.com/2017/11/25/50-Pow-x-n/"/>
+  <link rel="canonical" href="http://www.mysry.com/2017/12/05/75-Sort-Colors/"/>
 
 
 
 
 
-  <title>50. Pow(x,n) | Mysry</title>
+  <title>75. Sort Colors  | Mysry</title>
   
 
 
@@ -255,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.mysry.com/2017/11/25/50-Pow-x-n/">
+    <link itemprop="mainEntityOfPage" href="http://www.mysry.com/2017/12/05/75-Sort-Colors/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mysry">
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">50. Pow(x,n)</h1>
+          <h1 class="post-title" itemprop="name headline">75. Sort Colors </h1>
         
 
         <div class="post-meta">
@@ -284,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-25T21:57:25+08:00">
-                2017-11-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-05T22:13:37+08:00">
+                2017-12-05
               </time>
             
 
@@ -324,12 +324,14 @@
       
         <h2 id="problem"><font color="black">Problem:</font></h2>
 <blockquote>
-<p>Implement pow(x, n).</p>
+<p>Given an array with n objects colored red, white or blue, sort them so that objects of the same color are adjacent, with the colors in the order red, white and blue. Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively. Note: You are not suppose to use the library’s sort function for this problem. Follow up: A rather straight forward solution is a two-pass algorithm using counting sort. First, iterate the array counting number of 0’s, 1’s, and 2’s, then overwrite array with total number of 0’s, then 1’s and followed by 2’s. Could you come up with an one-pass algorithm using only constant space?</p>
 </blockquote>
 <h2 id="idea"><font color="red">Idea:</font></h2>
-<p> If n is odd, then we need (n+1)/2 times x<em>x, after that use the ans devide x; if n is even, just n/2 times x</em>x is OK.</p>
-<h2 id="java-code"><font color="orange">Java Code</font></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public double myPow(double x, int n) &#123;</div><div class="line">        double tmp=x;</div><div class="line">	if (n==0) return 1;</div><div class="line">	tmp =myPow(x,n/2);</div><div class="line">	if(n%2==0)</div><div class="line">		return tmp*tmp;</div><div class="line">	else &#123;</div><div class="line">		if (n&gt;0)</div><div class="line">			return tmp*tmp*x;</div><div class="line">		else</div><div class="line">			return tmp*tmp/x;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> We use three pointers–low, mid and high, and as for mid, there are there situation ‘0’, ‘1’ and ‘2’.</p>
+<h2 id="java-code"><font color="orange">Java Code:</font></h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public void sortColors(int[] nums) &#123;</div><div class="line">        int low = 0, mid = 0, tmp = 0, high = nums.length-1;</div><div class="line">        while(mid&lt;=high)&#123;</div><div class="line">            if (nums[mid]==0)&#123;</div><div class="line">                tmp = nums[mid];</div><div class="line">                nums[mid] = nums[low];</div><div class="line">                nums[low] = tmp;</div><div class="line">                low++;</div><div class="line">                mid++;</div><div class="line">            &#125;else if (nums[mid]==1)&#123;</div><div class="line">                mid++;   </div><div class="line">            &#125;else&#123;</div><div class="line">                tmp = nums[mid];</div><div class="line">                nums[mid] = nums[high];</div><div class="line">                nums[high] = tmp;</div><div class="line">                high--;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="c-code"><font color="gold">C++ Code:</font></h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    void sortColors(vector&lt;int&gt;&amp; nums) &#123;</div><div class="line">        int low = 0, mid = 0, tmp = 0, high = nums.size()-1;</div><div class="line">        while(mid&lt;=high)&#123;</div><div class="line">            if(nums[mid]==0)&#123;</div><div class="line">                tmp = nums[mid];</div><div class="line">                nums[mid]= nums[low];</div><div class="line">                nums[low] = tmp;</div><div class="line">                low++;</div><div class="line">                mid++;</div><div class="line">            &#125;else if (nums[mid]==2)&#123;</div><div class="line">                tmp = nums[mid];</div><div class="line">                nums[mid] = nums[high];</div><div class="line">                nums[high] = tmp;</div><div class="line">                high--;</div><div class="line">            &#125;else</div><div class="line">                mid++;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -371,8 +373,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/25/49-Group-Anagrams/" rel="next" title="49. Group Anagrams ">
-                <i class="fa fa-chevron-left"></i> 49. Group Anagrams 
+              <a href="/2017/12/05/74-Search-a-2D-Matrix/" rel="next" title="74. Search a 2D Matrix ">
+                <i class="fa fa-chevron-left"></i> 74. Search a 2D Matrix 
               </a>
             
           </div>
@@ -380,10 +382,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/25/51-N-Queens/" rel="prev" title="51. N-Queens">
-                51. N-Queens <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -539,7 +537,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-code"><span class="nav-number">4.</span> <span class="nav-text">C++ Code:</span></a></li></ol></div>
             
 
           </div>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2017-12-05T13:38:35.533Z</updated>
+  <updated>2017-12-05T14:21:07.860Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>75. Sort Colors </title>
+    <link href="http://www.mysry.com/2017/12/05/75-Sort-Colors/"/>
+    <id>http://www.mysry.com/2017/12/05/75-Sort-Colors/</id>
+    <published>2017-12-05T14:13:37.000Z</published>
+    <updated>2017-12-05T14:21:07.860Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given an array with n objects colored red, white or blue, sort them so that objects of the same color are adjacent, with the colors in the order red, white and blue. Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively. Note: You are not suppose to use the library’s sort function for this problem. Follow up: A rather straight forward solution is a two-pass algorithm using counting sort. First, iterate the array counting number of 0’s, 1’s, and 2’s, then overwrite array with total number of 0’s, then 1’s and followed by 2’s. Could you come up with an one-pass algorithm using only constant space?</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> We use three pointers–low, mid and high, and as for mid, there are there situation ‘0’, ‘1’ and ‘2’.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public void sortColors(int[] nums) &#123;</div><div class="line">        int low = 0, mid = 0, tmp = 0, high = nums.length-1;</div><div class="line">        while(mid&lt;=high)&#123;</div><div class="line">            if (nums[mid]==0)&#123;</div><div class="line">                tmp = nums[mid];</div><div class="line">                nums[mid] = nums[low];</div><div class="line">                nums[low] = tmp;</div><div class="line">                low++;</div><div class="line">                mid++;</div><div class="line">            &#125;else if (nums[mid]==1)&#123;</div><div class="line">                mid++;   </div><div class="line">            &#125;else&#123;</div><div class="line">                tmp = nums[mid];</div><div class="line">                nums[mid] = nums[high];</div><div class="line">                nums[high] = tmp;</div><div class="line">                high--;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure><h2 id="c-code"><font color="gold">C++ Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    void sortColors(vector&lt;int&gt;&amp; nums) &#123;</div><div class="line">        int low = 0, mid = 0, tmp = 0, high = nums.size()-1;</div><div class="line">        while(mid&lt;=high)&#123;</div><div class="line">            if(nums[mid]==0)&#123;</div><div class="line">                tmp = nums[mid];</div><div class="line">                nums[mid]= nums[low];</div><div class="line">                nums[low] = tmp;</div><div class="line">                low++;</div><div class="line">                mid++;</div><div class="line">            &#125;else if (nums[mid]==2)&#123;</div><div class="line">                tmp = nums[mid];</div><div class="line">                nums[mid] = nums[high];</div><div class="line">                nums[high] = tmp;</div><div class="line">                high--;</div><div class="line">            &#125;else</div><div class="line">                mid++;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given an array with n objects colored red, white or blue, sort the
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>74. Search a 2D Matrix </title>
@@ -483,34 +508,6 @@
         &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Given a matrix of m x n elements (m rows, n columns), return all e
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>52. N-Queens II</title>
-    <link href="http://www.mysry.com/2017/11/25/52-N-Queens-II/"/>
-    <id>http://www.mysry.com/2017/11/25/52-N-Queens-II/</id>
-    <published>2017-11-25T14:09:57.000Z</published>
-    <updated>2017-11-25T14:12:56.144Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Follow up for N-Queens problem.</p></blockquote><blockquote><p>Now, instead outputting board configurations, return the total number of distinct solutions.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> See the previous blog.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    int count =0;</div><div class="line">public int totalNQueens(int n) &#123;</div><div class="line">boolean[]cols = new boolean[n];</div><div class="line">boolean[]d1 = new boolean[2*n];</div><div class="line">boolean[]d2 = new boolean[2*n];</div><div class="line">backtracking(0,cols,d1,d2,n);</div><div class="line">return count;</div><div class="line">&#125;</div><div class="line">public void backtracking(int row,boolean[]cols,boolean[]d1,boolean[]d2,int n) &#123;</div><div class="line">if(row ==n) count++;</div><div class="line">for(int col =0;col&lt;n;col++) &#123;</div><div class="line">int id1=col-row+n;</div><div class="line">int id2=col+row;</div><div class="line">if(cols[col]||d1[id1]||d2[id2]) continue;</div><div class="line">cols[col]=true;</div><div class="line">d1[id1]=true;</div><div class="line">d2[id2]=true;</div><div class="line">backtracking(row+1,cols,d1,d2,n);</div><div class="line">cols[col]=false;d1[id1]=false;d2[id2]=false;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Follow up for N-Queens problem.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
       
     
     </summary>
