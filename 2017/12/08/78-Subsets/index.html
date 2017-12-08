@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="题目  You are given two  non-empty  linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and re">
+<meta name="description" content="Problem:  Given a set of distinct integers, nums, return all possible subsets (the power set).  Idea:  Just solve as the previous problem! Java Code: 12345678910111213141516171819202122package Subsets">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2. Add Two Numbers">
-<meta property="og:url" content="http://www.mysry.com/2017/10/25/Add-Two-Numbers/index.html">
+<meta property="og:title" content="78. Subsets ">
+<meta property="og:url" content="http://www.mysry.com/2017/12/08/78-Subsets/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="题目  You are given two  non-empty  linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and re">
+<meta property="og:description" content="Problem:  Given a set of distinct integers, nums, return all possible subsets (the power set).  Idea:  Just solve as the previous problem! Java Code: 12345678910111213141516171819202122package Subsets">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-30T14:29:53.945Z">
+<meta property="og:updated_time" content="2017-12-08T13:50:53.875Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2. Add Two Numbers">
-<meta name="twitter:description" content="题目  You are given two  non-empty  linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and re">
+<meta name="twitter:title" content="78. Subsets ">
+<meta name="twitter:description" content="Problem:  Given a set of distinct integers, nums, return all possible subsets (the power set).  Idea:  Just solve as the previous problem! Java Code: 12345678910111213141516171819202122package Subsets">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://www.mysry.com/2017/10/25/Add-Two-Numbers/"/>
+  <link rel="canonical" href="http://www.mysry.com/2017/12/08/78-Subsets/"/>
 
 
 
 
 
-  <title>2. Add Two Numbers | Mysry</title>
+  <title>78. Subsets  | Mysry</title>
   
 
 
@@ -255,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.mysry.com/2017/10/25/Add-Two-Numbers/">
+    <link itemprop="mainEntityOfPage" href="http://www.mysry.com/2017/12/08/78-Subsets/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mysry">
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">2. Add Two Numbers</h1>
+          <h1 class="post-title" itemprop="name headline">78. Subsets </h1>
         
 
         <div class="post-meta">
@@ -284,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-25T15:13:52+08:00">
-                2017-10-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-08T21:47:14+08:00">
+                2017-12-08
               </time>
             
 
@@ -322,16 +322,16 @@
       
 
       
-        <h2 id="题目"><font color="black">题目</font></h2>
+        <h2 id="problem"><font color="black">Problem:</font></h2>
 <blockquote>
-<p>You are given two <font color="Gold"> non-empty </font> linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list. you may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
+<p>Given a set of distinct integers, nums, return all possible subsets (the power set).</p>
 </blockquote>
-<h2 id="题解"><font color="red">题解</font></h2>
-<p>  本体是将两个链表l1、l2对应位置数字求和后输出，所以选责中间变量将两个链表联系起来，对于求和后的链表l3，对应位置为tmp%10,将tmp/10取整留给tmp本身来对下一个数进位即可。本体关键在于tmp除以10取余和取整的处理。</p>
-<h2 id="java-code"><font color="orange">Java Code</font></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">        public ListNode addTwoNumbers(ListNode l1, ListNode l2) &#123;</div><div class="line">            int tmp =0;</div><div class="line">            ListNode head =new ListNode(0);</div><div class="line">            ListNode p = head;</div><div class="line">            while (l1!=null||l2!=null||tmp!=0)</div><div class="line">            &#123;</div><div class="line">                if(l1!=null)</div><div class="line">                &#123;</div><div class="line">                 tmp+=l1.val;</div><div class="line">                 l1=l1.next;    </div><div class="line">                &#125;</div><div class="line">                if(l2!=null)</div><div class="line">                &#123;</div><div class="line">                    tmp+=l2.val;</div><div class="line">                    l2=l2.next;</div><div class="line">                &#125;</div><div class="line">                p.next=new ListNode(tmp%10);</div><div class="line">                p=p.next;</div><div class="line">                tmp=tmp/10;</div><div class="line">            &#125;</div><div class="line">            return head.next;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<h2 id="c-code"><font color="Gold">C++ Code:</font></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for singly-linked list.</div><div class="line"> * struct ListNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     ListNode *next;</div><div class="line"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</div><div class="line"> * &#125;;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) &#123;</div><div class="line">        ListNode preHead(0),*p=&amp;preHead;</div><div class="line">        int extra=0;</div><div class="line">        while(l1||l2||extra)&#123;</div><div class="line">            int sum = (l1?l1-&gt;val:0)+(l2?l2-&gt;val:0)+extra;</div><div class="line">            extra = sum/10;</div><div class="line">            p-&gt;next = new ListNode(sum%10);</div><div class="line">            p=p-&gt;next;</div><div class="line">            l1=l1?l1-&gt;next:l1;</div><div class="line">            l2=l2?l2-&gt;next:l2;</div><div class="line">        &#125;</div><div class="line">        return preHead.next;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="idea"><font color="red">Idea:</font></h2>
+<p> Just solve as the previous problem!</p>
+<h2 id="java-code"><font color="orange">Java Code:</font></h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">package Subsets;</div><div class="line"></div><div class="line">import java.util.ArrayList;</div><div class="line">import java.util.List;</div><div class="line"></div><div class="line">public class Solution &#123;</div><div class="line">	public List&lt;List&lt;Integer&gt;&gt; subsets(int[] nums) &#123;</div><div class="line">		List&lt;List&lt;Integer&gt;&gt; res = new ArrayList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">		List&lt;Integer&gt; tmp = new ArrayList&lt;Integer&gt;();</div><div class="line">		dfs(res, tmp, nums, 0);</div><div class="line">		return res;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void dfs(List&lt;List&lt;Integer&gt;&gt; res, List&lt;Integer&gt; tmp, int[] nums, int m) &#123;</div><div class="line">		res.add(new ArrayList&lt;Integer&gt;(tmp));</div><div class="line">		for (int i = m; i &lt; nums.length; i++) &#123;</div><div class="line">			tmp.add(nums[i]);</div><div class="line">			dfs(res, tmp, nums, i + 1);</div><div class="line">			tmp.remove(tmp.size() - 1);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="c-code"><font color="gold">C++ Code:</font></h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    vector&lt;vector&lt;int&gt;&gt; subsets(vector&lt;int&gt;&amp; nums) &#123;</div><div class="line">        vector&lt;vector&lt;int&gt;&gt; res;</div><div class="line">        vector&lt;int&gt; tmp;</div><div class="line">        dfs(res,tmp,nums,0);</div><div class="line">        return res;</div><div class="line">    &#125;</div><div class="line">    void dfs(vector&lt;vector&lt;int&gt;&gt;&amp; res, vector&lt;int&gt;&amp; tmp,vector&lt;int&gt;&amp; nums,int m)&#123;</div><div class="line">        res.push_back(tmp);</div><div class="line">        for (int i=m;i&lt;nums.size();i++)&#123;</div><div class="line">            tmp.push_back(nums[i]);</div><div class="line">            dfs(res,tmp,nums,i+1);</div><div class="line">            tmp.pop_back();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -373,8 +373,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/24/Ubuntu下git-hexo搭建个人博客/" rel="next" title="Ubuntu下git+hexo搭建个人博客">
-                <i class="fa fa-chevron-left"></i> Ubuntu下git+hexo搭建个人博客
+              <a href="/2017/12/08/77-Combinations/" rel="next" title="77. Combinations">
+                <i class="fa fa-chevron-left"></i> 77. Combinations
               </a>
             
           </div>
@@ -382,10 +382,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/10/25/3-Longest-Substring-Without-Repeating-Characters/" rel="prev" title="3. Longest Substring Without Repeating Characters">
-                3. Longest Substring Without Repeating Characters <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -541,7 +537,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题解"><span class="nav-number">2.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-code"><span class="nav-number">4.</span> <span class="nav-text">C++ Code:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-code"><span class="nav-number">4.</span> <span class="nav-text">C++ Code:</span></a></li></ol></div>
             
 
           </div>
