@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.mysry.com/2017/12/10/80-Remove-Duplicates-from-Sorted-Array-II/</loc>
+    
+    <lastmod>2017-12-10T02:22:19.610Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.mysry.com/2017/11/26/Ant-Colony-Optimization/</loc>
+    
+    <lastmod>2017-12-09T10:57:35.517Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.mysry.com/2017/12/09/Naive-Bayes/</loc>
     
     <lastmod>2017-12-09T10:45:21.977Z</lastmod>
@@ -257,13 +271,6 @@
     <loc>http://www.mysry.com/2017/11/26/AdaBoost/</loc>
     
     <lastmod>2017-11-26T13:10:18.612Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.mysry.com/2017/11/26/Ant-Colony-Optimization/</loc>
-    
-    <lastmod>2017-11-26T04:02:21.804Z</lastmod>
     
   </url>
   
