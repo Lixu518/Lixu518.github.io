@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="Problem:  Implement pow(x, n).  Idea:  If n is odd, then we need (n+1)/2 times xx, after that use the ans devide x; if n is even, just n/2 times xx is OK. Java Code 12345678910111213141516class Soluti">
+<meta name="description" content="Problem:  Given a 2D board and a word, find if the word exists in the grid. The word can be constructed from letters of sequentially adjacent cell, where “adjacent” cells are those horizontally or ver">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="50. Pow(x,n)">
-<meta property="og:url" content="http://www.mysry.com/2017/11/25/50-Pow-x-n/index.html">
+<meta property="og:title" content="79. Word Search ">
+<meta property="og:url" content="http://www.mysry.com/2017/12/10/79-Word-Search/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="Problem:  Implement pow(x, n).  Idea:  If n is odd, then we need (n+1)/2 times xx, after that use the ans devide x; if n is even, just n/2 times xx is OK. Java Code 12345678910111213141516class Soluti">
+<meta property="og:description" content="Problem:  Given a 2D board and a word, find if the word exists in the grid. The word can be constructed from letters of sequentially adjacent cell, where “adjacent” cells are those horizontally or ver">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-25T14:01:59.163Z">
+<meta property="og:updated_time" content="2017-12-10T02:26:50.200Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="50. Pow(x,n)">
-<meta name="twitter:description" content="Problem:  Implement pow(x, n).  Idea:  If n is odd, then we need (n+1)/2 times xx, after that use the ans devide x; if n is even, just n/2 times xx is OK. Java Code 12345678910111213141516class Soluti">
+<meta name="twitter:title" content="79. Word Search ">
+<meta name="twitter:description" content="Problem:  Given a 2D board and a word, find if the word exists in the grid. The word can be constructed from letters of sequentially adjacent cell, where “adjacent” cells are those horizontally or ver">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://www.mysry.com/2017/11/25/50-Pow-x-n/"/>
+  <link rel="canonical" href="http://www.mysry.com/2017/12/10/79-Word-Search/"/>
 
 
 
 
 
-  <title>50. Pow(x,n) | Mysry</title>
+  <title>79. Word Search  | Mysry</title>
   
 
 
@@ -255,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.mysry.com/2017/11/25/50-Pow-x-n/">
+    <link itemprop="mainEntityOfPage" href="http://www.mysry.com/2017/12/10/79-Word-Search/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mysry">
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">50. Pow(x,n)</h1>
+          <h1 class="post-title" itemprop="name headline">79. Word Search </h1>
         
 
         <div class="post-meta">
@@ -284,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-25T21:57:25+08:00">
-                2017-11-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-10T10:23:14+08:00">
+                2017-12-10
               </time>
             
 
@@ -324,12 +324,14 @@
       
         <h2 id="problem"><font color="black">Problem:</font></h2>
 <blockquote>
-<p>Implement pow(x, n).</p>
+<p>Given a 2D board and a word, find if the word exists in the grid. The word can be constructed from letters of sequentially adjacent cell, where “adjacent” cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once.</p>
 </blockquote>
 <h2 id="idea"><font color="red">Idea:</font></h2>
-<p> If n is odd, then we need (n+1)/2 times x<em>x, after that use the ans devide x; if n is even, just n/2 times x</em>x is OK.</p>
-<h2 id="java-code"><font color="orange">Java Code</font></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public double myPow(double x, int n) &#123;</div><div class="line">        double tmp=x;</div><div class="line">	if (n==0) return 1;</div><div class="line">	tmp =myPow(x,n/2);</div><div class="line">	if(n%2==0)</div><div class="line">		return tmp*tmp;</div><div class="line">	else &#123;</div><div class="line">		if (n&gt;0)</div><div class="line">			return tmp*tmp*x;</div><div class="line">		else</div><div class="line">			return tmp*tmp/x;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> bfs+dfs+backtracking.</p>
+<h2 id="java-code"><font color="orange">Java Code:</font></h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public boolean exist(char[][] board, String word) &#123;</div><div class="line">        char[] w= word.toCharArray();</div><div class="line">        for(int i=0;i&lt;board.length;i++)&#123;</div><div class="line">            for(int j=0;j&lt;board[0].length;j++)&#123;</div><div class="line">                if(isfound(board,w,i,j,0))</div><div class="line">                    return true;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return false;</div><div class="line">    &#125;</div><div class="line">    public boolean isfound(char[][] board,char[] w,int i,int j,int m)&#123;</div><div class="line">        if(m==w.length) return true;</div><div class="line">        if(i&lt;0||j&lt;0||i==board.length||j==board[i].length)</div><div class="line">            return false;</div><div class="line">        if(board[i][j]!=w[m]) return false;</div><div class="line">        board[i][j]^=256;</div><div class="line">        if(isfound(board,w,i-1,j,m+1)||isfound(board,w,i+1,j,m+1)||isfound(board,w,i,j-1,m+1)||isfound(board,w,i,j+1,m+1))</div><div class="line">            return true;</div><div class="line">        board[i][j]^=256;</div><div class="line">        return false;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="c-code"><font color="gold">C++ Code:</font></h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    bool exist(vector&lt;vector&lt;char&gt;&gt;&amp; board, string word) &#123;</div><div class="line">        m = board.size();</div><div class="line">        n = board[0].size();</div><div class="line">        for(int i=0;i&lt;m;i++)</div><div class="line">            for(int j=0;j&lt;n;j++)&#123;</div><div class="line">                if(isfound(board,word.c_str(),i,j))</div><div class="line">                    return true;</div><div class="line">            &#125;</div><div class="line">        return false;</div><div class="line">    &#125;</div><div class="line">    private:</div><div class="line">        int m;</div><div class="line">        int n;</div><div class="line">        bool isfound(vector&lt;vector&lt;char&gt;&gt;&amp; board ,const char* w, int i,int j)</div><div class="line">        &#123;</div><div class="line">            if(i&lt;0||j&lt;0||i&gt;=m||j&gt;=n||board[i][j]==&apos;\0&apos;|| *w != board[i][j])</div><div class="line">                return false;</div><div class="line">            if(*(w+1)==&apos;\0&apos;)</div><div class="line">                return true;</div><div class="line">            char t = board[i][j];</div><div class="line">            board[i][j]=&apos;\0&apos;;</div><div class="line">            if(isfound(board,w+1,i-1,j)||isfound(board,w+1,i+1,j)||isfound(board,w+1,i,j-1)||isfound(board,w+1,i,j+1))</div><div class="line">                return true;</div><div class="line">            board[i][j]=t;</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -371,8 +373,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/25/49-Group-Anagrams/" rel="next" title="49. Group Anagrams ">
-                <i class="fa fa-chevron-left"></i> 49. Group Anagrams 
+              <a href="/2017/12/10/80-Remove-Duplicates-from-Sorted-Array-II/" rel="next" title="80. Remove Duplicates from Sorted Array II ">
+                <i class="fa fa-chevron-left"></i> 80. Remove Duplicates from Sorted Array II 
               </a>
             
           </div>
@@ -380,10 +382,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/25/51-N-Queens/" rel="prev" title="51. N-Queens">
-                51. N-Queens <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -539,7 +537,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-code"><span class="nav-number">4.</span> <span class="nav-text">C++ Code:</span></a></li></ol></div>
             
 
           </div>
