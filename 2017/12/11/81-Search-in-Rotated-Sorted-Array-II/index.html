@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="Problem:  Given a string containing just the characters ‘(’ and ‘)’, find the length of the longest valid (well-formed) parentheses substring.   For “(()”, the longest valid parentheses substring is “">
+<meta name="description" content="Problem:  Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand. (i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2). Write a function to determine if a given targ">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="32. Longest Valid Parentheses">
-<meta property="og:url" content="http://www.mysry.com/2017/11/15/32-Longest-Valid-Parentheses/index.html">
+<meta property="og:title" content="81. Search in Rotated Sorted Array II ">
+<meta property="og:url" content="http://www.mysry.com/2017/12/11/81-Search-in-Rotated-Sorted-Array-II/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="Problem:  Given a string containing just the characters ‘(’ and ‘)’, find the length of the longest valid (well-formed) parentheses substring.   For “(()”, the longest valid parentheses substring is “">
+<meta property="og:description" content="Problem:  Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand. (i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2). Write a function to determine if a given targ">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-15T14:25:03.784Z">
+<meta property="og:updated_time" content="2017-12-11T14:20:27.274Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="32. Longest Valid Parentheses">
-<meta name="twitter:description" content="Problem:  Given a string containing just the characters ‘(’ and ‘)’, find the length of the longest valid (well-formed) parentheses substring.   For “(()”, the longest valid parentheses substring is “">
+<meta name="twitter:title" content="81. Search in Rotated Sorted Array II ">
+<meta name="twitter:description" content="Problem:  Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand. (i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2). Write a function to determine if a given targ">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://www.mysry.com/2017/11/15/32-Longest-Valid-Parentheses/"/>
+  <link rel="canonical" href="http://www.mysry.com/2017/12/11/81-Search-in-Rotated-Sorted-Array-II/"/>
 
 
 
 
 
-  <title>32. Longest Valid Parentheses | Mysry</title>
+  <title>81. Search in Rotated Sorted Array II  | Mysry</title>
   
 
 
@@ -255,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.mysry.com/2017/11/15/32-Longest-Valid-Parentheses/">
+    <link itemprop="mainEntityOfPage" href="http://www.mysry.com/2017/12/11/81-Search-in-Rotated-Sorted-Array-II/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mysry">
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">32. Longest Valid Parentheses</h1>
+          <h1 class="post-title" itemprop="name headline">81. Search in Rotated Sorted Array II </h1>
         
 
         <div class="post-meta">
@@ -284,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-15T22:19:25+08:00">
-                2017-11-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-11T22:12:26+08:00">
+                2017-12-11
               </time>
             
 
@@ -322,20 +322,16 @@
       
 
       
-        <h2 id="problem"><font color="blakc">Problem:</font></h2>
+        <h2 id="problem"><font color="black">Problem:</font></h2>
 <blockquote>
-<p>Given a string containing just the characters ‘(’ and ‘)’, find the length of the longest valid (well-formed) parentheses substring.</p>
-</blockquote>
-<blockquote>
-<p>For “(()”, the longest valid parentheses substring is “()”, which has length = 2.</p>
-</blockquote>
-<blockquote>
-<p>Another example is “)()())”, where the longest valid parentheses substring is “()()”, which has length = 4.</p>
+<p>Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand. (i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2). Write a function to determine if a given target is in the array. The array may contain duplicates.</p>
 </blockquote>
 <h2 id="idea"><font color="red">Idea:</font></h2>
-<p> Use a stack, if it is ‘)’, then push this into stack, or if it is empty, set left parameter to be j, otherwise pop the stack element and check aganin.</p>
+<p>  Binary search!</p>
 <h2 id="java-code"><font color="orange">Java Code:</font></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int longestValidParentheses(String s) &#123;</div><div class="line">        Stack&lt;Integer&gt; stack =new Stack&lt;Integer&gt;();</div><div class="line">	int max=0, left =-1;</div><div class="line">	for (int j=0;j&lt;s.length();j++) &#123;</div><div class="line">		if(s.charAt(j)==&apos;(&apos;)stack.push(j);</div><div class="line">		else &#123;</div><div class="line">			if(stack.isEmpty()) left =j;</div><div class="line">			else &#123;</div><div class="line">				stack.pop();</div><div class="line">				if(stack.isEmpty())max =Math.max(max, j-left);</div><div class="line">				else max = Math.max(max, j-stack.peek());</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	return max;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public boolean search(int[] nums, int target) &#123;</div><div class="line">        int left =0, right = nums.length,mid;</div><div class="line">        while(left&lt;=right)&#123;</div><div class="line">            mid = (left+right)/2;</div><div class="line">            if(nums[mid]==target)</div><div class="line">                return true;</div><div class="line">            if(nums[mid]==nums[left]&amp;&amp;nums[left]==nums[mid])&#123;</div><div class="line">                ++left;</div><div class="line">                --right;</div><div class="line">            &#125;else if(nums[left]&lt;=nums[mid])&#123;</div><div class="line">                if(nums[mid]&gt;target&amp;&amp;nums[left]&lt;=target)</div><div class="line">                    right=mid-1;</div><div class="line">                else</div><div class="line">                    left=mid+1;</div><div class="line">            &#125;else&#123;</div><div class="line">                if(nums[mid]&lt;target&amp;&amp;nums[right]&gt;=target)</div><div class="line">                    left = mid+1;</div><div class="line">                else</div><div class="line">                    right = mid-1;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return false;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="c-code"><font color="gold">C++ Code:</font></h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    bool search(vector&lt;int&gt;&amp; nums, int target) &#123;</div><div class="line">        int left = 0,right = nums.size()-1,mid;</div><div class="line">        while(left&lt;=right)</div><div class="line">        &#123;</div><div class="line">            mid = (left+right)&gt;&gt;1;</div><div class="line">            if(nums[mid]==target)</div><div class="line">                return true;</div><div class="line">            if((nums[left]==nums[mid])&amp;&amp;(nums[right]==nums[mid]))</div><div class="line">               &#123;</div><div class="line">                ++left;</div><div class="line">                --right;</div><div class="line">            &#125;</div><div class="line">            else if(nums[left]&lt;=nums[mid])</div><div class="line">            &#123;</div><div class="line">                if((nums[left]&lt;=target)&amp;&amp; (nums[mid]&gt;target))</div><div class="line">                    right = mid-1;</div><div class="line">                else</div><div class="line">                    left = mid+1;</div><div class="line">            &#125;</div><div class="line">            else</div><div class="line">            &#123;</div><div class="line">                if((nums[mid]&lt;target)&amp;&amp;(nums[right]&gt;=target))</div><div class="line">                    left = mid+1;</div><div class="line">                else</div><div class="line">                    right = mid-1;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return false;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -377,8 +373,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/14/31-Next-Permutation/" rel="next" title="31. Next Permutation">
-                <i class="fa fa-chevron-left"></i> 31. Next Permutation
+              <a href="/2017/12/10/79-Word-Search/" rel="next" title="79. Word Search ">
+                <i class="fa fa-chevron-left"></i> 79. Word Search 
               </a>
             
           </div>
@@ -386,10 +382,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/15/33-Search-in-Rotated-Sorted-Array/" rel="prev" title="33. Search in Rotated Sorted Array ">
-                33. Search in Rotated Sorted Array  <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -545,7 +537,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-code"><span class="nav-number">4.</span> <span class="nav-text">C++ Code:</span></a></li></ol></div>
             
 
           </div>
