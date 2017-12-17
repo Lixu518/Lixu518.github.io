@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2017-12-17T10:02:26.421Z</updated>
+  <updated>2017-12-17T13:21:02.120Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>87. Scramble String</title>
+    <link href="http://www.mysry.com/2017/12/17/87-Scramble-String/"/>
+    <id>http://www.mysry.com/2017/12/17/87-Scramble-String/</id>
+    <published>2017-12-17T13:11:16.000Z</published>
+    <updated>2017-12-17T13:21:02.120Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given a string s1, we may represent it as a binary tree by partitioning it to two non-empty substrings recursively. Below is one possible representation of s1 = “great”: great /<br>gr eat /   /<br>g r e at /<br>a t To scramble the string, we may choose any non-leaf node and swap its two children. For example, if we choose the node “gr” and swap its two children, it produces a scrambled string “rgeat”. rgeat /<br>rg eat /   /<br>r g e at /<br>a t We say that “rgeat” is a scrambled string of “great”. Similarly, if we continue to swap the children of nodes “eat” and “at”, it produces a scrambled string “rgtae”. rgtae /<br>rg tae /   /<br>r g ta e /<br>t a We say that “rgtae” is a scrambled string of “great”. Given two strings s1 and s2 of the same length, determine if s2 is a scrambled string of s1.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> We should first preprocess the two string, such as judge if their length and the consist letter are equal. Then recursively judge their substring.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public boolean isScramble(String s1, String s2) &#123;</div><div class="line">        if(s1.equals(s2)) return true;</div><div class="line">        if(s1.length()!=s2.length()||s1.length()==1)return false;</div><div class="line">        int len = s1.length(), num = len;</div><div class="line">        int[] letter=new int[26];</div><div class="line">        char[] sa1 = s1.toCharArray();</div><div class="line">        char[] sa2 = s2.toCharArray();</div><div class="line">        for(int i = 0;i&lt;len;i++)</div><div class="line">            letter[sa1[i]-&apos;a&apos;]++;</div><div class="line">        for(int i = 0;i&lt;len;i++)</div><div class="line">            if(letter[sa2[i]-&apos;a&apos;]!=0)&#123;</div><div class="line">                letter[sa2[i]-&apos;a&apos;]--;</div><div class="line">                num--;</div><div class="line">            &#125;</div><div class="line">        if(num != 0)</div><div class="line">            return false;</div><div class="line">        for(int i=1;i&lt;len;i++)&#123;</div><div class="line">            if(isScramble(s1.substring(0,i),s2.substring(0,i))&amp;&amp;isScramble(s1.substring(i),s2.substring(i)))</div><div class="line">                return true;</div><div class="line">            if(isScramble(s1.substring(0,i),s2.substring(len-i))&amp;&amp;isScramble(s1.substring(i),s2.substring(0,len-i)))</div><div class="line">                return true;</div><div class="line">        &#125;</div><div class="line">        return false;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure><h2 id="c-code"><font color="gold">C++ Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    bool isScramble(string s1, string s2) &#123;</div><div class="line">        if(s1==s2) return true;</div><div class="line">        if(s1.size()!=s2.size()||s1.size()==1)return false;</div><div class="line">        int len = s1.size(), num = len;</div><div class="line">        vector&lt;int&gt; hash(26,0);</div><div class="line">        for(auto val:s1)hash[val-&apos;a&apos;]++;</div><div class="line">        for(auto val:s2)</div><div class="line">            if(hash[val-&apos;a&apos;])</div><div class="line">                hash[val-&apos;a&apos;]--,num--;</div><div class="line">        if(num != 0)</div><div class="line">            return false;</div><div class="line">        for(int i=1;i&lt;len;i++)&#123;</div><div class="line">            if(isScramble(s1.substr(0,i),s2.substr(0,i))&amp;&amp;isScramble(s1.substr(i),s2.substr(i)))</div><div class="line">                return true;</div><div class="line">            if(isScramble(s1.substr(0,i),s2.substr(len-i))&amp;&amp;isScramble(s1.substr(i),s2.substr(0,len-i)))</div><div class="line">                return true;</div><div class="line">        &#125;</div><div class="line">        return false;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given a string s1, we may represent it as a binary tree by partiti
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>Softmax</title>
@@ -489,31 +514,6 @@
     
     
       <category term="Machine learning" scheme="http://www.mysry.com/tags/Machine-learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>63. Unique Paths II</title>
-    <link href="http://www.mysry.com/2017/11/30/63-Unique-Paths-II/"/>
-    <id>http://www.mysry.com/2017/11/30/63-Unique-Paths-II/</id>
-    <published>2017-11-30T13:49:57.000Z</published>
-    <updated>2017-11-30T13:53:00.154Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Follow up for “Unique Paths”: Now consider if some obstacles are added to the grids. How many unique paths would there be? An obstacle and empty space is marked as 1 and 0 respectively in the grid.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> Also use dp to solve this problem.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int uniquePathsWithObstacles(int[][] obstacleGrid) &#123;</div><div class="line">      int width = obstacleGrid[0].length;</div><div class="line">int []dp = new int[width];</div><div class="line">dp[0]=1;</div><div class="line">for (int[]row:obstacleGrid) &#123;</div><div class="line">for (int j=0;j&lt;width;j++) &#123;</div><div class="line">if(row[j]==1)</div><div class="line">dp[j]=0;</div><div class="line">else if (j&gt;0)</div><div class="line">dp[j]+=dp[j-1];</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">return dp[width-1];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Follow up for “Unique Paths”: Now consider if some obstacles are a
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
     
   </entry>
   
