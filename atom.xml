@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2017-12-15T14:16:42.948Z</updated>
+  <updated>2017-12-17T10:00:21.729Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Softmax</title>
+    <link href="http://www.mysry.com/2017/12/17/Softmax/"/>
+    <id>http://www.mysry.com/2017/12/17/Softmax/</id>
+    <published>2017-12-17T06:53:47.000Z</published>
+    <updated>2017-12-17T10:00:21.729Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="softmax-function">Softmax Function</h2><p>  在数学，尤其是概率论相关的专业，softmax函数（或称为归一化指数函数），是逻辑函数的一种推广。它能将一个含任意实数的k维的向量z“压缩到”另y一个k维实向量<span class="math inline">\(\sigma(z)\)</span>中使得每一个元素都在(0,1)之间，并且所有元素的和为1，softmax函数的形式通常由下面的式子给出：<span class="math display">\[\sigma(z)_j = \frac{e^{z_j}}{\sum_{k=1}^K e^{z_k}} , j =1,...,K.\]</span><br>   Softmax实际上就是有限项离散概率分布的梯度对数归一化，softmax在多项逻辑回归，多项线性判别分析，朴素贝叶斯分类器和人工神经网络等的多种基于概率的多分类方法中都有广泛的应用。<br>   Logitic Regression是用来解决二分类问题的，softmax解决的是多分类问题，因此也可以简单的理解为softmax是<a href="http://www.mysry.com/2017/11/18/Logistic-Regression/">logistic Regression</a>的推广。<br></p><h2 id="softmax-hypothesis-function-and-cost-function">Softmax Hypothesis Function and Cost Function</h2>  对于给定的输入x，我们利用假设函数针对每一个类别j估算出概率值<span class="math inline">\(P(y=j|x)\)</span>，也即估计x的每一个分类结果出现的概率，假设函数将要输出一个k维的向量（向量的元素和为1）来表示这k个估计的概率值。假设函数形式如下：<span class="math display">\[h_{\theta}(x^{(i)})=\begin{bmatrix}p(y^{(i)}=1|x^{(i)};\theta)\\p(y^{(i)}=2|x^{(i)};\theta)\\\vdots \\p(y^{(i)}=k|x^{(i)};\theta)\end{bmatrix}=\frac{1}{\sum_{j=1}^k e^{\theta_j^T x^{(i)}}}\begin{bmatrix}e^{\theta_1^T x^{(i)}}\\ e^{\theta_2^T x^{(i)}}\\ \vdots \\ e^{\theta_k^T x^{(i)}} \end{bmatrix}\]</span>其中<span class="math inline">\(\theta_1,\theta_2,...,\theta_k \in R^{n+1}\)</span>是模型的参数，<span class="math inline">\(\sum \frac{1}{\sum_{j=1}^k e^{\theta_j^T x^{(i)}}}=1\)</span><br>   假定<span class="math inline">\(I(·)\)</span>为真值函数，即<span class="math inline">\(I(true)=1\)</span>   and &amp;esmp;<span class="math inline">\(I(false)=0\)</span>，则我们的代价函数为<span class="math display">\[J(\theta)=-\frac{1}{m}\begin{bmatrix}\sum_{i=1}^m \sum_{j=1}^k I(y^{(i)}=j)\log\frac{e^{\theta_j^T x^{(i)}}}{\sum_{l=1}^k e^{\theta_l^T x^{(i)}}}\end{bmatrix}\]</span>改公式是Logistic Regression的推广，所以我们可以将logistic regression的回归代价函数改为:<span class="math display">\[\begin{align}J(\theta)&amp;=-\frac{1}{m}\begin{bmatrix}\sum_{i=1}^m (1-y^{(i)})\log(1-h_\theta(x^{(i)}))+y^{(i)}\log h_\theta(x^{(i)})\end{bmatrix}\\&amp;=-\frac{1}{m}\begin{bmatrix}\sum_{i=1}^m \sum_{j=0}^1 I(y^{(i)=j})\log p(y^{(i)}=j|x^(i);\theta)\end{bmatrix}\end{align}\]</span><p>至于上述代价函数的优化方法参考<a href="http://www.mysry.com/2017/11/11/%E5%87%A0%E7%A7%8D%E5%B8%B8%E8%A7%81%E7%9A%84%E6%B1%82%E8%A7%A3%E6%97%A0%E7%BA%A6%E6%9D%9F%E6%9C%80%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98%E7%9A%84%E6%96%B9%E6%B3%95/">常见的迭代优化算法</a><br></p><h2 id="softmax-regression-model-parameterization">Softmax Regression Model Parameterization</h2>  Softmax回归有一个不寻常的特点：它有一个“冗余”的参数集。为了便于阐述这一特点，假设我们从参数向量<span class="math inline">\(\theta_j\)</span>中减去向量<span class="math inline">\(\varphi\)</span>，此时<span class="math inline">\(\theta_j=\theta_j-\varphi(j=1,...,k)\)</span>,那么假设函数变为:<span class="math display">\[\begin{align}p(y^{(i)} = j | x^{(i)}; \theta)&amp;= \frac{e^{(\theta_j-\psi)^T x^{(i)}}}{\sum_{l=1}^k e^{ (\theta_l-\psi)^T x^{(i)}}}  \\&amp;= \frac{e^{\theta_j^T x^{(i)}} e^{-\psi^Tx^{(i)}}}{\sum_{l=1}^k e^{\theta_l^T x^{(i)}} e^{-\psi^Tx^{(i)}}} \\&amp;= \frac{e^{\theta_j^T x^{(i)}}}{\sum_{l=1}^k e^{ \theta_l^T x^{(i)}}}.\end{align}\]</span><p>从上面的公式可以看出来，在<span class="math inline">\(\theta_j\)</span>中减去<span class="math inline">\(\varphi\)</span>对假设函数的预测结果完全没有影响，这表明，Softmax 模型被过度参数化了。对于任意一个用于拟合数据的假设函数，可以求出多组参数值，这些参数得到的是完全相同的假设函数<span class="math inline">\(h_\theta\)</span>,因此使J(θ)最小化的解不是唯一的。而Hessian矩阵是奇异的/不可逆的，这会直接导致Softmax的牛顿法实现版本出现数值计算的问题。此时，我们需要对代价函数作出改动：加入权重衰减。<br></p><h2 id="weight-decay">Weight Decay</h2><p>  通过加入权重衰减项<span class="math inline">\(\frac{\lambda}{2}\sum_{i=1}^k \sum_{j=0}^n \theta_{ij}^2\)</span>来修改代价函数，改衰减项会惩罚过大的参数，那么加入权重衰减项的代价函数为：<span class="math display">\[J(\theta)=-\frac{1}{m}\begin{bmatrix}\sum_{i=1}^m \sum_{j=1}^k I(y^{(i)}=j)\log\frac{e^{\theta_j^T x^{(i)}}}{\sum_{l=1}^k e^{\theta_l^T x^{(i)}}}\end{bmatrix}+\frac{\lambda}{2}\sum_{i=1}^k \sum_{j=0}^n \theta_{ij}^2,\lambda&gt;0\]</span>在加入该权重衰减项后，代价函数就变为严格的凸函数，可以保证得到唯一解，此时的Hessian矩阵变成了可逆矩阵，并且由于<span class="math inline">\(J(\theta)\)</span>是凸函数，诸如梯度下降法和L-BFGS等可以保证收敛到全局最优解。<br></p><h2 id="softmax-regression-and-logistic-regression">Softmax Regression and Logistic Regression</h2>  当类别数为2时，softmax回归退化为logistic回归，具体而言，当k=2时，softmax的假设函数为：<span class="math display">\[\begin{align}h_\theta(x) =\frac{1}{ e^{\theta_1^Tx}  + e^{ \theta_2^T x^{(i)}}}\begin{bmatrix}e^{ \theta_1^T x } \\e^{ \theta_2^T x }\end{bmatrix}\end{align}\]</span>利用softmax回归参数冗余的特点，令<span class="math inline">\(\varphi=\theta_1\)</span>,并从两个参数向量中减去<span class="math inline">\(\theta_1\)</span>，那么：<span class="math display">\[\begin{align}h(x) &amp;=\frac{1}{ e^{\vec{0}^Tx}  + e^{ (\theta_2-\theta_1)^T x^{(i)} } }\begin{bmatrix}e^{ \vec{0}^T x } \\e^{ (\theta_2-\theta_1)^T x }\end{bmatrix} \\&amp;=\begin{bmatrix}\frac{1}{ 1 + e^{ (\theta_2-\theta_1)^T x^{(i)} } } \\ \frac{e^{ (\theta_2-\theta_1)^T x }}{ 1 + e^{ (\theta_2-\theta_1)^T x^{(i)} } } \end{bmatrix} \\&amp;= \begin{bmatrix} \frac{1}{ 1  + e^{ (\theta_2-\theta_1)^T x^{(i)} } } \\ 1 - \frac{1}{ 1  + e^{ (\theta_2-\theta_1)^T x^{(i)} }}\\\end{bmatrix} \end{align}\]</span><p>因此，用<span class="math inline">\(\theta&#39;\)</span>来表示<span class="math inline">\(\theta_2-\theta_1\)</span>，softmax回归器预测其中一个类别的概率为<span class="math inline">\(\frac{1}{1+e^{(\theta&#39;)^T x^{(i)}}}\)</span>,而另一个类别的概率为<span class="math inline">\(1-\frac{1}{1+e^{(\theta&#39;)^T x^{(i)}}}\)</span>,与logistic回归一致。<br></p><h2 id="softmax-model-and-k-binary-classifier">Softmax Model and k Binary Classifier</h2><p>  一般而言，互斥的类别选择softmax，否则依据logistic回归建立k个二元分类器。<br></p><center color="red">To be continued…</center>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;softmax-function&quot;&gt;Softmax Function&lt;/h2&gt;
+&lt;p&gt;  在数学，尤其是概率论相关的专业，softmax函数（或称为归一化指数函数），是逻辑函数的一种推广。它能将一个含任意实数的k维的向量z“压缩到”另y一个k维实向量&lt;span c
+      
+    
+    </summary>
+    
+    
+      <category term="Mavarphine learning" scheme="http://www.mysry.com/tags/Mavarphine-learning/"/>
+    
+  </entry>
   
   <entry>
     <title>86. Partition List</title>
@@ -484,31 +508,6 @@
         &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Follow up for “Unique Paths”: Now consider if some obstacles are a
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>64. Minimum Path Sum</title>
-    <link href="http://www.mysry.com/2017/11/30/64-Minimum-Path-Sum/"/>
-    <id>http://www.mysry.com/2017/11/30/64-Minimum-Path-Sum/</id>
-    <published>2017-11-30T13:43:30.000Z</published>
-    <updated>2017-11-30T13:49:10.237Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right which minimizes the sum of all numbers along its path.(you can only move down or right.)</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> Use the Dp solution and four condition when we move.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int minPathSum(int[][] grid) &#123;</div><div class="line">        int m = grid.length;</div><div class="line">int n = grid[0].length;</div><div class="line">for (int i = 0; i &lt; m; i++) &#123;</div><div class="line">for (int j = 0; j &lt; n; j++) &#123;</div><div class="line">if (i == 0 &amp;&amp; j != 0) &#123;</div><div class="line">grid[i][j] = grid[i][j] + grid[i][j - 1];</div><div class="line">&#125; else if (i != 0 &amp;&amp; j == 0) &#123;</div><div class="line">grid[i][j] = grid[i][j] + grid[i - 1][j];</div><div class="line">&#125; else if (i == 0 &amp;&amp; j == 0) &#123;</div><div class="line">grid[i][j] = grid[i][j];</div><div class="line">&#125;else &#123;</div><div class="line">grid[i][j]=Math.min(grid[i-1][j], grid[i][j-1])+grid[i][j];</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">return grid[m-1][n-1];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given a m x n grid filled with non-negative numbers, find a path f
       
     
     </summary>

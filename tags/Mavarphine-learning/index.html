@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="leetcode," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -81,18 +81,13 @@
 
 
 
-<meta name="description" content="Problem:  Given a linked list and a value x, partition it such that all nodes less than x come before nodes greater than or equal to x. You should preserve the original relative order of the nodes in">
-<meta name="keywords" content="leetcode">
-<meta property="og:type" content="article">
-<meta property="og:title" content="86. Partition List">
-<meta property="og:url" content="http://www.mysry.com/2017/12/15/86-Partition-List/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mysry">
+<meta property="og:url" content="http://www.mysry.com/tags/Mavarphine-learning/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="Problem:  Given a linked list and a value x, partition it such that all nodes less than x come before nodes greater than or equal to x. You should preserve the original relative order of the nodes in">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-15T14:16:42.948Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="86. Partition List">
-<meta name="twitter:description" content="Problem:  Given a linked list and a value x, partition it such that all nodes less than x come before nodes greater than or equal to x. You should preserve the original relative order of the nodes in">
+<meta name="twitter:title" content="Mysry">
 
 
 
@@ -122,13 +117,13 @@
 
 
 
-  <link rel="canonical" href="http://www.mysry.com/2017/12/15/86-Partition-List/"/>
+  <link rel="canonical" href="http://www.mysry.com/tags/Mavarphine-learning/"/>
 
 
 
 
 
-  <title>86. Partition List | Mysry</title>
+  <title>标签: Mavarphine learning | Mysry</title>
   
 
 
@@ -147,7 +142,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left ">
     <div class="headband"></div>
 	<a href="https://github.com/Lixu518"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -241,171 +236,54 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block tag">
 
-  
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h1>Mavarphine learning<small>标签</small>
+        </h1>
+      </div>
 
-  
-  
-  
+      
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.mysry.com/2017/12/15/86-Partition-List/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mysry">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/funny.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mysry">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h2 class="post-title">
         
-        
-          <h1 class="post-title" itemprop="name headline">86. Partition List</h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
+            <a class="post-title-link" href="/2017/12/17/Softmax/" itemprop="url">
               
-                <span class="post-meta-item-text">发表于</span>
+                <span itemprop="name">Softmax</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-15T22:10:59+08:00">
-                2017-12-15
-              </time>
-            
+            </a>
+        
+      </h2>
 
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-12-17T14:53:47+08:00"
+              content="2017-12-17" >
+          12-17
+        </time>
+      </div>
 
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h2 id="problem"><font color="black">Problem:</font></h2>
-<blockquote>
-<p>Given a linked list and a value x, partition it such that all nodes less than x come before nodes greater than or equal to x. You should preserve the original relative order of the nodes in each of the two partitions.</p>
-</blockquote>
-<h2 id="idea"><font color="red">Idea:</font></h2>
-<p> Keep two List to store the nodes which is bigger than x and smaller than x respectively. Add curr2 to the tail of curr1.</p>
-<h2 id="java-code"><font color="orange">Java Code:</font></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for singly-linked list.</div><div class="line"> * public class ListNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     ListNode next;</div><div class="line"> *     ListNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">    public ListNode partition(ListNode head, int x) &#123;</div><div class="line">        ListNode dummy1 = new ListNode(0);</div><div class="line">        ListNode dummy2 = new ListNode(0);</div><div class="line">        ListNode curr1 = dummy,curr2 = dummy2;</div><div class="line">        while(head != null)&#123;</div><div class="line">            if(head.val&lt;x)&#123;</div><div class="line">                curr1.next = head;</div><div class="line">                curr1 = curr1.next;</div><div class="line">            &#125;else&#123;</div><div class="line">                curr2.next = head;</div><div class="line">                curr2 = curr2.next;</div><div class="line">            &#125;</div><div class="line">            head = head.next;</div><div class="line">        &#125;</div><div class="line">        curr2.next = null;</div><div class="line">        curr1.next = dummy2.next;</div><div class="line">        return dummy1.next;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="c-code"><font color="gold">C++ Code:</font></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for singly-linked list.</div><div class="line"> * struct ListNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     ListNode *next;</div><div class="line"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</div><div class="line"> * &#125;;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    ListNode* partition(ListNode* head, int x) &#123;</div><div class="line">        ListNode node1(0), node2(0);</div><div class="line">        ListNode *p1 = &amp;node1,*p2 = &amp;node2;</div><div class="line">        while(head)&#123;</div><div class="line">            if(head-&gt;val&lt;x)</div><div class="line">                p1 = p1-&gt;next = head;</div><div class="line">            else</div><div class="line">                p2 = p2-&gt;next = head;</div><div class="line">            head = head-&gt;next;</div><div class="line">        &#125;</div><div class="line">        p2-&gt;next = NULL;</div><div class="line">        p1-&gt;next = node2.next;</div><div class="line">        return node1.next;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    
-    
- 
-<div>
-  
-    <div>
-    
-        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
-    
-</div>
-
-  
-</div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/12/13/85-Maximal-Rectangle/" rel="next" title="85. Maximal Rectangle ">
-                <i class="fa fa-chevron-left"></i> 85. Maximal Rectangle 
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/17/Softmax/" rel="prev" title="Softmax">
-                Softmax <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
       
     </div>
+
   </div>
+  
+  
+  
+
+  
 
 
           </div>
@@ -413,10 +291,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -437,17 +311,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -531,22 +396,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-code"><span class="nav-number">4.</span> <span class="nav-text">C++ Code:</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -710,10 +559,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
-
-
 
   
 
