@@ -322,21 +322,15 @@
       
 
       
-        <p>  我的电脑上有python2.7.14和python3.5.2、pip8和pip9
-  我的小服务器上有python2.7.12和python3.5.2,pip9.0.1(且小服务器默认python版本为python3.5)。然后就麻烦了，在服务器上调试程序需要用到web.py和poster。这些都是比较老的东西，python3不支持。需要扩展python2，给它安上web.py和poster。</p>
-<p>  电脑第一次尝试：
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo pip install web.py</div><div class="line">sudo pip install poster</div></pre></td></tr></table></figure></p>
+        <p>  我的电脑上有python2.7.14和python3.5.2、pip8和pip9   我的小服务器上有python2.7.12和python3.5.2,pip9.0.1(且小服务器默认python版本为python3.5)。然后就麻烦了，在服务器上调试程序需要用到web.py和poster。这些都是比较老的东西，python3不支持。需要扩展python2，给它安上web.py和poster。</p>
+<p>  电脑第一次尝试： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo pip install web.py</div><div class="line">sudo pip install poster</div></pre></td></tr></table></figure></p>
 <p>  失败，原因pip默认pip3,默认给pip3扩展。</p>
-<p>  电脑第二次尝试：
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo pip2 install web.py</div><div class="line">sudo pip2 install poster</div></pre></td></tr></table></figure></p>
+<p>  电脑第二次尝试： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo pip2 install web.py</div><div class="line">sudo pip2 install poster</div></pre></td></tr></table></figure></p>
 <p>  成功。</p>
-<p>  服务器第一次尝试：
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo pip2 install web.py</div><div class="line">sudo pip2 install poster</div></pre></td></tr></table></figure></p>
+<p>  服务器第一次尝试： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo pip2 install web.py</div><div class="line">sudo pip2 install poster</div></pre></td></tr></table></figure></p>
 <p>  失败，原因是服务器是pip9.0.1不支持python2,还是对python3进行操作。</p>
-<p>  查阅python相关资料后，服务器第二次尝试：
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo python2 -m pip install web.py</div><div class="line">sudo python2 -m pip install poster</div></pre></td></tr></table></figure></p>
-<p>  成功。</p>
-<h2>&lt;font color = red &gt;成长之路，处处皆坑，切踩珍惜！&lt;/font&gt;</h2>
+<p>  查阅python相关资料后，服务器第二次尝试： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo python2 -m pip install web.py</div><div class="line">sudo python2 -m pip install poster</div></pre></td></tr></table></figure></p>
+<p>  成功。 ## <font color="red">成长之路，处处皆坑，切踩珍惜！</font></p>
 
       
     </div>
@@ -442,17 +436,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -471,7 +456,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">83</span>
+                  <span class="site-state-item-count">84</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -536,22 +521,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text"><font color = red >成长之路，处处皆坑，切踩珍惜！</font></span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

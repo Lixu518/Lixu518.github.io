@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.  &amp;lt;font color = red&amp;gt;Idea:&amp;lt;/font&amp;gt;  W">
+<meta name="description" content="Problem:  Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.  Idea:  We traverse right and increment rowBegin, then traverse down and decrement co">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="54. Spiral Matrix">
 <meta property="og:url" content="http://www.mysry.com/2017/11/25/54-Spiral-Matrix/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.  &amp;lt;font color = red&amp;gt;Idea:&amp;lt;/font&amp;gt;  W">
+<meta property="og:description" content="Problem:  Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.  Idea:  We traverse right and increment rowBegin, then traverse down and decrement co">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-11-25T14:17:40.976Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="54. Spiral Matrix">
-<meta name="twitter:description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.  &amp;lt;font color = red&amp;gt;Idea:&amp;lt;/font&amp;gt;  W">
+<meta name="twitter:description" content="Problem:  Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.  Idea:  We traverse right and increment rowBegin, then traverse down and decrement co">
 
 
 
@@ -322,14 +322,14 @@
       
 
       
-        <h2>&lt;font color = black&gt;Problem:&lt;/font&gt;</h2>
+        <h2 id="problem"><font color="black">Problem:</font></h2>
 <blockquote>
 <p>Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.</p>
 </blockquote>
-<h2>&lt;font color = red&gt;Idea:&lt;/font&gt;</h2>
+<h2 id="idea"><font color="red">Idea:</font></h2>
 <p> We traverse right and increment rowBegin, then traverse down and decrement colEnd, then we traverse left and decrement rowEnd, and finally we traverse up and increment colBegin. The only tricky part is that when we traverse left or upwe have to check whether the row or col still exists to prevent duplicates.</p>
-<h2>&lt;font color = orange&gt;Java Code:&lt;/font&gt;</h2>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public List&lt;Integer&gt; spiralOrder(int[][] matrix) &#123;</div><div class="line">      List&lt;Integer&gt; res =new ArrayList&lt;Integer&gt;();</div><div class="line">	if(matrix.length==0)</div><div class="line">		return res;</div><div class="line">	int rowBegin=0;</div><div class="line">	int rowEnd=matrix.length-1;</div><div class="line">	int colBegin = 0;</div><div class="line">	int colEnd = matrix[0].length-1;</div><div class="line">	while(rowBegin&lt;=rowEnd&amp;&amp;colBegin&lt;=colEnd) &#123;</div><div class="line">		for (int j=colBegin;j&lt;=colEnd;j++)</div><div class="line">			res.add(matrix[rowBegin][j]);</div><div class="line">		rowBegin++;</div><div class="line">		for (int j=rowBegin;j&lt;=rowEnd;j++)</div><div class="line">			res.add(matrix[j][colEnd]);</div><div class="line">		colEnd--;</div><div class="line">		if(rowBegin&lt;=rowEnd) &#123;</div><div class="line">			for (int j=colEnd;j&gt;=colBegin;j--)</div><div class="line">				res.add(matrix[rowEnd][j]);</div><div class="line">		&#125;</div><div class="line">		rowEnd--;</div><div class="line">		if(colBegin&lt;=colEnd) &#123;</div><div class="line">			for (int j=rowEnd;j&gt;=rowBegin;j--)</div><div class="line">				res.add(matrix[j][colBegin]);</div><div class="line">		&#125;</div><div class="line">		colBegin++;</div><div class="line">	&#125;</div><div class="line">	return res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="java-code"><font color="orange">Java Code:</font></h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public List&lt;Integer&gt; spiralOrder(int[][] matrix) &#123;</div><div class="line">      List&lt;Integer&gt; res =new ArrayList&lt;Integer&gt;();</div><div class="line">	if(matrix.length==0)</div><div class="line">		return res;</div><div class="line">	int rowBegin=0;</div><div class="line">	int rowEnd=matrix.length-1;</div><div class="line">	int colBegin = 0;</div><div class="line">	int colEnd = matrix[0].length-1;</div><div class="line">	while(rowBegin&lt;=rowEnd&amp;&amp;colBegin&lt;=colEnd) &#123;</div><div class="line">		for (int j=colBegin;j&lt;=colEnd;j++)</div><div class="line">			res.add(matrix[rowBegin][j]);</div><div class="line">		rowBegin++;</div><div class="line">		for (int j=rowBegin;j&lt;=rowEnd;j++)</div><div class="line">			res.add(matrix[j][colEnd]);</div><div class="line">		colEnd--;</div><div class="line">		if(rowBegin&lt;=rowEnd) &#123;</div><div class="line">			for (int j=colEnd;j&gt;=colBegin;j--)</div><div class="line">				res.add(matrix[rowEnd][j]);</div><div class="line">		&#125;</div><div class="line">		rowEnd--;</div><div class="line">		if(colBegin&lt;=colEnd) &#123;</div><div class="line">			for (int j=rowEnd;j&gt;=rowBegin;j--)</div><div class="line">				res.add(matrix[j][colBegin]);</div><div class="line">		&#125;</div><div class="line">		colBegin++;</div><div class="line">	&#125;</div><div class="line">	return res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -464,7 +464,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">83</span>
+                  <span class="site-state-item-count">84</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -539,7 +539,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text"><font color = black>Problem:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text"><font color = red>Idea:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text"><font color = orange>Java Code:</font></span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li></ol></div>
             
 
           </div>
