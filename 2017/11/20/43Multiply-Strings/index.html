@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="Problem:  Given two non-negative integers num1 and num2 represented as strings, return the product of num1 and num2.   Note:   The length of both num1 and num2 is &amp;lt; 110. Both num1 and num2 contains">
+<meta name="description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given two non-negative integers num1 and num2 represented as strings, return the product of num1 and num2.   Note:   The length of both num1 and num2 i">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="43. Multiply Strings">
 <meta property="og:url" content="http://www.mysry.com/2017/11/20/43Multiply-Strings/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="Problem:  Given two non-negative integers num1 and num2 represented as strings, return the product of num1 and num2.   Note:   The length of both num1 and num2 is &amp;lt; 110. Both num1 and num2 contains">
+<meta property="og:description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given two non-negative integers num1 and num2 represented as strings, return the product of num1 and num2.   Note:   The length of both num1 and num2 i">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-11-20T14:42:14.609Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="43. Multiply Strings">
-<meta name="twitter:description" content="Problem:  Given two non-negative integers num1 and num2 represented as strings, return the product of num1 and num2.   Note:   The length of both num1 and num2 is &amp;lt; 110. Both num1 and num2 contains">
+<meta name="twitter:description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given two non-negative integers num1 and num2 represented as strings, return the product of num1 and num2.   Note:   The length of both num1 and num2 i">
 
 
 
@@ -322,7 +322,7 @@
       
 
       
-        <h2 id="problem"><font color="black">Problem:</font></h2>
+        <h2>&lt;font color = black&gt;Problem:&lt;/font&gt;</h2>
 <blockquote>
 <p>Given two non-negative integers num1 and num2 represented as strings, return the product of num1 and num2.</p>
 </blockquote>
@@ -330,12 +330,17 @@
 <p>Note:</p>
 </blockquote>
 <blockquote>
-<p>The length of both num1 and num2 is &lt; 110. Both num1 and num2 contains only digits 0-9. Both num1 and num2 does not contain any leading zero. You must not use any built-in BigInteger library or convert the inputs to integer directly.</p>
+<p>The length of both num1 and num2 is &lt; 110.
+Both num1 and num2 contains only digits 0-9.
+Both num1 and num2 does not contain any leading zero.
+You must not use any built-in BigInteger library or convert the inputs to integer directly.</p>
 </blockquote>
-<h2 id="idea"><font color="red">Idea:</font></h2>
-<p> Start from right to left, perform multiplication on every pair of digits, and add them together. Let’s draw the process! From the following draft, we can immediately conclude:<code>num1[i] * num2[j]</code> will be placed at indices <code>[i + j</code>, <code>i + j + 1]</code> .</p>
-<h2 id="java-code"><font color="orange">Java Code:</font></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public String multiply(String num1, String num2) &#123;</div><div class="line">        int m = num1.length(),n=num2.length();</div><div class="line">	int []pos = new int [m+n];</div><div class="line">	for (int i=m-1;i&gt;=0;i--) &#123;</div><div class="line">		for (int j=n-1;j&gt;=0;j--) &#123;</div><div class="line">			int mul=(num1.charAt(i)-&apos;0&apos;)*(num2.charAt(j)-&apos;0&apos;);</div><div class="line">			int p1= i+j,p2=i+j+1;</div><div class="line">			int sum =mul+pos[p2];</div><div class="line">			pos[p1]+=sum/10;</div><div class="line">			pos[p2]= sum%10;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	StringBuilder sb = new StringBuilder();</div><div class="line">	for (int p:pos)</div><div class="line">		if(!(sb.length()==0&amp;&amp;p==0)) sb.append(p);</div><div class="line">	return sb.length()==0?&quot;0&quot;:sb.toString();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2>&lt;font color =red&gt;Idea:&lt;/font&gt;</h2>
+<p> Start from right to left, perform multiplication on every pair of digits,
+and add them together. Let's draw the process! From the following draft, we can
+immediately conclude:<code>num1[i] * num2[j]</code> will be placed at indices <code>[i + j</code>, <code>i + j + 1]</code> .</p>
+<h2>&lt;font color = orange&gt;Java Code:&lt;/font&gt;</h2>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public String multiply(String num1, String num2) &#123;</div><div class="line">        int m = num1.length(),n=num2.length();</div><div class="line">	int []pos = new int [m+n];</div><div class="line">	for (int i=m-1;i&gt;=0;i--) &#123;</div><div class="line">		for (int j=n-1;j&gt;=0;j--) &#123;</div><div class="line">			int mul=(num1.charAt(i)-&apos;0&apos;)*(num2.charAt(j)-&apos;0&apos;);</div><div class="line">			int p1= i+j,p2=i+j+1;</div><div class="line">			int sum =mul+pos[p2];</div><div class="line">			pos[p1]+=sum/10;</div><div class="line">			pos[p2]= sum%10;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	StringBuilder sb = new StringBuilder();</div><div class="line">	for (int p:pos)</div><div class="line">		if(!(sb.length()==0&amp;&amp;p==0)) sb.append(p);</div><div class="line">	return sb.length()==0?&quot;0&quot;:sb.toString();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -470,7 +475,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">82</span>
+                  <span class="site-state-item-count">83</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -483,7 +488,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -545,7 +550,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text"><font color = black>Problem:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text"><font color =red>Idea:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text"><font color = orange>Java Code:</font></span></a></li></ol></div>
             
 
           </div>

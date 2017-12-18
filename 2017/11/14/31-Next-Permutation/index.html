@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="Problem:  Implement next permutation, which rearranges numbers into the lexicographically next greater permutation of numbers.   If such arrangement is not possible, it must rearrange it as the lowest">
+<meta name="description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Implement next permutation, which rearranges numbers into the lexicographically next greater permutation of numbers.   If such arrangement is not possi">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="31. Next Permutation">
 <meta property="og:url" content="http://www.mysry.com/2017/11/14/31-Next-Permutation/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="Problem:  Implement next permutation, which rearranges numbers into the lexicographically next greater permutation of numbers.   If such arrangement is not possible, it must rearrange it as the lowest">
+<meta property="og:description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Implement next permutation, which rearranges numbers into the lexicographically next greater permutation of numbers.   If such arrangement is not possi">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-11-14T15:49:00.697Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="31. Next Permutation">
-<meta name="twitter:description" content="Problem:  Implement next permutation, which rearranges numbers into the lexicographically next greater permutation of numbers.   If such arrangement is not possible, it must rearrange it as the lowest">
+<meta name="twitter:description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Implement next permutation, which rearranges numbers into the lexicographically next greater permutation of numbers.   If such arrangement is not possi">
 
 
 
@@ -322,7 +322,7 @@
       
 
       
-        <h2 id="problem"><font color="black">Problem:</font></h2>
+        <h2>&lt;font color = black&gt;Problem:&lt;/font&gt;</h2>
 <blockquote>
 <p>Implement next permutation, which rearranges numbers into the lexicographically next greater permutation of numbers.</p>
 </blockquote>
@@ -335,10 +335,12 @@
 <blockquote>
 <p>Here are some examples. Inputs are in the left-hand column and its corresponding outputs are in the right-hand column.</p>
 </blockquote>
-<h2 id="idea"><font color="red">Idea:</font></h2>
-<p>  If you understand what is say about the problem is to find a new permutation to make the number of this string is much bigger than its origin, otherwise rearrange it as the lowest possible order.</p>
-<h2 id="java-code"><font color="orange">Java Code:</font></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public void nextPermutation(int[] nums) &#123;</div><div class="line">        if(nums==null || nums.length&lt;=1) return;</div><div class="line">	int i=nums.length-2;</div><div class="line">	while (i&gt;=0&amp;&amp;nums[i]&gt;=nums[i+1]) i--;</div><div class="line">	if(i&gt;=0) &#123;</div><div class="line">		int j=nums.length-1;</div><div class="line">		while(nums[j]&lt;=nums[i])j--;</div><div class="line">		swap(nums,i,j);</div><div class="line">	&#125;</div><div class="line">	reverse(nums,i+1,nums.length-1);</div><div class="line">    &#125;</div><div class="line">    public void swap(int[]nums,int i,int j) &#123;</div><div class="line">	int tmp =nums[i];</div><div class="line">	nums[i]=nums[j];</div><div class="line">	nums[j] = tmp;</div><div class="line">&#125;</div><div class="line">public void reverse(int[]nums,int i,int j) &#123;</div><div class="line">	while(i&lt;j) swap(nums,i++,j--);</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2>&lt;font color = red&gt;Idea:&lt;/font&gt;</h2>
+<p>  If you understand what is say about the problem is to find a new
+permutation to make the number of this string is much bigger than its origin,
+otherwise rearrange it as the lowest possible order.</p>
+<h2>&lt;font color = orange&gt;Java Code:&lt;/font&gt;</h2>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public void nextPermutation(int[] nums) &#123;</div><div class="line">        if(nums==null || nums.length&lt;=1) return;</div><div class="line">	int i=nums.length-2;</div><div class="line">	while (i&gt;=0&amp;&amp;nums[i]&gt;=nums[i+1]) i--;</div><div class="line">	if(i&gt;=0) &#123;</div><div class="line">		int j=nums.length-1;</div><div class="line">		while(nums[j]&lt;=nums[i])j--;</div><div class="line">		swap(nums,i,j);</div><div class="line">	&#125;</div><div class="line">	reverse(nums,i+1,nums.length-1);</div><div class="line">    &#125;</div><div class="line">    public void swap(int[]nums,int i,int j) &#123;</div><div class="line">	int tmp =nums[i];</div><div class="line">	nums[i]=nums[j];</div><div class="line">	nums[j] = tmp;</div><div class="line">&#125;</div><div class="line">public void reverse(int[]nums,int i,int j) &#123;</div><div class="line">	while(i&lt;j) swap(nums,i++,j--);</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -473,7 +475,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">82</span>
+                  <span class="site-state-item-count">83</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -486,7 +488,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -548,7 +550,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text"><font color = black>Problem:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text"><font color = red>Idea:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text"><font color = orange>Java Code:</font></span></a></li></ol></div>
             
 
           </div>

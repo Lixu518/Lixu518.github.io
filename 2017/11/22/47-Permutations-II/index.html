@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="Problem:  Given a collection of numbers that might contain duplicates, return all possible unique permutations.  Idea:  Similar to the previous problem, we use an extra boolean array &amp;quot; boolean[]">
+<meta name="description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given a collection of numbers that might contain duplicates, return all possible unique permutations.  &amp;lt;font color =red&amp;gt;Idea:&amp;lt;/font&amp;gt;  Simil">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="47. Permutations II">
 <meta property="og:url" content="http://www.mysry.com/2017/11/22/47-Permutations-II/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="Problem:  Given a collection of numbers that might contain duplicates, return all possible unique permutations.  Idea:  Similar to the previous problem, we use an extra boolean array &amp;quot; boolean[]">
+<meta property="og:description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given a collection of numbers that might contain duplicates, return all possible unique permutations.  &amp;lt;font color =red&amp;gt;Idea:&amp;lt;/font&amp;gt;  Simil">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-11-22T14:42:03.233Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="47. Permutations II">
-<meta name="twitter:description" content="Problem:  Given a collection of numbers that might contain duplicates, return all possible unique permutations.  Idea:  Similar to the previous problem, we use an extra boolean array &amp;quot; boolean[]">
+<meta name="twitter:description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given a collection of numbers that might contain duplicates, return all possible unique permutations.  &amp;lt;font color =red&amp;gt;Idea:&amp;lt;/font&amp;gt;  Simil">
 
 
 
@@ -322,14 +322,15 @@
       
 
       
-        <h2 id="problem"><font color="black">Problem:</font></h2>
+        <h2>&lt;font color = black&gt;Problem:&lt;/font&gt;</h2>
 <blockquote>
 <p>Given a collection of numbers that might contain duplicates, return all possible unique permutations.</p>
 </blockquote>
-<h2 id="idea"><font color="red">Idea:</font></h2>
-<p> Similar to the previous problem, we use an extra boolean array &quot; boolean[] used&quot; to indicate whether the value is added to list. And sort the array “int[] nums” to make sure we can skip the same value. When a number has the same value with its previous, we can use this number only if his previous is used.</p>
-<h2 id="java-code"><font color="orange">Java Code:</font></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public List&lt;List&lt;Integer&gt;&gt; permuteUnique(int[] nums) &#123;</div><div class="line">        List&lt;List&lt;Integer&gt;&gt; res=new ArrayList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">	if(nums==null||nums.length==0) return res;</div><div class="line">	boolean []used = new boolean[nums.length];</div><div class="line">	List&lt;Integer&gt;list = new ArrayList&lt;Integer&gt;();</div><div class="line">	Arrays.sort(nums);</div><div class="line">	dfs(nums,used,list,res);</div><div class="line">	return res;</div><div class="line">&#125;</div><div class="line">public void dfs(int[]nums,boolean[]used,List&lt;Integer&gt;list,List&lt;List&lt;Integer&gt;&gt;res) &#123;</div><div class="line">	if(list.size()==nums.length) &#123;</div><div class="line">		res.add(new ArrayList&lt;Integer&gt;(list));</div><div class="line">		return ;</div><div class="line">	&#125;</div><div class="line">	for (int i=0;i&lt;nums.length;i++) &#123;</div><div class="line">		if(used[i])continue;</div><div class="line">		if(i&gt;0&amp;&amp;nums[i-1]==nums[i]&amp;&amp;!used[i-1])continue;</div><div class="line">		used[i]=true;</div><div class="line">		list.add(nums[i]);</div><div class="line">		dfs(nums,used,list,res);</div><div class="line">		used[i]=false;</div><div class="line">		list.remove(list.size()-1);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2>&lt;font color =red&gt;Idea:&lt;/font&gt;</h2>
+<p> Similar to the previous problem, we use an extra boolean array &quot; boolean[]
+used&quot; to indicate whether the value is added to list. And sort the array &quot;int[] nums&quot; to make sure we can skip the same value. When a number has the same value with its previous, we can use this number only if his previous is used.</p>
+<h2>&lt;font color =orange&gt;Java Code:&lt;/font&gt;</h2>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public List&lt;List&lt;Integer&gt;&gt; permuteUnique(int[] nums) &#123;</div><div class="line">        List&lt;List&lt;Integer&gt;&gt; res=new ArrayList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">	if(nums==null||nums.length==0) return res;</div><div class="line">	boolean []used = new boolean[nums.length];</div><div class="line">	List&lt;Integer&gt;list = new ArrayList&lt;Integer&gt;();</div><div class="line">	Arrays.sort(nums);</div><div class="line">	dfs(nums,used,list,res);</div><div class="line">	return res;</div><div class="line">&#125;</div><div class="line">public void dfs(int[]nums,boolean[]used,List&lt;Integer&gt;list,List&lt;List&lt;Integer&gt;&gt;res) &#123;</div><div class="line">	if(list.size()==nums.length) &#123;</div><div class="line">		res.add(new ArrayList&lt;Integer&gt;(list));</div><div class="line">		return ;</div><div class="line">	&#125;</div><div class="line">	for (int i=0;i&lt;nums.length;i++) &#123;</div><div class="line">		if(used[i])continue;</div><div class="line">		if(i&gt;0&amp;&amp;nums[i-1]==nums[i]&amp;&amp;!used[i-1])continue;</div><div class="line">		used[i]=true;</div><div class="line">		list.add(nums[i]);</div><div class="line">		dfs(nums,used,list,res);</div><div class="line">		used[i]=false;</div><div class="line">		list.remove(list.size()-1);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -464,7 +465,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">82</span>
+                  <span class="site-state-item-count">83</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -477,7 +478,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -539,7 +540,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text"><font color = black>Problem:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text"><font color =red>Idea:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text"><font color =orange>Java Code:</font></span></a></li></ol></div>
             
 
           </div>

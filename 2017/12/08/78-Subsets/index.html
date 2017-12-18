@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="Problem:  Given a set of distinct integers, nums, return all possible subsets (the power set).  Idea:  Just solve as the previous problem! Java Code: 12345678910111213141516171819202122package Subsets">
+<meta name="description" content="&amp;lt;font color = black &amp;gt;Problem:&amp;lt;/font&amp;gt;  Given a set of distinct integers, nums, return all possible subsets (the power set).  &amp;lt;font color = red &amp;gt;Idea:&amp;lt;/font&amp;gt;  Just solve as the p">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="78. Subsets ">
 <meta property="og:url" content="http://www.mysry.com/2017/12/08/78-Subsets/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="Problem:  Given a set of distinct integers, nums, return all possible subsets (the power set).  Idea:  Just solve as the previous problem! Java Code: 12345678910111213141516171819202122package Subsets">
+<meta property="og:description" content="&amp;lt;font color = black &amp;gt;Problem:&amp;lt;/font&amp;gt;  Given a set of distinct integers, nums, return all possible subsets (the power set).  &amp;lt;font color = red &amp;gt;Idea:&amp;lt;/font&amp;gt;  Just solve as the p">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-12-08T13:50:53.875Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="78. Subsets ">
-<meta name="twitter:description" content="Problem:  Given a set of distinct integers, nums, return all possible subsets (the power set).  Idea:  Just solve as the previous problem! Java Code: 12345678910111213141516171819202122package Subsets">
+<meta name="twitter:description" content="&amp;lt;font color = black &amp;gt;Problem:&amp;lt;/font&amp;gt;  Given a set of distinct integers, nums, return all possible subsets (the power set).  &amp;lt;font color = red &amp;gt;Idea:&amp;lt;/font&amp;gt;  Just solve as the p">
 
 
 
@@ -322,16 +322,16 @@
       
 
       
-        <h2 id="problem"><font color="black">Problem:</font></h2>
+        <h2>&lt;font color = black &gt;Problem:&lt;/font&gt;</h2>
 <blockquote>
 <p>Given a set of distinct integers, nums, return all possible subsets (the power set).</p>
 </blockquote>
-<h2 id="idea"><font color="red">Idea:</font></h2>
+<h2>&lt;font color = red &gt;Idea:&lt;/font&gt;</h2>
 <p> Just solve as the previous problem!</p>
-<h2 id="java-code"><font color="orange">Java Code:</font></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">package Subsets;</div><div class="line"></div><div class="line">import java.util.ArrayList;</div><div class="line">import java.util.List;</div><div class="line"></div><div class="line">public class Solution &#123;</div><div class="line">	public List&lt;List&lt;Integer&gt;&gt; subsets(int[] nums) &#123;</div><div class="line">		List&lt;List&lt;Integer&gt;&gt; res = new ArrayList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">		List&lt;Integer&gt; tmp = new ArrayList&lt;Integer&gt;();</div><div class="line">		dfs(res, tmp, nums, 0);</div><div class="line">		return res;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void dfs(List&lt;List&lt;Integer&gt;&gt; res, List&lt;Integer&gt; tmp, int[] nums, int m) &#123;</div><div class="line">		res.add(new ArrayList&lt;Integer&gt;(tmp));</div><div class="line">		for (int i = m; i &lt; nums.length; i++) &#123;</div><div class="line">			tmp.add(nums[i]);</div><div class="line">			dfs(res, tmp, nums, i + 1);</div><div class="line">			tmp.remove(tmp.size() - 1);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="c-code"><font color="gold">C++ Code:</font></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    vector&lt;vector&lt;int&gt;&gt; subsets(vector&lt;int&gt;&amp; nums) &#123;</div><div class="line">        vector&lt;vector&lt;int&gt;&gt; res;</div><div class="line">        vector&lt;int&gt; tmp;</div><div class="line">        dfs(res,tmp,nums,0);</div><div class="line">        return res;</div><div class="line">    &#125;</div><div class="line">    void dfs(vector&lt;vector&lt;int&gt;&gt;&amp; res, vector&lt;int&gt;&amp; tmp,vector&lt;int&gt;&amp; nums,int m)&#123;</div><div class="line">        res.push_back(tmp);</div><div class="line">        for (int i=m;i&lt;nums.size();i++)&#123;</div><div class="line">            tmp.push_back(nums[i]);</div><div class="line">            dfs(res,tmp,nums,i+1);</div><div class="line">            tmp.pop_back();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2>&lt;font color = orange &gt;Java Code:&lt;/font&gt;</h2>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">package Subsets;</div><div class="line"></div><div class="line">import java.util.ArrayList;</div><div class="line">import java.util.List;</div><div class="line"></div><div class="line">public class Solution &#123;</div><div class="line">	public List&lt;List&lt;Integer&gt;&gt; subsets(int[] nums) &#123;</div><div class="line">		List&lt;List&lt;Integer&gt;&gt; res = new ArrayList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">		List&lt;Integer&gt; tmp = new ArrayList&lt;Integer&gt;();</div><div class="line">		dfs(res, tmp, nums, 0);</div><div class="line">		return res;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void dfs(List&lt;List&lt;Integer&gt;&gt; res, List&lt;Integer&gt; tmp, int[] nums, int m) &#123;</div><div class="line">		res.add(new ArrayList&lt;Integer&gt;(tmp));</div><div class="line">		for (int i = m; i &lt; nums.length; i++) &#123;</div><div class="line">			tmp.add(nums[i]);</div><div class="line">			dfs(res, tmp, nums, i + 1);</div><div class="line">			tmp.remove(tmp.size() - 1);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2>&lt;font color = gold &gt;C++ Code:&lt;/font&gt;</h2>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    vector&lt;vector&lt;int&gt;&gt; subsets(vector&lt;int&gt;&amp; nums) &#123;</div><div class="line">        vector&lt;vector&lt;int&gt;&gt; res;</div><div class="line">        vector&lt;int&gt; tmp;</div><div class="line">        dfs(res,tmp,nums,0);</div><div class="line">        return res;</div><div class="line">    &#125;</div><div class="line">    void dfs(vector&lt;vector&lt;int&gt;&gt;&amp; res, vector&lt;int&gt;&amp; tmp,vector&lt;int&gt;&amp; nums,int m)&#123;</div><div class="line">        res.push_back(tmp);</div><div class="line">        for (int i=m;i&lt;nums.size();i++)&#123;</div><div class="line">            tmp.push_back(nums[i]);</div><div class="line">            dfs(res,tmp,nums,i+1);</div><div class="line">            tmp.pop_back();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -466,7 +466,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">82</span>
+                  <span class="site-state-item-count">83</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -479,7 +479,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -541,7 +541,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-code"><span class="nav-number">4.</span> <span class="nav-text">C++ Code:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text"><font color = black >Problem:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text"><font color = red >Idea:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text"><font color = orange >Java Code:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text"><font color = gold >C++ Code:</font></span></a></li></ol></div>
             
 
           </div>
