@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  You are given an n x n 2D matrix representing an image.   Rotate the image by 90 degrees (clockwise).  &amp;lt;font color =red&amp;gt;Idea:&amp;lt;/font&amp;gt;  My su">
+<meta name="description" content="Problem:  You are given an n x n 2D matrix representing an image.   Rotate the image by 90 degrees (clockwise).  Idea:  My suggestion is to plot the matrix with subindex, and then it may be clear. Jav">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="48. Rotate Image">
 <meta property="og:url" content="http://www.mysry.com/2017/11/22/48-Rotate-Image/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  You are given an n x n 2D matrix representing an image.   Rotate the image by 90 degrees (clockwise).  &amp;lt;font color =red&amp;gt;Idea:&amp;lt;/font&amp;gt;  My su">
+<meta property="og:description" content="Problem:  You are given an n x n 2D matrix representing an image.   Rotate the image by 90 degrees (clockwise).  Idea:  My suggestion is to plot the matrix with subindex, and then it may be clear. Jav">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-11-25T13:50:42.557Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="48. Rotate Image">
-<meta name="twitter:description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  You are given an n x n 2D matrix representing an image.   Rotate the image by 90 degrees (clockwise).  &amp;lt;font color =red&amp;gt;Idea:&amp;lt;/font&amp;gt;  My su">
+<meta name="twitter:description" content="Problem:  You are given an n x n 2D matrix representing an image.   Rotate the image by 90 degrees (clockwise).  Idea:  My suggestion is to plot the matrix with subindex, and then it may be clear. Jav">
 
 
 
@@ -322,17 +322,17 @@
       
 
       
-        <h2>&lt;font color = black&gt;Problem:&lt;/font&gt;</h2>
+        <h2 id="problem"><font color="black">Problem:</font></h2>
 <blockquote>
 <p>You are given an n x n 2D matrix representing an image.</p>
 </blockquote>
 <blockquote>
 <p>Rotate the image by 90 degrees (clockwise).</p>
 </blockquote>
-<h2>&lt;font color =red&gt;Idea:&lt;/font&gt;</h2>
+<h2 id="idea"><font color="red">Idea:</font></h2>
 <p> My suggestion is to plot the matrix with subindex, and then it may be clear.</p>
-<h2>&lt;font color = orange&gt;Java Code:&lt;/font&gt;</h2>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public void rotate(int[][] matrix) &#123;</div><div class="line">        for (int i=0;i&lt;matrix.length;i++) &#123;</div><div class="line">			for (int j=i;j&lt;matrix[0].length;j++) &#123;</div><div class="line">				int tmp =0;</div><div class="line">				 tmp = matrix[i][j];</div><div class="line">				 matrix[i][j]= matrix[j][i];</div><div class="line">				 matrix [j][i]=tmp;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		for (int i=0;i&lt;matrix.length;i++) &#123;</div><div class="line">			for (int j=0;j&lt;matrix.length/2;j++) &#123;</div><div class="line">				int tmp=0;</div><div class="line">				tmp=matrix[i][j];</div><div class="line">				matrix[i][j]=matrix[i][matrix.length-1-j];</div><div class="line">				matrix[i][matrix.length-1-j]=tmp;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="java-code"><font color="orange">Java Code:</font></h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public void rotate(int[][] matrix) &#123;</div><div class="line">        for (int i=0;i&lt;matrix.length;i++) &#123;</div><div class="line">			for (int j=i;j&lt;matrix[0].length;j++) &#123;</div><div class="line">				int tmp =0;</div><div class="line">				 tmp = matrix[i][j];</div><div class="line">				 matrix[i][j]= matrix[j][i];</div><div class="line">				 matrix [j][i]=tmp;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		for (int i=0;i&lt;matrix.length;i++) &#123;</div><div class="line">			for (int j=0;j&lt;matrix.length/2;j++) &#123;</div><div class="line">				int tmp=0;</div><div class="line">				tmp=matrix[i][j];</div><div class="line">				matrix[i][j]=matrix[i][matrix.length-1-j];</div><div class="line">				matrix[i][matrix.length-1-j]=tmp;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -467,7 +467,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">88</span>
+                  <span class="site-state-item-count">89</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -542,7 +542,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text"><font color = black>Problem:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text"><font color =red>Idea:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text"><font color = orange>Java Code:</font></span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li></ol></div>
             
 
           </div>

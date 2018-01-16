@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given two words word1 and word2, find the minimum number of steps required to convert word1 to word2. (each operation is counted as 1 step.) You have t">
+<meta name="description" content="Problem:  Given two words word1 and word2, find the minimum number of steps required to convert word1 to word2. (each operation is counted as 1 step.) You have the following 3 operations permitted on">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="72. Edit Distance">
 <meta property="og:url" content="http://www.mysry.com/2017/12/04/72-Edit-Distance/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given two words word1 and word2, find the minimum number of steps required to convert word1 to word2. (each operation is counted as 1 step.) You have t">
+<meta property="og:description" content="Problem:  Given two words word1 and word2, find the minimum number of steps required to convert word1 to word2. (each operation is counted as 1 step.) You have the following 3 operations permitted on">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-12-04T14:01:42.034Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="72. Edit Distance">
-<meta name="twitter:description" content="&amp;lt;font color = black&amp;gt;Problem:&amp;lt;/font&amp;gt;  Given two words word1 and word2, find the minimum number of steps required to convert word1 to word2. (each operation is counted as 1 step.) You have t">
+<meta name="twitter:description" content="Problem:  Given two words word1 and word2, find the minimum number of steps required to convert word1 to word2. (each operation is counted as 1 step.) You have the following 3 operations permitted on">
 
 
 
@@ -322,22 +322,16 @@
       
 
       
-        <h2>&lt;font color = black&gt;Problem:&lt;/font&gt;</h2>
+        <h2 id="problem"><font color="black">Problem:</font></h2>
 <blockquote>
-<p>Given two words word1 and word2, find the minimum number of steps required to
-convert word1 to word2. (each operation is counted as 1 step.)
-You have the following 3 operations permitted on a word:
-a) Insert a character
-b) Delete a character
-c) Replace a character</p>
+<p>Given two words word1 and word2, find the minimum number of steps required to convert word1 to word2. (each operation is counted as 1 step.) You have the following 3 operations permitted on a word: a) Insert a character b) Delete a character c) Replace a character</p>
 </blockquote>
-<h2>&lt;font color = red &gt;Idea:&lt;/font&gt;</h2>
-<p> Use the DP solution, if word1[i]==word2[j], than dp[i][j] doesn't change,
-otherwise we'd like to choose the minDistance way.</p>
-<h2>&lt;font color = orange &gt;Java Code:&lt;/font&gt;</h2>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">package EditDistance;</div><div class="line"></div><div class="line">public class Solution &#123;</div><div class="line">	public int minDistance(String word1, String word2) &#123;</div><div class="line">		int m = word1.length(), n = word2.length();</div><div class="line">		int[][] cost = new int[m + 1][n + 1];</div><div class="line">		for (int i = 0; i &lt;= m; i++)</div><div class="line">			cost[i][0] = i;</div><div class="line">		for (int i = 0; i &lt;= n; i++)</div><div class="line">			cost[0][i] = i;</div><div class="line">		for (int i = 0; i &lt; m; i++) &#123;</div><div class="line">			for (int j = 0; j &lt; n; j++) &#123;</div><div class="line">				if (word1.charAt(i) == word2.charAt(j))</div><div class="line">					cost[i + 1][j + 1] = cost[i][j];</div><div class="line">				else &#123;</div><div class="line">					int a = cost[i][j];</div><div class="line">					int b = cost[i][j + 1];</div><div class="line">					int c = cost[i + 1][j];</div><div class="line">					cost[i + 1][j + 1] = a &lt; b ? (a &lt; c ? a : c) : (b &lt; c ? b : c);</div><div class="line">					cost[i + 1][j + 1]++;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		return cost[m][n];</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2>&lt;font color = gold &gt;C++ Code:&lt;/font&gt;</h2>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">package EditDistance;</div><div class="line"></div><div class="line">public class Solution &#123;</div><div class="line">	public int minDistance(String word1, String word2) &#123;</div><div class="line">		int m = word1.length(), n = word2.length();</div><div class="line">		int[][] cost = new int[m + 1][n + 1];</div><div class="line">		for (int i = 0; i &lt;= m; i++)</div><div class="line">			cost[i][0] = i;</div><div class="line">		for (int i = 0; i &lt;= n; i++)</div><div class="line">			cost[0][i] = i;</div><div class="line">		for (int i = 0; i &lt; m; i++) &#123;</div><div class="line">			for (int j = 0; j &lt; n; j++) &#123;</div><div class="line">				if (word1.charAt(i) == word2.charAt(j))</div><div class="line">					cost[i + 1][j + 1] = cost[i][j];</div><div class="line">				else &#123;</div><div class="line">					int a = cost[i][j];</div><div class="line">					int b = cost[i][j + 1];</div><div class="line">					int c = cost[i + 1][j];</div><div class="line">					cost[i + 1][j + 1] = a &lt; b ? (a &lt; c ? a : c) : (b &lt; c ? b : c);</div><div class="line">					cost[i + 1][j + 1]++;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		return cost[m][n];</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="idea"><font color="red">Idea:</font></h2>
+<p> Use the DP solution, if word1[i]==word2[j], than dp[i][j] doesn’t change, otherwise we’d like to choose the minDistance way.</p>
+<h2 id="java-code"><font color="orange">Java Code:</font></h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">package EditDistance;</div><div class="line"></div><div class="line">public class Solution &#123;</div><div class="line">	public int minDistance(String word1, String word2) &#123;</div><div class="line">		int m = word1.length(), n = word2.length();</div><div class="line">		int[][] cost = new int[m + 1][n + 1];</div><div class="line">		for (int i = 0; i &lt;= m; i++)</div><div class="line">			cost[i][0] = i;</div><div class="line">		for (int i = 0; i &lt;= n; i++)</div><div class="line">			cost[0][i] = i;</div><div class="line">		for (int i = 0; i &lt; m; i++) &#123;</div><div class="line">			for (int j = 0; j &lt; n; j++) &#123;</div><div class="line">				if (word1.charAt(i) == word2.charAt(j))</div><div class="line">					cost[i + 1][j + 1] = cost[i][j];</div><div class="line">				else &#123;</div><div class="line">					int a = cost[i][j];</div><div class="line">					int b = cost[i][j + 1];</div><div class="line">					int c = cost[i + 1][j];</div><div class="line">					cost[i + 1][j + 1] = a &lt; b ? (a &lt; c ? a : c) : (b &lt; c ? b : c);</div><div class="line">					cost[i + 1][j + 1]++;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		return cost[m][n];</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="c-code"><font color="gold">C++ Code:</font></h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">package EditDistance;</div><div class="line"></div><div class="line">public class Solution &#123;</div><div class="line">	public int minDistance(String word1, String word2) &#123;</div><div class="line">		int m = word1.length(), n = word2.length();</div><div class="line">		int[][] cost = new int[m + 1][n + 1];</div><div class="line">		for (int i = 0; i &lt;= m; i++)</div><div class="line">			cost[i][0] = i;</div><div class="line">		for (int i = 0; i &lt;= n; i++)</div><div class="line">			cost[0][i] = i;</div><div class="line">		for (int i = 0; i &lt; m; i++) &#123;</div><div class="line">			for (int j = 0; j &lt; n; j++) &#123;</div><div class="line">				if (word1.charAt(i) == word2.charAt(j))</div><div class="line">					cost[i + 1][j + 1] = cost[i][j];</div><div class="line">				else &#123;</div><div class="line">					int a = cost[i][j];</div><div class="line">					int b = cost[i][j + 1];</div><div class="line">					int c = cost[i + 1][j];</div><div class="line">					cost[i + 1][j + 1] = a &lt; b ? (a &lt; c ? a : c) : (b &lt; c ? b : c);</div><div class="line">					cost[i + 1][j + 1]++;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		return cost[m][n];</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -472,7 +466,7 @@ otherwise we'd like to choose the minDistance way.</p>
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">88</span>
+                  <span class="site-state-item-count">89</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -547,7 +541,7 @@ otherwise we'd like to choose the minDistance way.</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text"><font color = black>Problem:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text"><font color = red >Idea:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text"><font color = orange >Java Code:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text"><font color = gold >C++ Code:</font></span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-code"><span class="nav-number">4.</span> <span class="nav-text">C++ Code:</span></a></li></ol></div>
             
 
           </div>

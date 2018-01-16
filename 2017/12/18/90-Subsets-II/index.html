@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="&amp;lt;font color = black &amp;gt;Problem:&amp;lt;/font&amp;gt;  Given a collection of integers that might contain duplicates, nums, return all possible subsets (the power set). Note: The solution set must not conta">
+<meta name="description" content="Problem:  Given a collection of integers that might contain duplicates, nums, return all possible subsets (the power set). Note: The solution set must not contain duplicate subsets.  Idea:  This probl">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="90. Subsets II">
 <meta property="og:url" content="http://www.mysry.com/2017/12/18/90-Subsets-II/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="&amp;lt;font color = black &amp;gt;Problem:&amp;lt;/font&amp;gt;  Given a collection of integers that might contain duplicates, nums, return all possible subsets (the power set). Note: The solution set must not conta">
+<meta property="og:description" content="Problem:  Given a collection of integers that might contain duplicates, nums, return all possible subsets (the power set). Note: The solution set must not contain duplicate subsets.  Idea:  This probl">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-12-18T12:52:43.120Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="90. Subsets II">
-<meta name="twitter:description" content="&amp;lt;font color = black &amp;gt;Problem:&amp;lt;/font&amp;gt;  Given a collection of integers that might contain duplicates, nums, return all possible subsets (the power set). Note: The solution set must not conta">
+<meta name="twitter:description" content="Problem:  Given a collection of integers that might contain duplicates, nums, return all possible subsets (the power set). Note: The solution set must not contain duplicate subsets.  Idea:  This probl">
 
 
 
@@ -322,17 +322,16 @@
       
 
       
-        <h2>&lt;font color = black &gt;Problem:&lt;/font&gt;</h2>
+        <h2 id="problem"><font color="black">Problem:</font></h2>
 <blockquote>
-<p>Given a collection of integers that might contain duplicates, nums, return all possible subsets (the power set).
-Note: The solution set must not contain duplicate subsets.</p>
+<p>Given a collection of integers that might contain duplicates, nums, return all possible subsets (the power set). Note: The solution set must not contain duplicate subsets.</p>
 </blockquote>
-<h2>&lt;font color = red&gt;Idea:&lt;/font&gt;</h2>
+<h2 id="idea"><font color="red">Idea:</font></h2>
 <p> This problem is following up <a href="http://www.mysry.com/2017/12/08/78-Subsets/">subsets</a>. But there is one more condition of duplicates. Also bfs + backtracking.</p>
-<h2>&lt;font color = orange &gt;Java Code:&lt;/font&gt;</h2>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public List&lt;List&lt;Integer&gt;&gt; subsetsWithDup(int[] nums) &#123;</div><div class="line">        List&lt;List&lt;Integer&gt;&gt; res = new ArrayList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">        List&lt;Integer&gt;tmp = new ArrayList&lt;Integer&gt;();</div><div class="line">        Arrays.sort(nums);</div><div class="line">        dfs(res,tmp,nums,0);</div><div class="line">        return res;</div><div class="line">    &#125;</div><div class="line">    public void dfs(List&lt;List&lt;Integer&gt;&gt; res,List&lt;Integer&gt; tmp,int[] nums, int pos)&#123;</div><div class="line">        res.add(new ArrayList&lt;&gt;(tmp));</div><div class="line">        for(int i = pos;i&lt;nums.length;++i)&#123;</div><div class="line">            if(i==pos||nums[i]!=nums[i-1])&#123;</div><div class="line">                tmp.add(nums[i]);</div><div class="line">                dfs(res,tmp,nums,i+1);</div><div class="line">                tmp.remove(tmp.size()-1);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2>&lt;font color = gold &gt;C++ Code:&lt;/font&gt;</h2>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    vector&lt;vector&lt;int&gt;&gt; subsetsWithDup(vector&lt;int&gt;&amp; nums) &#123;</div><div class="line">        vector&lt;vector&lt;int&gt;&gt; res;</div><div class="line">        vector&lt;int&gt;tmp;</div><div class="line">        sort(nums.begin(),nums.end());</div><div class="line">        dfs(res,tmp,nums,0);</div><div class="line">        return res;</div><div class="line">    &#125;</div><div class="line">    void dfs(vector&lt;vector&lt;int&gt;&gt;&amp;res,vector&lt;int&gt;&amp;tmp,vector&lt;int&gt;&amp; nums, int pos)&#123;</div><div class="line">        res.push_back(tmp);</div><div class="line">        for(int i=pos;i&lt;nums.size();++i)&#123;</div><div class="line">            if(i==pos||nums[i]!=nums[i-1])&#123;</div><div class="line">                tmp.push_back(nums[i]);</div><div class="line">                dfs(res,tmp,nums,i+1);</div><div class="line">                tmp.pop_back();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h2 id="java-code"><font color="orange">Java Code:</font></h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public List&lt;List&lt;Integer&gt;&gt; subsetsWithDup(int[] nums) &#123;</div><div class="line">        List&lt;List&lt;Integer&gt;&gt; res = new ArrayList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">        List&lt;Integer&gt;tmp = new ArrayList&lt;Integer&gt;();</div><div class="line">        Arrays.sort(nums);</div><div class="line">        dfs(res,tmp,nums,0);</div><div class="line">        return res;</div><div class="line">    &#125;</div><div class="line">    public void dfs(List&lt;List&lt;Integer&gt;&gt; res,List&lt;Integer&gt; tmp,int[] nums, int pos)&#123;</div><div class="line">        res.add(new ArrayList&lt;&gt;(tmp));</div><div class="line">        for(int i = pos;i&lt;nums.length;++i)&#123;</div><div class="line">            if(i==pos||nums[i]!=nums[i-1])&#123;</div><div class="line">                tmp.add(nums[i]);</div><div class="line">                dfs(res,tmp,nums,i+1);</div><div class="line">                tmp.remove(tmp.size()-1);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="c-code"><font color="gold">C++ Code:</font></h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    vector&lt;vector&lt;int&gt;&gt; subsetsWithDup(vector&lt;int&gt;&amp; nums) &#123;</div><div class="line">        vector&lt;vector&lt;int&gt;&gt; res;</div><div class="line">        vector&lt;int&gt;tmp;</div><div class="line">        sort(nums.begin(),nums.end());</div><div class="line">        dfs(res,tmp,nums,0);</div><div class="line">        return res;</div><div class="line">    &#125;</div><div class="line">    void dfs(vector&lt;vector&lt;int&gt;&gt;&amp;res,vector&lt;int&gt;&amp;tmp,vector&lt;int&gt;&amp; nums, int pos)&#123;</div><div class="line">        res.push_back(tmp);</div><div class="line">        for(int i=pos;i&lt;nums.size();++i)&#123;</div><div class="line">            if(i==pos||nums[i]!=nums[i-1])&#123;</div><div class="line">                tmp.push_back(nums[i]);</div><div class="line">                dfs(res,tmp,nums,i+1);</div><div class="line">                tmp.pop_back();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -467,7 +466,7 @@ Note: The solution set must not contain duplicate subsets.</p>
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">88</span>
+                  <span class="site-state-item-count">89</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -542,7 +541,7 @@ Note: The solution set must not contain duplicate subsets.</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text"><font color = black >Problem:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text"><font color = red>Idea:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text"><font color = orange >Java Code:</font></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text"><font color = gold >C++ Code:</font></span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-code"><span class="nav-number">4.</span> <span class="nav-text">C++ Code:</span></a></li></ol></div>
             
 
           </div>

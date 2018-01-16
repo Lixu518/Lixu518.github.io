@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="贝叶斯定理   贝叶斯定理:$$P(A|B)=\frac{P(B|A)P(A)}{P(B)}$$事件B发生的条件下事件A发生的概率可以由时间A发生的A和B的联合分布$$(P(A,B)=P(B|A)P(A)=P(A|B)P(B))$$除以事件B发生的概率求得。 朴素贝叶斯分类器   假设训练数据集$$T = {(x_1,y_1),(x_2,y_2),...,(x_N,y_N)}$$是由$P(X,Y)">
+<meta name="description" content="贝叶斯定理   贝叶斯定理:\[P(A|B)=\frac{P(B|A)P(A)}{P(B)}\]事件B发生的条件下事件A发生的概率可以由时间A发生的A和B的联合分布\[(P(A,B)=P(B|A)P(A)=P(A|B)P(B))\]除以事件B发生的概率求得。 朴素贝叶斯分类器   假设训练数据集\[T = \{(x_1,y_1),(x_2,y_2),...,(x_N,y_N)\}\]是由\(P(X">
 <meta name="keywords" content="Machine learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Naive Bayes">
 <meta property="og:url" content="http://www.mysry.com/2017/12/09/Naive-Bayes/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="贝叶斯定理   贝叶斯定理:$$P(A|B)=\frac{P(B|A)P(A)}{P(B)}$$事件B发生的条件下事件A发生的概率可以由时间A发生的A和B的联合分布$$(P(A,B)=P(B|A)P(A)=P(A|B)P(B))$$除以事件B发生的概率求得。 朴素贝叶斯分类器   假设训练数据集$$T = {(x_1,y_1),(x_2,y_2),...,(x_N,y_N)}$$是由$P(X,Y)">
+<meta property="og:description" content="贝叶斯定理   贝叶斯定理:\[P(A|B)=\frac{P(B|A)P(A)}{P(B)}\]事件B发生的条件下事件A发生的概率可以由时间A发生的A和B的联合分布\[(P(A,B)=P(B|A)P(A)=P(A|B)P(B))\]除以事件B发生的概率求得。 朴素贝叶斯分类器   假设训练数据集\[T = \{(x_1,y_1),(x_2,y_2),...,(x_N,y_N)\}\]是由\(P(X">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-12-09T10:45:21.977Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Naive Bayes">
-<meta name="twitter:description" content="贝叶斯定理   贝叶斯定理:$$P(A|B)=\frac{P(B|A)P(A)}{P(B)}$$事件B发生的条件下事件A发生的概率可以由时间A发生的A和B的联合分布$$(P(A,B)=P(B|A)P(A)=P(A|B)P(B))$$除以事件B发生的概率求得。 朴素贝叶斯分类器   假设训练数据集$$T = {(x_1,y_1),(x_2,y_2),...,(x_N,y_N)}$$是由$P(X,Y)">
+<meta name="twitter:description" content="贝叶斯定理   贝叶斯定理:\[P(A|B)=\frac{P(B|A)P(A)}{P(B)}\]事件B发生的条件下事件A发生的概率可以由时间A发生的A和B的联合分布\[(P(A,B)=P(B|A)P(A)=P(A|B)P(B))\]除以事件B发生的概率求得。 朴素贝叶斯分类器   假设训练数据集\[T = \{(x_1,y_1),(x_2,y_2),...,(x_N,y_N)\}\]是由\(P(X">
 
 
 
@@ -322,40 +322,38 @@
       
 
       
-        <h2>贝叶斯定理</h2>
-<p>  贝叶斯定理:$$P(A|B)=\frac{P(B|A)P(A)}{P(B)}$$事件B发生的条件下事件A发生的概率可以由时间A发生的A和B的联合分布$$(P(A,B)=P(B|A)P(A)=P(A|B)P(B))$$除以事件B发生的概率求得。</p>
-<h2>朴素贝叶斯分类器</h2>
-<p>  假设训练数据集$$T = {(x_1,y_1),(x_2,y_2),...,(x_N,y_N)}$$是由$P(X,Y)$独立同分布产生，先验概率分布$$P(Y=c_k), k=1,2,...,K$$条件概率分布$$P(X=x|Y=c_k)=P(X^{(1)}=x^{(1)},...,X^{(n)}=x^{(n)}|Y=c_k),k=1,2,...,K$$在进行如下条件独立性假设下
-\begin{align}
-P(X=x|Y=c_k)&amp;=P(X^{(1)}=x^{(1)},...,X^{(n)}=x^{(n)}|Y=c_k)\
+        <h2 id="贝叶斯定理">贝叶斯定理</h2>
+<p>  贝叶斯定理:<span class="math display">\[P(A|B)=\frac{P(B|A)P(A)}{P(B)}\]</span>事件B发生的条件下事件A发生的概率可以由时间A发生的A和B的联合分布<span class="math display">\[(P(A,B)=P(B|A)P(A)=P(A|B)P(B))\]</span>除以事件B发生的概率求得。</p>
+<h2 id="朴素贝叶斯分类器">朴素贝叶斯分类器</h2>
+  假设训练数据集<span class="math display">\[T = \{(x_1,y_1),(x_2,y_2),...,(x_N,y_N)\}\]</span>是由<span class="math inline">\(P(X,Y)\)</span>独立同分布产生，先验概率分布<span class="math display">\[P(Y=c_k), k=1,2,...,K\]</span>条件概率分布<span class="math display">\[P(X=x|Y=c_k)=P(X^{(1)}=x^{(1)},...,X^{(n)}=x^{(n)}|Y=c_k),k=1,2,...,K\]</span>在进行如下条件独立性假设下
+<span class="math display">\[\begin{align}
+P(X=x|Y=c_k)&amp;=P(X^{(1)}=x^{(1)},...,X^{(n)}=x^{(n)}|Y=c_k)\\
 &amp;=\prod_{j=1}^n P(X^{(j)}=x^{(j)}|Y=c_k)
-\end{align}那么根据贝叶斯定理计算后验概率为$$P(Y=c_k|X=x)=\frac{P(X=x|Y=c_k)P(Y=c_k)}{\sum_k P(X=x|Y=c_k)P(Y=c_k)}$$我们将上面的条件独立性假设带入公式可以得到$$P(Y=c_k|X=x)=\frac{P(Y=c_k)\prod_j P(X^{(j)}=Y=c_k)}{\sum_k P(Y=c_k)\prod_j P(X^(j)=x^{(j)}|Y=c_k)} , k=1,2,...,K$$这是朴素贝叶斯分类的基本形式，由这个公式我们可以得到朴素贝叶斯分类器$$y=f(x)=argmax_{c_k} \frac{P(Y=c_k)\prod_j P(X^{(j)}=Y=c_k)}{\sum_k P(Y=c_k)\prod_j P(X^(j)=x^{(j)}|Y=c_k)}$$上式中的分母对于所有的$c_k$都是相同的，所以我们有$$y=argmax_{c_k} P(Y=c_k) \prod_j P(X^{(j)}=x^{(j)}|y=c_k)$$</p>
-<h2>用极大似然法估计朴素贝叶斯参数</h2>
-<p>  先验概率$P(Y=c_k)$的极大似然估计为:$$ P(Y=c_k)=\frac{\sum_{i=1}^N I(y_i=c_k)}{N},k=1,2,...,K$$设第j个特征$x^(j)$可能取值的集合为${a_{j1},a_{j2},...,a_{js}}$,条件概率$P(X^{(j)}=a_{ij}|Y=c_k)$的极大似然估计为:$$P(X^{(j)}=a_{ij}|Y=c_k)=\frac{\sum_{i=1}^N I(x_i^{(j)}=a_{ij},y_i=c_k)}{\sum_i^N I(y_i=c_k)}$$ $$j=1,2,...,n; l=1,2,...,S_j; k=1,2,...,K$$</p>
-<h2>贝叶斯算法流程</h2>
-<p>&lt;font color = red&gt;输入&lt;/font&gt;:训练数据集$T =
-{(x_1,y_1),(x_2,y_2),...,(x_N,y_N)}$，其中$x_i=(x_i^{(1)}$,$x_i^{(2)},...,x_i^{(n)})^T$,$x_i^{(j)}$是第i个样本的第j个特征，$x_i^{(j)}\in{a_{j1},a_{j2},...,a_{js}}$,$a_{jl}$是第j个特征的第l个取值，$j=1,2,...,n,l=1,2,...,S_j, y\in{c_1,c_2,...,c_k}$:实例x;&lt;br&gt;
-&lt;font color = red&gt;输出&lt;/font&gt;:实例x的分类。&lt;br&gt;
-  (1)计算先验概率和条件概率:$$P(Y=c_k)=\frac{\sum_{i=1}^N I(y_i=c_k)}{N},k=1,2,...,K$$ $$P(X^{(j)}=a_{ij}|Y=c_k)=\frac{\sum_{i=1}^N I(x_i^{(j)}=a_{ij},y_i=c_k)}{\sum_i^N I(y_i=c_k)}$$ $$j=1,2,...,n; l=1,2,...,S_j; k=1,2,...,K$$&lt;br&gt;
-  (2)对于给定的实例$x_i=(x_i^{(1)},x_i^{(2)},...,x_i^{(n)})^T$,$x_i^{(j)}$,计算:$$P(Y=c_k)\prod_j P(X^{(j)}=x^{(j)}|y=c_k), k=1,2,...,K$$&lt;br&gt;
-  (3)确定实例x的类$$y=argmax_{c_k} P(Y=c_k) \prod_j P(X^{(j)}=x^{(j)}|y=c_k)$$&lt;br&gt;</p>
-<h2>贝叶斯估计</h2>
-<p>  极大似然估计可能会存在所要估计值的概率为0的情况，影响后验概率的计算结果，使分类产生偏差，为了矫正这一可能的偏差，我们在随机变量的各个取值的频数上赋予一个正数$\lambda$:$$P_\lambda (X^{(j)}=a_{jl}|Y=c_k)=\frac{\sum_{i=1}^N I(X_i^{(j)}=a_{jl},y=c_k)+\lambda}{\sum_{i=1}^N I(y_i=c_k) +S_j \lambda}$$</p>
-<h2>后验概率最大化的含义</h2>
-<p>  朴素贝叶斯算法将x分类为使得后验概率最大化等价于期望风险最小化，对于此类分类问题，我们假其0-1损失函数:$$L(Y,f(X))=1*I(Y\neq f(X))$$上式$f(X)$是决策函数，则期望风险函数为
-\begin{align}
-R_{exp} (f)&amp;=E[L(Y,f(X))]\
+\end{align}\]</span>
+<p>那么根据贝叶斯定理计算后验概率为<span class="math display">\[P(Y=c_k|X=x)=\frac{P(X=x|Y=c_k)P(Y=c_k)}{\sum_k P(X=x|Y=c_k)P(Y=c_k)}\]</span>我们将上面的条件独立性假设带入公式可以得到<span class="math display">\[P(Y=c_k|X=x)=\frac{P(Y=c_k)\prod_j P(X^{(j)}=Y=c_k)}{\sum_k P(Y=c_k)\prod_j P(X^(j)=x^{(j)}|Y=c_k)} , k=1,2,...,K\]</span>这是朴素贝叶斯分类的基本形式，由这个公式我们可以得到朴素贝叶斯分类器<span class="math display">\[y=f(x)=argmax_{c_k} \frac{P(Y=c_k)\prod_j P(X^{(j)}=Y=c_k)}{\sum_k P(Y=c_k)\prod_j P(X^(j)=x^{(j)}|Y=c_k)}\]</span>上式中的分母对于所有的<span class="math inline">\(c_k\)</span>都是相同的，所以我们有<span class="math display">\[y=argmax_{c_k} P(Y=c_k) \prod_j P(X^{(j)}=x^{(j)}|y=c_k)\]</span></p>
+<h2 id="用极大似然法估计朴素贝叶斯参数">用极大似然法估计朴素贝叶斯参数</h2>
+<p>  先验概率<span class="math inline">\(P(Y=c_k)\)</span>的极大似然估计为:<span class="math display">\[ P(Y=c_k)=\frac{\sum_{i=1}^N I(y_i=c_k)}{N},k=1,2,...,K\]</span>设第j个特征<span class="math inline">\(x^(j)\)</span>可能取值的集合为<span class="math inline">\(\{a_{j1},a_{j2},...,a_{js}\}\)</span>,条件概率<span class="math inline">\(P(X^{(j)}=a_{ij}|Y=c_k)\)</span>的极大似然估计为:<span class="math display">\[P(X^{(j)}=a_{ij}|Y=c_k)=\frac{\sum_{i=1}^N I(x_i^{(j)}=a_{ij},y_i=c_k)}{\sum_i^N I(y_i=c_k)}\]</span> <span class="math display">\[j=1,2,...,n; l=1,2,...,S_j; k=1,2,...,K\]</span></p>
+<h2 id="贝叶斯算法流程">贝叶斯算法流程</h2>
+<p><font color="red">输入</font>:训练数据集<span class="math inline">\(T = \{(x_1,y_1),(x_2,y_2),...,(x_N,y_N)\}\)</span>，其中<span class="math inline">\(x_i=(x_i^{(1)}\)</span>,<span class="math inline">\(x_i^{(2)},...,x_i^{(n)})^T\)</span>,<span class="math inline">\(x_i^{(j)}\)</span>是第i个样本的第j个特征，<span class="math inline">\(x_i^{(j)}\in\{a_{j1},a_{j2},...,a_{js}\}\)</span>,<span class="math inline">\(a_{jl}\)</span>是第j个特征的第l个取值，<span class="math inline">\(j=1,2,...,n,l=1,2,...,S_j, y\in\{c_1,c_2,...,c_k\}\)</span>:实例x;<br> <font color="red">输出</font>:实例x的分类。<br>   (1)计算先验概率和条件概率:<span class="math display">\[P(Y=c_k)=\frac{\sum_{i=1}^N I(y_i=c_k)}{N},k=1,2,...,K\]</span> <span class="math display">\[P(X^{(j)}=a_{ij}|Y=c_k)=\frac{\sum_{i=1}^N I(x_i^{(j)}=a_{ij},y_i=c_k)}{\sum_i^N I(y_i=c_k)}\]</span> <span class="math display">\[j=1,2,...,n; l=1,2,...,S_j; k=1,2,...,K\]</span><br>   (2)对于给定的实例<span class="math inline">\(x_i=(x_i^{(1)},x_i^{(2)},...,x_i^{(n)})^T\)</span>,<span class="math inline">\(x_i^{(j)}\)</span>,计算:<span class="math display">\[P(Y=c_k)\prod_j P(X^{(j)}=x^{(j)}|y=c_k), k=1,2,...,K\]</span><br>   (3)确定实例x的类<span class="math display">\[y=argmax_{c_k} P(Y=c_k) \prod_j P(X^{(j)}=x^{(j)}|y=c_k)\]</span><br></p>
+<h2 id="贝叶斯估计">贝叶斯估计</h2>
+<p>  极大似然估计可能会存在所要估计值的概率为0的情况，影响后验概率的计算结果，使分类产生偏差，为了矫正这一可能的偏差，我们在随机变量的各个取值的频数上赋予一个正数<span class="math inline">\(\lambda\)</span>:<span class="math display">\[P_\lambda (X^{(j)}=a_{jl}|Y=c_k)=\frac{\sum_{i=1}^N I(X_i^{(j)}=a_{jl},y=c_k)+\lambda}{\sum_{i=1}^N I(y_i=c_k) +S_j \lambda}\]</span></p>
+<h2 id="后验概率最大化的含义">后验概率最大化的含义</h2>
+  朴素贝叶斯算法将x分类为使得后验概率最大化等价于期望风险最小化，对于此类分类问题，我们假其0-1损失函数:<span class="math display">\[L(Y,f(X))=1*I(Y\neq f(X))\]</span>上式<span class="math inline">\(f(X)\)</span>是决策函数，则期望风险函数为
+<span class="math display">\[\begin{align}
+R_{exp} (f)&amp;=E[L(Y,f(X))]\\
 &amp;=E_X \sum_{k=1}^K [L(c_k,f(X))]P(c_k|X)
-\end{align}
+\end{align}\]</span>
 为了使得上述风险期望取得最小值，只需对于每个X=x极小化，则:
-\begin{align}
-f(x)&amp;=argmin_{y\in Y}\sum_{k=1}^K L(c_k,y)P(c_k|X=x) \
-&amp;=argmin_{y\in Y} \sum_{k=1}^K P(y\neq c_k|X=x)\
-&amp;=argmin_{y\in Y}(1-P(y=c_k|X=x)) \
+<span class="math display">\[\begin{align}
+f(x)&amp;=argmin_{y\in Y}\sum_{k=1}^K L(c_k,y)P(c_k|X=x) \\
+&amp;=argmin_{y\in Y} \sum_{k=1}^K P(y\neq c_k|X=x)\\
+&amp;=argmin_{y\in Y}(1-P(y=c_k|X=x)) \\
 &amp;=argmax_{y\in Y}P(Y=c_k|X=x)
-\end{align}
-那么根据上述推理，由期望风险最小化可以得到后验概率最大化，即:$$f(x)=argmax_{y\in Y}P(Y=c_k|X=x)$$</p>
-<p>&lt;center color = red&gt;To be continued...&lt;/center&gt;</p>
+\end{align}\]</span>
+<p>那么根据上述推理，由期望风险最小化可以得到后验概率最大化，即:<span class="math display">\[f(x)=argmax_{y\in Y}P(Y=c_k|X=x)\]</span></p>
+<center color="red">
+To be continued…
+</center>
 
       
     </div>
@@ -490,7 +488,7 @@ f(x)&amp;=argmin_{y\in Y}\sum_{k=1}^K L(c_k,y)P(c_k|X=x) \
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">88</span>
+                  <span class="site-state-item-count">89</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -565,7 +563,7 @@ f(x)&amp;=argmin_{y\in Y}\sum_{k=1}^K L(c_k,y)P(c_k|X=x) \
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">贝叶斯定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">朴素贝叶斯分类器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">用极大似然法估计朴素贝叶斯参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">贝叶斯算法流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">贝叶斯估计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">后验概率最大化的含义</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#贝叶斯定理"><span class="nav-number">1.</span> <span class="nav-text">贝叶斯定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#朴素贝叶斯分类器"><span class="nav-number">2.</span> <span class="nav-text">朴素贝叶斯分类器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用极大似然法估计朴素贝叶斯参数"><span class="nav-number">3.</span> <span class="nav-text">用极大似然法估计朴素贝叶斯参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#贝叶斯算法流程"><span class="nav-number">4.</span> <span class="nav-text">贝叶斯算法流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#贝叶斯估计"><span class="nav-number">5.</span> <span class="nav-text">贝叶斯估计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后验概率最大化的含义"><span class="nav-number">6.</span> <span class="nav-text">后验概率最大化的含义</span></a></li></ol></div>
             
 
           </div>

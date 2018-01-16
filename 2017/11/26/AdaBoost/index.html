@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="提升(boosting)方法和AdaBoost   Boosting是一种常用的统计学习方法，在分类问题中，它通过改变样本的权重学习多个分类器，并将这些分类器进行线性组合，以提升分类的性能。AdaBoost是Boosting算法的一种代表性算法。&amp;lt;br&amp;gt;   AdaBoost(Adaptive Boosting,自适应增强)，由Yoav Freund和Robert Schapire在1">
+<meta name="description" content="提升(boosting)方法和AdaBoost   Boosting是一种常用的统计学习方法，在分类问题中，它通过改变样本的权重学习多个分类器，并将这些分类器进行线性组合，以提升分类的性能。AdaBoost是Boosting算法的一种代表性算法。   AdaBoost(Adaptive Boosting,自适应增强)，由Yoav Freund和Robert Schapire在1995年提出，其自适">
 <meta name="keywords" content="Machine learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AdaBoost">
 <meta property="og:url" content="http://www.mysry.com/2017/11/26/AdaBoost/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="提升(boosting)方法和AdaBoost   Boosting是一种常用的统计学习方法，在分类问题中，它通过改变样本的权重学习多个分类器，并将这些分类器进行线性组合，以提升分类的性能。AdaBoost是Boosting算法的一种代表性算法。&amp;lt;br&amp;gt;   AdaBoost(Adaptive Boosting,自适应增强)，由Yoav Freund和Robert Schapire在1">
+<meta property="og:description" content="提升(boosting)方法和AdaBoost   Boosting是一种常用的统计学习方法，在分类问题中，它通过改变样本的权重学习多个分类器，并将这些分类器进行线性组合，以提升分类的性能。AdaBoost是Boosting算法的一种代表性算法。   AdaBoost(Adaptive Boosting,自适应增强)，由Yoav Freund和Robert Schapire在1995年提出，其自适">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-11-26T13:10:18.612Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AdaBoost">
-<meta name="twitter:description" content="提升(boosting)方法和AdaBoost   Boosting是一种常用的统计学习方法，在分类问题中，它通过改变样本的权重学习多个分类器，并将这些分类器进行线性组合，以提升分类的性能。AdaBoost是Boosting算法的一种代表性算法。&amp;lt;br&amp;gt;   AdaBoost(Adaptive Boosting,自适应增强)，由Yoav Freund和Robert Schapire在1">
+<meta name="twitter:description" content="提升(boosting)方法和AdaBoost   Boosting是一种常用的统计学习方法，在分类问题中，它通过改变样本的权重学习多个分类器，并将这些分类器进行线性组合，以提升分类的性能。AdaBoost是Boosting算法的一种代表性算法。   AdaBoost(Adaptive Boosting,自适应增强)，由Yoav Freund和Robert Schapire在1995年提出，其自适">
 
 
 
@@ -322,32 +322,19 @@
       
 
       
-        <h2>提升(boosting)方法和AdaBoost</h2>
-<p>  Boosting是一种常用的统计学习方法，在分类问题中，它通过改变样本的权重学习多个分类器，并将这些分类器进行线性组合，以提升分类的性能。AdaBoost是Boosting算法的一种代表性算法。&lt;br&gt;
-  AdaBoost(Adaptive Boosting,自适应增强)，由Yoav Freund和Robert Schapire在1995年提出，其自适应在于：前一个基本分类器分错的样本会得到加强，加权后的全体样本再被用来训练下一个基本分类器。同时，在每一轮加入一个新的弱分类器，直接达到某个预定的足够小的错误率或达到预先指定的最大迭代次数。(总的来说，即加大被错误分类样本的权值和加大错误率小的分类器的权值)。&lt;br&gt;
-  具体来说AdaBoost算法分为以下三步：&lt;br&gt;
-(1)初始化训练数据的权值分布。如果由n个样本，则每个训练样本最开始时都被赋予相同的权值：1/N。&lt;br&gt;
-(2)训练弱分类器。具体训练过程中，如果某个样本点已经被准确地分类，那么在构造下一个训练集中，它的权值就被降低；相反，如果某个样本点没有被准确地分类，那么它的权值就得到提高。然后，权值更新过的样本集被用于训练下一个分类器，整个训练过程如此迭代地进行下去。&lt;br&gt;
-(3)将各个训练得到的弱分类器组合成强分类器。各个弱分类器的训练过程结束后，加大分类误差率小的弱分类器的权重，使其在最终的分类函数中起着较大的决定作用，而降低分类误差率大的弱分类器的权重，使其在最终的分类函数中起着较小的决定作用。换言之，误差率低的弱分类器在最终分类器中占的权重较大，否则较小。&lt;br&gt;</p>
-<h2>AdaBoost算法的流程</h2>
-<p>输入：训练数据集$T={(x_1,y_1),(x_2,y_2),...,(x_N,y_N)}$,其中$x_i\in\chi\subseteq R^n$,$y\in\nu={-1,+1}$;弱学习算法;&lt;br&gt;
-输出：最终分类器G(x)&lt;br&gt;
-(1)初始化训练权值分布$$D_1=(\omega_{11},\omega_{12},...,\omega_{1N}),\omega_{1i}==\frac{1}{N},i=1,2,...,N$$ &lt;br&gt;
-(2)对m=1,2,...,M:&lt;br&gt;
-   (a)使用权值分布$D_m$的训练数据集学习，得到基分类器$$G_m(x):\chi\to{-1,+1}$$&lt;br&gt;
-  (b)计算$G_m$在训练数据集上的分类误差率$$e_m=\sum_{i=1}^N P(G_m (x_i)\neq y_i)=\sum_{i=1}^N \omega_{mi} I(G_m (x_i)\neq y_i)$$ &lt;br&gt;
-  (c)计算$G_m(x)$的系数$$\alpha_m=\frac{1}{2}\log\frac{1-e_m}{e_m}$$这里的对数是自然对数;&lt;br&gt;
-  (d)更新训练数据集的权值分布$$D_{m+1}=(\omega_{m+1,1},...,\omega_{m+1,i},...,\omega_{m+1,N})$$ $$\omega_{m+1,i}=\frac{\omega_{mi}}{Z_m}exp(-\alpha_m y_i G_m (x_i))$$这里，$Z_m$是规范化因子$$Z_m = \sum_{i=1}^N \omega_{mi} exp(-\alpha_m y_i G_m (x_i))$$它使得$D_{m+1}$成为一个概率分布。&lt;br&gt;
-(3)构建基本分类器的线性组合$$f(x)=\sum_{i=1}^M \alpha_m G_m (x)$$得到最终分类器$$G(x)=sign(f(x))=sign(\sum_{i=1}^M \alpha_m G_m (x))$$ &lt;br&gt;</p>
-<h2>AdaBoost算法的训练误差分析</h2>
+        <h2 id="提升boosting方法和adaboost">提升(boosting)方法和AdaBoost</h2>
+<p>  Boosting是一种常用的统计学习方法，在分类问题中，它通过改变样本的权重学习多个分类器，并将这些分类器进行线性组合，以提升分类的性能。AdaBoost是Boosting算法的一种代表性算法。<br>   AdaBoost(Adaptive Boosting,自适应增强)，由Yoav Freund和Robert Schapire在1995年提出，其自适应在于：前一个基本分类器分错的样本会得到加强，加权后的全体样本再被用来训练下一个基本分类器。同时，在每一轮加入一个新的弱分类器，直接达到某个预定的足够小的错误率或达到预先指定的最大迭代次数。(总的来说，即加大被错误分类样本的权值和加大错误率小的分类器的权值)。<br>   具体来说AdaBoost算法分为以下三步：<br> (1)初始化训练数据的权值分布。如果由n个样本，则每个训练样本最开始时都被赋予相同的权值：1/N。<br> (2)训练弱分类器。具体训练过程中，如果某个样本点已经被准确地分类，那么在构造下一个训练集中，它的权值就被降低；相反，如果某个样本点没有被准确地分类，那么它的权值就得到提高。然后，权值更新过的样本集被用于训练下一个分类器，整个训练过程如此迭代地进行下去。<br> (3)将各个训练得到的弱分类器组合成强分类器。各个弱分类器的训练过程结束后，加大分类误差率小的弱分类器的权重，使其在最终的分类函数中起着较大的决定作用，而降低分类误差率大的弱分类器的权重，使其在最终的分类函数中起着较小的决定作用。换言之，误差率低的弱分类器在最终分类器中占的权重较大，否则较小。<br></p>
+<h2 id="adaboost算法的流程">AdaBoost算法的流程</h2>
+<p>输入：训练数据集<span class="math inline">\(T=\{(x_1,y_1),(x_2,y_2),...,(x_N,y_N)\}\)</span>,其中<span class="math inline">\(x_i\in\chi\subseteq R^n\)</span>,<span class="math inline">\(y\in\nu=\{-1,+1\}\)</span>;弱学习算法;<br> 输出：最终分类器G(x)<br> (1)初始化训练权值分布<span class="math display">\[D_1=(\omega_{11},\omega_{12},...,\omega_{1N}),\omega_{1i}==\frac{1}{N},i=1,2,...,N\]</span> <br> (2)对m=1,2,…,M:<br>    (a)使用权值分布<span class="math inline">\(D_m\)</span>的训练数据集学习，得到基分类器<span class="math display">\[G_m(x):\chi\to\{-1,+1\}\]</span><br>   (b)计算<span class="math inline">\(G_m\)</span>在训练数据集上的分类误差率<span class="math display">\[e_m=\sum_{i=1}^N P(G_m (x_i)\neq y_i)=\sum_{i=1}^N \omega_{mi} I(G_m (x_i)\neq y_i)\]</span> <br>   (c)计算<span class="math inline">\(G_m(x)\)</span>的系数<span class="math display">\[\alpha_m=\frac{1}{2}\log\frac{1-e_m}{e_m}\]</span>这里的对数是自然对数;<br>   (d)更新训练数据集的权值分布<span class="math display">\[D_{m+1}=(\omega_{m+1,1},...,\omega_{m+1,i},...,\omega_{m+1,N})\]</span> <span class="math display">\[\omega_{m+1,i}=\frac{\omega_{mi}}{Z_m}exp(-\alpha_m y_i G_m (x_i))\]</span>这里，<span class="math inline">\(Z_m\)</span>是规范化因子<span class="math display">\[Z_m = \sum_{i=1}^N \omega_{mi} exp(-\alpha_m y_i G_m (x_i))\]</span>它使得<span class="math inline">\(D_{m+1}\)</span>成为一个概率分布。<br> (3)构建基本分类器的线性组合<span class="math display">\[f(x)=\sum_{i=1}^M \alpha_m G_m (x)\]</span>得到最终分类器<span class="math display">\[G(x)=sign(f(x))=sign(\sum_{i=1}^M \alpha_m G_m (x))\]</span> <br></p>
+<h2 id="adaboost算法的训练误差分析">AdaBoost算法的训练误差分析</h2>
 <p>  AdaBoost最基本的性质是它能在学习过程中不断的减少训练误差，即在训练数据集上的分类误差率。</p>
-<h3>AdaBoost的训练误差界</h3>
-<p>  AdaBoost算法最终分类器的训练误差界为$$\frac{1}{N}\sum_{i=1}^N I(G(x_i)\neq y_i)\leq\frac{1}{N}\sum_i exp(-y_i f(x_i))=\prod_m Z_m$$其中G(x),f(x)和$Z_m$由算法流程中公式给出。</p>
-<h3>二分类问题AdaBoost的训练误差界</h3>
-<p>$$\prod_{m=1}^M Z_m=\prod_{m=1}^M [2\sqrt{e_m (1-e_m)}]=\prod_{m=1}^M \sqrt{(1-4\gamma_m^2)}\leq exp(-2\sum_{m=1}^M\gamma_m^2)$$其中$\gamma_m^2=\frac{1}{2}-e_m$ &lt;br&gt;
-  相关推论:&lt;br&gt;
-如果存在$\gamma&gt;0$,且对所有的m都有$\gamma_m\geq\gamma$，那么$$\frac{1}{N}=\sum_{i=1}^N I(G(x_i)\neq y_i)\leq exp(-2M\gamma^2)$$这表明在此条件下AdaBoost的训练误差界是以指数速率下降。</p>
-<p>&lt;center color = red&gt;To be continued...&lt;/center&gt;</p>
+<h3 id="adaboost的训练误差界">AdaBoost的训练误差界</h3>
+<p>  AdaBoost算法最终分类器的训练误差界为<span class="math display">\[\frac{1}{N}\sum_{i=1}^N I(G(x_i)\neq y_i)\leq\frac{1}{N}\sum_i exp(-y_i f(x_i))=\prod_m Z_m\]</span>其中G(x),f(x)和<span class="math inline">\(Z_m\)</span>由算法流程中公式给出。</p>
+<h3 id="二分类问题adaboost的训练误差界">二分类问题AdaBoost的训练误差界</h3>
+<p><span class="math display">\[\prod_{m=1}^M Z_m=\prod_{m=1}^M [2\sqrt{e_m (1-e_m)}]=\prod_{m=1}^M \sqrt{(1-4\gamma_m^2)}\leq exp(-2\sum_{m=1}^M\gamma_m^2)\]</span>其中<span class="math inline">\(\gamma_m^2=\frac{1}{2}-e_m\)</span> <br>   相关推论:<br> 如果存在<span class="math inline">\(\gamma&gt;0\)</span>,且对所有的m都有<span class="math inline">\(\gamma_m\geq\gamma\)</span>，那么<span class="math display">\[\frac{1}{N}=\sum_{i=1}^N I(G(x_i)\neq y_i)\leq exp(-2M\gamma^2)\]</span>这表明在此条件下AdaBoost的训练误差界是以指数速率下降。</p>
+<center color="red">
+To be continued…
+</center>
 
       
     </div>
@@ -482,7 +469,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">88</span>
+                  <span class="site-state-item-count">89</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -557,7 +544,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">提升(boosting)方法和AdaBoost</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">AdaBoost算法的流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">AdaBoost算法的训练误差分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.</span> <span class="nav-text">AdaBoost的训练误差界</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.2.</span> <span class="nav-text">二分类问题AdaBoost的训练误差界</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#提升boosting方法和adaboost"><span class="nav-number">1.</span> <span class="nav-text">提升(boosting)方法和AdaBoost</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#adaboost算法的流程"><span class="nav-number">2.</span> <span class="nav-text">AdaBoost算法的流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#adaboost算法的训练误差分析"><span class="nav-number">3.</span> <span class="nav-text">AdaBoost算法的训练误差分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#adaboost的训练误差界"><span class="nav-number">3.1.</span> <span class="nav-text">AdaBoost的训练误差界</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二分类问题adaboost的训练误差界"><span class="nav-number">3.2.</span> <span class="nav-text">二分类问题AdaBoost的训练误差界</span></a></li></ol></li></ol></div>
             
 
           </div>
