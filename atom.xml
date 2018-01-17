@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2018-01-16T13:45:49.195Z</updated>
+  <updated>2018-01-17T14:06:26.939Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>97. Interleaving String</title>
+    <link href="http://www.mysry.com/2018/01/17/97-Interleaving-String/"/>
+    <id>http://www.mysry.com/2018/01/17/97-Interleaving-String/</id>
+    <published>2018-01-17T13:52:56.000Z</published>
+    <updated>2018-01-17T14:06:26.939Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given s1, s2, s3, find whether s3 is formed by the interleaving of s1 and s2.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>  The main idea of this problem could be dynamic programming. So we can expand s1 and s2 to be a matrix, if we could find a path from start point to <code>matrix[len1][len2]</code> with all step were true, that means valid.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public boolean isInterleave(String s1, String s2, String s3) &#123;</div><div class="line">        int len1 = s1.length(), len2 = s2.length(), len3 = s3.length();</div><div class="line">        if(len1+len2!=len3)</div><div class="line">            return false;</div><div class="line">        char[] S1 = s1.toCharArray();</div><div class="line">        char[] S2 = s2.toCharArray();</div><div class="line">        char[] S3 = s3.toCharArray();</div><div class="line">        boolean[][] map = new boolean[len1+1][len2+1];</div><div class="line">        for(int i =0;i&lt;=len1;i++)&#123;</div><div class="line">            for(int j=0;j&lt;=len2;j++)&#123;</div><div class="line">                if(i==0&amp;&amp;j==0)</div><div class="line">                    map[i][j]=true;</div><div class="line">                else if(i==0)</div><div class="line">                    map[i][j]=map[i][j-1]&amp;S3[i+j-1]==S2[j-1];</div><div class="line">                else if(j==0)</div><div class="line">                    map[i][j]=map[i-1][j]&amp;S3[i+j-1]==S1[i-1];</div><div class="line">                else</div><div class="line">                    map[i][j]=(map[i][j-1]&amp;S3[i+j-1]==S2[j-1])|(map[i-1][j]&amp;S3[i+j-1]==S1[i-1]);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return map[len1][len2];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure><h2 id="c-code"><font color="gold">C++ Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    bool isInterleave(string s1, string s2, string s3) &#123;</div><div class="line">        int len1 = s1.size(), len2 = s2.size(), len3 = s3.size();</div><div class="line">        if(len1+len2!=len3)</div><div class="line">            return false;</div><div class="line">        vector&lt;vector&lt;bool&gt; &gt; map(len1 + 1,vector&lt;bool&gt;(len2 + 1, false));</div><div class="line">        for(int i = 0;i&lt;= len1;i++)&#123;</div><div class="line">            for(int j = 0;j&lt;=len2;j++)&#123;</div><div class="line">                if(i==0&amp;&amp;j==0)</div><div class="line">                    map[i][j]=true;</div><div class="line">                else if(i==0)</div><div class="line">                    map[i][j]=map[i][j-1]&amp;s3[i+j-1]==s2[j-1];</div><div class="line">                else if(j==0)</div><div class="line">                    map[i][j]=map[i-1][j]&amp;s3[i+j-1]==s1[i-1];</div><div class="line">                else</div><div class="line">                    map[i][j]=(map[i][j-1]&amp;s3[i+j-1]==s2[j-1])|(map[i-1][j]&amp;s3[i+j-1]==s1[i-1]);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return map[len1][len2];</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given s1, s2, s3, find whether s3 is formed by the interleaving of
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>96. Unique Binary Search Trees</title>
@@ -480,31 +505,6 @@
         &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Given two integers n and k, return all possible combinations of k 
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>76. Minimum Window Substring</title>
-    <link href="http://www.mysry.com/2017/12/06/76-Minimum-Window-Substring/"/>
-    <id>http://www.mysry.com/2017/12/06/76-Minimum-Window-Substring/</id>
-    <published>2017-12-06T15:27:05.000Z</published>
-    <updated>2017-12-06T15:47:06.881Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given a string S and a string T, find the minimum window in S which will contain all the characters in T in complexity O(n).</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> Use the Hashmap to indicate where the characters and how many characters in t. And traverse the string s, contineously decrease len to the min.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public String minWindow(String s, String t) &#123;</div><div class="line">        int [] srcHash = new int[255];</div><div class="line">        for (int i=0;i&lt;t.length();i++)</div><div class="line">            srcHash[t.charAt(i)]++;</div><div class="line">        int start = 0, i=0;</div><div class="line">        int[] destHash = new int[255];</div><div class="line">        int found = 0;</div><div class="line">        int begin =-1, end = s.length(),minLength = s.length();</div><div class="line">        for (start =i=0;i&lt;s.length();i++)&#123;</div><div class="line">            destHash[s.charAt(i)]++;</div><div class="line">            if(destHash[s.charAt(i)]&lt;=srcHash[s.charAt(i)]) found++;</div><div class="line">            if(found == t.length())&#123;</div><div class="line">                while(start&lt;i&amp;&amp;destHash[s.charAt(start)]&gt;srcHash[s.charAt(start)])&#123;</div><div class="line">                    destHash[s.charAt(start)]--;</div><div class="line">                    start++;</div><div class="line">                &#125;</div><div class="line">                if(i-start&lt;minLength)&#123;</div><div class="line">                    minLength = i-start;</div><div class="line">                    begin = start;</div><div class="line">                    end = i;</div><div class="line">                &#125;</div><div class="line">                destHash [s.charAt(start)]--;</div><div class="line">                found--;</div><div class="line">                start++;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return begin == -1?&quot;&quot;:s.substring(begin,end+1);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure><h2 id="c-code"><font color="gold">C++ Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    string minWindow(string s, string t) &#123;</div><div class="line">        unordered_map&lt;char,int&gt;hash;</div><div class="line">        int num = t.size(),len=INT_MAX,start=0,left = 0;</div><div class="line">        for (auto val:t) hash[val]++;</div><div class="line">        for(int i=0;i&lt;s.size();i++)&#123;</div><div class="line">            if(hash[s[i]]-- &gt; 0) num--;</div><div class="line">            while(num==0)&#123;</div><div class="line">                len=(i-left+1)&lt;len?(i-(start=left)+1):len;</div><div class="line">                if(hash[s[left++]]++ ==0) num++;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return len==INT_MAX?&quot;&quot;:s.substr(start,len);</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given a string S and a string T, find the minimum window in S whic
       
     
     </summary>
