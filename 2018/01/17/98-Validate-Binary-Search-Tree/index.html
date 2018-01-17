@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="Problem:  You are given an n x n 2D matrix representing an image.   Rotate the image by 90 degrees (clockwise).  Idea:  My suggestion is to plot the matrix with subindex, and then it may be clear. Jav">
+<meta name="description" content="Problem:  Given a binary tree, determine if it is a valid binary search tree (BST). Assume a BST is defined as follows: * The left subtree of a node contains only nodes with keys less than the node’s">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="48. Rotate Image">
-<meta property="og:url" content="http://www.mysry.com/2017/11/22/48-Rotate-Image/index.html">
+<meta property="og:title" content="98. Validate Binary Search Tree">
+<meta property="og:url" content="http://www.mysry.com/2018/01/17/98-Validate-Binary-Search-Tree/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="Problem:  You are given an n x n 2D matrix representing an image.   Rotate the image by 90 degrees (clockwise).  Idea:  My suggestion is to plot the matrix with subindex, and then it may be clear. Jav">
+<meta property="og:description" content="Problem:  Given a binary tree, determine if it is a valid binary search tree (BST). Assume a BST is defined as follows: * The left subtree of a node contains only nodes with keys less than the node’s">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-25T13:50:42.557Z">
+<meta property="og:updated_time" content="2018-01-17T14:30:40.689Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="48. Rotate Image">
-<meta name="twitter:description" content="Problem:  You are given an n x n 2D matrix representing an image.   Rotate the image by 90 degrees (clockwise).  Idea:  My suggestion is to plot the matrix with subindex, and then it may be clear. Jav">
+<meta name="twitter:title" content="98. Validate Binary Search Tree">
+<meta name="twitter:description" content="Problem:  Given a binary tree, determine if it is a valid binary search tree (BST). Assume a BST is defined as follows: * The left subtree of a node contains only nodes with keys less than the node’s">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://www.mysry.com/2017/11/22/48-Rotate-Image/"/>
+  <link rel="canonical" href="http://www.mysry.com/2018/01/17/98-Validate-Binary-Search-Tree/"/>
 
 
 
 
 
-  <title>48. Rotate Image | Mysry</title>
+  <title>98. Validate Binary Search Tree | Mysry</title>
   
 
 
@@ -255,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.mysry.com/2017/11/22/48-Rotate-Image/">
+    <link itemprop="mainEntityOfPage" href="http://www.mysry.com/2018/01/17/98-Validate-Binary-Search-Tree/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mysry">
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">48. Rotate Image</h1>
+          <h1 class="post-title" itemprop="name headline">98. Validate Binary Search Tree</h1>
         
 
         <div class="post-meta">
@@ -284,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-22T22:42:25+08:00">
-                2017-11-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-17T22:25:19+08:00">
+                2018-01-17
               </time>
             
 
@@ -324,15 +324,14 @@
       
         <h2 id="problem"><font color="black">Problem:</font></h2>
 <blockquote>
-<p>You are given an n x n 2D matrix representing an image.</p>
-</blockquote>
-<blockquote>
-<p>Rotate the image by 90 degrees (clockwise).</p>
+<p>Given a binary tree, determine if it is a valid binary search tree (BST). Assume a BST is defined as follows: * The left subtree of a node contains only nodes with keys less than the node’s key. * The right subtree of a node contains only nodes with keys greater than the node’s key. * Both the left and right subtrees must also be binary search trees.</p>
 </blockquote>
 <h2 id="idea"><font color="red">Idea:</font></h2>
-<p> My suggestion is to plot the matrix with subindex, and then it may be clear.</p>
+<p>  DFS. Check every root if it is greater than left and smaller than right, then there comes two subtree, check the root of this subtree either.</p>
 <h2 id="java-code"><font color="orange">Java Code:</font></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public void rotate(int[][] matrix) &#123;</div><div class="line">        for (int i=0;i&lt;matrix.length;i++) &#123;</div><div class="line">			for (int j=i;j&lt;matrix[0].length;j++) &#123;</div><div class="line">				int tmp =0;</div><div class="line">				 tmp = matrix[i][j];</div><div class="line">				 matrix[i][j]= matrix[j][i];</div><div class="line">				 matrix [j][i]=tmp;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		for (int i=0;i&lt;matrix.length;i++) &#123;</div><div class="line">			for (int j=0;j&lt;matrix.length/2;j++) &#123;</div><div class="line">				int tmp=0;</div><div class="line">				tmp=matrix[i][j];</div><div class="line">				matrix[i][j]=matrix[i][matrix.length-1-j];</div><div class="line">				matrix[i][matrix.length-1-j]=tmp;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for a binary tree node.</div><div class="line"> * public class TreeNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     TreeNode left;</div><div class="line"> *     TreeNode right;</div><div class="line"> *     TreeNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">    public boolean isValidBST(TreeNode root) &#123;</div><div class="line">        return isvalid(root,null,null);</div><div class="line">    &#125;</div><div class="line">    public boolean isvalid(TreeNode root,TreeNode min,TreeNode max)&#123;</div><div class="line">        if(root == null)</div><div class="line">            return true;</div><div class="line">        if((min!=null&amp;&amp;root.val&lt;=min.val)||(max!=null&amp;&amp;root.val&gt;=max.val))</div><div class="line">            return false;</div><div class="line">        return isvalid(root.left,min,root)&amp;&amp;isvalid(root.right,root,max);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="c-code"><font color="orange">C++ Code:</font></h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for a binary tree node.</div><div class="line"> * struct TreeNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     TreeNode *left;</div><div class="line"> *     TreeNode *right;</div><div class="line"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</div><div class="line"> * &#125;;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    bool isValidBST(TreeNode* root) &#123;</div><div class="line">        return isvalid(root,NULL,NULL);</div><div class="line">    &#125;</div><div class="line">    bool isvalid(TreeNode* root,TreeNode* min, TreeNode* max)</div><div class="line">    &#123;</div><div class="line">        if(root==NULL)</div><div class="line">            return true;</div><div class="line">        if((min!=NULL&amp;&amp;root-&gt;val&lt;=min-&gt;val)||(max!=NULL&amp;&amp;root-&gt;val&gt;=max-&gt;val))</div><div class="line">            return false;</div><div class="line">        return isvalid(root-&gt;left,min,root)&amp;&amp;isvalid(root-&gt;right,root,max);</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -374,8 +373,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/22/47-Permutations-II/" rel="next" title="47. Permutations II">
-                <i class="fa fa-chevron-left"></i> 47. Permutations II
+              <a href="/2018/01/17/97-Interleaving-String/" rel="next" title="97. Interleaving String">
+                <i class="fa fa-chevron-left"></i> 97. Interleaving String
               </a>
             
           </div>
@@ -383,10 +382,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/25/49-Group-Anagrams/" rel="prev" title="49. Group Anagrams ">
-                49. Group Anagrams  <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -542,7 +537,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#idea"><span class="nav-number">2.</span> <span class="nav-text">Idea:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-code"><span class="nav-number">3.</span> <span class="nav-text">Java Code:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-code"><span class="nav-number">4.</span> <span class="nav-text">C++ Code:</span></a></li></ol></div>
             
 
           </div>
