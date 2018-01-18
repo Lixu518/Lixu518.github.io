@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2018-01-17T14:30:40.689Z</updated>
+  <updated>2018-01-18T14:14:46.780Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>99. Recover Binary Search Tree</title>
+    <link href="http://www.mysry.com/2018/01/18/99-Recover-Binary-Search-Tree/"/>
+    <id>http://www.mysry.com/2018/01/18/99-Recover-Binary-Search-Tree/</id>
+    <published>2018-01-18T14:05:04.000Z</published>
+    <updated>2018-01-18T14:14:46.780Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Two elements of a binary search tree (BST) are swapped by mistake. Recover the tree without changing its structure. Note: A solution using O(n) space is pretty straight forward. Could you devise a constant space solution?</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>  Inorder traversal of binary search tree. We need to find the first number which is bigger than its follow one and the last number which is smaller than its previous one.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for a binary tree node.</div><div class="line"> * public class TreeNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     TreeNode left;</div><div class="line"> *     TreeNode right;</div><div class="line"> *     TreeNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">    public void recoverTree(TreeNode root) &#123;</div><div class="line">        if(root==null)</div><div class="line">            return;</div><div class="line">        inOrder(root);</div><div class="line">        int tmp = first.val;</div><div class="line">        first.val = second.val;</div><div class="line">        second.val = tmp;</div><div class="line">    &#125;</div><div class="line">    public void inOrder(TreeNode root)&#123;</div><div class="line">        if(root==null)</div><div class="line">            return;</div><div class="line">        inOrder(root.left);</div><div class="line">        if(pre!=null&amp;&amp;pre.val&gt;root.val)&#123;</div><div class="line">            if(first==null)</div><div class="line">                first = pre;</div><div class="line">            second = root;</div><div class="line">        &#125;</div><div class="line">        pre = root;</div><div class="line">        inOrder(root.right);</div><div class="line">    &#125;</div><div class="line">    private TreeNode first=null;</div><div class="line">    private TreeNode second=null;</div><div class="line">    private TreeNode pre=null;</div><div class="line">&#125;</div></pre></td></tr></table></figure><h2 id="c-code"><font color="gold">C++ Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for a binary tree node.</div><div class="line"> * struct TreeNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     TreeNode *left;</div><div class="line"> *     TreeNode *right;</div><div class="line"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</div><div class="line"> * &#125;;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    void recoverTree(TreeNode* root) &#123;</div><div class="line">        if(!root)</div><div class="line">            return ;</div><div class="line">        inOrder(root);</div><div class="line">        swap(first-&gt;val, second-&gt;val);</div><div class="line">    &#125;</div><div class="line">    void inOrder(TreeNode* root)&#123;</div><div class="line">        if(!root)</div><div class="line">            return;</div><div class="line">        inOrder(root-&gt;left);</div><div class="line">        if(pre&amp;&amp;pre-&gt;val&gt;root-&gt;val)&#123;</div><div class="line">            if(!first)</div><div class="line">                first = pre;</div><div class="line">            second = root;</div><div class="line">        &#125;</div><div class="line">        pre = root;</div><div class="line">        inOrder(root-&gt;right);</div><div class="line">    &#125;</div><div class="line">private:</div><div class="line">    TreeNode* pre = NULL, *first = NULL, *second = NULL;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Two elements of a binary search tree (BST) are swapped by mistake.
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>98. Validate Binary Search Tree</title>
@@ -486,31 +511,6 @@
     
     
       <category term="Machine learning" scheme="http://www.mysry.com/tags/Machine-learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>78. Subsets </title>
-    <link href="http://www.mysry.com/2017/12/08/78-Subsets/"/>
-    <id>http://www.mysry.com/2017/12/08/78-Subsets/</id>
-    <published>2017-12-08T13:47:14.000Z</published>
-    <updated>2017-12-08T13:50:53.875Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given a set of distinct integers, nums, return all possible subsets (the power set).</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> Just solve as the previous problem!</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">package Subsets;</div><div class="line"></div><div class="line">import java.util.ArrayList;</div><div class="line">import java.util.List;</div><div class="line"></div><div class="line">public class Solution &#123;</div><div class="line">public List&lt;List&lt;Integer&gt;&gt; subsets(int[] nums) &#123;</div><div class="line">List&lt;List&lt;Integer&gt;&gt; res = new ArrayList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">List&lt;Integer&gt; tmp = new ArrayList&lt;Integer&gt;();</div><div class="line">dfs(res, tmp, nums, 0);</div><div class="line">return res;</div><div class="line">&#125;</div><div class="line"></div><div class="line">public void dfs(List&lt;List&lt;Integer&gt;&gt; res, List&lt;Integer&gt; tmp, int[] nums, int m) &#123;</div><div class="line">res.add(new ArrayList&lt;Integer&gt;(tmp));</div><div class="line">for (int i = m; i &lt; nums.length; i++) &#123;</div><div class="line">tmp.add(nums[i]);</div><div class="line">dfs(res, tmp, nums, i + 1);</div><div class="line">tmp.remove(tmp.size() - 1);</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure><h2 id="c-code"><font color="gold">C++ Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    vector&lt;vector&lt;int&gt;&gt; subsets(vector&lt;int&gt;&amp; nums) &#123;</div><div class="line">        vector&lt;vector&lt;int&gt;&gt; res;</div><div class="line">        vector&lt;int&gt; tmp;</div><div class="line">        dfs(res,tmp,nums,0);</div><div class="line">        return res;</div><div class="line">    &#125;</div><div class="line">    void dfs(vector&lt;vector&lt;int&gt;&gt;&amp; res, vector&lt;int&gt;&amp; tmp,vector&lt;int&gt;&amp; nums,int m)&#123;</div><div class="line">        res.push_back(tmp);</div><div class="line">        for (int i=m;i&lt;nums.size();i++)&#123;</div><div class="line">            tmp.push_back(nums[i]);</div><div class="line">            dfs(res,tmp,nums,i+1);</div><div class="line">            tmp.pop_back();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given a set of distinct integers, nums, return all possible subset
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
     
   </entry>
   
