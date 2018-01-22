@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2018-01-22T15:12:06.960Z</updated>
+  <updated>2018-01-22T15:20:28.366Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>103. Binary Tree Zigzag Level Order Traversal</title>
+    <link href="http://www.mysry.com/2018/01/22/103-Binary-Tree-Zigzag-Level-Order-Traversal/"/>
+    <id>http://www.mysry.com/2018/01/22/103-Binary-Tree-Zigzag-Level-Order-Traversal/</id>
+    <published>2018-01-22T15:16:37.000Z</published>
+    <updated>2018-01-22T15:20:28.366Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given a binary tree, return the zigzag level order traversal of its nodes’ values. (ie, from left to right, then right to left for the next level and alternate between).</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>  For this problem, we need one flag to make it clear the order!</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for a binary tree node.</div><div class="line"> * public class TreeNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     TreeNode left;</div><div class="line"> *     TreeNode right;</div><div class="line"> *     TreeNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">    public List&lt;List&lt;Integer&gt;&gt; zigzagLevelOrder(TreeNode root) &#123;</div><div class="line">        List&lt;List&lt;Integer&gt;&gt; res = new ArrayList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">        Queue&lt;TreeNode&gt;queue = new LinkedList&lt;TreeNode&gt;();</div><div class="line">        if(root==null)</div><div class="line">            return res;</div><div class="line">        queue.add(root);</div><div class="line">        boolean flag = true;</div><div class="line">        while(!queue.isEmpty())&#123;</div><div class="line">            int len = queue.size();</div><div class="line">            List&lt;Integer&gt; tmp = new ArrayList&lt;&gt;();</div><div class="line">            for(int i=0;i&lt;len;i++)&#123;</div><div class="line">                TreeNode node = queue.poll();</div><div class="line">                if(flag)</div><div class="line">                    tmp.add(node.val);</div><div class="line">                else</div><div class="line">                    tmp.add(0,node.val);</div><div class="line">                if(node.left!=null)</div><div class="line">                    queue.add(node.left);</div><div class="line">                if(node.right!=null)</div><div class="line">                    queue.add(node.right);</div><div class="line">            &#125;</div><div class="line">            res.add(tmp);</div><div class="line">            flag = !flag;</div><div class="line">        &#125;</div><div class="line">        return res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure><h2 id="c-code"><font color="gold">C++ Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for a binary tree node.</div><div class="line"> * struct TreeNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     TreeNode *left;</div><div class="line"> *     TreeNode *right;</div><div class="line"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</div><div class="line"> * &#125;;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    vector&lt;vector&lt;int&gt;&gt; zigzagLevelOrder(TreeNode* root) &#123;</div><div class="line">        vector&lt;vector&lt;int&gt; &gt;res;</div><div class="line">        if(!root)</div><div class="line">            return res;</div><div class="line">        queue&lt;TreeNode*&gt; que;</div><div class="line">        que.push(root);</div><div class="line">        bool ltor = true;</div><div class="line">        while(!que.empty())&#123;</div><div class="line">            int len = que.size();</div><div class="line">            vector&lt;int&gt;tmp(len);</div><div class="line">            for(int i=0;i&lt;len;i++)&#123;</div><div class="line">                TreeNode* node =que.front();</div><div class="line">                que.pop();</div><div class="line">                int idx = ltor?i:len-i-1;</div><div class="line">                tmp[idx] = node-&gt;val;</div><div class="line">                if(node-&gt;left)</div><div class="line">                    que.push(node-&gt;left);</div><div class="line">                if(node-&gt;right)</div><div class="line">                    que.push(node-&gt;right);</div><div class="line">            &#125;</div><div class="line">            ltor = !ltor;</div><div class="line">            res.push_back(tmp);</div><div class="line">        &#125;</div><div class="line">        return res;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given a binary tree, return the zigzag level order traversal of it
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>102. Binary Tree Level Order Traversal</title>
@@ -481,31 +506,6 @@
         &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Given a 2D board and a word, find if the word exists in the grid. 
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>80. Remove Duplicates from Sorted Array II </title>
-    <link href="http://www.mysry.com/2017/12/10/80-Remove-Duplicates-from-Sorted-Array-II/"/>
-    <id>http://www.mysry.com/2017/12/10/80-Remove-Duplicates-from-Sorted-Array-II/</id>
-    <published>2017-12-10T02:18:47.000Z</published>
-    <updated>2017-12-10T02:22:19.610Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Follow up for “Remove Duplicates”: What if duplicates are allowed at most twice?</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> Just go through the numbers and include those in the result that haven’t been included twice already.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int removeDuplicates(int[] nums) &#123;</div><div class="line">        int i=0;</div><div class="line">        for(int n:nums)&#123;</div><div class="line">            if(i&lt;2||n&gt;nums[i-2])</div><div class="line">                nums[i++]=n;</div><div class="line">        &#125;</div><div class="line">        return i;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure><h2 id="c-code"><font color="gold">C++ Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    int removeDuplicates(vector&lt;int&gt;&amp; nums) &#123;</div><div class="line">        int i=0;</div><div class="line">        for(int n:nums)&#123;</div><div class="line">            if(i&lt;2||n&gt;nums[i-2])</div><div class="line">                nums[i++]=n;</div><div class="line">        &#125;</div><div class="line">        return i;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Follow up for “Remove Duplicates”: What if duplicates are allowed 
       
     
     </summary>
