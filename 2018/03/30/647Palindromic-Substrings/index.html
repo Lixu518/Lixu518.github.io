@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Machine learning," />
+  <meta name="keywords" content="leetcode," />
 
 
 
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="请简要介绍SVM？   SVM,全称是surpport vector machine(支持向量机),SVM是一个面向数据的分类算法，其目标是确定一个分类超平面，从而将不同的数据集分开。 扩展：SVM 简要介绍tensorflow的计算图？   Tensorflow是一个通过计算图的形式来表述计算的编程系统，计算图也叫数据流图，可以把计算图看成是一种有向图，Tensorflow中的每一个计算都是计算">
-<meta name="keywords" content="Machine learning">
+<meta name="description" content="题目 Palindromic Substrings(https://leetcode.com/problems/palindromic-substrings/description/) 思路   这里提供两种解法，一种是使用递归的解法，一种是使用DP的解法。递归解法：从前往后遍历整个字符串，以遍历的字符为中心向两边扩展，扩展时按字符串长度为奇数和偶数分为两种情况考虑，当字符串长度为偶数时，该字符要">
+<meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Machine Learning Q&amp;A">
-<meta property="og:url" content="http://www.mysry.com/2017/11/07/Machine-Learning-Q-A-1/index.html">
+<meta property="og:title" content="647 Palindromic Substrings">
+<meta property="og:url" content="http://www.mysry.com/2018/03/30/647Palindromic-Substrings/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="请简要介绍SVM？   SVM,全称是surpport vector machine(支持向量机),SVM是一个面向数据的分类算法，其目标是确定一个分类超平面，从而将不同的数据集分开。 扩展：SVM 简要介绍tensorflow的计算图？   Tensorflow是一个通过计算图的形式来表述计算的编程系统，计算图也叫数据流图，可以把计算图看成是一种有向图，Tensorflow中的每一个计算都是计算">
+<meta property="og:description" content="题目 Palindromic Substrings(https://leetcode.com/problems/palindromic-substrings/description/) 思路   这里提供两种解法，一种是使用递归的解法，一种是使用DP的解法。递归解法：从前往后遍历整个字符串，以遍历的字符为中心向两边扩展，扩展时按字符串长度为奇数和偶数分为两种情况考虑，当字符串长度为偶数时，该字符要">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-09T06:51:11.474Z">
+<meta property="og:updated_time" content="2018-03-30T03:24:27.258Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Machine Learning Q&amp;A">
-<meta name="twitter:description" content="请简要介绍SVM？   SVM,全称是surpport vector machine(支持向量机),SVM是一个面向数据的分类算法，其目标是确定一个分类超平面，从而将不同的数据集分开。 扩展：SVM 简要介绍tensorflow的计算图？   Tensorflow是一个通过计算图的形式来表述计算的编程系统，计算图也叫数据流图，可以把计算图看成是一种有向图，Tensorflow中的每一个计算都是计算">
+<meta name="twitter:title" content="647 Palindromic Substrings">
+<meta name="twitter:description" content="题目 Palindromic Substrings(https://leetcode.com/problems/palindromic-substrings/description/) 思路   这里提供两种解法，一种是使用递归的解法，一种是使用DP的解法。递归解法：从前往后遍历整个字符串，以遍历的字符为中心向两边扩展，扩展时按字符串长度为奇数和偶数分为两种情况考虑，当字符串长度为偶数时，该字符要">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://www.mysry.com/2017/11/07/Machine-Learning-Q-A-1/"/>
+  <link rel="canonical" href="http://www.mysry.com/2018/03/30/647Palindromic-Substrings/"/>
 
 
 
 
 
-  <title>Machine Learning Q&A | Mysry</title>
+  <title>647 Palindromic Substrings | Mysry</title>
   
 
 
@@ -255,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.mysry.com/2017/11/07/Machine-Learning-Q-A-1/">
+    <link itemprop="mainEntityOfPage" href="http://www.mysry.com/2018/03/30/647Palindromic-Substrings/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mysry">
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Machine Learning Q&A</h1>
+          <h1 class="post-title" itemprop="name headline">647 Palindromic Substrings</h1>
         
 
         <div class="post-meta">
@@ -284,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-07T22:34:02+08:00">
-                2017-11-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-30T11:00:30+08:00">
+                2018-03-30
               </time>
             
 
@@ -322,35 +322,14 @@
       
 
       
-        <h2 id="请简要介绍svm"><font color="black">请简要介绍SVM？</font></h2>
-<p>  SVM,全称是surpport vector machine(支持向量机),SVM是一个面向数据的分类算法，其目标是确定一个分类超平面，从而将不同的数据集分开。 扩展：<a href="http://www.mysry.com/">SVM</a></p>
-<h2 id="简要介绍tensorflow的计算图"><font color="black">简要介绍tensorflow的计算图？</font></h2>
-<p>  Tensorflow是一个通过计算图的形式来表述计算的编程系统，计算图也叫数据流图，可以把计算图看成是一种有向图，Tensorflow中的每一个计算都是计算图上的一个节点，二节点之间的边描述了计算之间的依赖关系。</p>
-<blockquote>
-<p>Tensorflow一般可分为两部分 - 构造部分，包含计算流图 - 执行部分，通过session来执行图中的计算 构建图 - 创建源节点(source op) - 源节点输出传递给其他节点做运算 Tensorflow默认图 - Tensorflow python 库有一个默认图(default graph) - 节点构造器(op构造器)可以增加节点</p>
-</blockquote>
-<h2 id="在knn或k-means我们常用欧式距离来计算最近邻之间的距离有时也用曼哈顿距离请对比两者的差别"><font color="black">在kNN或k-means，我们常用欧式距离来计算最近邻之间的距离，有时也用曼哈顿距离，请对比两者的差别：</font></h2>
-<p> 欧式距离，最常见的两点之间或多点之间的距离表示法，定义于欧几里德空间;  曼哈顿距离，l1距离或城市区块儿距离，即欧几里德空间的固定直角坐标系上两点形成的线段对轴产生的投影的距离综合。</p>
-<h2 id="关于linear-regression"><font color="black">关于Linear Regression</font></h2>
-<p> <a href="http://www.mysry.com/2017/11/11/Linear-Regression/">Linear Regression</a></p>
-<h2 id="overfitting过拟合的解决方法"><font color="black">overfitting(过拟合)的解决方法</font></h2>
-<p> Dropout、Regularization、Batch normalization。</p>
-<h2 id="lr和svm的联系于区别"><font color="black">LR和SVM的联系于区别</font></h2>
-<h3 id="联系"><font color="black">联系：</font></h3>
-<ul>
-<li>LR和SVM都可以处理分类问题，而且一般都用于处理线性二分类问题（再改进的情况下可以处理多分类问题）。</li>
-<li>两个方法都可以增加不同规则的正则化项，所以在很多实验中，两种算法结果接近。</li>
-</ul>
-<h3 id="区别"><font color="black">区别</font></h3>
-<ul>
-<li>LR是参数模型，SVM是非参数模型。</li>
-<li>从目标函数看，区别在于逻辑回归采用的是logistical loss，SVM采用的是hinge loss。这两个损失函数的目的都是增加对分类影响较大的数据点的权重，减少分类关系较小的数据点的权重。</li>
-<li>SVM的处理方法是只考虑Support Vectors，也就是和分类最相关的少数点，去学习分类器。而LR通过非线性映射，大大减小了距离分类平面较远的点的权重，提升了与分类最相关的数据点的权重。</li>
-<li>LR相对来说模型更为简单，好理解，特别是大规模线性分类时比较方便。而SVM的理解和优化相对来说更为复杂一点，转化为对偶问题后分类只需要计算与少数几个支持向量的距离，在计算复杂核函数时优势明显，能够大大简化模型和计算。</li>
-<li>LR能做的SVM能做，但可能在准确率稍弱，但是有些SVM能做的LR不能做。<br></li>
-</ul>
-<h2 id="生成模型和判别模型">生成模型和判别模型</h2>
-<p>  监督学习的任务就是学习一个模型，应用这个模型，对给定的输入预测相应的输出。该模型的一般形式为决策函数<span class="math display">\[Y=f(x)\]</span>或者条件概率分布<span class="math display">\[P(Y|X)\]</span><br>   监督学习又可以分为生成方法(generative approach)和判别方法(discriminative approach)这两种方法所学到的模型分别称为生成模型和判别模型。<br>   生成方法是由数据学习联合概率分布<span class="math inline">\(P(X,Y)\)</span>然后求出条件概率分布<span class="math inline">\(P(Y|X)\)</span>作为预测模型，即生成模型<span class="math display">\[P(Y|X)=\frac{P(X,Y)}{P(X)}\]</span>典型的生成模型有朴素贝叶斯、隐马尔可夫模型。<br>   判别方法是由数据直接学习决策函数，f(x)或者条件概率分布<span class="math inline">\(P(Y|X)\)</span>作为预测模型，即判别模型。判别方法关注给定的X，应该产生怎样的预测模型Y，典型的判别模型包括:k近邻算法、感知机、决策树、Logistic Regression 最大熵模型、支持向量机、提升方法和条件随机产等。<br>   生成方法的特点:<br> (1)可以还原联合概率分布P(X,Y);<br> (2)收敛速度快。当样本数量增加时，生成模型可以快速收敛至真实模型;<br> (3)适用于隐变量估计。<br>   判别方法的特点:<br> (1)直接学习条件概率<span class="math inline">\(P(Y|X)\)</span>或决策函数f(X)，直接面对预测，往往准确率更高;<br> (2)由于直接学习<span class="math inline">\(P(Y|X)\)</span>或f(x)，可以对数据进行各种程度的抽象、定义并使用特征，因此可以简化学习问题。<br></p>
+        <h2 id="题目">题目</h2>
+<p>Palindromic Substrings(https://leetcode.com/problems/palindromic-substrings/description/)</p>
+<h2 id="思路">思路</h2>
+<p>  这里提供两种解法，一种是使用递归的解法，一种是使用DP的解法。递归解法：从前往后遍历整个字符串，以遍历的字符为中心向两边扩展，扩展时按字符串长度为奇数和偶数分为两种情况考虑，当字符串长度为偶数时，该字符要和下一字符对比然后扩展，当字符串长度为奇数时，一改字符串为中心向两边扩展直到字符串两边字符串长度不想等。DP解法：构建一个二维bool数组dp[i][j]记录子字符串[i，j]是否为回文字符串，i从n-1往0遍历，j从i往n-1遍历，逐步查看s[i]s[j]是否相等，如果相等，再看i和j的位置，若i、j中间只有一个以下的字符串，则dp[i][j]为true，如果由多余一个字符存在，那么dp[i][j]是否为true要看dp[i+1][j-1]是否为true，在每个使得dp[i][j]为true的位置，res+1。</p>
+<h2 id="java递归解法">Java(递归解法)</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int countSubstrings(String s) &#123;</div><div class="line">        if(s==null) return 0;</div><div class="line">        int n = s.length(), res = 0, left =0, right = 0;</div><div class="line">        char[] tmp = s.toCharArray();</div><div class="line">        for(int i=0;i&lt;n;i++)&#123;</div><div class="line">            left = i;</div><div class="line">            right = i;</div><div class="line">            while(left&gt;=0 &amp;&amp; right&lt;s.length() &amp;&amp; tmp[left]==tmp[right])&#123;</div><div class="line">                --left;++right;++res;</div><div class="line">            &#125;</div><div class="line">            left = i;</div><div class="line">            right = i+1;</div><div class="line">            while(left&gt;=0 &amp;&amp; right &lt;s.length() &amp;&amp; tmp[left]==tmp[right])&#123;</div><div class="line">                --left;++right;++res;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="cdp解法">C++(DP解法)</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    int countSubstrings(string s) &#123;</div><div class="line">        int n = s.size();</div><div class="line">        vector&lt;vector&lt;bool&gt; &gt;dp(n,vector&lt;bool&gt;(n, false));</div><div class="line">        int res = 0;</div><div class="line">        for(int i = n-1; i&gt;=0;i--)&#123;</div><div class="line">            for(int j = i;j&lt;n;j++)&#123;</div><div class="line">                dp[i][j] = s[i]==s[j] &amp;&amp; (j-i&lt;3 || dp[i+1][j-1]);</div><div class="line">                if(dp[i][j]) &#123;</div><div class="line">                    ++res;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return res;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -379,7 +358,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Machine-learning/" rel="tag"><i class="fa fa-tag"></i> Machine learning</a>
+            <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
           
         </div>
       
@@ -392,8 +371,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/07/11-Container-With-Most-Water/" rel="next" title="11. Container With Most Water">
-                <i class="fa fa-chevron-left"></i> 11. Container With Most Water
+              <a href="/2018/03/26/蓄水池抽样算法/" rel="next" title="蓄水池抽样算法">
+                <i class="fa fa-chevron-left"></i> 蓄水池抽样算法
               </a>
             
           </div>
@@ -401,10 +380,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/08/12-Integer-to-Roman/" rel="prev" title="12. Integer to Roman">
-                12. Integer to Roman <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -560,7 +535,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#请简要介绍svm"><span class="nav-number">1.</span> <span class="nav-text">请简要介绍SVM？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简要介绍tensorflow的计算图"><span class="nav-number">2.</span> <span class="nav-text">简要介绍tensorflow的计算图？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在knn或k-means我们常用欧式距离来计算最近邻之间的距离有时也用曼哈顿距离请对比两者的差别"><span class="nav-number">3.</span> <span class="nav-text">在kNN或k-means，我们常用欧式距离来计算最近邻之间的距离，有时也用曼哈顿距离，请对比两者的差别：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于linear-regression"><span class="nav-number">4.</span> <span class="nav-text">关于Linear Regression</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#overfitting过拟合的解决方法"><span class="nav-number">5.</span> <span class="nav-text">overfitting(过拟合)的解决方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lr和svm的联系于区别"><span class="nav-number">6.</span> <span class="nav-text">LR和SVM的联系于区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#联系"><span class="nav-number">6.1.</span> <span class="nav-text">联系：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#区别"><span class="nav-number">6.2.</span> <span class="nav-text">区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成模型和判别模型"><span class="nav-number">7.</span> <span class="nav-text">生成模型和判别模型</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java递归解法"><span class="nav-number">3.</span> <span class="nav-text">Java(递归解法)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cdp解法"><span class="nav-number">4.</span> <span class="nav-text">C++(DP解法)</span></a></li></ol></div>
             
 
           </div>
