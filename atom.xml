@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2018-04-01T03:36:26.263Z</updated>
+  <updated>2018-04-02T13:42:08.553Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>KMP算法</title>
+    <link href="http://www.mysry.com/2018/04/02/KMP%E7%AE%97%E6%B3%95/"/>
+    <id>http://www.mysry.com/2018/04/02/KMP算法/</id>
+    <published>2018-04-02T03:03:24.000Z</published>
+    <updated>2018-04-02T13:42:08.553Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="问题引入">问题引入</h2><p>  字符串的模式匹配（字符串定位）是字符串处理最长见的运算。给定两个字符串S和T，在S中找出可能存在的T，并返回T在S中的位置，称T为子串，S为主串。   解决这个问题最简单的思路是暴力匹配的方法（即朴素模式匹配算法），如果用暴力匹配的思路，并且假设现在串S匹配到i位置，串T匹配到j位置，那么;<br> * 如果当前字符匹配成功（s[i]==t[j]），则i++，j++，继续匹配下一字符;<br> * 如果匹配失败（即s[i]!=t[j]）,令i=i+1-j，j=0,相当于每次匹配失败时，i回溯，j置0;<br> 上述过程C++实现如下; <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">int NavieSearch(char* s, char* t)&#123;</div><div class="line">    int m = strlen(s);</div><div class="line">    int n = strlen(t);</div><div class="line"></div><div class="line">    int i = 0;</div><div class="line">    int j = 0;</div><div class="line">    while(i &lt; m &amp;&amp; j &lt; n)&#123;</div><div class="line">        if(s[i]==t[j])&#123;</div><div class="line">            i++;j++;    </div><div class="line">        &#125;</div><div class="line">        else&#123;</div><div class="line">            i = i+1-j;</div><div class="line">            j = 0;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    if(j=n)</div><div class="line">        return i-j;</div><div class="line">    else</div><div class="line">        return -1</div><div class="line">&#125;</div></pre></td></tr></table></figure></p><h2 id="kmp算法">KMP算法</h2>  Knuth-Morris-Pratt字符串查找算法，简称为“KMP算法”，常用于在一个文本串S内查找一个模式串P 的出现位置，这个算法由Donald Knuth、Vaughan Pratt、James H. Morris三人联合发表。 算法流程：<br> 假设现在串S匹配到i位置，串t匹配到j位置<br>   (1)如果j=-1，或者当前字符匹配成功，（即s[i]==t[j]），都令i++,j++，继续匹配下一字符;<br>   如果j != -1，且当前字符匹配失败（即S[i] != P[j]），则令 i 不变，j = next[j]。此举意味着失配时，模式串T相对于串S向右移动了j - next [j] 位;换言之，当匹配失败时，模式串向右移动的位数为：失配字符所在位置 - 失配字符对应的next值，即移动的实际位数为：j - next[j]，且此值大于等于1。next数组存储当前字符之前的字符串中，相同前后缀的长度;<span class="math display">\[\begin{equation}f(x)=\left\{\begin{aligned}0\;\; &amp; j=1 \\1\;\; &amp; j=2或j&gt;2且不存在满足条件的前缀子串 \\k+1\;\;&amp;j&gt;2且k为满足条件的最长前缀子串的长度\end{aligned}\right.\end{equation}\]</span><p>该数组用来指示每次匹配失败时应该回溯的位置。 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">void GetNext(char* t, int next[])&#123;</div><div class="line">    int n = strlen(t);</div><div class="line">    next[0]=-1;</div><div class="line">    int k = -1;</div><div class="line">    int j = 0;</div><div class="line">    while(p&lt;n-1)&#123;</div><div class="line">        if(k==-1||t[j]==t[k])&#123;</div><div class="line">            ++k;</div><div class="line">            ++j;</div><div class="line">        &#125;</div><div class="line">        else&#123;</div><div class="line">            k = next[k];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">int KMPSearch(char* s, char* t)&#123;</div><div class="line">    int i = 0;</div><div class="line">    int j = 0;</div><div class="line">    int m = strlen(s);</div><div class="line">    int n = strlen(t);</div><div class="line">    while(i &lt; m &amp;&amp; j&lt;n )&#123;</div><div class="line">        if(j==-1||s[i]==p[j])&#123;</div><div class="line">            i++;</div><div class="line">            j++;</div><div class="line">        &#125;</div><div class="line">        else&#123;</div><div class="line">            j = next[j];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    if (j == n)</div><div class="line">        return i-j;</div><div class="line">    else</div><div class="line">        return -1;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;问题引入&quot;&gt;问题引入&lt;/h2&gt;
+&lt;p&gt;  字符串的模式匹配（字符串定位）是字符串处理最长见的运算。给定两个字符串S和T，在S中找出可能存在的T，并返回T在S中的位置，称T为子串，S为主串。   解决这个问题最简单的思路是暴力匹配的方法（即朴素模式匹配算法），如果用
+      
+    
+    </summary>
+    
+    
+      <category term="Algorithm" scheme="http://www.mysry.com/tags/Algorithm/"/>
+    
+  </entry>
   
   <entry>
     <title>115. Distinct Subsequences</title>
@@ -482,31 +506,6 @@
         &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Given a linked list and a value x, partition it such that all node
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>85. Maximal Rectangle </title>
-    <link href="http://www.mysry.com/2017/12/13/85-Maximal-Rectangle/"/>
-    <id>http://www.mysry.com/2017/12/13/85-Maximal-Rectangle/</id>
-    <published>2017-12-13T14:31:53.000Z</published>
-    <updated>2017-12-13T14:39:41.743Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given a 2D binary matrix filled with 0’s and 1’s, find the largest rectangle containing only 1’s and return its area.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> Based on previous problem, set every row’s reachable height as the input height. Input the heights array and update the maxArea gobally.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int maximalRectangle(char[][] matrix) &#123;</div><div class="line">         if (matrix==null||matrix.length==0||matrix[0].length==0)</div><div class="line">            return 0;</div><div class="line">        int cLen = matrix[0].length;</div><div class="line">        int rLen = matrix.length;</div><div class="line">        int[] h = new int[cLen+1];</div><div class="line">        h[cLen]=0;</div><div class="line">        int max = 0;</div><div class="line">        for (int row=0;row&lt;rLen;row++) &#123;</div><div class="line">            Stack&lt;Integer&gt; s = new Stack&lt;Integer&gt;();</div><div class="line">            for (int i=0;i&lt;cLen+1;i++) &#123;</div><div class="line">                if (i&lt;cLen)</div><div class="line">                    if(matrix[row][i]==&apos;1&apos;)</div><div class="line">                        h[i]+=1;</div><div class="line">                    else h[i]=0;</div><div class="line"></div><div class="line">                if (s.isEmpty()||h[s.peek()]&lt;=h[i])</div><div class="line">                    s.push(i);</div><div class="line">                else &#123;</div><div class="line">                    while(!s.isEmpty()&amp;&amp;h[i]&lt;h[s.peek()])&#123;</div><div class="line">                        int top = s.pop();</div><div class="line">                        int area = h[top]*(s.isEmpty()?i:(i-s.peek()-1));</div><div class="line">                        if (area&gt;max)</div><div class="line">                            max = area;</div><div class="line">                    &#125;</div><div class="line">                    s.push(i);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return max;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure><h2 id="c-code"><font color="gold">C++ Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    int maximalRectangle(vector&lt;vector&lt;char&gt;&gt;&amp; matrix) &#123;</div><div class="line">        int res = 0;</div><div class="line">        vector&lt;int&gt; height;</div><div class="line">        for (int i = 0; i &lt; matrix.size(); ++i) &#123;</div><div class="line">            height.resize(matrix[i].size());</div><div class="line">            for (int j = 0; j &lt; matrix[i].size(); ++j) &#123;</div><div class="line">                height[j] = matrix[i][j] == &apos;0&apos; ? 0 : (1 + height[j]);</div><div class="line">            &#125;</div><div class="line">            res = max(res, largestRectangleArea(height));</div><div class="line">        &#125;</div><div class="line">        return res;</div><div class="line">    &#125;</div><div class="line">    int largestRectangleArea(vector&lt;int&gt; &amp;height) &#123;</div><div class="line">        int res = 0;</div><div class="line">        stack&lt;int&gt; s;</div><div class="line">        height.push_back(0);</div><div class="line">        for (int i = 0; i &lt; height.size(); ++i) &#123;</div><div class="line">            if (s.empty() || height[s.top()] &lt;= height[i]) s.push(i);</div><div class="line">            else &#123;</div><div class="line">                int tmp = s.top();</div><div class="line">                s.pop();</div><div class="line">                res = max(res, height[tmp] * (s.empty() ? i : (i - s.top() - 1)));</div><div class="line">                --i;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return res;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given a 2D binary matrix filled with 0’s and 1’s, find the largest
       
     
     </summary>
