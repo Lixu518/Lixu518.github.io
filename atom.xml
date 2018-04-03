@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2018-04-02T13:49:26.577Z</updated>
+  <updated>2018-04-03T12:48:40.686Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>约瑟夫环</title>
+    <link href="http://www.mysry.com/2018/04/03/%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF/"/>
+    <id>http://www.mysry.com/2018/04/03/约瑟夫环/</id>
+    <published>2018-04-03T11:56:57.000Z</published>
+    <updated>2018-04-03T12:48:40.686Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="问题引入">问题引入</h2><p>  约瑟夫环：已知n个人（编号0,1,…,n-1）围成一个圆环，从0开始报数，数到第m-1个出列，他的下一个又从0开始报数，数到m-1的那个人出列，求最后一个人的编号。</p><h2 id="解法思路">解法思路</h2><p>  在第一个人被踢出以后，剩下的n-1个人组成一个新的约瑟夫环，以编号为k=m%n的人开始：k,k+1,…,n-2,n-1,0,1,…,k-2,那么我们对他们的编号做一下转换： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">k    --&gt; 0</div><div class="line">k+1  --&gt; 1</div><div class="line">   ...</div><div class="line">k-2  --&gt; n-2</div><div class="line">k-1  --&gt; n-1(踢出)</div></pre></td></tr></table></figure></p><p>变换完就成了n-1的约瑟夫环，假设x为该子问题的最终解，那么逆变环上式，可以求得n个人情况的解，其逆变换公式：x’=(x+k)%n,即要求n个人的解，先求得n-1个人的解，要求n-2的解，则先求n-3的情况，下面给出递推公式：<span class="math display">\[\begin{align}f[1]&amp;=0\\f[i]&amp;=(f[i-1]+m)%i\;\;i&gt;1\end{align}\]</span></p><h2 id="c-code">C++ Code</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">int Josephus(int n, int m)&#123;</div><div class="line">    int i = 0;</div><div class="line">    int s = 0;</div><div class="line">    for(i = 2;i &lt;= n; i++)&#123;</div><div class="line">        s=(s+m)%i;</div><div class="line">    &#125;</div><div class="line">    return s;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;问题引入&quot;&gt;问题引入&lt;/h2&gt;
+&lt;p&gt;  约瑟夫环：已知n个人（编号0,1,…,n-1）围成一个圆环，从0开始报数，数到第m-1个出列，他的下一个又从0开始报数，数到m-1的那个人出列，求最后一个人的编号。&lt;/p&gt;
+&lt;h2 id=&quot;解法思路&quot;&gt;解法思路&lt;/h2&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="Algorithm" scheme="http://www.mysry.com/tags/Algorithm/"/>
+    
+  </entry>
   
   <entry>
     <title>KMP算法</title>
@@ -487,31 +513,6 @@
     
     
       <category term="Machine learning" scheme="http://www.mysry.com/tags/Machine-learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>86. Partition List</title>
-    <link href="http://www.mysry.com/2017/12/15/86-Partition-List/"/>
-    <id>http://www.mysry.com/2017/12/15/86-Partition-List/</id>
-    <published>2017-12-15T14:10:59.000Z</published>
-    <updated>2017-12-15T14:16:42.948Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given a linked list and a value x, partition it such that all nodes less than x come before nodes greater than or equal to x. You should preserve the original relative order of the nodes in each of the two partitions.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> Keep two List to store the nodes which is bigger than x and smaller than x respectively. Add curr2 to the tail of curr1.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for singly-linked list.</div><div class="line"> * public class ListNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     ListNode next;</div><div class="line"> *     ListNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">    public ListNode partition(ListNode head, int x) &#123;</div><div class="line">        ListNode dummy1 = new ListNode(0);</div><div class="line">        ListNode dummy2 = new ListNode(0);</div><div class="line">        ListNode curr1 = dummy,curr2 = dummy2;</div><div class="line">        while(head != null)&#123;</div><div class="line">            if(head.val&lt;x)&#123;</div><div class="line">                curr1.next = head;</div><div class="line">                curr1 = curr1.next;</div><div class="line">            &#125;else&#123;</div><div class="line">                curr2.next = head;</div><div class="line">                curr2 = curr2.next;</div><div class="line">            &#125;</div><div class="line">            head = head.next;</div><div class="line">        &#125;</div><div class="line">        curr2.next = null;</div><div class="line">        curr1.next = dummy2.next;</div><div class="line">        return dummy1.next;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure><h2 id="c-code"><font color="gold">C++ Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for singly-linked list.</div><div class="line"> * struct ListNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     ListNode *next;</div><div class="line"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</div><div class="line"> * &#125;;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    ListNode* partition(ListNode* head, int x) &#123;</div><div class="line">        ListNode node1(0), node2(0);</div><div class="line">        ListNode *p1 = &amp;node1,*p2 = &amp;node2;</div><div class="line">        while(head)&#123;</div><div class="line">            if(head-&gt;val&lt;x)</div><div class="line">                p1 = p1-&gt;next = head;</div><div class="line">            else</div><div class="line">                p2 = p2-&gt;next = head;</div><div class="line">            head = head-&gt;next;</div><div class="line">        &#125;</div><div class="line">        p2-&gt;next = NULL;</div><div class="line">        p1-&gt;next = node2.next;</div><div class="line">        return node1.next;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given a linked list and a value x, partition it such that all node
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
     
   </entry>
   
