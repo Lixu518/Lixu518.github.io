@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="题目 Triangle(https://leetcode.com/problems/triangle/description/) 思路 &amp;amp;esmp; 本题是典型的二维动态规划问题，采取自下而上的遍历方法，最后返回dp[0][0]即为所求，每一层的最短路径都是前一层的加上前一层左边或右边的数字\[triangle[i][j] += min(triangle[i+1][j+1],triangl">
+<meta name="description" content="题目 Triangle(https://leetcode.com/problems/triangle/description/) 思路   本题是典型的二维动态规划问题，采取自下而上的遍历方法，最后返回dp[0][0]即为所求，每一层的最短路径都是前一层的加上前一层左边或右边的数字\[triangle[i][j] += min(triangle[i+1][j+1],triangle[i+1][j]">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="120. Triangle">
 <meta property="og:url" content="http://www.mysry.com/2018/04/11/120-Triangle/index.html">
 <meta property="og:site_name" content="Mysry">
-<meta property="og:description" content="题目 Triangle(https://leetcode.com/problems/triangle/description/) 思路 &amp;amp;esmp; 本题是典型的二维动态规划问题，采取自下而上的遍历方法，最后返回dp[0][0]即为所求，每一层的最短路径都是前一层的加上前一层左边或右边的数字\[triangle[i][j] += min(triangle[i+1][j+1],triangl">
+<meta property="og:description" content="题目 Triangle(https://leetcode.com/problems/triangle/description/) 思路   本题是典型的二维动态规划问题，采取自下而上的遍历方法，最后返回dp[0][0]即为所求，每一层的最短路径都是前一层的加上前一层左边或右边的数字\[triangle[i][j] += min(triangle[i+1][j+1],triangle[i+1][j]">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-11T13:32:42.324Z">
+<meta property="og:updated_time" content="2018-04-23T03:14:11.283Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="120. Triangle">
-<meta name="twitter:description" content="题目 Triangle(https://leetcode.com/problems/triangle/description/) 思路 &amp;amp;esmp; 本题是典型的二维动态规划问题，采取自下而上的遍历方法，最后返回dp[0][0]即为所求，每一层的最短路径都是前一层的加上前一层左边或右边的数字\[triangle[i][j] += min(triangle[i+1][j+1],triangl">
+<meta name="twitter:description" content="题目 Triangle(https://leetcode.com/problems/triangle/description/) 思路   本题是典型的二维动态规划问题，采取自下而上的遍历方法，最后返回dp[0][0]即为所求，每一层的最短路径都是前一层的加上前一层左边或右边的数字\[triangle[i][j] += min(triangle[i+1][j+1],triangle[i+1][j]">
 
 
 
@@ -325,7 +325,7 @@
         <h2 id="题目">题目</h2>
 <p>Triangle(https://leetcode.com/problems/triangle/description/)</p>
 <h2 id="思路">思路</h2>
-<p>&amp;esmp; 本题是典型的二维动态规划问题，采取自下而上的遍历方法，最后返回dp[0][0]即为所求，每一层的最短路径都是前一层的加上前一层左边或右边的数字<span class="math display">\[triangle[i][j] += min(triangle[i+1][j+1],triangle[i+1][j])\]</span></p>
+<p>  本题是典型的二维动态规划问题，采取自下而上的遍历方法，最后返回dp[0][0]即为所求，每一层的最短路径都是前一层的加上前一层左边或右边的数字<span class="math display">\[triangle[i][j] += min(triangle[i+1][j+1],triangle[i+1][j])\]</span></p>
 <h2 id="java-code">Java Code:</h2>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int minimumTotal(List&lt;List&lt;Integer&gt;&gt; triangle) &#123;</div><div class="line">        int[] res = new int[triangle.size()+1];</div><div class="line">        for(int i = triangle.size()-1;i&gt;=0;i--)&#123;</div><div class="line">            for(int j = 0; j &lt; triangle.get(i).size() ;j++)&#123;</div><div class="line">                res[j] = Math.min(res[j],res[j+1]) + triangle.get(i).get(j);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return res[0];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="c-code">C++ Code:</h2>
@@ -380,6 +380,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/23/123-Best-Time-to-Buy-and-Sell-Stock-III/" rel="prev" title="123. Best Time to Buy and Sell Stock III">
+                123. Best Time to Buy and Sell Stock III <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -460,7 +464,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">100</span>
+                  <span class="site-state-item-count">101</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2018-04-11T13:32:42.324Z</updated>
+  <updated>2018-04-23T05:44:32.160Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -17,13 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>123. Best Time to Buy and Sell Stock III</title>
+    <link href="http://www.mysry.com/2018/04/23/123-Best-Time-to-Buy-and-Sell-Stock-III/"/>
+    <id>http://www.mysry.com/2018/04/23/123-Best-Time-to-Buy-and-Sell-Stock-III/</id>
+    <published>2018-04-23T03:14:38.000Z</published>
+    <updated>2018-04-23T05:44:32.160Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="题目">题目</h2><p><a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/description/" target="_blank" rel="external">Best Time to Buy and Sell Stock III</a></p><h2 id="解题思路">解题思路</h2><p>  我们首先把这题扩展到最多售卖k次的情况，然后把k设置为2,还是使用局部最优和全局最优的分析方法。我们全局更新两种变量，一个是到达当前第i天，最多进行j次交易，最好的利润global[i][j]，一个是当前第i天，最多可以进行j次交易，且最后一次交易在当天卖出的最好利润local[i][j]，现在来考虑动态方程:<span class="math display">\[global[i][j]=max(local[i][j],global[i-1][j])\]</span>，也就是把当前局部最好的和过往全局最好的最大的进行比较（最后一次交易如果包含当前天一定在局部最好里，否则一定在过往全局最优里）。<span class="math display">\[local[i][j]=max(global[i-1][j-1]+max(diff,0),local[i-1][j]+diff)\]</span>也是看两个量，第一个是全局i-1天进行j-1次交易，加上今天的交易量，如果今天是赚钱的话（也就是前面只要j-1次交易，最后一次交易取当前天），第二个量则是取local第i-1天j次交易，然后加上今天的差值（这里因为local[i-1][j]比如包含第i-1天卖出的交易，所以现在变成第i天卖出，并不会增加交易次数，而且这里无论diff是不是大于0都一定要加上，因为否则就不满足local[i][j]必须在最后一天卖出的条件了）。   上面的算法中对于天数需要一次扫描，而每次要对交易次数进行递推式求解，所以时间复杂度是O(n*k)，如果是最多进行两次交易，那么复杂度还是O(n)。空间上只需要维护当天数据皆可以，所以是O(k)，当k=2，则是O(1)。</p><h2 id="java-code">Java Code</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int maxProfit(int[] prices) &#123;</div><div class="line">        if(prices==null||prices.length==0)</div><div class="line">            return 0;</div><div class="line">        int[] local = new int[3];</div><div class="line">        int[] global = new int[3];</div><div class="line">        for(int i = 0;i&lt;prices.length-1;i++)&#123;</div><div class="line">            int diff = prices[i+1]-prices[i];</div><div class="line">            for(int j = 2;j&gt;=1;j--)&#123;</div><div class="line">                local[j] = Math.max(global[j-1]+(diff&gt;0?diff:0), local[j]+diff);  </div><div class="line">                global[j] = Math.max(local[j],global[j]);  </div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return global[2];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure><h2 id="c-code">C++ Code</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    int maxProfit(vector&lt;int&gt;&amp; prices) &#123;</div><div class="line">        if(prices.empty())</div><div class="line">            return 0;</div><div class="line">        vector&lt;int&gt;locale(3,0);</div><div class="line">        vector&lt;int&gt;global(3,0);</div><div class="line">        for(int i = 0; i&lt; prices.size()-1;i++)&#123;</div><div class="line">            int diff = prices[i+1]-prices[i];</div><div class="line">            for(int j = 2;j &gt;= 1;j--)&#123;</div><div class="line">                locale[j] = max(global[j-1] + (diff&gt;0?diff:0), locale[j] + diff);</div><div class="line">                global[j] = max(locale[j], global[j]);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return global[2];</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;题目&quot;&gt;题目&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/description/&quot; target=&quot;_blank&quot; rel=&quot;externa
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
     <title>120. Triangle</title>
     <link href="http://www.mysry.com/2018/04/11/120-Triangle/"/>
     <id>http://www.mysry.com/2018/04/11/120-Triangle/</id>
     <published>2018-04-11T13:12:46.000Z</published>
-    <updated>2018-04-11T13:32:42.324Z</updated>
+    <updated>2018-04-23T03:14:11.283Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="题目">题目</h2><p>Triangle(https://leetcode.com/problems/triangle/description/)</p><h2 id="思路">思路</h2><p>&amp;esmp; 本题是典型的二维动态规划问题，采取自下而上的遍历方法，最后返回dp[0][0]即为所求，每一层的最短路径都是前一层的加上前一层左边或右边的数字<span class="math display">\[triangle[i][j] += min(triangle[i+1][j+1],triangle[i+1][j])\]</span></p><h2 id="java-code">Java Code:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int minimumTotal(List&lt;List&lt;Integer&gt;&gt; triangle) &#123;</div><div class="line">        int[] res = new int[triangle.size()+1];</div><div class="line">        for(int i = triangle.size()-1;i&gt;=0;i--)&#123;</div><div class="line">            for(int j = 0; j &lt; triangle.get(i).size() ;j++)&#123;</div><div class="line">                res[j] = Math.min(res[j],res[j+1]) + triangle.get(i).get(j);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return res[0];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure><h2 id="c-code">C++ Code:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    int minimumTotal(vector&lt;vector&lt;int&gt;&gt;&amp; triangle)&#123;</div><div class="line">        for(int i = triangle.size()-2;i &gt;= 0;--i)&#123;</div><div class="line">            for(int j = 0;j &lt;= i;++j)&#123;</div><div class="line">                triangle[i][j] += min(triangle[i+1][j+1],triangle[i+1][j]);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return triangle[0][0];</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h2 id="题目">题目</h2><p>Triangle(https://leetcode.com/problems/triangle/description/)</p><h2 id="思路">思路</h2><p>  本题是典型的二维动态规划问题，采取自下而上的遍历方法，最后返回dp[0][0]即为所求，每一层的最短路径都是前一层的加上前一层左边或右边的数字<span class="math display">\[triangle[i][j] += min(triangle[i+1][j+1],triangle[i+1][j])\]</span></p><h2 id="java-code">Java Code:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int minimumTotal(List&lt;List&lt;Integer&gt;&gt; triangle) &#123;</div><div class="line">        int[] res = new int[triangle.size()+1];</div><div class="line">        for(int i = triangle.size()-1;i&gt;=0;i--)&#123;</div><div class="line">            for(int j = 0; j &lt; triangle.get(i).size() ;j++)&#123;</div><div class="line">                res[j] = Math.min(res[j],res[j+1]) + triangle.get(i).get(j);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return res[0];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure><h2 id="c-code">C++ Code:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    int minimumTotal(vector&lt;vector&lt;int&gt;&gt;&amp; triangle)&#123;</div><div class="line">        for(int i = triangle.size()-2;i &gt;= 0;--i)&#123;</div><div class="line">            for(int j = 0;j &lt;= i;++j)&#123;</div><div class="line">                triangle[i][j] += min(triangle[i+1][j+1],triangle[i+1][j]);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return triangle[0][0];</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -32,7 +56,7 @@
         &lt;h2 id=&quot;题目&quot;&gt;题目&lt;/h2&gt;
 &lt;p&gt;Triangle(https://leetcode.com/problems/triangle/description/)&lt;/p&gt;
 &lt;h2 id=&quot;思路&quot;&gt;思路&lt;/h2&gt;
-&lt;p&gt;&amp;amp;esmp; 本题是典型的二维动态规划问题，采取
+&lt;p&gt;  本题是典型的二维动态规划问题，采取自下而上的遍历方法
       
     
     </summary>
@@ -484,31 +508,6 @@
         &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;The gray code is a binary numeral system where two successive valu
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>87. Scramble String</title>
-    <link href="http://www.mysry.com/2017/12/17/87-Scramble-String/"/>
-    <id>http://www.mysry.com/2017/12/17/87-Scramble-String/</id>
-    <published>2017-12-17T13:11:16.000Z</published>
-    <updated>2017-12-17T13:21:02.120Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>Given a string s1, we may represent it as a binary tree by partitioning it to two non-empty substrings recursively. Below is one possible representation of s1 = “great”: great /<br>gr eat /   /<br>g r e at /<br>a t To scramble the string, we may choose any non-leaf node and swap its two children. For example, if we choose the node “gr” and swap its two children, it produces a scrambled string “rgeat”. rgeat /<br>rg eat /   /<br>r g e at /<br>a t We say that “rgeat” is a scrambled string of “great”. Similarly, if we continue to swap the children of nodes “eat” and “at”, it produces a scrambled string “rgtae”. rgtae /<br>rg tae /   /<br>r g ta e /<br>t a We say that “rgtae” is a scrambled string of “great”. Given two strings s1 and s2 of the same length, determine if s2 is a scrambled string of s1.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p> We should first preprocess the two string, such as judge if their length and the consist letter are equal. Then recursively judge their substring.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public boolean isScramble(String s1, String s2) &#123;</div><div class="line">        if(s1.equals(s2)) return true;</div><div class="line">        if(s1.length()!=s2.length()||s1.length()==1)return false;</div><div class="line">        int len = s1.length(), num = len;</div><div class="line">        int[] letter=new int[26];</div><div class="line">        char[] sa1 = s1.toCharArray();</div><div class="line">        char[] sa2 = s2.toCharArray();</div><div class="line">        for(int i = 0;i&lt;len;i++)</div><div class="line">            letter[sa1[i]-&apos;a&apos;]++;</div><div class="line">        for(int i = 0;i&lt;len;i++)</div><div class="line">            if(letter[sa2[i]-&apos;a&apos;]!=0)&#123;</div><div class="line">                letter[sa2[i]-&apos;a&apos;]--;</div><div class="line">                num--;</div><div class="line">            &#125;</div><div class="line">        if(num != 0)</div><div class="line">            return false;</div><div class="line">        for(int i=1;i&lt;len;i++)&#123;</div><div class="line">            if(isScramble(s1.substring(0,i),s2.substring(0,i))&amp;&amp;isScramble(s1.substring(i),s2.substring(i)))</div><div class="line">                return true;</div><div class="line">            if(isScramble(s1.substring(0,i),s2.substring(len-i))&amp;&amp;isScramble(s1.substring(i),s2.substring(0,len-i)))</div><div class="line">                return true;</div><div class="line">        &#125;</div><div class="line">        return false;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure><h2 id="c-code"><font color="gold">C++ Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    bool isScramble(string s1, string s2) &#123;</div><div class="line">        if(s1==s2) return true;</div><div class="line">        if(s1.size()!=s2.size()||s1.size()==1)return false;</div><div class="line">        int len = s1.size(), num = len;</div><div class="line">        vector&lt;int&gt; hash(26,0);</div><div class="line">        for(auto val:s1)hash[val-&apos;a&apos;]++;</div><div class="line">        for(auto val:s2)</div><div class="line">            if(hash[val-&apos;a&apos;])</div><div class="line">                hash[val-&apos;a&apos;]--,num--;</div><div class="line">        if(num != 0)</div><div class="line">            return false;</div><div class="line">        for(int i=1;i&lt;len;i++)&#123;</div><div class="line">            if(isScramble(s1.substr(0,i),s2.substr(0,i))&amp;&amp;isScramble(s1.substr(i),s2.substr(i)))</div><div class="line">                return true;</div><div class="line">            if(isScramble(s1.substr(0,i),s2.substr(len-i))&amp;&amp;isScramble(s1.substr(i),s2.substr(0,len-i)))</div><div class="line">                return true;</div><div class="line">        &#125;</div><div class="line">        return false;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Given a string s1, we may represent it as a binary tree by partiti
       
     
     </summary>
