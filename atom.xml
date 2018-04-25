@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.mysry.com/"/>
-  <updated>2018-04-23T05:44:32.160Z</updated>
+  <updated>2018-04-25T13:44:33.235Z</updated>
   <id>http://www.mysry.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>132. Palindrome Partitioning II</title>
+    <link href="http://www.mysry.com/2018/04/25/132-Palindrome-Partitioning-II/"/>
+    <id>http://www.mysry.com/2018/04/25/132-Palindrome-Partitioning-II/</id>
+    <published>2018-04-25T13:30:56.000Z</published>
+    <updated>2018-04-25T13:44:33.235Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="题目">题目</h2><p><a href="https://leetcode.com/problems/palindrome-partitioning-ii/description/" target="_blank" rel="external">132. Palindrome Partitioning II</a></p><h2 id="解题思路">解题思路</h2><p>  动态规划求解。当添加一个字符后，我们需要依次判断以它为末尾的子字符串是否是回文字符串，如果是，则要计算剩余字符串需要的最少切割次数加上一次是否能使当前的最少切割次数更少，注意如果此时整个字符串就是回文字符串，则最少切割次数为0。递推表达式如下<span class="math display">\[res[i]=0, 0~i为回文\]</span><span class="math display">\[res[i] = min(res[i],res[j-1]+1), j-1~i为回文\]</span></p><h2 id="java-code">Java Code:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int minCut(String s) &#123;</div><div class="line">        char[] c = s.toCharArray();</div><div class="line">        int n = c.length;</div><div class="line">        int[] res = new int[n];</div><div class="line">        boolean[][] isPal = new boolean[n][n];</div><div class="line">        for(int i=0;i&lt;n;i++)&#123;</div><div class="line">            int m = i;</div><div class="line">            for(int j = 0; j&lt;=i;j++)&#123;</div><div class="line">                if(c[i]==c[j]&amp;&amp; (j+1&gt;i-1||isPal[j+1][i-1]))&#123;</div><div class="line">                    isPal[j][i] = true;</div><div class="line">                    m = j==0 ? 0 :Math.min(m, res[j-1]+1);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            res[i] = m;</div><div class="line">        &#125;</div><div class="line">        return res[n-1];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure><h2 id="c-code">C++ Code:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    int minCut(string s) &#123;</div><div class="line">        int n = s.size();</div><div class="line">        if(n&lt;=1) return 0;</div><div class="line">        int res[n];</div><div class="line">        vector&lt;vector&lt;bool&gt; &gt;pal(n,vector&lt;bool&gt;(n,false));</div><div class="line">        for(int i = 0; i&lt;n ;i++)&#123;</div><div class="line">            int m = i;</div><div class="line">            for(int j = 0; j&lt;=i ; j++)&#123;</div><div class="line">                if(s[j]==s[i]&amp;&amp;(j+1&gt;i-1||pal[j+1][i-1]))&#123;</div><div class="line">                    pal[j][i]=true;</div><div class="line">                    m = j==0?0:min(m, res[j-1]+1);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            res[i] = m;</div><div class="line">        &#125;</div><div class="line">        return res[n-1];</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;题目&quot;&gt;题目&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/palindrome-partitioning-ii/description/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;132. P
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>123. Best Time to Buy and Sell Stock III</title>
@@ -483,31 +507,6 @@
         &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Given a collection of integers that might contain duplicates, nums
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://www.mysry.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>89. Gray Code</title>
-    <link href="http://www.mysry.com/2017/12/17/89-Gray-Code/"/>
-    <id>http://www.mysry.com/2017/12/17/89-Gray-Code/</id>
-    <published>2017-12-17T14:35:40.000Z</published>
-    <updated>2017-12-17T14:41:00.207Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="problem"><font color="black">Problem:</font></h2><blockquote><p>The gray code is a binary numeral system where two successive values differ in only one bit. Given a non-negative integer n representing the total number of bits in the code, print the sequence of gray code. A gray code sequence must begin with 0.</p></blockquote><h2 id="idea"><font color="red">Idea:</font></h2><p>  Different methods to generate Gray Code makes different solution, for instance the Gray Code can be generated by G(n) = B(n)^(B(N)/2) or mirror arrangement.</p><h2 id="java-code"><font color="orange">Java Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public List&lt;Integer&gt; grayCode(int n) &#123;</div><div class="line">        List&lt;Integer&gt; res = new LinkedList&lt;&gt;();</div><div class="line">        for (int i=0;i&lt;1&lt;&lt;n;i++)</div><div class="line">            res.add(i^i&gt;&gt;1);</div><div class="line">        return res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure><h2 id="c-code"><font color="gold">C++ Code:</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line">    vector&lt;int&gt; grayCode(int n) &#123;</div><div class="line">        vector&lt;int&gt; res(1,0);</div><div class="line">        for(int i = 0; i &lt; n; i++)</div><div class="line">        &#123;</div><div class="line">            int high = 1&lt;&lt;i, len = res.size();</div><div class="line">            for(int j = len-1; j &gt;=0; j--)</div><div class="line">                res.push_back(high+res[j]);</div><div class="line">        &#125;</div><div class="line">        return result;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;problem&quot;&gt;&lt;font color=&quot;black&quot;&gt;Problem:&lt;/font&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;The gray code is a binary numeral system where two successive valu
       
     
     </summary>
